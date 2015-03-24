@@ -15,6 +15,7 @@ namespace HospitalAutomation
         public Login()
         {
             InitializeComponent();
+            //Deneme
         }
     }
 }
