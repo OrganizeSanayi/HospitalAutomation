@@ -12,10 +12,9 @@ namespace HospitalAutomation.Util
          *  Basic logging tool, it creates a file named logs under bin directory
          * 
          *  Usage:
-         * Logger logger = new Logger();
-         * logger.log("test");
+         * Logger.i("test");
          */
-        public void log (String logMessage){
+        public static void i (String logMessage){
             System.IO.StreamWriter file = new System.IO.StreamWriter("../logs.txt", true);
             file.WriteLine(logMessage);
 

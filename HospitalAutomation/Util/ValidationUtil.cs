@@ -13,8 +13,7 @@ namespace HospitalAutomation
          */
         public bool isEmptyString(String text)
         {
-            text = text.Trim();
-            return text == null || text == String.Empty ? false : true;
+            return text == null || text.Trim() == String.Empty ? false : true;
         }
     }
 }
