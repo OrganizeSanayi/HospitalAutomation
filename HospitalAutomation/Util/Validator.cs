@@ -11,9 +11,9 @@ namespace HospitalAutomation.Util
         /*
          * Returns false if the passed text is empty
          */
-        public bool isEmptyString(String text)
+        public static bool isEmpty(String text)
         {
-            return text == null || text.Trim() == String.Empty ? false : true;
+            return text == null || text.Trim() == String.Empty ? true : false;
         }
     }
 }
