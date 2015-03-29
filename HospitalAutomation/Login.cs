@@ -18,16 +18,9 @@ namespace HospitalAutomation
             //Deneme
         }
 
-        private void btnDoctorLogin_Click(object sender, EventArgs e)
+        private void btnLogin_Click(object sender, EventArgs e)
         {
-            //txtDoctorUserName ve txtDoctorPassword textboxlarına girilen değer ile doktorun login işlemi
+            //txtUserName ve txtUserPassword ile sisteme giriş yapılacak
         }
-
-        private void btnScannerLogin_Click(object sender, EventArgs e)
-        {
-            //txtScannerUserName ve txtScannerPassword textboxlarına girilen deger ile tarayıcının login işlemi
-        }
-
-       
     }
 }

@@ -28,193 +28,115 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.tabPageScanner = new System.Windows.Forms.TabPage();
-            this.btnScannerLogin = new System.Windows.Forms.Button();
-            this.txtScannerPassword = new System.Windows.Forms.TextBox();
-            this.txtScannerUserName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.tabPageDoctor = new System.Windows.Forms.TabPage();
-            this.btnDoctorLogin = new System.Windows.Forms.Button();
-            this.txtDoctorPassword = new System.Windows.Forms.TextBox();
-            this.txtDoctorUserName = new System.Windows.Forms.TextBox();
-            this.lblDoctorUserPassword = new System.Windows.Forms.Label();
-            this.lblDoctorUserName = new System.Windows.Forms.Label();
-            this.tabControl = new System.Windows.Forms.TabControl();
-            this.tabPageScanner.SuspendLayout();
-            this.tabPageDoctor.SuspendLayout();
-            this.tabControl.SuspendLayout();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtUserName = new System.Windows.Forms.TextBox();
+            this.txtUserPassword = new System.Windows.Forms.TextBox();
+            this.btnLogin = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // tabPageScanner
-            // 
-            this.tabPageScanner.Controls.Add(this.btnScannerLogin);
-            this.tabPageScanner.Controls.Add(this.txtScannerPassword);
-            this.tabPageScanner.Controls.Add(this.txtScannerUserName);
-            this.tabPageScanner.Controls.Add(this.label1);
-            this.tabPageScanner.Controls.Add(this.label3);
-            this.tabPageScanner.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabPageScanner.Location = new System.Drawing.Point(4, 34);
-            this.tabPageScanner.Name = "tabPageScanner";
-            this.tabPageScanner.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageScanner.Size = new System.Drawing.Size(426, 281);
-            this.tabPageScanner.TabIndex = 1;
-            this.tabPageScanner.Text = "TARAYICI GİRİŞİ";
-            this.tabPageScanner.UseVisualStyleBackColor = true;
-            // 
-            // btnScannerLogin
-            // 
-            this.btnScannerLogin.Location = new System.Drawing.Point(185, 168);
-            this.btnScannerLogin.Name = "btnScannerLogin";
-            this.btnScannerLogin.Size = new System.Drawing.Size(154, 35);
-            this.btnScannerLogin.TabIndex = 9;
-            this.btnScannerLogin.Text = "GİRİŞ";
-            this.btnScannerLogin.UseVisualStyleBackColor = true;
-            this.btnScannerLogin.Click += new System.EventHandler(this.btnScannerLogin_Click);
-            // 
-            // txtScannerPassword
-            // 
-            this.txtScannerPassword.Location = new System.Drawing.Point(185, 120);
-            this.txtScannerPassword.MaxLength = 15;
-            this.txtScannerPassword.Name = "txtScannerPassword";
-            this.txtScannerPassword.PasswordChar = '*';
-            this.txtScannerPassword.Size = new System.Drawing.Size(154, 23);
-            this.txtScannerPassword.TabIndex = 8;
-            // 
-            // txtScannerUserName
-            // 
-            this.txtScannerUserName.Location = new System.Drawing.Point(185, 81);
-            this.txtScannerUserName.MaxLength = 15;
-            this.txtScannerUserName.Name = "txtScannerUserName";
-            this.txtScannerUserName.Size = new System.Drawing.Size(154, 23);
-            this.txtScannerUserName.TabIndex = 7;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(76, 120);
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Transparent;
+            this.label1.Location = new System.Drawing.Point(470, 221);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(89, 17);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "Şifre            :";
+            this.label1.Size = new System.Drawing.Size(126, 17);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "KULLANICI ADI :";
             // 
-            // label3
+            // label2
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(76, 81);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(92, 17);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "Kullanıcı Adı :";
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Transparent;
+            this.label2.Location = new System.Drawing.Point(470, 253);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(127, 17);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "ŞİFRE              :";
             // 
-            // tabPageDoctor
+            // txtUserName
             // 
-            this.tabPageDoctor.Controls.Add(this.btnDoctorLogin);
-            this.tabPageDoctor.Controls.Add(this.txtDoctorPassword);
-            this.tabPageDoctor.Controls.Add(this.txtDoctorUserName);
-            this.tabPageDoctor.Controls.Add(this.lblDoctorUserPassword);
-            this.tabPageDoctor.Controls.Add(this.lblDoctorUserName);
-            this.tabPageDoctor.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabPageDoctor.Location = new System.Drawing.Point(4, 34);
-            this.tabPageDoctor.Name = "tabPageDoctor";
-            this.tabPageDoctor.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageDoctor.Size = new System.Drawing.Size(426, 281);
-            this.tabPageDoctor.TabIndex = 0;
-            this.tabPageDoctor.Text = "DOKTOR GİRİŞİ";
-            this.tabPageDoctor.UseVisualStyleBackColor = true;
+            this.txtUserName.Location = new System.Drawing.Point(603, 220);
+            this.txtUserName.MaxLength = 15;
+            this.txtUserName.Multiline = true;
+            this.txtUserName.Name = "txtUserName";
+            this.txtUserName.Size = new System.Drawing.Size(172, 20);
+            this.txtUserName.TabIndex = 1;
             // 
-            // btnDoctorLogin
+            // txtUserPassword
             // 
-            this.btnDoctorLogin.Location = new System.Drawing.Point(185, 168);
-            this.btnDoctorLogin.Name = "btnDoctorLogin";
-            this.btnDoctorLogin.Size = new System.Drawing.Size(154, 35);
-            this.btnDoctorLogin.TabIndex = 4;
-            this.btnDoctorLogin.Text = "GİRİŞ";
-            this.btnDoctorLogin.UseVisualStyleBackColor = true;
-            this.btnDoctorLogin.Click += new System.EventHandler(this.btnDoctorLogin_Click);
+            this.txtUserPassword.Location = new System.Drawing.Point(603, 252);
+            this.txtUserPassword.MaxLength = 15;
+            this.txtUserPassword.Multiline = true;
+            this.txtUserPassword.Name = "txtUserPassword";
+            this.txtUserPassword.PasswordChar = '*';
+            this.txtUserPassword.Size = new System.Drawing.Size(172, 20);
+            this.txtUserPassword.TabIndex = 2;
             // 
-            // txtDoctorPassword
+            // btnLogin
             // 
-            this.txtDoctorPassword.Location = new System.Drawing.Point(185, 120);
-            this.txtDoctorPassword.MaxLength = 15;
-            this.txtDoctorPassword.Name = "txtDoctorPassword";
-            this.txtDoctorPassword.PasswordChar = '*';
-            this.txtDoctorPassword.Size = new System.Drawing.Size(154, 23);
-            this.txtDoctorPassword.TabIndex = 3;
+            this.btnLogin.BackColor = System.Drawing.Color.Transparent;
+            this.btnLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogin.Location = new System.Drawing.Point(796, 221);
+            this.btnLogin.Name = "btnLogin";
+            this.btnLogin.Size = new System.Drawing.Size(102, 49);
+            this.btnLogin.TabIndex = 3;
+            this.btnLogin.Text = "GİRİŞ";
+            this.btnLogin.UseVisualStyleBackColor = true;
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
-            // txtDoctorUserName
+            // pictureBox1
             // 
-            this.txtDoctorUserName.Location = new System.Drawing.Point(185, 81);
-            this.txtDoctorUserName.MaxLength = 15;
-            this.txtDoctorUserName.Name = "txtDoctorUserName";
-            this.txtDoctorUserName.Size = new System.Drawing.Size(154, 23);
-            this.txtDoctorUserName.TabIndex = 2;
-            // 
-            // lblDoctorUserPassword
-            // 
-            this.lblDoctorUserPassword.AutoSize = true;
-            this.lblDoctorUserPassword.Location = new System.Drawing.Point(76, 120);
-            this.lblDoctorUserPassword.Name = "lblDoctorUserPassword";
-            this.lblDoctorUserPassword.Size = new System.Drawing.Size(89, 17);
-            this.lblDoctorUserPassword.TabIndex = 1;
-            this.lblDoctorUserPassword.Text = "Şifre            :";
-            // 
-            // lblDoctorUserName
-            // 
-            this.lblDoctorUserName.AutoSize = true;
-            this.lblDoctorUserName.Location = new System.Drawing.Point(76, 81);
-            this.lblDoctorUserName.Name = "lblDoctorUserName";
-            this.lblDoctorUserName.Size = new System.Drawing.Size(92, 17);
-            this.lblDoctorUserName.TabIndex = 0;
-            this.lblDoctorUserName.Text = "Kullanıcı Adı :";
-            // 
-            // tabControl
-            // 
-            this.tabControl.Controls.Add(this.tabPageDoctor);
-            this.tabControl.Controls.Add(this.tabPageScanner);
-            this.tabControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabControl.ItemSize = new System.Drawing.Size(110, 30);
-            this.tabControl.Location = new System.Drawing.Point(12, 12);
-            this.tabControl.Name = "tabControl";
-            this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(434, 319);
-            this.tabControl.TabIndex = 0;
+            this.pictureBox1.Image = global::HospitalAutomation.Properties.Resources.bg1;
+            this.pictureBox1.Location = new System.Drawing.Point(159, 78);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(1024, 600);
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(456, 342);
-            this.Controls.Add(this.tabControl);
+            this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.ClientSize = new System.Drawing.Size(1221, 571);
+            this.Controls.Add(this.btnLogin);
+            this.Controls.Add(this.txtUserPassword);
+            this.Controls.Add(this.txtUserName);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.Name = "Login";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Kocaeli Üniversitesi Tıp Fakültesi Arşiv Otomasyonu";
-            this.tabPageScanner.ResumeLayout(false);
-            this.tabPageScanner.PerformLayout();
-            this.tabPageDoctor.ResumeLayout(false);
-            this.tabPageDoctor.PerformLayout();
-            this.tabControl.ResumeLayout(false);
+            this.TopMost = true;
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.TabPage tabPageScanner;
-        private System.Windows.Forms.TabPage tabPageDoctor;
-        private System.Windows.Forms.TabControl tabControl;
-        private System.Windows.Forms.Label lblDoctorUserPassword;
-        private System.Windows.Forms.Label lblDoctorUserName;
-        private System.Windows.Forms.Button btnDoctorLogin;
-        private System.Windows.Forms.TextBox txtDoctorPassword;
-        private System.Windows.Forms.TextBox txtDoctorUserName;
-        private System.Windows.Forms.Button btnScannerLogin;
-        private System.Windows.Forms.TextBox txtScannerPassword;
-        private System.Windows.Forms.TextBox txtScannerUserName;
+        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtUserName;
+        private System.Windows.Forms.TextBox txtUserPassword;
+        private System.Windows.Forms.Button btnLogin;
+
+
+
 
     }
 }
