@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using HospitalAutomation.Util;
 
 namespace HospitalAutomation
 {
@@ -15,7 +16,6 @@ namespace HospitalAutomation
         public Login()
         {
             InitializeComponent();
-            //Deneme
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
