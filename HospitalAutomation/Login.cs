@@ -10,17 +10,21 @@ using System.Windows.Forms;
 
 namespace HospitalAutomation
 {
-    public partial class Login : Form
+    public partial class LoginForm : Form
     {
-        public Login()
+        public LoginForm()
         {
             InitializeComponent();
-            //Deneme
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
             //txtUserName ve txtUserPassword ile sisteme giriş yapılacak
+            this.Hide();
+
+            // Login işlemi doğru şekilde sağlandığında hastanın tcNo ve dosya numarasının alınması için yönlendirme yapılacak
+            FormEnterTCNoFileNumber frm = new FormEnterTCNoFileNumber();
+            frm.Show();
         }
     }
 }

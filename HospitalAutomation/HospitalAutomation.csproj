@@ -44,6 +44,48 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EnterDate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EnterDate.Designer.cs">
+      <DependentUpon>EnterDate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EnterFacultyMember.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EnterFacultyMember.Designer.cs">
+      <DependentUpon>EnterFacultyMember.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EnterPatientDiagnosed.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EnterPatientDiagnosed.Designer.cs">
+      <DependentUpon>EnterPatientDiagnosed.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EnterPatientExamination.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EnterPatientExamination.Designer.cs">
+      <DependentUpon>EnterPatientExamination.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EnterPatientStatus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EnterPatientStatus.Designer.cs">
+      <DependentUpon>EnterPatientStatus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EnterReports.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EnterReports.Designer.cs">
+      <DependentUpon>EnterReports.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EnterTCNoFileNumber.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EnterTCNoFileNumber.Designer.cs">
+      <DependentUpon>EnterTCNoFileNumber.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -52,6 +94,27 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="EnterDate.resx">
+      <DependentUpon>EnterDate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EnterFacultyMember.resx">
+      <DependentUpon>EnterFacultyMember.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EnterPatientDiagnosed.resx">
+      <DependentUpon>EnterPatientDiagnosed.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EnterPatientExamination.resx">
+      <DependentUpon>EnterPatientExamination.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EnterPatientStatus.resx">
+      <DependentUpon>EnterPatientStatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EnterReports.resx">
+      <DependentUpon>EnterReports.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EnterTCNoFileNumber.resx">
+      <DependentUpon>EnterTCNoFileNumber.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
