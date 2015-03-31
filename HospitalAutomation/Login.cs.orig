@@ -26,24 +26,19 @@ namespace HospitalAutomation
         private void btnLogin_Click(object sender, EventArgs e)
         {
             errorProvider.Clear();
-
-            if (Validator.isEmpty(txtUserName.Text))
-            {
+            //txtUserName ve txtUserPassword ile sisteme giriş yapılacak
+            if(Validator.isEmpty(txtUserName.Text)){
                 setError(txtUserName);
             }
 
-            if (Validator.isEmpty(txtUserPassword.Text))
-            {
-                setError(txtUserPassword);
-            }
-
-            //txtUserName ve txtUserPassword ile sisteme giriş yapılacak
+            if(Validator.isEmpty(txtUserPassword.Text)) {
             this.Hide();
 
             // Login işlemi doğru şekilde sağlandığında hastanın tcNo ve dosya numarasının alınması için yönlendirme yapılacak
             FormEnterTCNoFileNumber frm = new FormEnterTCNoFileNumber();
             frm.Show();
-
+                setError(txtUserPassword);
+            }
         }
 
         private void Login_Load(object sender, EventArgs e)
