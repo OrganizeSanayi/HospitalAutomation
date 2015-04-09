@@ -27,24 +27,31 @@ namespace HospitalAutomation
         {
             errorProvider.Clear();
 
-            if (Validator.isEmpty(txtUserName.Text))
+            bool isUsernameFieldEmpty = string.IsNullOrWhiteSpace(txtUserName.Text);
+            bool isPasswordFieldEmpty = string.IsNullOrWhiteSpace(txtUserPassword.Text);
+
+            if (isUsernameFieldEmpty)
             {
                 setError(txtUserName);
             }
 
-            if (Validator.isEmpty(txtUserPassword.Text))
+            if (isPasswordFieldEmpty)
             {
                 setError(txtUserPassword);
             }
 
-            //txtUserName ve txtUserPassword ile sisteme giriş yapılacak
-            this.Hide();
+            if (!isUsernameFieldEmpty && !isPasswordFieldEmpty)
+            {
+                //txtUserName ve txtUserPassword ile sisteme giriş yapılacak
+                this.Hide();
+                // Login işlemi doğru şekilde sağlandığında hastanın tcNo ve dosya numarasının alınması için yönlendirme yapılacak
 
-            // Login işlemi doğru şekilde sağlandığında hastanın tcNo ve dosya numarasının alınması için yönlendirme yapılacak
-           
-            formHomePage formHome = new formHomePage();
-            formHome.Size = new System.Drawing.Size(450,300);
-            formHome.Show();                
+                formHomePage formHome = new formHomePage();
+                formHome.Size = new System.Drawing.Size(450, 300);
+                formHome.Show();
+                Logger.i("Succesfully logged in");
+            }
+            
         }
 
         private void Login_Load(object sender, EventArgs e)
