@@ -13,14 +13,18 @@ namespace HospitalAutomation
 {
     public partial class LoginForm : Form
     {
+
+        ErrorTracker eTracker;
+
         public LoginForm()
         {
             InitializeComponent();
         }
 
-        private void setError(object item){
-            var textBox = item as TextBox;
-            errorProvider.SetError(textBox, Constants.Errors.INVALID);
+        private void Login_Load(object sender, EventArgs e)
+        {
+            eTracker = new ErrorTracker(errorProvider);
+            errorProvider.BlinkStyle = ErrorBlinkStyle.NeverBlink;
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -32,12 +36,12 @@ namespace HospitalAutomation
 
             if (isUsernameFieldEmpty)
             {
-                setError(txtUserName);
+                eTracker.SetError(txtUserName, Constants.Errors.INVALID);
             }
 
             if (isPasswordFieldEmpty)
             {
-                setError(txtUserPassword);
+                eTracker.SetError(txtUserPassword, Constants.Errors.INVALID);
             }
 
             if (!isUsernameFieldEmpty && !isPasswordFieldEmpty)
@@ -54,9 +58,5 @@ namespace HospitalAutomation
             
         }
 
-        private void Login_Load(object sender, EventArgs e)
-        {
-            errorProvider.BlinkStyle = ErrorBlinkStyle.NeverBlink;
-        }
     }
 }
