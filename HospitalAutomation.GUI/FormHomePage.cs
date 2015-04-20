@@ -10,9 +10,19 @@ using System.Windows.Forms;
 
 namespace HospitalAutomation
 {
-    public partial class formHomePage : Form
+    public partial class FormHomePage : Form
     {
-        public formHomePage()
+        private Point _panelLocation = new System.Drawing.Point(12, 12);
+
+        public String TCKimlikNo
+        {
+            get
+            {
+                return txtTcNo.Text;
+            }
+        }
+
+        public FormHomePage()
         {
             InitializeComponent();
         }
@@ -27,7 +37,7 @@ namespace HospitalAutomation
             //txtTcNo ve txtFileNumber textboxlarından değerler alınır , bir sonraki adıma geçilir.(Tarih Girişi)
             panelEnterTCNoFileNumber.Visible = false;
             panelEnterDate.Visible = true;
-            panelEnterDate.Location = new System.Drawing.Point(12, 12);
+            panelEnterDate.Location = _panelLocation;
         }
 
         private void btnOkEnterDate_Click(object sender, EventArgs e)
@@ -35,7 +45,7 @@ namespace HospitalAutomation
             //dateTimePicker'dan alınan bilgilere göre sonraki aşamaya geçilir
             panelEnterDate.Visible = false;
             panelEnterFacultyMember.Visible = true;
-            panelEnterFacultyMember.Location = new System.Drawing.Point(12, 12);
+            panelEnterFacultyMember.Location = _panelLocation;
         }
 
         private void btnOkEnterFacultyMember_Click(object sender, EventArgs e)
@@ -43,7 +53,7 @@ namespace HospitalAutomation
             //comboBoxFacultyMember combobox'ından seçilen öğretim üyesine göre işleme devam edilir.(Hasta Tanısı Sayfasına geçilir.)
             panelEnterFacultyMember.Visible = false;
             panelFormEnterPatientDiagnosed.Visible = true;
-            panelFormEnterPatientDiagnosed.Location = new System.Drawing.Point(12, 12);
+            panelFormEnterPatientDiagnosed.Location = _panelLocation;
         }
 
         private void btnSkipEnterFacultyMember_Click(object sender, EventArgs e)
@@ -56,7 +66,7 @@ namespace HospitalAutomation
             // Hasta tanısı txtPatientDiagnosed textboxından alınır.Hasta statüsü sayfasına geçilir.
             panelFormEnterPatientDiagnosed.Visible = false;
             panelEnterPatientStatus.Visible = true;
-            panelEnterPatientStatus.Location = new System.Drawing.Point(12, 12);
+            panelEnterPatientStatus.Location = _panelLocation;
         }
 
         private void btnSkipEnterPatientDiagnosed_Click(object sender, EventArgs e)
@@ -70,7 +80,7 @@ namespace HospitalAutomation
             //Hasta muayene ve epikriz sayfasına geçilir.
             panelEnterPatientStatus.Visible = false;
             panelEnterPatientExamination.Visible = true;
-            panelEnterPatientExamination.Location = new System.Drawing.Point(12, 12);
+            panelEnterPatientExamination.Location = _panelLocation;
         }
 
         private void btnOkEnterPatientExamination_Click(object sender, EventArgs e)
@@ -78,7 +88,7 @@ namespace HospitalAutomation
             //Hasta muayene,epikriz bilgileri comboBoxPatientExamination combobox'ından alınır.
             panelEnterPatientExamination.Visible = false;
             panelEnterReports.Visible = true;
-            panelEnterReports.Location = new System.Drawing.Point(12, 12);
+            panelEnterReports.Location = _panelLocation;
         }
 
         private void btnOkEnterReports_Click(object sender, EventArgs e)

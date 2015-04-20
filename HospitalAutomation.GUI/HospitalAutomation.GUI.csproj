@@ -44,11 +44,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="HomePage.cs">
+    <Compile Include="PatientInfo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="HomePage.Designer.cs">
-      <DependentUpon>HomePage.cs</DependentUpon>
+    <Compile Include="PatientInfo.Designer.cs">
+      <DependentUpon>PatientInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormHomePage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormHomePage.Designer.cs">
+      <DependentUpon>FormHomePage.cs</DependentUpon>
     </Compile>
     <Compile Include="EnterDate.cs">
       <SubType>Form</SubType>
@@ -100,15 +106,15 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="HomePage.resx">
-      <DependentUpon>HomePage.cs</DependentUpon>
+    <EmbeddedResource Include="PatientInfo.resx">
+      <DependentUpon>PatientInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormHomePage.resx">
+      <DependentUpon>FormHomePage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EnterDate.resx">
       <DependentUpon>EnterDate.cs</DependentUpon>
     </EmbeddedResource>
-    <Compile Include="Util\Constants.cs" />
-    <Compile Include="Util\ErrorTracker.cs" />
-    <Compile Include="Util\Logger.cs" />
     <EmbeddedResource Include="EnterFacultyMember.resx">
       <DependentUpon>EnterFacultyMember.cs</DependentUpon>
     </EmbeddedResource>
@@ -156,7 +162,12 @@
   <ItemGroup>
     <None Include="Resources\LoginTemplate.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\HospitalAutomation.Core\HospitalAutomation.Core.csproj">
+      <Project>{4a5acf9e-8463-468b-9d23-c81c41a2b610}</Project>
+      <Name>HospitalAutomation.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -1,6 +1,6 @@
 ﻿namespace HospitalAutomation
 {
-    partial class formHomePage
+    partial class FormHomePage
     {
         /// <summary>
         /// Required designer variable.
@@ -43,16 +43,16 @@
             this.label4 = new System.Windows.Forms.Label();
             this.panelEnterFacultyMember = new System.Windows.Forms.FlowLayoutPanel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.btnOkEnterFacultyMember = new System.Windows.Forms.Button();
             this.btnSkipEnterFacultyMember = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.comboBoxFacultyMember = new System.Windows.Forms.ComboBox();
-            this.btnOkEnterFacultyMember = new System.Windows.Forms.Button();
             this.panelFormEnterPatientDiagnosed = new System.Windows.Forms.FlowLayoutPanel();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.btnOkEnterPatientDiagnosed = new System.Windows.Forms.Button();
             this.btnSkipEnterPatientDiagnosed = new System.Windows.Forms.Button();
             this.txtPatientDiagnosed = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.btnOkEnterPatientDiagnosed = new System.Windows.Forms.Button();
             this.panelEnterPatientStatus = new System.Windows.Forms.FlowLayoutPanel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.btnOkEnterPatientStatus = new System.Windows.Forms.Button();
@@ -234,6 +234,17 @@
             this.panel3.Size = new System.Drawing.Size(402, 217);
             this.panel3.TabIndex = 0;
             // 
+            // btnOkEnterFacultyMember
+            // 
+            this.btnOkEnterFacultyMember.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOkEnterFacultyMember.Location = new System.Drawing.Point(281, 162);
+            this.btnOkEnterFacultyMember.Name = "btnOkEnterFacultyMember";
+            this.btnOkEnterFacultyMember.Size = new System.Drawing.Size(90, 45);
+            this.btnOkEnterFacultyMember.TabIndex = 10;
+            this.btnOkEnterFacultyMember.Text = "TAMAM";
+            this.btnOkEnterFacultyMember.UseVisualStyleBackColor = true;
+            this.btnOkEnterFacultyMember.Click += new System.EventHandler(this.btnOkEnterFacultyMember_Click);
+            // 
             // btnSkipEnterFacultyMember
             // 
             this.btnSkipEnterFacultyMember.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -269,17 +280,6 @@
             this.comboBoxFacultyMember.Size = new System.Drawing.Size(343, 21);
             this.comboBoxFacultyMember.TabIndex = 3;
             // 
-            // btnOkEnterFacultyMember
-            // 
-            this.btnOkEnterFacultyMember.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOkEnterFacultyMember.Location = new System.Drawing.Point(281, 162);
-            this.btnOkEnterFacultyMember.Name = "btnOkEnterFacultyMember";
-            this.btnOkEnterFacultyMember.Size = new System.Drawing.Size(90, 45);
-            this.btnOkEnterFacultyMember.TabIndex = 10;
-            this.btnOkEnterFacultyMember.Text = "TAMAM";
-            this.btnOkEnterFacultyMember.UseVisualStyleBackColor = true;
-            this.btnOkEnterFacultyMember.Click += new System.EventHandler(this.btnOkEnterFacultyMember_Click);
-            // 
             // panelFormEnterPatientDiagnosed
             // 
             this.panelFormEnterPatientDiagnosed.Controls.Add(this.panel4);
@@ -300,6 +300,17 @@
             this.panel4.Size = new System.Drawing.Size(402, 215);
             this.panel4.TabIndex = 0;
             // 
+            // btnOkEnterPatientDiagnosed
+            // 
+            this.btnOkEnterPatientDiagnosed.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOkEnterPatientDiagnosed.Location = new System.Drawing.Point(299, 162);
+            this.btnOkEnterPatientDiagnosed.Name = "btnOkEnterPatientDiagnosed";
+            this.btnOkEnterPatientDiagnosed.Size = new System.Drawing.Size(90, 45);
+            this.btnOkEnterPatientDiagnosed.TabIndex = 6;
+            this.btnOkEnterPatientDiagnosed.Text = "TAMAM";
+            this.btnOkEnterPatientDiagnosed.UseVisualStyleBackColor = true;
+            this.btnOkEnterPatientDiagnosed.Click += new System.EventHandler(this.btnOkEnterPatientDiagnosed_Click);
+            // 
             // btnSkipEnterPatientDiagnosed
             // 
             this.btnSkipEnterPatientDiagnosed.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -314,8 +325,9 @@
             // txtPatientDiagnosed
             // 
             this.txtPatientDiagnosed.Location = new System.Drawing.Point(28, 74);
+            this.txtPatientDiagnosed.Multiline = true;
             this.txtPatientDiagnosed.Name = "txtPatientDiagnosed";
-            this.txtPatientDiagnosed.Size = new System.Drawing.Size(361, 20);
+            this.txtPatientDiagnosed.Size = new System.Drawing.Size(361, 82);
             this.txtPatientDiagnosed.TabIndex = 4;
             // 
             // label6
@@ -327,17 +339,6 @@
             this.label6.Size = new System.Drawing.Size(161, 18);
             this.label6.TabIndex = 3;
             this.label6.Text = "4) Hasta Tanısı Giriniz :";
-            // 
-            // btnOkEnterPatientDiagnosed
-            // 
-            this.btnOkEnterPatientDiagnosed.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOkEnterPatientDiagnosed.Location = new System.Drawing.Point(299, 162);
-            this.btnOkEnterPatientDiagnosed.Name = "btnOkEnterPatientDiagnosed";
-            this.btnOkEnterPatientDiagnosed.Size = new System.Drawing.Size(90, 45);
-            this.btnOkEnterPatientDiagnosed.TabIndex = 6;
-            this.btnOkEnterPatientDiagnosed.Text = "TAMAM";
-            this.btnOkEnterPatientDiagnosed.UseVisualStyleBackColor = true;
-            this.btnOkEnterPatientDiagnosed.Click += new System.EventHandler(this.btnOkEnterPatientDiagnosed_Click);
             // 
             // panelEnterPatientStatus
             // 
@@ -521,7 +522,7 @@
             this.label9.TabIndex = 3;
             this.label9.Text = "7) Tetkik - Raporları Giriniz :";
             // 
-            // formHomePage
+            // FormHomePage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -535,7 +536,7 @@
             this.Controls.Add(this.panelEnterDate);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
-            this.Name = "formHomePage";
+            this.Name = "FormHomePage";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "KOÜ Tıp Fakültesi Arşiv Otomasyonu";
             this.Load += new System.EventHandler(this.formHomePage_Load);

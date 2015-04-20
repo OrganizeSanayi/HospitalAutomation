@@ -14,7 +14,7 @@ namespace HospitalAutomation
     public partial class LoginForm : Form
     {
 
-        ErrorTracker eTracker;
+        public ErrorTracker eTracker;
 
         public LoginForm()
         {
@@ -50,9 +50,16 @@ namespace HospitalAutomation
                 this.Hide();
                 // Login işlemi doğru şekilde sağlandığında hastanın tcNo ve dosya numarasının alınması için yönlendirme yapılacak
 
-                formHomePage formHome = new formHomePage();
+                FormHomePage formHome = new FormHomePage();
                 formHome.Size = new System.Drawing.Size(450, 300);
-                formHome.Show();
+                var a = formHome.ShowDialog(this);
+
+                String tcNo;
+                if (a == DialogResult.OK)
+                {
+                    tcNo = formHome.TCKimlikNo;
+                }
+
                 Logger.i("Succesfully logged in");
             }
             

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HospitalAutomation.Util
 {
-    class Constants
+    public class Constants
     {
         public static class Errors
         {
