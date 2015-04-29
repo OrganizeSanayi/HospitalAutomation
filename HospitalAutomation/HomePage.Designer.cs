@@ -28,8 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panelEnterTCNoFileNumber = new System.Windows.Forms.FlowLayoutPanel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.linkLblEnterPatientStatus = new System.Windows.Forms.LinkLabel();
+            this.linkLblEnterPatientDiagnosed = new System.Windows.Forms.LinkLabel();
+            this.linkLblEnterFacultyMember = new System.Windows.Forms.LinkLabel();
+            this.linkLblEnterDate = new System.Windows.Forms.LinkLabel();
+            this.linkLblEnterTCNoFile = new System.Windows.Forms.LinkLabel();
+            this.panelEnterTCNoFileNumber = new System.Windows.Forms.FlowLayoutPanel();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.btnOkTcNoFileNumber = new System.Windows.Forms.Button();
             this.txtFileNumber = new System.Windows.Forms.TextBox();
@@ -37,74 +44,164 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panelEnterDate = new System.Windows.Forms.FlowLayoutPanel();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.btnOkEnterDate = new System.Windows.Forms.Button();
             this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
-            this.panelEnterFacultyMember = new System.Windows.Forms.FlowLayoutPanel();
-            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.btnOkEnterFacultyMember = new System.Windows.Forms.Button();
             this.btnSkipEnterFacultyMember = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.comboBoxFacultyMember = new System.Windows.Forms.ComboBox();
-            this.btnOkEnterFacultyMember = new System.Windows.Forms.Button();
             this.panelFormEnterPatientDiagnosed = new System.Windows.Forms.FlowLayoutPanel();
-            this.panel4 = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.btnOkEnterPatientDiagnosed = new System.Windows.Forms.Button();
             this.btnSkipEnterPatientDiagnosed = new System.Windows.Forms.Button();
             this.txtPatientDiagnosed = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.btnOkEnterPatientDiagnosed = new System.Windows.Forms.Button();
             this.panelEnterPatientStatus = new System.Windows.Forms.FlowLayoutPanel();
-            this.panel5 = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
             this.btnOkEnterPatientStatus = new System.Windows.Forms.Button();
             this.radioButtonInpatient = new System.Windows.Forms.RadioButton();
             this.radioButtonOutpatient = new System.Windows.Forms.RadioButton();
             this.label7 = new System.Windows.Forms.Label();
-            this.panelEnterPatientExamination = new System.Windows.Forms.FlowLayoutPanel();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.btnOkEnterPatientExamination = new System.Windows.Forms.Button();
-            this.comboBoxPatientExamination = new System.Windows.Forms.ComboBox();
+            this.panelEnterFacultyMember = new System.Windows.Forms.FlowLayoutPanel();
+            this.panelEnd = new System.Windows.Forms.Panel();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.lblTcNoFileNo = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.panelEnterReports = new System.Windows.Forms.FlowLayoutPanel();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.btnOkEnterReports = new System.Windows.Forms.Button();
-            this.comboBoxReports = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.panelEnterTCNoFileNumber.SuspendLayout();
+            this.lblDate = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.lblFacultyMember = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.lblPatientDiagnostic = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.linkLblContinue = new System.Windows.Forms.LinkLabel();
+            this.lblPatientStatus = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
-            this.panelEnterDate.SuspendLayout();
+            this.panelEnterTCNoFileNumber.SuspendLayout();
             this.panel2.SuspendLayout();
-            this.panelEnterFacultyMember.SuspendLayout();
+            this.panelEnterDate.SuspendLayout();
             this.panel3.SuspendLayout();
-            this.panelFormEnterPatientDiagnosed.SuspendLayout();
             this.panel4.SuspendLayout();
-            this.panelEnterPatientStatus.SuspendLayout();
+            this.panelFormEnterPatientDiagnosed.SuspendLayout();
             this.panel5.SuspendLayout();
-            this.panelEnterPatientExamination.SuspendLayout();
+            this.panelEnterPatientStatus.SuspendLayout();
             this.panel6.SuspendLayout();
-            this.panelEnterReports.SuspendLayout();
-            this.panel7.SuspendLayout();
+            this.panelEnterFacultyMember.SuspendLayout();
+            this.panelEnd.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panelEnterTCNoFileNumber
+            // pictureBox1
             // 
-            this.panelEnterTCNoFileNumber.Controls.Add(this.panel1);
-            this.panelEnterTCNoFileNumber.Location = new System.Drawing.Point(5, 12);
-            this.panelEnterTCNoFileNumber.Name = "panelEnterTCNoFileNumber";
-            this.panelEnterTCNoFileNumber.Size = new System.Drawing.Size(415, 230);
-            this.panelEnterTCNoFileNumber.TabIndex = 0;
+            this.pictureBox1.Image = global::HospitalAutomation.Properties.Resources.HomePageBanner;
+            this.pictureBox1.Location = new System.Drawing.Point(27, 13);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(1251, 128);
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.btnOkTcNoFileNumber);
-            this.panel1.Controls.Add(this.txtFileNumber);
-            this.panel1.Controls.Add(this.txtTcNo);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(3, 3);
+            this.panel1.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.panel1.Controls.Add(this.linkLblEnterPatientStatus);
+            this.panel1.Controls.Add(this.linkLblEnterPatientDiagnosed);
+            this.panel1.Controls.Add(this.linkLblEnterFacultyMember);
+            this.panel1.Controls.Add(this.linkLblEnterDate);
+            this.panel1.Controls.Add(this.linkLblEnterTCNoFile);
+            this.panel1.Location = new System.Drawing.Point(27, 164);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(402, 217);
-            this.panel1.TabIndex = 0;
+            this.panel1.Size = new System.Drawing.Size(305, 557);
+            this.panel1.TabIndex = 1;
+            // 
+            // linkLblEnterPatientStatus
+            // 
+            this.linkLblEnterPatientStatus.AutoSize = true;
+            this.linkLblEnterPatientStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLblEnterPatientStatus.LinkColor = System.Drawing.Color.DarkGreen;
+            this.linkLblEnterPatientStatus.Location = new System.Drawing.Point(27, 248);
+            this.linkLblEnterPatientStatus.Name = "linkLblEnterPatientStatus";
+            this.linkLblEnterPatientStatus.Size = new System.Drawing.Size(178, 18);
+            this.linkLblEnterPatientStatus.TabIndex = 4;
+            this.linkLblEnterPatientStatus.TabStop = true;
+            this.linkLblEnterPatientStatus.Text = "Hasta Statüsü Giriniz :";
+            this.linkLblEnterPatientStatus.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLblEnterPatientStatus_LinkClicked);
+            // 
+            // linkLblEnterPatientDiagnosed
+            // 
+            this.linkLblEnterPatientDiagnosed.AutoSize = true;
+            this.linkLblEnterPatientDiagnosed.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLblEnterPatientDiagnosed.LinkColor = System.Drawing.Color.DarkGreen;
+            this.linkLblEnterPatientDiagnosed.Location = new System.Drawing.Point(27, 196);
+            this.linkLblEnterPatientDiagnosed.Name = "linkLblEnterPatientDiagnosed";
+            this.linkLblEnterPatientDiagnosed.Size = new System.Drawing.Size(166, 18);
+            this.linkLblEnterPatientDiagnosed.TabIndex = 3;
+            this.linkLblEnterPatientDiagnosed.TabStop = true;
+            this.linkLblEnterPatientDiagnosed.Text = "Hasta Tanısı Giriniz :";
+            this.linkLblEnterPatientDiagnosed.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLblEnterPatientDiagnosed_LinkClicked);
+            // 
+            // linkLblEnterFacultyMember
+            // 
+            this.linkLblEnterFacultyMember.AutoSize = true;
+            this.linkLblEnterFacultyMember.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLblEnterFacultyMember.LinkColor = System.Drawing.Color.DarkGreen;
+            this.linkLblEnterFacultyMember.Location = new System.Drawing.Point(27, 144);
+            this.linkLblEnterFacultyMember.Name = "linkLblEnterFacultyMember";
+            this.linkLblEnterFacultyMember.Size = new System.Drawing.Size(226, 18);
+            this.linkLblEnterFacultyMember.TabIndex = 2;
+            this.linkLblEnterFacultyMember.TabStop = true;
+            this.linkLblEnterFacultyMember.Text = "İlgili Öğretim Üyesini Giriniz :";
+            this.linkLblEnterFacultyMember.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLblEnterFacultyMember_LinkClicked);
+            // 
+            // linkLblEnterDate
+            // 
+            this.linkLblEnterDate.AutoSize = true;
+            this.linkLblEnterDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLblEnterDate.LinkColor = System.Drawing.Color.DarkGreen;
+            this.linkLblEnterDate.Location = new System.Drawing.Point(27, 92);
+            this.linkLblEnterDate.Name = "linkLblEnterDate";
+            this.linkLblEnterDate.Size = new System.Drawing.Size(110, 18);
+            this.linkLblEnterDate.TabIndex = 1;
+            this.linkLblEnterDate.TabStop = true;
+            this.linkLblEnterDate.Text = "Tarih Giriniz :";
+            this.linkLblEnterDate.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLblEnterDate_LinkClicked);
+            // 
+            // linkLblEnterTCNoFile
+            // 
+            this.linkLblEnterTCNoFile.AutoSize = true;
+            this.linkLblEnterTCNoFile.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLblEnterTCNoFile.LinkColor = System.Drawing.Color.DarkGreen;
+            this.linkLblEnterTCNoFile.Location = new System.Drawing.Point(27, 40);
+            this.linkLblEnterTCNoFile.Name = "linkLblEnterTCNoFile";
+            this.linkLblEnterTCNoFile.Size = new System.Drawing.Size(258, 18);
+            this.linkLblEnterTCNoFile.TabIndex = 0;
+            this.linkLblEnterTCNoFile.TabStop = true;
+            this.linkLblEnterTCNoFile.Text = "TC No ve Hasta Dosyası Giriniz :";
+            this.linkLblEnterTCNoFile.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLblEnterTCNoFile_LinkClicked);
+            // 
+            // panelEnterTCNoFileNumber
+            // 
+            this.panelEnterTCNoFileNumber.Controls.Add(this.panel2);
+            this.panelEnterTCNoFileNumber.Location = new System.Drawing.Point(395, 164);
+            this.panelEnterTCNoFileNumber.Name = "panelEnterTCNoFileNumber";
+            this.panelEnterTCNoFileNumber.Size = new System.Drawing.Size(391, 46);
+            this.panelEnterTCNoFileNumber.TabIndex = 2;
+            this.panelEnterTCNoFileNumber.Visible = false;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.label3);
+            this.panel2.Controls.Add(this.btnOkTcNoFileNumber);
+            this.panel2.Controls.Add(this.txtFileNumber);
+            this.panel2.Controls.Add(this.txtTcNo);
+            this.panel2.Controls.Add(this.label2);
+            this.panel2.Controls.Add(this.label1);
+            this.panel2.Location = new System.Drawing.Point(3, 3);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(402, 217);
+            this.panel2.TabIndex = 0;
             // 
             // label3
             // 
@@ -169,22 +266,22 @@
             // 
             // panelEnterDate
             // 
-            this.panelEnterDate.Controls.Add(this.panel2);
-            this.panelEnterDate.Location = new System.Drawing.Point(429, 12);
+            this.panelEnterDate.Controls.Add(this.panel3);
+            this.panelEnterDate.Location = new System.Drawing.Point(395, 216);
             this.panelEnterDate.Name = "panelEnterDate";
-            this.panelEnterDate.Size = new System.Drawing.Size(415, 230);
-            this.panelEnterDate.TabIndex = 1;
+            this.panelEnterDate.Size = new System.Drawing.Size(391, 34);
+            this.panelEnterDate.TabIndex = 3;
             this.panelEnterDate.Visible = false;
             // 
-            // panel2
+            // panel3
             // 
-            this.panel2.Controls.Add(this.btnOkEnterDate);
-            this.panel2.Controls.Add(this.dateTimePicker);
-            this.panel2.Controls.Add(this.label4);
-            this.panel2.Location = new System.Drawing.Point(3, 3);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(399, 217);
-            this.panel2.TabIndex = 0;
+            this.panel3.Controls.Add(this.btnOkEnterDate);
+            this.panel3.Controls.Add(this.dateTimePicker);
+            this.panel3.Controls.Add(this.label4);
+            this.panel3.Location = new System.Drawing.Point(3, 3);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(399, 217);
+            this.panel3.TabIndex = 0;
             // 
             // btnOkEnterDate
             // 
@@ -214,25 +311,27 @@
             this.label4.TabIndex = 3;
             this.label4.Text = "2) Tarih Giriniz :";
             // 
-            // panelEnterFacultyMember
+            // panel4
             // 
-            this.panelEnterFacultyMember.Controls.Add(this.panel3);
-            this.panelEnterFacultyMember.Location = new System.Drawing.Point(863, 12);
-            this.panelEnterFacultyMember.Name = "panelEnterFacultyMember";
-            this.panelEnterFacultyMember.Size = new System.Drawing.Size(415, 230);
-            this.panelEnterFacultyMember.TabIndex = 1;
-            this.panelEnterFacultyMember.Visible = false;
+            this.panel4.Controls.Add(this.btnOkEnterFacultyMember);
+            this.panel4.Controls.Add(this.btnSkipEnterFacultyMember);
+            this.panel4.Controls.Add(this.label5);
+            this.panel4.Controls.Add(this.comboBoxFacultyMember);
+            this.panel4.Location = new System.Drawing.Point(3, 3);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(402, 260);
+            this.panel4.TabIndex = 0;
             // 
-            // panel3
+            // btnOkEnterFacultyMember
             // 
-            this.panel3.Controls.Add(this.btnOkEnterFacultyMember);
-            this.panel3.Controls.Add(this.btnSkipEnterFacultyMember);
-            this.panel3.Controls.Add(this.label5);
-            this.panel3.Controls.Add(this.comboBoxFacultyMember);
-            this.panel3.Location = new System.Drawing.Point(3, 3);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(402, 217);
-            this.panel3.TabIndex = 0;
+            this.btnOkEnterFacultyMember.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOkEnterFacultyMember.Location = new System.Drawing.Point(281, 162);
+            this.btnOkEnterFacultyMember.Name = "btnOkEnterFacultyMember";
+            this.btnOkEnterFacultyMember.Size = new System.Drawing.Size(90, 45);
+            this.btnOkEnterFacultyMember.TabIndex = 10;
+            this.btnOkEnterFacultyMember.Text = "TAMAM";
+            this.btnOkEnterFacultyMember.UseVisualStyleBackColor = true;
+            this.btnOkEnterFacultyMember.Click += new System.EventHandler(this.btnOkEnterFacultyMember_Click);
             // 
             // btnSkipEnterFacultyMember
             // 
@@ -269,36 +368,36 @@
             this.comboBoxFacultyMember.Size = new System.Drawing.Size(343, 21);
             this.comboBoxFacultyMember.TabIndex = 3;
             // 
-            // btnOkEnterFacultyMember
-            // 
-            this.btnOkEnterFacultyMember.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOkEnterFacultyMember.Location = new System.Drawing.Point(281, 162);
-            this.btnOkEnterFacultyMember.Name = "btnOkEnterFacultyMember";
-            this.btnOkEnterFacultyMember.Size = new System.Drawing.Size(90, 45);
-            this.btnOkEnterFacultyMember.TabIndex = 10;
-            this.btnOkEnterFacultyMember.Text = "TAMAM";
-            this.btnOkEnterFacultyMember.UseVisualStyleBackColor = true;
-            this.btnOkEnterFacultyMember.Click += new System.EventHandler(this.btnOkEnterFacultyMember_Click);
-            // 
             // panelFormEnterPatientDiagnosed
             // 
-            this.panelFormEnterPatientDiagnosed.Controls.Add(this.panel4);
-            this.panelFormEnterPatientDiagnosed.Location = new System.Drawing.Point(5, 248);
+            this.panelFormEnterPatientDiagnosed.Controls.Add(this.panel5);
+            this.panelFormEnterPatientDiagnosed.Location = new System.Drawing.Point(395, 303);
             this.panelFormEnterPatientDiagnosed.Name = "panelFormEnterPatientDiagnosed";
-            this.panelFormEnterPatientDiagnosed.Size = new System.Drawing.Size(415, 230);
-            this.panelFormEnterPatientDiagnosed.TabIndex = 2;
+            this.panelFormEnterPatientDiagnosed.Size = new System.Drawing.Size(415, 35);
+            this.panelFormEnterPatientDiagnosed.TabIndex = 5;
             this.panelFormEnterPatientDiagnosed.Visible = false;
             // 
-            // panel4
+            // panel5
             // 
-            this.panel4.Controls.Add(this.btnOkEnterPatientDiagnosed);
-            this.panel4.Controls.Add(this.btnSkipEnterPatientDiagnosed);
-            this.panel4.Controls.Add(this.txtPatientDiagnosed);
-            this.panel4.Controls.Add(this.label6);
-            this.panel4.Location = new System.Drawing.Point(3, 3);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(402, 215);
-            this.panel4.TabIndex = 0;
+            this.panel5.Controls.Add(this.btnOkEnterPatientDiagnosed);
+            this.panel5.Controls.Add(this.btnSkipEnterPatientDiagnosed);
+            this.panel5.Controls.Add(this.txtPatientDiagnosed);
+            this.panel5.Controls.Add(this.label6);
+            this.panel5.Location = new System.Drawing.Point(3, 3);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(402, 215);
+            this.panel5.TabIndex = 0;
+            // 
+            // btnOkEnterPatientDiagnosed
+            // 
+            this.btnOkEnterPatientDiagnosed.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOkEnterPatientDiagnosed.Location = new System.Drawing.Point(299, 162);
+            this.btnOkEnterPatientDiagnosed.Name = "btnOkEnterPatientDiagnosed";
+            this.btnOkEnterPatientDiagnosed.Size = new System.Drawing.Size(90, 45);
+            this.btnOkEnterPatientDiagnosed.TabIndex = 6;
+            this.btnOkEnterPatientDiagnosed.Text = "TAMAM";
+            this.btnOkEnterPatientDiagnosed.UseVisualStyleBackColor = true;
+            this.btnOkEnterPatientDiagnosed.Click += new System.EventHandler(this.btnOkEnterPatientDiagnosed_Click);
             // 
             // btnSkipEnterPatientDiagnosed
             // 
@@ -328,36 +427,25 @@
             this.label6.TabIndex = 3;
             this.label6.Text = "4) Hasta Tanısı Giriniz :";
             // 
-            // btnOkEnterPatientDiagnosed
-            // 
-            this.btnOkEnterPatientDiagnosed.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOkEnterPatientDiagnosed.Location = new System.Drawing.Point(299, 162);
-            this.btnOkEnterPatientDiagnosed.Name = "btnOkEnterPatientDiagnosed";
-            this.btnOkEnterPatientDiagnosed.Size = new System.Drawing.Size(90, 45);
-            this.btnOkEnterPatientDiagnosed.TabIndex = 6;
-            this.btnOkEnterPatientDiagnosed.Text = "TAMAM";
-            this.btnOkEnterPatientDiagnosed.UseVisualStyleBackColor = true;
-            this.btnOkEnterPatientDiagnosed.Click += new System.EventHandler(this.btnOkEnterPatientDiagnosed_Click);
-            // 
             // panelEnterPatientStatus
             // 
-            this.panelEnterPatientStatus.Controls.Add(this.panel5);
-            this.panelEnterPatientStatus.Location = new System.Drawing.Point(432, 251);
+            this.panelEnterPatientStatus.Controls.Add(this.panel6);
+            this.panelEnterPatientStatus.Location = new System.Drawing.Point(395, 353);
             this.panelEnterPatientStatus.Name = "panelEnterPatientStatus";
-            this.panelEnterPatientStatus.Size = new System.Drawing.Size(415, 230);
-            this.panelEnterPatientStatus.TabIndex = 3;
+            this.panelEnterPatientStatus.Size = new System.Drawing.Size(415, 181);
+            this.panelEnterPatientStatus.TabIndex = 6;
             this.panelEnterPatientStatus.Visible = false;
             // 
-            // panel5
+            // panel6
             // 
-            this.panel5.Controls.Add(this.btnOkEnterPatientStatus);
-            this.panel5.Controls.Add(this.radioButtonInpatient);
-            this.panel5.Controls.Add(this.radioButtonOutpatient);
-            this.panel5.Controls.Add(this.label7);
-            this.panel5.Location = new System.Drawing.Point(3, 3);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(402, 215);
-            this.panel5.TabIndex = 0;
+            this.panel6.Controls.Add(this.btnOkEnterPatientStatus);
+            this.panel6.Controls.Add(this.radioButtonInpatient);
+            this.panel6.Controls.Add(this.radioButtonOutpatient);
+            this.panel6.Controls.Add(this.label7);
+            this.panel6.Location = new System.Drawing.Point(3, 3);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(402, 215);
+            this.panel6.TabIndex = 0;
             // 
             // btnOkEnterPatientStatus
             // 
@@ -404,208 +492,254 @@
             this.label7.TabIndex = 4;
             this.label7.Text = "5) Hasta Statüsü Giriniz :";
             // 
-            // panelEnterPatientExamination
+            // panelEnterFacultyMember
             // 
-            this.panelEnterPatientExamination.Controls.Add(this.panel6);
-            this.panelEnterPatientExamination.Location = new System.Drawing.Point(863, 248);
-            this.panelEnterPatientExamination.Name = "panelEnterPatientExamination";
-            this.panelEnterPatientExamination.Size = new System.Drawing.Size(415, 230);
-            this.panelEnterPatientExamination.TabIndex = 4;
-            this.panelEnterPatientExamination.Visible = false;
+            this.panelEnterFacultyMember.Controls.Add(this.panel4);
+            this.panelEnterFacultyMember.Location = new System.Drawing.Point(392, 259);
+            this.panelEnterFacultyMember.Name = "panelEnterFacultyMember";
+            this.panelEnterFacultyMember.Size = new System.Drawing.Size(367, 41);
+            this.panelEnterFacultyMember.TabIndex = 4;
+            this.panelEnterFacultyMember.Visible = false;
             // 
-            // panel6
+            // panelEnd
             // 
-            this.panel6.Controls.Add(this.btnOkEnterPatientExamination);
-            this.panel6.Controls.Add(this.comboBoxPatientExamination);
-            this.panel6.Controls.Add(this.label8);
-            this.panel6.Location = new System.Drawing.Point(3, 3);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(402, 215);
-            this.panel6.TabIndex = 0;
+            this.panelEnd.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.panelEnd.Controls.Add(this.lblPatientStatus);
+            this.panelEnd.Controls.Add(this.label12);
+            this.panelEnd.Controls.Add(this.lblPatientDiagnostic);
+            this.panelEnd.Controls.Add(this.label11);
+            this.panelEnd.Controls.Add(this.lblFacultyMember);
+            this.panelEnd.Controls.Add(this.label10);
+            this.panelEnd.Controls.Add(this.lblDate);
+            this.panelEnd.Controls.Add(this.label9);
+            this.panelEnd.Controls.Add(this.label8);
+            this.panelEnd.Controls.Add(this.lblTcNoFileNo);
+            this.panelEnd.Controls.Add(this.linkLabel1);
+            this.panelEnd.Location = new System.Drawing.Point(973, 167);
+            this.panelEnd.Name = "panelEnd";
+            this.panelEnd.Size = new System.Drawing.Size(305, 557);
+            this.panelEnd.TabIndex = 8;
+            this.panelEnd.Visible = false;
             // 
-            // btnOkEnterPatientExamination
+            // linkLabel1
             // 
-            this.btnOkEnterPatientExamination.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOkEnterPatientExamination.Location = new System.Drawing.Point(299, 162);
-            this.btnOkEnterPatientExamination.Name = "btnOkEnterPatientExamination";
-            this.btnOkEnterPatientExamination.Size = new System.Drawing.Size(90, 45);
-            this.btnOkEnterPatientExamination.TabIndex = 5;
-            this.btnOkEnterPatientExamination.Text = "TAMAM";
-            this.btnOkEnterPatientExamination.UseVisualStyleBackColor = true;
-            this.btnOkEnterPatientExamination.Click += new System.EventHandler(this.btnOkEnterPatientExamination_Click);
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLabel1.LinkColor = System.Drawing.Color.Red;
+            this.linkLabel1.Location = new System.Drawing.Point(27, 517);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(50, 18);
+            this.linkLabel1.TabIndex = 7;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "ÇIKIŞ";
             // 
-            // comboBoxPatientExamination
+            // lblTcNoFileNo
             // 
-            this.comboBoxPatientExamination.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxPatientExamination.FormattingEnabled = true;
-            this.comboBoxPatientExamination.Items.AddRange(new object[] {
-            "Hasta Yatış Formu",
-            "Onamlar",
-            "Ameliyat Notu",
-            "Anestezi Notu",
-            "Hasta Muayenesi",
-            "Klinik Gözlemi",
-            "Konsültasyon",
-            "Epikriz"});
-            this.comboBoxPatientExamination.Location = new System.Drawing.Point(26, 71);
-            this.comboBoxPatientExamination.Name = "comboBoxPatientExamination";
-            this.comboBoxPatientExamination.Size = new System.Drawing.Size(308, 21);
-            this.comboBoxPatientExamination.TabIndex = 4;
+            this.lblTcNoFileNo.AutoSize = true;
+            this.lblTcNoFileNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTcNoFileNo.Location = new System.Drawing.Point(27, 56);
+            this.lblTcNoFileNo.Name = "lblTcNoFileNo";
+            this.lblTcNoFileNo.Size = new System.Drawing.Size(0, 17);
+            this.lblTcNoFileNo.TabIndex = 8;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(25, 15);
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.DarkGreen;
+            this.label8.Location = new System.Drawing.Point(27, 25);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(311, 18);
-            this.label8.TabIndex = 3;
-            this.label8.Text = "6) Hasta Muayene ve Epikriz Bilgilerini Giriniz :";
-            // 
-            // panelEnterReports
-            // 
-            this.panelEnterReports.Controls.Add(this.panel7);
-            this.panelEnterReports.Location = new System.Drawing.Point(5, 484);
-            this.panelEnterReports.Name = "panelEnterReports";
-            this.panelEnterReports.Size = new System.Drawing.Size(415, 230);
-            this.panelEnterReports.TabIndex = 3;
-            this.panelEnterReports.Visible = false;
-            // 
-            // panel7
-            // 
-            this.panel7.Controls.Add(this.btnOkEnterReports);
-            this.panel7.Controls.Add(this.comboBoxReports);
-            this.panel7.Controls.Add(this.label9);
-            this.panel7.Location = new System.Drawing.Point(3, 3);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(402, 215);
-            this.panel7.TabIndex = 0;
-            // 
-            // btnOkEnterReports
-            // 
-            this.btnOkEnterReports.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOkEnterReports.Location = new System.Drawing.Point(299, 162);
-            this.btnOkEnterReports.Name = "btnOkEnterReports";
-            this.btnOkEnterReports.Size = new System.Drawing.Size(90, 45);
-            this.btnOkEnterReports.TabIndex = 5;
-            this.btnOkEnterReports.Text = "TAMAM";
-            this.btnOkEnterReports.UseVisualStyleBackColor = true;
-            this.btnOkEnterReports.Click += new System.EventHandler(this.btnOkEnterReports_Click);
-            // 
-            // comboBoxReports
-            // 
-            this.comboBoxReports.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxReports.FormattingEnabled = true;
-            this.comboBoxReports.Items.AddRange(new object[] {
-            "Hasta Yatış Formu",
-            "Onamlar",
-            "Ameliyat Notu",
-            "Anestezi Notu",
-            "Hasta Muayenesi",
-            "Klinik Gözlemi",
-            "Konsültasyon",
-            "Epikriz"});
-            this.comboBoxReports.Location = new System.Drawing.Point(28, 69);
-            this.comboBoxReports.Name = "comboBoxReports";
-            this.comboBoxReports.Size = new System.Drawing.Size(361, 21);
-            this.comboBoxReports.TabIndex = 4;
+            this.label8.Size = new System.Drawing.Size(269, 18);
+            this.label8.TabIndex = 9;
+            this.label8.Text = "Girilen Tc No ve Hasta Dosya No :";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label9.Location = new System.Drawing.Point(25, 15);
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.DarkGreen;
+            this.label9.Location = new System.Drawing.Point(27, 86);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(192, 18);
-            this.label9.TabIndex = 3;
-            this.label9.Text = "7) Tetkik - Raporları Giriniz :";
+            this.label9.Size = new System.Drawing.Size(110, 18);
+            this.label9.TabIndex = 10;
+            this.label9.Text = "Girilen Tarih :";
+            // 
+            // lblDate
+            // 
+            this.lblDate.AutoSize = true;
+            this.lblDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDate.Location = new System.Drawing.Point(27, 117);
+            this.lblDate.Name = "lblDate";
+            this.lblDate.Size = new System.Drawing.Size(0, 17);
+            this.lblDate.TabIndex = 11;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.DarkGreen;
+            this.label10.Location = new System.Drawing.Point(27, 147);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(213, 18);
+            this.label10.TabIndex = 12;
+            this.label10.Text = "Girilen İlgili Öğretim Üyesi :";
+            // 
+            // lblFacultyMember
+            // 
+            this.lblFacultyMember.AutoSize = true;
+            this.lblFacultyMember.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFacultyMember.Location = new System.Drawing.Point(27, 178);
+            this.lblFacultyMember.Name = "lblFacultyMember";
+            this.lblFacultyMember.Size = new System.Drawing.Size(0, 17);
+            this.lblFacultyMember.TabIndex = 13;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.DarkGreen;
+            this.label11.Location = new System.Drawing.Point(27, 208);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(166, 18);
+            this.label11.TabIndex = 14;
+            this.label11.Text = "Girilen Hasta Tanısı :";
+            // 
+            // lblPatientDiagnostic
+            // 
+            this.lblPatientDiagnostic.AutoSize = true;
+            this.lblPatientDiagnostic.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPatientDiagnostic.Location = new System.Drawing.Point(27, 239);
+            this.lblPatientDiagnostic.Name = "lblPatientDiagnostic";
+            this.lblPatientDiagnostic.Size = new System.Drawing.Size(0, 17);
+            this.lblPatientDiagnostic.TabIndex = 15;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.Color.DarkGreen;
+            this.label12.Location = new System.Drawing.Point(27, 269);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(178, 18);
+            this.label12.TabIndex = 16;
+            this.label12.Text = "Girilen Hasta Statüsü :";
+            // 
+            // linkLblContinue
+            // 
+            this.linkLblContinue.AutoSize = true;
+            this.linkLblContinue.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLblContinue.Location = new System.Drawing.Point(790, 684);
+            this.linkLblContinue.Name = "linkLblContinue";
+            this.linkLblContinue.Size = new System.Drawing.Size(156, 18);
+            this.linkLblContinue.TabIndex = 9;
+            this.linkLblContinue.TabStop = true;
+            this.linkLblContinue.Text = "İŞLEME DEVAM ET";
+            this.linkLblContinue.Visible = false;
+            this.linkLblContinue.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLblContinue_LinkClicked);
+            // 
+            // lblPatientStatus
+            // 
+            this.lblPatientStatus.AutoSize = true;
+            this.lblPatientStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPatientStatus.Location = new System.Drawing.Point(27, 301);
+            this.lblPatientStatus.Name = "lblPatientStatus";
+            this.lblPatientStatus.Size = new System.Drawing.Size(0, 17);
+            this.lblPatientStatus.TabIndex = 17;
             // 
             // formHomePage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1370, 749);
-            this.Controls.Add(this.panelEnterTCNoFileNumber);
-            this.Controls.Add(this.panelEnterReports);
-            this.Controls.Add(this.panelEnterPatientExamination);
+            this.ClientSize = new System.Drawing.Size(1330, 730);
+            this.Controls.Add(this.linkLblContinue);
+            this.Controls.Add(this.panelEnd);
             this.Controls.Add(this.panelEnterPatientStatus);
             this.Controls.Add(this.panelFormEnterPatientDiagnosed);
-            this.Controls.Add(this.panelEnterFacultyMember);
             this.Controls.Add(this.panelEnterDate);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.MaximizeBox = false;
+            this.Controls.Add(this.panelEnterFacultyMember);
+            this.Controls.Add(this.panelEnterTCNoFileNumber);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.pictureBox1);
             this.Name = "formHomePage";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "KOÜ Tıp Fakültesi Arşiv Otomasyonu";
-            this.Load += new System.EventHandler(this.formHomePage_Load);
-            this.panelEnterTCNoFileNumber.ResumeLayout(false);
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.panelEnterDate.ResumeLayout(false);
+            this.panelEnterTCNoFileNumber.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            this.panelEnterFacultyMember.ResumeLayout(false);
+            this.panelEnterDate.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            this.panelFormEnterPatientDiagnosed.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            this.panelEnterPatientStatus.ResumeLayout(false);
+            this.panelFormEnterPatientDiagnosed.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
-            this.panelEnterPatientExamination.ResumeLayout(false);
+            this.panelEnterPatientStatus.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
-            this.panelEnterReports.ResumeLayout(false);
-            this.panel7.ResumeLayout(false);
-            this.panel7.PerformLayout();
+            this.panelEnterFacultyMember.ResumeLayout(false);
+            this.panelEnd.ResumeLayout(false);
+            this.panelEnd.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.FlowLayoutPanel panelEnterTCNoFileNumber;
+        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.LinkLabel linkLblEnterPatientStatus;
+        private System.Windows.Forms.LinkLabel linkLblEnterPatientDiagnosed;
+        private System.Windows.Forms.LinkLabel linkLblEnterFacultyMember;
+        private System.Windows.Forms.LinkLabel linkLblEnterDate;
+        private System.Windows.Forms.LinkLabel linkLblEnterTCNoFile;
+        private System.Windows.Forms.FlowLayoutPanel panelEnterTCNoFileNumber;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnOkTcNoFileNumber;
         private System.Windows.Forms.TextBox txtFileNumber;
         private System.Windows.Forms.TextBox txtTcNo;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.FlowLayoutPanel panelEnterDate;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button btnOkEnterDate;
         private System.Windows.Forms.DateTimePicker dateTimePicker;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.FlowLayoutPanel panelEnterFacultyMember;
-        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Button btnOkEnterFacultyMember;
         private System.Windows.Forms.Button btnSkipEnterFacultyMember;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox comboBoxFacultyMember;
         private System.Windows.Forms.FlowLayoutPanel panelFormEnterPatientDiagnosed;
-        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Button btnOkEnterPatientDiagnosed;
         private System.Windows.Forms.Button btnSkipEnterPatientDiagnosed;
         private System.Windows.Forms.TextBox txtPatientDiagnosed;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button btnOkEnterPatientDiagnosed;
         private System.Windows.Forms.FlowLayoutPanel panelEnterPatientStatus;
-        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Button btnOkEnterPatientStatus;
         private System.Windows.Forms.RadioButton radioButtonInpatient;
         private System.Windows.Forms.RadioButton radioButtonOutpatient;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.FlowLayoutPanel panelEnterPatientExamination;
-        private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.Button btnOkEnterPatientExamination;
-        private System.Windows.Forms.ComboBox comboBoxPatientExamination;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.FlowLayoutPanel panelEnterReports;
-        private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.Button btnOkEnterReports;
-        private System.Windows.Forms.ComboBox comboBoxReports;
+        private System.Windows.Forms.FlowLayoutPanel panelEnterFacultyMember;
+        private System.Windows.Forms.Panel panelEnd;
+        private System.Windows.Forms.Label lblFacultyMember;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label lblDate;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label lblTcNoFileNo;
+        private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label lblPatientDiagnostic;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.LinkLabel linkLblContinue;
+        private System.Windows.Forms.Label lblPatientStatus;
     }
 }

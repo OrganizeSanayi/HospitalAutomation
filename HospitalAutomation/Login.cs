@@ -50,6 +50,8 @@ namespace HospitalAutomation
                 this.Hide();
                 // Login işlemi doğru şekilde sağlandığında hastanın tcNo ve dosya numarasının alınması için yönlendirme yapılacak
 
+                
+
                 formHomePage formHome = new formHomePage();
                 formHome.Size = new System.Drawing.Size(450, 300);
                 formHome.Show();
@@ -57,6 +59,7 @@ namespace HospitalAutomation
             }
             
         }
+
 
     }
 }
