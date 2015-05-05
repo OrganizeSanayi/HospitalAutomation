@@ -17,157 +17,247 @@ namespace HospitalAutomation
             InitializeComponent();
         }
 
-        private void linkLblEnterTCNoFile_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        // Dosya Bilgileri Sayfası İşlemleri
+        private void linkLblFileInformation_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             // TC No ve dosya numarasının alınması için ilgili panel açılır.
             // TC No ve Dosya Numarası Alınmadan başka adımlara geçilmemeli .(KONTROL)
-            VisibleControl();
-            panelEnterTCNoFileNumber.Visible = true;
-            panelEnterTCNoFileNumber.Location = new System.Drawing.Point(392, 164);
-            panelEnterTCNoFileNumber.Size = new System.Drawing.Size(415, 230);
+            PanelVisibleControl();
+            panelFileInformation.Visible = true;
+            panelFileInformation.Location = new System.Drawing.Point(395, 165);
+            panelFileInformation.Size = new System.Drawing.Size(415, 230);
         }
 
-        private void btnOkTcNoFileNumber_Click(object sender, EventArgs e)
+        private void btnOkFileInformationPage_Click(object sender, EventArgs e)
         {
-            // TC No ve dosya numarası girildikten sonra TAMAM butonuna tıklanarak tarih girilme paneline geçilir.
-            // TC No ve Dosya Numarası Alınmadan başka adımlara geçilmemeli .(KONTROL)
-            VisibleControl();
-            panelEnterDate.Visible = true;
-            panelEnterDate.Location = new System.Drawing.Point(392, 164);
-            panelEnterDate.Size = new System.Drawing.Size(415, 230);
-
-            panelEnd.Visible = true;
-            lblTcNoFileNo.Text = txtTcNo.Text + '\t'+  txtFileNumber.Text;
+            // Hasta Dosyasına ait TC No ve Dosya No girilmeden sonraki adıma geçilemez.(KONTROL)
+            // Gerekli bilgiler alındıktan sonra Kayıt Bilgisi paneli açılır. ( txtTcNo - txtFileNumber )
+            PanelVisibleControl();
+            panelRegisterInformation.Visible = true;
+            panelRegisterInformation.Location = new System.Drawing.Point(395, 165);
+            panelRegisterInformation.Size = new System.Drawing.Size(910, 485);
         }
 
+        private void txtTcNo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+        }
+
+        private void txtTcNo_TextChanged(object sender, EventArgs e)
+        {
+            lblTcNo.Text = txtTcNo.Text;
+        }
+
+        private void txtFileNumber_TextChanged(object sender, EventArgs e)
+        {
+            lblFileNo.Text = txtFileNumber.Text;
+        }
+
+
+
+        // Kayıt Bilgisi Sayfası İşlemleri   
+        private void linkLblRegisterInformation_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            PanelVisibleControl();
+            panelRegisterInformation.Visible = true;
+            panelRegisterInformation.Location = new System.Drawing.Point(395, 165);
+            panelRegisterInformation.Size = new System.Drawing.Size(910, 485);
+        }
+
+        //-- Tarih Seçim İşlemi
         private void linkLblEnterDate_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            // Tarih Girişi için ilgili panel açılır.
-            // Tarih girişi yapılmadan sonraki adıma geçilmemeli.(KONTROL)
-            VisibleControl();
-            panelEnterDate.Visible = true;
-            panelEnterDate.Location = new System.Drawing.Point(392, 164);
-            panelEnterDate.Size = new System.Drawing.Size(415, 230);
+            RegisterIndformationFormVisibleControl();
+            monthCalendar.Visible = true;
+            monthCalendar.Location = new System.Drawing.Point(210, 66);
         }
 
-        private void btnOkEnterDate_Click(object sender, EventArgs e)
+        private void monthCalendar_DateChanged(object sender, DateRangeEventArgs e)
         {
-            // Tarih Girişi alınmadan sonraki adıma geçilmemeli (KONTROL)
-            // Tarih bilgisi girildikten sonra TAMAM butonuna tıklanarak ilgili öğretim üyesi girilme paneline geçilir.
-            VisibleControl();
-            panelEnterFacultyMember.Visible = true;
-            panelEnterFacultyMember.Location = new System.Drawing.Point(392, 164);
-            panelEnterFacultyMember.Size = new System.Drawing.Size(415, 230);
-
-            lblDate.Text = dateTimePicker.Text;
+            this.lblDate.Text = monthCalendar.SelectionRange.Start.Date.ToShortDateString();
         }
 
+        //-- Bölüm Seçim İşlemi
+        private void linkLabelEnterSection_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            RegisterIndformationFormVisibleControl();
+            groupBoxSection.Visible = true;
+            groupBoxSection.Location = new System.Drawing.Point(210, 112);
+        }
+
+        private void groupBoxSection_Enter(object sender, EventArgs e)
+        {
+            foreach (Control control in this.groupBoxSection.Controls)
+            {
+                if (control is RadioButton)
+                {
+                    RadioButton radio = control as RadioButton;
+                    if (radio.Checked)
+                    {
+                        lblSection.Text = radio.Text;
+                    }
+                }
+            }
+        }
+
+        //-- İlgili Öğretim Üyesi Seçim İşlemi
+        //-- (KONTROL)  İlgili Öğretim Üyesi Seçilmek Zorunda
         private void linkLblEnterFacultyMember_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            // İlgili öğretim üyesinin seçilmesi paneli açılır.
-            VisibleControl();
-            panelEnterFacultyMember.Visible = true;
-            panelEnterFacultyMember.Location = new System.Drawing.Point(392, 164);
-            panelEnterFacultyMember.Size = new System.Drawing.Size(415, 230);
+            RegisterIndformationFormVisibleControl();
+            groupBoxFacultyMember.Visible = true;
+            groupBoxFacultyMember.Location = new System.Drawing.Point(210, 148);
         }
 
-        private void btnOkEnterFacultyMember_Click(object sender, EventArgs e)
+        private void groupFacultyMember_Enter(object sender, EventArgs e)
         {
-            // Öğretim üyesi seçildikten sonra TAMAM butonuna tıklanarak Hasta Tanısı paneline geçilir.
-            VisibleControl();
-            panelFormEnterPatientDiagnosed.Visible = true;
-            panelFormEnterPatientDiagnosed.Location = new System.Drawing.Point(392, 164);
-            panelFormEnterPatientDiagnosed.Size = new System.Drawing.Size(415, 230);
-
-            if (comboBoxFacultyMember.Text != null)
+            foreach (Control control in this.groupBoxFacultyMember.Controls)
             {
-                lblFacultyMember.Text = comboBoxFacultyMember.Text;
+                if (control is RadioButton)
+                {
+                    RadioButton radio = control as RadioButton;
+                    if (radio.Checked)
+                    {
+                        lblFacultyMember.Text = radio.Text;
+                    }
+                }
             }
         }
 
-        private void btnSkipEnterFacultyMember_Click(object sender, EventArgs e)
+        //-- Hasta Tanısı Giriş
+        //-- (KONTROL)  Hasta Tanısı Seçilmek Zorunda
+        private void linkLblPatientDiagnosed_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            // İlgili öğretim üyesinin seçilmesi zorunlu bir adım değildir.
-            VisibleControl();
-            panelFormEnterPatientDiagnosed.Visible = true;
-            panelFormEnterPatientDiagnosed.Location = new System.Drawing.Point(392, 164);
-            panelFormEnterPatientDiagnosed.Size = new System.Drawing.Size(415, 230);
+            RegisterIndformationFormVisibleControl();
+            txtPatientDiagnosed.Visible = true;
+            txtPatientDiagnosed.Location = new System.Drawing.Point(210, 200);
         }
 
-        private void linkLblEnterPatientDiagnosed_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void txtPatientDiagnosed_TextChanged(object sender, EventArgs e)
         {
-            // Hasta Tanısı Giriniz linkine tıklanarak ilgili panel açılır.
-            VisibleControl();
-            panelFormEnterPatientDiagnosed.Visible = true;
-            panelFormEnterPatientDiagnosed.Location = new System.Drawing.Point(392, 164);
-            panelFormEnterPatientDiagnosed.Size = new System.Drawing.Size(415, 230);
+            lblPatientDiagnosed.Text = txtPatientDiagnosed.Text;
         }
 
-        private void btnOkEnterPatientDiagnosed_Click(object sender, EventArgs e)
+        //-- Hasta Statüsü
+        private void linkLblPatientStatus_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            // Hasta Tanısı seçimi yapıldıktan sonra hasta statusu paneline geçilir.
-            // Hasta Tanısı seçimi zorunlu değildir.
-            VisibleControl();
-            panelFormEnterPatientDiagnosed.Visible = true;
-            panelFormEnterPatientDiagnosed.Location = new System.Drawing.Point(392, 164);
-            panelFormEnterPatientDiagnosed.Size = new System.Drawing.Size(415, 230);
+            RegisterIndformationFormVisibleControl();
+            groupBoxPatientStatus.Visible = true;
+            groupBoxPatientStatus.Location = new System.Drawing.Point(210, 244);
+        }
 
-            if (txtPatientDiagnosed.Text != null)
+        private void groupBoxPatientStatus_Enter(object sender, EventArgs e)
+        {
+            foreach (Control control in this.groupBoxPatientStatus.Controls)
             {
-                lblPatientDiagnostic.Text = txtPatientDiagnosed.Text;
+                if (control is RadioButton)
+                {
+                    RadioButton radio = control as RadioButton;
+                    if (radio.Checked)
+                    {
+                        lblPatientStatus.Text = radio.Text;
+                    }
+                }
             }
         }
 
-        private void btnSkipEnterPatientDiagnosed_Click(object sender, EventArgs e)
+
+         //-- Kayıt Bilgisi Visible Kontrolleri
+        public void RegisterIndformationFormVisibleControl()
         {
-            // Hasta Tanısı seçimi zorunlu değildir.
-            VisibleControl();
-            panelEnterPatientStatus.Visible = true;
-            panelEnterPatientStatus.Location = new System.Drawing.Point(392, 164);
-            panelEnterPatientStatus.Size = new System.Drawing.Size(415, 230);
+            monthCalendar.Visible = false;
+            groupBoxSection.Visible = false;
+            groupBoxFacultyMember.Visible = false;
+            txtPatientDiagnosed.Visible = false;
+            groupBoxPatientStatus.Visible = false;
         }
 
-        private void linkLblEnterPatientStatus_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        public void PanelVisibleControl()
         {
-            // Hasta statusu seçimi zorunludur. (KONTROL)
-            VisibleControl();
-            panelEnterPatientStatus.Visible = true;
-            panelEnterPatientStatus.Location = new System.Drawing.Point(392, 164);
-            panelEnterPatientStatus.Size = new System.Drawing.Size(415, 230);
+            panelRegisterInformation.Visible = false;
+            panelFileInformation.Visible = false;
+            panelReports.Visible = false;
         }
 
-
-        private void btnOkEnterPatientStatus_Click(object sender, EventArgs e)
+        // Raporlar
+        private void linkLblReports_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            // Hasta statüsü seçimi yapılır ve tarama sayfasına geçilir.
-            // Hasta statüsü seçimi zorunludur.
-            if(radioButtonOutpatient.Checked == true)
+            PanelVisibleControl();
+            panelReports.Visible = true;
+            panelReports.Location = new System.Drawing.Point(395, 165);
+        }
+
+        private void btnPatientExamination_Click(object sender, EventArgs e)
+        {
+            groupBoxPatientExamination.Visible = true;
+            groupBoxReports.Visible = false;
+            radioBtnJudicialReports.Visible = false;
+        }
+
+        private void btnReports_Click(object sender, EventArgs e)
+        {
+            groupBoxReports.Visible = true;
+            groupBoxPatientExamination.Visible = false;
+            radioBtnJudicialReports.Visible = false;
+        }
+
+        private void btnJudicialReports_Click(object sender, EventArgs e)
+        {
+            radioBtnJudicialReports.Visible = true;
+            groupBoxPatientExamination.Visible = false;
+            groupBoxReports.Visible = false;
+        }
+
+        private void groupBoxPatientExamination_Enter(object sender, EventArgs e)
+        {
+            foreach (Control control in this.groupBoxPatientExamination.Controls)
             {
-                lblPatientStatus.Text = "Ayakta Hasta";
+                if (control is RadioButton)
+                {
+                    RadioButton radio = control as RadioButton;
+                    if (radio.Checked)
+                    {
+                        lblReports.Text = radio.Text;
+                    }
+                }
             }
-
-            if(radioButtonInpatient.Checked == true)
-            {
-                lblPatientStatus.Text = "Yatan Hasta";
-            }
-
-            linkLblContinue.Visible = true;
-        } 
-
-        public void VisibleControl()
-        {
-            panelEnterDate.Visible = false;
-            panelEnterFacultyMember.Visible = false;
-            panelEnterTCNoFileNumber.Visible = false;           
-            panelEnterPatientStatus.Visible = false;
-            panelFormEnterPatientDiagnosed.Visible =false;
         }
 
-        private void linkLblContinue_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        //groupBoxReports
+
+        private void groupBoxReports_Enter(object sender, EventArgs e)
         {
-            this.Close();
-            formScanPage scanPage = new formScanPage();
-            scanPage.Show();
-        }        
+            foreach (Control control in this.groupBoxReports.Controls)
+            {
+                if (control is RadioButton)
+                {
+                    RadioButton radio = control as RadioButton;
+                    if (radio.Checked)
+                    {
+                        lblReports.Text = radio.Text;
+                    }
+                }
+            }
+        }
+
+        private void radioBtnJudicialReports_CheckedChanged(object sender, EventArgs e)
+        {
+            lblReports.Text = radioBtnJudicialReports.Text;
+        }
+
+        private void btnScan_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Tarama İşlemine Geçmek İstiyor musunuz?", "Uyarı", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+            if (dialogResult == DialogResult.Yes)
+            {
+                //do something
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+                //do something else
+            }
+        }
+      
     }
 }
+

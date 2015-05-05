@@ -50,12 +50,6 @@
     <Compile Include="HomePage.Designer.cs">
       <DependentUpon>HomePage.cs</DependentUpon>
     </Compile>
-    <Compile Include="HomePage2.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="HomePage2.Designer.cs">
-      <DependentUpon>HomePage2.cs</DependentUpon>
-    </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -67,15 +61,6 @@
     <EmbeddedResource Include="HomePage.resx">
       <DependentUpon>HomePage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="HomePage2.resx">
-      <DependentUpon>HomePage2.cs</DependentUpon>
-    </EmbeddedResource>
-    <Compile Include="ScanPage.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ScanPage.Designer.cs">
-      <DependentUpon>ScanPage.cs</DependentUpon>
-    </Compile>
     <Compile Include="Util\Constants.cs" />
     <Compile Include="Util\ErrorTracker.cs" />
     <Compile Include="Util\Logger.cs" />
@@ -86,9 +71,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ScanPage.resx">
-      <DependentUpon>ScanPage.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
