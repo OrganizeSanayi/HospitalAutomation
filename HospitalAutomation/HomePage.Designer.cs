@@ -29,9 +29,25 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnScan = new System.Windows.Forms.Button();
+            this.lblReports = new System.Windows.Forms.Label();
+            this.lblSection = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.lblPatientStatus = new System.Windows.Forms.Label();
+            this.lblFileNo = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
             this.linkLblReports = new System.Windows.Forms.LinkLabel();
+            this.lblPatientDiagnosed = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
             this.linkLblRegisterInformation = new System.Windows.Forms.LinkLabel();
+            this.lblFacultyMember = new System.Windows.Forms.Label();
             this.linkLblFileInformation = new System.Windows.Forms.LinkLabel();
+            this.label10 = new System.Windows.Forms.Label();
+            this.lblTcNo = new System.Windows.Forms.Label();
+            this.lblDate = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.panelRegisterInformation = new System.Windows.Forms.FlowLayoutPanel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.groupBoxPatientStatus = new System.Windows.Forms.GroupBox();
@@ -91,19 +107,6 @@
             this.linkLabelEnterSection = new System.Windows.Forms.LinkLabel();
             this.linkLblEnterDate = new System.Windows.Forms.LinkLabel();
             this.label4 = new System.Windows.Forms.Label();
-            this.lblFileNo = new System.Windows.Forms.Label();
-            this.lblSection = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.lblPatientStatus = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.lblPatientDiagnosed = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.lblFacultyMember = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.lblDate = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.lblTcNo = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.btnOkFileInformationPage = new System.Windows.Forms.Button();
@@ -136,9 +139,6 @@
             this.btnScanFile = new System.Windows.Forms.Button();
             this.btnPatientExamination = new System.Windows.Forms.Button();
             this.btnReports = new System.Windows.Forms.Button();
-            this.label13 = new System.Windows.Forms.Label();
-            this.lblReports = new System.Windows.Forms.Label();
-            this.btnScan = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panelRegisterInformation.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -180,6 +180,86 @@
             this.panel1.Size = new System.Drawing.Size(358, 557);
             this.panel1.TabIndex = 1;
             // 
+            // btnScan
+            // 
+            this.btnScan.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnScan.Location = new System.Drawing.Point(231, 488);
+            this.btnScan.Name = "btnScan";
+            this.btnScan.Size = new System.Drawing.Size(111, 52);
+            this.btnScan.TabIndex = 24;
+            this.btnScan.Text = "TARA";
+            this.btnScan.UseVisualStyleBackColor = true;
+            this.btnScan.Click += new System.EventHandler(this.btnScan_Click);
+            // 
+            // lblReports
+            // 
+            this.lblReports.AutoSize = true;
+            this.lblReports.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblReports.Location = new System.Drawing.Point(39, 364);
+            this.lblReports.Name = "lblReports";
+            this.lblReports.Size = new System.Drawing.Size(0, 17);
+            this.lblReports.TabIndex = 23;
+            // 
+            // lblSection
+            // 
+            this.lblSection.AutoSize = true;
+            this.lblSection.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSection.Location = new System.Drawing.Point(31, 181);
+            this.lblSection.Name = "lblSection";
+            this.lblSection.Size = new System.Drawing.Size(0, 17);
+            this.lblSection.TabIndex = 20;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.DarkGreen;
+            this.label7.Location = new System.Drawing.Point(31, 159);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(66, 18);
+            this.label7.TabIndex = 19;
+            this.label7.Text = "Bölüm :";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.Color.DarkGreen;
+            this.label13.Location = new System.Drawing.Point(32, 62);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(142, 18);
+            this.label13.TabIndex = 22;
+            this.label13.Text = "Hasta Dosya No :";
+            // 
+            // lblPatientStatus
+            // 
+            this.lblPatientStatus.AutoSize = true;
+            this.lblPatientStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPatientStatus.Location = new System.Drawing.Point(31, 310);
+            this.lblPatientStatus.Name = "lblPatientStatus";
+            this.lblPatientStatus.Size = new System.Drawing.Size(0, 17);
+            this.lblPatientStatus.TabIndex = 17;
+            // 
+            // lblFileNo
+            // 
+            this.lblFileNo.AutoSize = true;
+            this.lblFileNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFileNo.Location = new System.Drawing.Point(175, 62);
+            this.lblFileNo.Name = "lblFileNo";
+            this.lblFileNo.Size = new System.Drawing.Size(0, 17);
+            this.lblFileNo.TabIndex = 21;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.Color.DarkGreen;
+            this.label12.Location = new System.Drawing.Point(31, 288);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(178, 18);
+            this.label12.TabIndex = 16;
+            this.label12.Text = "Girilen Hasta Statüsü :";
+            // 
             // linkLblReports
             // 
             this.linkLblReports.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -192,6 +272,37 @@
             this.linkLblReports.TabStop = true;
             this.linkLblReports.Text = "3) Rapor Bilgisi";
             this.linkLblReports.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLblReports_LinkClicked);
+            // 
+            // lblPatientDiagnosed
+            // 
+            this.lblPatientDiagnosed.AutoSize = true;
+            this.lblPatientDiagnosed.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPatientDiagnosed.Location = new System.Drawing.Point(31, 267);
+            this.lblPatientDiagnosed.Name = "lblPatientDiagnosed";
+            this.lblPatientDiagnosed.Size = new System.Drawing.Size(0, 17);
+            this.lblPatientDiagnosed.TabIndex = 15;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.DarkGreen;
+            this.label5.Location = new System.Drawing.Point(32, 44);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(64, 18);
+            this.label5.TabIndex = 18;
+            this.label5.Text = "Tc No :";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.DarkGreen;
+            this.label11.Location = new System.Drawing.Point(31, 245);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(166, 18);
+            this.label11.TabIndex = 14;
+            this.label11.Text = "Girilen Hasta Tanısı :";
             // 
             // linkLblRegisterInformation
             // 
@@ -207,6 +318,15 @@
             this.linkLblRegisterInformation.Text = "2) Kayıt Bilgisi";
             this.linkLblRegisterInformation.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLblRegisterInformation_LinkClicked);
             // 
+            // lblFacultyMember
+            // 
+            this.lblFacultyMember.AutoSize = true;
+            this.lblFacultyMember.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFacultyMember.Location = new System.Drawing.Point(31, 224);
+            this.lblFacultyMember.Name = "lblFacultyMember";
+            this.lblFacultyMember.Size = new System.Drawing.Size(0, 17);
+            this.lblFacultyMember.TabIndex = 13;
+            // 
             // linkLblFileInformation
             // 
             this.linkLblFileInformation.AutoSize = true;
@@ -220,6 +340,46 @@
             this.linkLblFileInformation.TabStop = true;
             this.linkLblFileInformation.Text = "1) Dosya Bilgileri";
             this.linkLblFileInformation.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLblFileInformation_LinkClicked);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.DarkGreen;
+            this.label10.Location = new System.Drawing.Point(31, 202);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(159, 18);
+            this.label10.TabIndex = 12;
+            this.label10.Text = "İlgili Öğretim Üyesi :";
+            // 
+            // lblTcNo
+            // 
+            this.lblTcNo.AutoSize = true;
+            this.lblTcNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTcNo.Location = new System.Drawing.Point(100, 45);
+            this.lblTcNo.Name = "lblTcNo";
+            this.lblTcNo.Size = new System.Drawing.Size(0, 17);
+            this.lblTcNo.TabIndex = 8;
+            // 
+            // lblDate
+            // 
+            this.lblDate.AutoSize = true;
+            this.lblDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDate.Location = new System.Drawing.Point(31, 138);
+            this.lblDate.Name = "lblDate";
+            this.lblDate.Size = new System.Drawing.Size(0, 17);
+            this.lblDate.TabIndex = 11;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.DarkGreen;
+            this.label9.Location = new System.Drawing.Point(31, 116);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(56, 18);
+            this.label9.TabIndex = 10;
+            this.label9.Text = "Tarih :";
             // 
             // panelRegisterInformation
             // 
@@ -959,135 +1119,6 @@
             this.label4.TabIndex = 3;
             this.label4.Text = "2) Kayıt Bilgisi :";
             // 
-            // lblFileNo
-            // 
-            this.lblFileNo.AutoSize = true;
-            this.lblFileNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFileNo.Location = new System.Drawing.Point(175, 62);
-            this.lblFileNo.Name = "lblFileNo";
-            this.lblFileNo.Size = new System.Drawing.Size(0, 17);
-            this.lblFileNo.TabIndex = 21;
-            // 
-            // lblSection
-            // 
-            this.lblSection.AutoSize = true;
-            this.lblSection.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSection.Location = new System.Drawing.Point(31, 181);
-            this.lblSection.Name = "lblSection";
-            this.lblSection.Size = new System.Drawing.Size(0, 17);
-            this.lblSection.TabIndex = 20;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.DarkGreen;
-            this.label7.Location = new System.Drawing.Point(31, 159);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(66, 18);
-            this.label7.TabIndex = 19;
-            this.label7.Text = "Bölüm :";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.DarkGreen;
-            this.label5.Location = new System.Drawing.Point(32, 44);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(64, 18);
-            this.label5.TabIndex = 18;
-            this.label5.Text = "Tc No :";
-            // 
-            // lblPatientStatus
-            // 
-            this.lblPatientStatus.AutoSize = true;
-            this.lblPatientStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPatientStatus.Location = new System.Drawing.Point(31, 310);
-            this.lblPatientStatus.Name = "lblPatientStatus";
-            this.lblPatientStatus.Size = new System.Drawing.Size(0, 17);
-            this.lblPatientStatus.TabIndex = 17;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.Color.DarkGreen;
-            this.label12.Location = new System.Drawing.Point(31, 288);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(178, 18);
-            this.label12.TabIndex = 16;
-            this.label12.Text = "Girilen Hasta Statüsü :";
-            // 
-            // lblPatientDiagnosed
-            // 
-            this.lblPatientDiagnosed.AutoSize = true;
-            this.lblPatientDiagnosed.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPatientDiagnosed.Location = new System.Drawing.Point(31, 267);
-            this.lblPatientDiagnosed.Name = "lblPatientDiagnosed";
-            this.lblPatientDiagnosed.Size = new System.Drawing.Size(0, 17);
-            this.lblPatientDiagnosed.TabIndex = 15;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.Color.DarkGreen;
-            this.label11.Location = new System.Drawing.Point(31, 245);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(166, 18);
-            this.label11.TabIndex = 14;
-            this.label11.Text = "Girilen Hasta Tanısı :";
-            // 
-            // lblFacultyMember
-            // 
-            this.lblFacultyMember.AutoSize = true;
-            this.lblFacultyMember.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFacultyMember.Location = new System.Drawing.Point(31, 224);
-            this.lblFacultyMember.Name = "lblFacultyMember";
-            this.lblFacultyMember.Size = new System.Drawing.Size(0, 17);
-            this.lblFacultyMember.TabIndex = 13;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.Color.DarkGreen;
-            this.label10.Location = new System.Drawing.Point(31, 202);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(159, 18);
-            this.label10.TabIndex = 12;
-            this.label10.Text = "İlgili Öğretim Üyesi :";
-            // 
-            // lblDate
-            // 
-            this.lblDate.AutoSize = true;
-            this.lblDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDate.Location = new System.Drawing.Point(31, 138);
-            this.lblDate.Name = "lblDate";
-            this.lblDate.Size = new System.Drawing.Size(0, 17);
-            this.lblDate.TabIndex = 11;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.DarkGreen;
-            this.label9.Location = new System.Drawing.Point(31, 116);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(56, 18);
-            this.label9.TabIndex = 10;
-            this.label9.Text = "Tarih :";
-            // 
-            // lblTcNo
-            // 
-            this.lblTcNo.AutoSize = true;
-            this.lblTcNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTcNo.Location = new System.Drawing.Point(100, 45);
-            this.lblTcNo.Name = "lblTcNo";
-            this.lblTcNo.Size = new System.Drawing.Size(0, 17);
-            this.lblTcNo.TabIndex = 8;
-            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.label3);
@@ -1488,37 +1519,6 @@
             this.btnReports.UseVisualStyleBackColor = true;
             this.btnReports.Click += new System.EventHandler(this.btnReports_Click);
             // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.ForeColor = System.Drawing.Color.DarkGreen;
-            this.label13.Location = new System.Drawing.Point(32, 62);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(142, 18);
-            this.label13.TabIndex = 22;
-            this.label13.Text = "Hasta Dosya No :";
-            // 
-            // lblReports
-            // 
-            this.lblReports.AutoSize = true;
-            this.lblReports.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblReports.Location = new System.Drawing.Point(39, 364);
-            this.lblReports.Name = "lblReports";
-            this.lblReports.Size = new System.Drawing.Size(0, 17);
-            this.lblReports.TabIndex = 23;
-            // 
-            // btnScan
-            // 
-            this.btnScan.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnScan.Location = new System.Drawing.Point(231, 488);
-            this.btnScan.Name = "btnScan";
-            this.btnScan.Size = new System.Drawing.Size(111, 52);
-            this.btnScan.TabIndex = 24;
-            this.btnScan.Text = "TARA";
-            this.btnScan.UseVisualStyleBackColor = true;
-            this.btnScan.Click += new System.EventHandler(this.btnScan_Click);
-            // 
             // formHomePage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1532,6 +1532,7 @@
             this.Name = "formHomePage";
             this.Text = "KOÜ Tıp Fakültesi Arşiv Otomasyonu";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+           
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panelRegisterInformation.ResumeLayout(false);

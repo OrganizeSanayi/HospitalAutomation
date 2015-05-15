@@ -32,8 +32,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -44,11 +53,44 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ADLISAGLIKKURULU.cs">
+      <DependentUpon>HospitalEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ADLISAGLIKKURULURESIMLER.cs">
+      <DependentUpon>HospitalEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ADLISAGLIKKURULUYOL.cs">
+      <DependentUpon>HospitalEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BOLUMLER.cs">
+      <DependentUpon>HospitalEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DOSYALAR.cs">
+      <DependentUpon>HospitalEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HASTALAR.cs">
+      <DependentUpon>HospitalEntity.tt</DependentUpon>
+    </Compile>
     <Compile Include="HomePage.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="HomePage.Designer.cs">
       <DependentUpon>HomePage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HospitalEntity.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HospitalEntity.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HospitalEntity.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HospitalEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HospitalEntity.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HospitalEntity.edmx</DependentUpon>
     </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
@@ -56,11 +98,44 @@
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
+    <Compile Include="MUAYENEEPIKRIZ.cs">
+      <DependentUpon>HospitalEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MUAYENEEPIKRIZRESIMLER.cs">
+      <DependentUpon>HospitalEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MUAYENEEPIKRIZYOL.cs">
+      <DependentUpon>HospitalEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OGRETIMUYELERİ.cs">
+      <DependentUpon>HospitalEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OTURUM.cs">
+      <DependentUpon>HospitalEntity.tt</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="HomePage.resx">
       <DependentUpon>HomePage.cs</DependentUpon>
     </EmbeddedResource>
+    <Compile Include="STATU.cs">
+      <DependentUpon>HospitalEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sysdiagram.cs">
+      <DependentUpon>HospitalEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TANILAR.cs">
+      <DependentUpon>HospitalEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TETKIKRAPORLAR.cs">
+      <DependentUpon>HospitalEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TETKIKRAPORRESIMLER.cs">
+      <DependentUpon>HospitalEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TETKIKRAPORYOL.cs">
+      <DependentUpon>HospitalEntity.tt</DependentUpon>
+    </Compile>
     <Compile Include="Util\Constants.cs" />
     <Compile Include="Util\ErrorTracker.cs" />
     <Compile Include="Util\Logger.cs" />
@@ -72,6 +147,24 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EntityDeploy Include="HospitalEntity.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>HospitalEntity.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="HospitalEntity.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>HospitalEntity.edmx</DependentUpon>
+      <LastGenOutput>HospitalEntity.Context.cs</LastGenOutput>
+    </None>
+    <None Include="HospitalEntity.edmx.diagram">
+      <DependentUpon>HospitalEntity.edmx</DependentUpon>
+    </None>
+    <None Include="HospitalEntity.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>HospitalEntity.edmx</DependentUpon>
+      <LastGenOutput>HospitalEntity.cs</LastGenOutput>
+    </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -95,6 +188,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\HomePageBanner.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

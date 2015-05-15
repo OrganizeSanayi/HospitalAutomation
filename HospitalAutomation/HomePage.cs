@@ -27,15 +27,29 @@ namespace HospitalAutomation
             panelFileInformation.Location = new System.Drawing.Point(395, 165);
             panelFileInformation.Size = new System.Drawing.Size(415, 230);
         }
+       
 
         private void btnOkFileInformationPage_Click(object sender, EventArgs e)
         {
             // Hasta Dosyasına ait TC No ve Dosya No girilmeden sonraki adıma geçilemez.(KONTROL)
             // Gerekli bilgiler alındıktan sonra Kayıt Bilgisi paneli açılır. ( txtTcNo - txtFileNumber )
-            PanelVisibleControl();
+            PanelVisibleControl(); 
             panelRegisterInformation.Visible = true;
             panelRegisterInformation.Location = new System.Drawing.Point(395, 165);
             panelRegisterInformation.Size = new System.Drawing.Size(910, 485);
+            // Girilen dosya no ile TC no veritabanına kayıt işlemi
+        //    HASTALAR hasta = new HASTALAR();
+         //   hasta.TcKimlikNo = txtTcNo.Text.ToString();
+         //   hasta.DosyaNumarası = txtFileNumber.Text.ToString();
+          //  hasta.Ad = " ";
+          //  hasta.Soyad = " ";
+           // using (HospitalAutomationEntities db = new HospitalAutomationEntities())
+           // {
+            //    db.HASTALARs.Add(hasta);
+             //   db.SaveChanges();
+           // }
+            
+
         }
 
         private void txtTcNo_KeyPress(object sender, KeyPressEventArgs e)
@@ -257,6 +271,8 @@ namespace HospitalAutomation
                 //do something else
             }
         }
+
+     
       
     }
 }

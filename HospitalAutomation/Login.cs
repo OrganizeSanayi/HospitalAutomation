@@ -26,6 +26,7 @@ namespace HospitalAutomation
             eTracker = new ErrorTracker(errorProvider);
             errorProvider.BlinkStyle = ErrorBlinkStyle.NeverBlink;
         }
+   //     HospitalAutomationEntities db = new HospitalAutomationEntities();
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
@@ -47,15 +48,25 @@ namespace HospitalAutomation
             if (!isUsernameFieldEmpty && !isPasswordFieldEmpty)
             {
                 //txtUserName ve txtUserPassword ile sisteme giriş yapılacak
-                this.Hide();
-                // Login işlemi doğru şekilde sağlandığında hastanın tcNo ve dosya numarasının alınması için yönlendirme yapılacak
-
                 
+                // Login işlemi doğru şekilde sağlandığında hastanın tcNo ve dosya numarasının alınması için yönlendirme yapılacak
+                // Kullanıcı veritabanında kontrol ediliyor var ise yönlendirme yapılıyor.
+              //  var user = db.OTURUMs.Where(p => p.KullaniciAdi == txtUserName.Text && p.Sifre==txtUserPassword.Text).FirstOrDefault();
+               // if (user != null)
+                //{
+                    this.Hide();
+                    formHomePage formHome = new formHomePage();
+                    formHome.Size = new System.Drawing.Size(450, 300);
+                    formHome.Show();
+                    Logger.i("Succesfully logged in");
+               // }
+                //else
+                //{
+                 //   Logger.i("Basarisiz");
+                  //  MessageBox.Show("Gecersiz Giriş");
+                //}
 
-                formHomePage formHome = new formHomePage();
-                formHome.Size = new System.Drawing.Size(450, 300);
-                formHome.Show();
-                Logger.i("Succesfully logged in");
+               
             }
             
         }
