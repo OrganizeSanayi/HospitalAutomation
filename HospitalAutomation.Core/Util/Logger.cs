@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HospitalAutomation.Util
 {
-    class Logger
+    public class Logger
     {
         /**
          *  Basic logging tool, it creates a file named logs under bin directory

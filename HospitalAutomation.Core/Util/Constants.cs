@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace HospitalAutomation.Util
 {
-    class Constants
+    public class Constants
     {
         public static class Errors
         {
-            public static String INVALID = "Geçersiz alan";
+            public const string Invalid = "Geçersiz alan";
         }
     }
 }

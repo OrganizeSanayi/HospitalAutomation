@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="HospitalAutomationModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="HospitalAutomationModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="ADLISAGLIKKURULU">
           <Key>
             <PropertyRef Name="AdliSaglikKuruluID" />
@@ -358,23 +358,23 @@
         </Function>
         <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="HospitalAutomationModelStoreContainer">
-          <EntitySet Name="ADLISAGLIKKURULU" EntityType="Self.ADLISAGLIKKURULU" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="ADLISAGLIKKURULURESIMLER" EntityType="Self.ADLISAGLIKKURULURESIMLER" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="ADLISAGLIKKURULUYOL" EntityType="Self.ADLISAGLIKKURULUYOL" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="BOLUMLER" EntityType="Self.BOLUMLER" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="DOSYALAR" EntityType="Self.DOSYALAR" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="HASTALAR" EntityType="Self.HASTALAR" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="MUAYENEEPIKRIZ" EntityType="Self.MUAYENEEPIKRIZ" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="MUAYENEEPIKRIZRESIMLER" EntityType="Self.MUAYENEEPIKRIZRESIMLER" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="MUAYENEEPIKRIZYOL" EntityType="Self.MUAYENEEPIKRIZYOL" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="OGRETIMUYELERİ" EntityType="Self.OGRETIMUYELERİ" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="OTURUM" EntityType="Self.OTURUM" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="STATU" EntityType="Self.STATU" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="TANILAR" EntityType="Self.TANILAR" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="TETKIKRAPORLAR" EntityType="Self.TETKIKRAPORLAR" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="TETKIKRAPORRESIMLER" EntityType="Self.TETKIKRAPORRESIMLER" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="TETKIKRAPORYOL" EntityType="Self.TETKIKRAPORYOL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ADLISAGLIKKURULU" EntityType="Self.ADLISAGLIKKURULU" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="ADLISAGLIKKURULURESIMLER" EntityType="Self.ADLISAGLIKKURULURESIMLER" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="ADLISAGLIKKURULUYOL" EntityType="Self.ADLISAGLIKKURULUYOL" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="BOLUMLER" EntityType="Self.BOLUMLER" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="DOSYALAR" EntityType="Self.DOSYALAR" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="HASTALAR" EntityType="Self.HASTALAR" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="MUAYENEEPIKRIZ" EntityType="Self.MUAYENEEPIKRIZ" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="MUAYENEEPIKRIZRESIMLER" EntityType="Self.MUAYENEEPIKRIZRESIMLER" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="MUAYENEEPIKRIZYOL" EntityType="Self.MUAYENEEPIKRIZYOL" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="OGRETIMUYELERİ" EntityType="Self.OGRETIMUYELERİ" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="OTURUM" EntityType="Self.OTURUM" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="STATU" EntityType="Self.STATU" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="TANILAR" EntityType="Self.TANILAR" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="TETKIKRAPORLAR" EntityType="Self.TETKIKRAPORLAR" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="TETKIKRAPORRESIMLER" EntityType="Self.TETKIKRAPORRESIMLER" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="TETKIKRAPORYOL" EntityType="Self.TETKIKRAPORYOL" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
           <AssociationSet Name="FK_ADLISAGLIKKURULURESIMLER_ADLISAGLIKKURULUYOL" Association="Self.FK_ADLISAGLIKKURULURESIMLER_ADLISAGLIKKURULUYOL">
             <End Role="ADLISAGLIKKURULUYOL" EntitySet="ADLISAGLIKKURULUYOL" />
             <End Role="ADLISAGLIKKURULURESIMLER" EntitySet="ADLISAGLIKKURULURESIMLER" />
@@ -432,12 +432,12 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="HospitalAutomationModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="HospitalAutomationModel" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2009/11/edm" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
         <EntityType Name="ADLISAGLIKKURULU">
           <Key>
             <PropertyRef Name="AdliSaglikKuruluID" />
           </Key>
-          <Property Name="AdliSaglikKuruluID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AdliSaglikKuruluID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="AdliSaglikKurulu1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="DOSYALARs" Relationship="Self.FK_DOSYALAR_ADLISAGLIKKURULU" FromRole="ADLISAGLIKKURULU" ToRole="DOSYALAR" />
         </EntityType>
@@ -445,7 +445,7 @@
           <Key>
             <PropertyRef Name="AdliSaglikKuruluResimID" />
           </Key>
-          <Property Name="AdliSaglikKuruluResimID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AdliSaglikKuruluResimID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="AdliSaglikKuruluYolID" Type="Int32" Nullable="false" />
           <Property Name="AdliSaglikKuruluResim" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="ADLISAGLIKKURULUYOL" Relationship="Self.FK_ADLISAGLIKKURULURESIMLER_ADLISAGLIKKURULUYOL" FromRole="ADLISAGLIKKURULURESIMLER" ToRole="ADLISAGLIKKURULUYOL" />
@@ -454,7 +454,7 @@
           <Key>
             <PropertyRef Name="AdliSaglikKuruluYolID" />
           </Key>
-          <Property Name="AdliSaglikKuruluYolID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AdliSaglikKuruluYolID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="AdliSaglikKuruluYolKayit" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="ADLISAGLIKKURULURESIMLERs" Relationship="Self.FK_ADLISAGLIKKURULURESIMLER_ADLISAGLIKKURULUYOL" FromRole="ADLISAGLIKKURULUYOL" ToRole="ADLISAGLIKKURULURESIMLER" />
           <NavigationProperty Name="DOSYALARs" Relationship="Self.FK_DOSYALAR_ADLISAGLIKKURULUYOL" FromRole="ADLISAGLIKKURULUYOL" ToRole="DOSYALAR" />
@@ -463,7 +463,7 @@
           <Key>
             <PropertyRef Name="Bolumid" />
           </Key>
-          <Property Name="Bolumid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Bolumid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="BolumAdı" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="DOSYALARs" Relationship="Self.FK_DOSYALAR_BOLUMLER" FromRole="BOLUMLER" ToRole="DOSYALAR" />
         </EntityType>
@@ -471,7 +471,7 @@
           <Key>
             <PropertyRef Name="DosyaID" />
           </Key>
-          <Property Name="DosyaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DosyaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="DosyaNo" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="BolumID" Type="Int32" Nullable="false" />
           <Property Name="Tarih" Type="DateTime" Nullable="false" Precision="3" />
@@ -508,7 +508,7 @@
           <Key>
             <PropertyRef Name="Muayeneid" />
           </Key>
-          <Property Name="Muayeneid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Muayeneid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="HastaMuayeneEpikriz" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="DOSYALARs" Relationship="Self.FK_DOSYALAR_MUAYENEEPIKRIZ" FromRole="MUAYENEEPIKRIZ" ToRole="DOSYALAR" />
         </EntityType>
@@ -516,7 +516,7 @@
           <Key>
             <PropertyRef Name="MuayeneEpikrizResimID" />
           </Key>
-          <Property Name="MuayeneEpikrizResimID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MuayeneEpikrizResimID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="MuayeneEpikrizYolID" Type="Int32" Nullable="false" />
           <Property Name="MuayeneRaporResimAd" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="MUAYENEEPIKRIZYOL" Relationship="Self.FK_MUAYENEEPIKRIZRESIMLER_MUAYENEEPIKRIZYOL" FromRole="MUAYENEEPIKRIZRESIMLER" ToRole="MUAYENEEPIKRIZYOL" />
@@ -525,7 +525,7 @@
           <Key>
             <PropertyRef Name="MuayeneEpikrizYolID" />
           </Key>
-          <Property Name="MuayeneEpikrizYolID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MuayeneEpikrizYolID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="MuayeneEpikrizYolKayit" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="DOSYALARs" Relationship="Self.FK_DOSYALAR_MUAYENEEPIKRIZYOL" FromRole="MUAYENEEPIKRIZYOL" ToRole="DOSYALAR" />
           <NavigationProperty Name="MUAYENEEPIKRIZRESIMLERs" Relationship="Self.FK_MUAYENEEPIKRIZRESIMLER_MUAYENEEPIKRIZYOL" FromRole="MUAYENEEPIKRIZYOL" ToRole="MUAYENEEPIKRIZRESIMLER" />
@@ -534,7 +534,7 @@
           <Key>
             <PropertyRef Name="OgretimUyeid" />
           </Key>
-          <Property Name="OgretimUyeid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OgretimUyeid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="Ad" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Soyad" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Unvan" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
@@ -551,7 +551,7 @@
           <Key>
             <PropertyRef Name="Statuid" />
           </Key>
-          <Property Name="Statuid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Statuid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="Statu1" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="DOSYALARs" Relationship="Self.FK_DOSYALAR_STATU" FromRole="STATU" ToRole="DOSYALAR" />
         </EntityType>
@@ -561,7 +561,7 @@
           </Key>
           <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="principal_id" Type="Int32" Nullable="false" />
-          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="version" Type="Int32" />
           <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
@@ -569,7 +569,7 @@
           <Key>
             <PropertyRef Name="Taniid" />
           </Key>
-          <Property Name="Taniid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Taniid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="TaniAdi" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="ICD10Kodu" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="DOSYALARs" Relationship="Self.FK_DOSYALAR_TANILAR1" FromRole="TANILAR" ToRole="DOSYALAR" />
@@ -578,7 +578,7 @@
           <Key>
             <PropertyRef Name="TetkikRaporid" />
           </Key>
-          <Property Name="TetkikRaporid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TetkikRaporid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="TetkikveRapor" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="DOSYALARs" Relationship="Self.FK_DOSYALAR_TETKIKRAPORLAR" FromRole="TETKIKRAPORLAR" ToRole="DOSYALAR" />
         </EntityType>
@@ -586,7 +586,7 @@
           <Key>
             <PropertyRef Name="TetkikRaporResimID" />
           </Key>
-          <Property Name="TetkikRaporResimID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TetkikRaporResimID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="TetkikRaporYolID" Type="Int32" Nullable="false" />
           <Property Name="TetkikRaporResimAd" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="TETKIKRAPORYOL" Relationship="Self.FK_RESIMLER_YOLLAR" FromRole="TETKIKRAPORRESIMLER" ToRole="TETKIKRAPORYOL" />
@@ -595,7 +595,7 @@
           <Key>
             <PropertyRef Name="TetkikRaporYolID" />
           </Key>
-          <Property Name="TetkikRaporYolID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TetkikRaporYolID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="TetkikRaporYolKayit" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="DOSYALARs" Relationship="Self.FK_DOSYALAR_YOLLAR" FromRole="TETKIKRAPORYOL" ToRole="DOSYALAR" />
           <NavigationProperty Name="TETKIKRAPORRESIMLERs" Relationship="Self.FK_RESIMLER_YOLLAR" FromRole="TETKIKRAPORYOL" ToRole="TETKIKRAPORRESIMLER" />
@@ -780,7 +780,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="HospitalAutomationEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="HospitalAutomationEntities" annotation:LazyLoadingEnabled="true" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
           <EntitySet Name="ADLISAGLIKKURULUs" EntityType="Self.ADLISAGLIKKURULU" />
           <EntitySet Name="ADLISAGLIKKURULURESIMLERs" EntityType="Self.ADLISAGLIKKURULURESIMLER" />
           <EntitySet Name="ADLISAGLIKKURULUYOLs" EntityType="Self.ADLISAGLIKKURULUYOL" />
@@ -1057,22 +1057,22 @@
     </edmx:Mappings>
   </edmx:Runtime>
   <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
-  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
-    <Connection>
-      <DesignerInfoPropertySet>
-        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
-      </DesignerInfoPropertySet>
-    </Connection>
-    <Options>
-      <DesignerInfoPropertySet>
-        <DesignerProperty Name="ValidateOnBuild" Value="true" />
-        <DesignerProperty Name="EnablePluralization" Value="true" />
-        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
-        <DesignerProperty Name="UseLegacyProvider" Value="false" />
-        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
-      </DesignerInfoPropertySet>
-    </Options>
+  <edmx:Designer>
+    <edmx:Connection>
+      <edmx:DesignerInfoPropertySet>
+        <edmx:DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </edmx:DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <edmx:DesignerInfoPropertySet>
+        <edmx:DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <edmx:DesignerProperty Name="EnablePluralization" Value="true" />
+        <edmx:DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <edmx:DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <edmx:DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </edmx:DesignerInfoPropertySet>
+    </edmx:Options>
     <!-- Diagram content (shape and connector positions) -->
-    <Diagrams></Diagrams>
-  </Designer>
+    <edmx:Diagrams />
+  </edmx:Designer>
 </edmx:Edmx>

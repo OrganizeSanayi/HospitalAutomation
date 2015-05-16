@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.30723.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HospitalAutomation", "HospitalAutomation\HospitalAutomation.csproj", "{B8253EAA-2785-4121-B704-8A37E04DED1A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HospitalAutomation.Core", "HospitalAutomation.Core\HospitalAutomation.Core.csproj", "{B8253EAA-2785-4121-B704-8A37E04DED1A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HospitalAutomation.Model", "HospitalAutomation.Model\HospitalAutomation.Model.csproj", "{BACE8D9F-7DAD-4A53-B706-8659E4A0D028}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HospitalAutomation.GUI", "HospitalAutomation.GUI\HospitalAutomation.GUI.csproj", "{8123047C-5D36-475F-B21B-071571460D99}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{B8253EAA-2785-4121-B704-8A37E04DED1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B8253EAA-2785-4121-B704-8A37E04DED1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B8253EAA-2785-4121-B704-8A37E04DED1A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BACE8D9F-7DAD-4A53-B706-8659E4A0D028}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BACE8D9F-7DAD-4A53-B706-8659E4A0D028}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BACE8D9F-7DAD-4A53-B706-8659E4A0D028}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BACE8D9F-7DAD-4A53-B706-8659E4A0D028}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8123047C-5D36-475F-B21B-071571460D99}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8123047C-5D36-475F-B21B-071571460D99}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8123047C-5D36-475F-B21B-071571460D99}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8123047C-5D36-475F-B21B-071571460D99}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

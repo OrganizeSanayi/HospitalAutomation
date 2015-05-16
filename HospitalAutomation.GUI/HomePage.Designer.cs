@@ -1,4 +1,4 @@
-﻿namespace HospitalAutomation
+﻿namespace HospitalAutomation.GUI
 {
     partial class formHomePage
     {
@@ -1207,7 +1207,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::HospitalAutomation.Properties.Resources.HomePageBanner;
+            this.pictureBox1.Image = global::HospitalAutomation.GUI.Properties.Resources.HomePageBanner;
             this.pictureBox1.Location = new System.Drawing.Point(27, 8);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(1251, 128);

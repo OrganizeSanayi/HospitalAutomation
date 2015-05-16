@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace HospitalAutomation.Util
 {
-    class ErrorTracker
+    public class ErrorTracker
     {
         private HashSet<Control> mErrors = new HashSet<Control>();
         private ErrorProvider mProvider;

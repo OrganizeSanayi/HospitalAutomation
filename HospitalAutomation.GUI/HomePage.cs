@@ -1,14 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace HospitalAutomation
+namespace HospitalAutomation.GUI
 {
     public partial class formHomePage : Form
     {
@@ -261,19 +254,17 @@ namespace HospitalAutomation
 
         private void btnScan_Click(object sender, EventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show("Tarama İşlemine Geçmek İstiyor musunuz?", "Uyarı", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
-            if (dialogResult == DialogResult.Yes)
+            DialogResult dialogResult = MessageBox.Show("Tarama İşlemine Geçmek İstiyor musunuz?", "Uyarı", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            switch (dialogResult)
             {
-                //do something
-            }
-            else if (dialogResult == DialogResult.No)
-            {
-                //do something else
+                case DialogResult.Yes:
+                    //do something
+                    break;
+                case DialogResult.No:
+                    //do something else
+                    break;
             }
         }
-
-     
-      
     }
 }
 
