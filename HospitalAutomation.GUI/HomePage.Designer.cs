@@ -57,11 +57,7 @@
             this.monthCalendar = new System.Windows.Forms.MonthCalendar();
             this.linkLblPatientDiagnosed = new System.Windows.Forms.LinkLabel();
             this.groupBoxFacultyMember = new System.Windows.Forms.GroupBox();
-            this.radioButton41 = new System.Windows.Forms.RadioButton();
-            this.radioButton40 = new System.Windows.Forms.RadioButton();
-            this.radioButton39 = new System.Windows.Forms.RadioButton();
-            this.radioButton38 = new System.Windows.Forms.RadioButton();
-            this.radioButton37 = new System.Windows.Forms.RadioButton();
+            this.facultyMembers = new System.Windows.Forms.ComboBox();
             this.linkLblEnterFacultyMember = new System.Windows.Forms.LinkLabel();
             this.groupBoxSection = new System.Windows.Forms.GroupBox();
             this.label19 = new System.Windows.Forms.Label();
@@ -480,79 +476,24 @@
             // 
             // groupBoxFacultyMember
             // 
-            this.groupBoxFacultyMember.Controls.Add(this.radioButton41);
-            this.groupBoxFacultyMember.Controls.Add(this.radioButton40);
-            this.groupBoxFacultyMember.Controls.Add(this.radioButton39);
-            this.groupBoxFacultyMember.Controls.Add(this.radioButton38);
-            this.groupBoxFacultyMember.Controls.Add(this.radioButton37);
+            this.groupBoxFacultyMember.Controls.Add(this.facultyMembers);
             this.groupBoxFacultyMember.Location = new System.Drawing.Point(187, 448);
             this.groupBoxFacultyMember.Name = "groupBoxFacultyMember";
-            this.groupBoxFacultyMember.Size = new System.Drawing.Size(350, 151);
+            this.groupBoxFacultyMember.Size = new System.Drawing.Size(350, 61);
             this.groupBoxFacultyMember.TabIndex = 20;
             this.groupBoxFacultyMember.TabStop = false;
             this.groupBoxFacultyMember.Text = "Öğretim Üyeleri";
             this.groupBoxFacultyMember.Visible = false;
             this.groupBoxFacultyMember.Enter += new System.EventHandler(this.groupFacultyMember_Enter);
             // 
-            // radioButton41
+            // facultyMembers
             // 
-            this.radioButton41.AutoSize = true;
-            this.radioButton41.Location = new System.Drawing.Point(18, 97);
-            this.radioButton41.Name = "radioButton41";
-            this.radioButton41.Size = new System.Drawing.Size(199, 17);
-            this.radioButton41.TabIndex = 4;
-            this.radioButton41.TabStop = true;
-            this.radioButton41.Text = "Yrd.Doç.Dr.Sevinç İLHAN OMURCA";
-            this.radioButton41.UseVisualStyleBackColor = true;
-            this.radioButton41.CheckedChanged += new System.EventHandler(this.groupFacultyMember_Enter);
-            // 
-            // radioButton40
-            // 
-            this.radioButton40.AutoSize = true;
-            this.radioButton40.Location = new System.Drawing.Point(18, 80);
-            this.radioButton40.Name = "radioButton40";
-            this.radioButton40.Size = new System.Drawing.Size(148, 17);
-            this.radioButton40.TabIndex = 3;
-            this.radioButton40.TabStop = true;
-            this.radioButton40.Text = "Yrd.Doç.Dr.Suhap ŞAHİN";
-            this.radioButton40.UseVisualStyleBackColor = true;
-            this.radioButton40.CheckedChanged += new System.EventHandler(this.groupFacultyMember_Enter);
-            // 
-            // radioButton39
-            // 
-            this.radioButton39.AutoSize = true;
-            this.radioButton39.Location = new System.Drawing.Point(18, 63);
-            this.radioButton39.Name = "radioButton39";
-            this.radioButton39.Size = new System.Drawing.Size(143, 17);
-            this.radioButton39.TabIndex = 2;
-            this.radioButton39.TabStop = true;
-            this.radioButton39.Text = "Yrd.Doç.Dr.Alev MUTLU";
-            this.radioButton39.UseVisualStyleBackColor = true;
-            this.radioButton39.CheckedChanged += new System.EventHandler(this.groupFacultyMember_Enter);
-            // 
-            // radioButton38
-            // 
-            this.radioButton38.AutoSize = true;
-            this.radioButton38.Location = new System.Drawing.Point(18, 46);
-            this.radioButton38.Name = "radioButton38";
-            this.radioButton38.Size = new System.Drawing.Size(142, 17);
-            this.radioButton38.TabIndex = 1;
-            this.radioButton38.TabStop = true;
-            this.radioButton38.Text = "Prof.Dr.Nevcihan DURU";
-            this.radioButton38.UseVisualStyleBackColor = true;
-            this.radioButton38.CheckedChanged += new System.EventHandler(this.groupFacultyMember_Enter);
-            // 
-            // radioButton37
-            // 
-            this.radioButton37.AutoSize = true;
-            this.radioButton37.Location = new System.Drawing.Point(18, 29);
-            this.radioButton37.Name = "radioButton37";
-            this.radioButton37.Size = new System.Drawing.Size(130, 17);
-            this.radioButton37.TabIndex = 0;
-            this.radioButton37.TabStop = true;
-            this.radioButton37.Text = "Prof.Dr.Adnan KAVAK";
-            this.radioButton37.UseVisualStyleBackColor = true;
-            this.radioButton37.CheckedChanged += new System.EventHandler(this.groupFacultyMember_Enter);
+            this.facultyMembers.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.facultyMembers.FormattingEnabled = true;
+            this.facultyMembers.Location = new System.Drawing.Point(6, 25);
+            this.facultyMembers.Name = "facultyMembers";
+            this.facultyMembers.Size = new System.Drawing.Size(338, 21);
+            this.facultyMembers.TabIndex = 10;
             // 
             // linkLblEnterFacultyMember
             // 
@@ -1199,7 +1140,7 @@
             // panelFileInformation
             // 
             this.panelFileInformation.Controls.Add(this.panel2);
-            this.panelFileInformation.Location = new System.Drawing.Point(401, 599);
+            this.panelFileInformation.Location = new System.Drawing.Point(402, 599);
             this.panelFileInformation.Name = "panelFileInformation";
             this.panelFileInformation.Size = new System.Drawing.Size(408, 49);
             this.panelFileInformation.TabIndex = 2;
@@ -1532,7 +1473,7 @@
             this.Name = "formHomePage";
             this.Text = "KOÜ Tıp Fakültesi Arşiv Otomasyonu";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-           
+            this.Load += new System.EventHandler(this.formHomePage_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panelRegisterInformation.ResumeLayout(false);
@@ -1541,7 +1482,6 @@
             this.groupBoxPatientStatus.ResumeLayout(false);
             this.groupBoxPatientStatus.PerformLayout();
             this.groupBoxFacultyMember.ResumeLayout(false);
-            this.groupBoxFacultyMember.PerformLayout();
             this.groupBoxSection.ResumeLayout(false);
             this.groupBoxSection.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -1636,11 +1576,6 @@
         private System.Windows.Forms.LinkLabel linkLabelEnterSection;
         private System.Windows.Forms.LinkLabel linkLblEnterFacultyMember;
         private System.Windows.Forms.GroupBox groupBoxFacultyMember;
-        private System.Windows.Forms.RadioButton radioButton41;
-        private System.Windows.Forms.RadioButton radioButton40;
-        private System.Windows.Forms.RadioButton radioButton39;
-        private System.Windows.Forms.RadioButton radioButton38;
-        private System.Windows.Forms.RadioButton radioButton37;
         private System.Windows.Forms.LinkLabel linkLblPatientDiagnosed;
         private System.Windows.Forms.LinkLabel linkLblPatientStatus;
         private System.Windows.Forms.GroupBox groupBoxPatientStatus;
@@ -1671,5 +1606,6 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label lblReports;
         private System.Windows.Forms.Button btnScan;
+        private System.Windows.Forms.ComboBox facultyMembers;
     }
 }

@@ -265,6 +265,14 @@ namespace HospitalAutomation.GUI
                     break;
             }
         }
+
+        private void formHomePage_Load(object sender, EventArgs e)
+        {
+            var filler = new DataFillingService();
+            facultyMembers.DataSource = filler.GatherDoctors(); ;
+            facultyMembers.ValueMember = "OgretimUyeid";
+            facultyMembers.DisplayMember = "Ad";
+        }
     }
 }
 

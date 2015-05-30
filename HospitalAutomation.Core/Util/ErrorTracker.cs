@@ -9,26 +9,32 @@ namespace HospitalAutomation.Util
 {
     public class ErrorTracker
     {
-        private HashSet<Control> mErrors = new HashSet<Control>();
-        private ErrorProvider mProvider;
+        private readonly HashSet<Control> _errors = new HashSet<Control>();
+        private readonly ErrorProvider _provider;
 
         public ErrorTracker(ErrorProvider provider)
         {
-            mProvider = provider;
-            mProvider.BlinkStyle = ErrorBlinkStyle.NeverBlink;
+            _provider = provider;
+            _provider.BlinkStyle = ErrorBlinkStyle.NeverBlink;
         }
 
         public void SetError(Control ctl, string text)
         {
             if (string.IsNullOrEmpty(text)) {
-                mErrors.Remove(ctl);
-            } else if (!mErrors.Contains(ctl)) {
-                mErrors.Add(ctl);
+                _errors.Remove(ctl);
+            } else if (!_errors.Contains(ctl)) {
+                _errors.Add(ctl);
             }
 
-            mProvider.SetError(ctl, text);
+            _provider.SetError(ctl, text);
         }
 
-        public int Count { get { return mErrors.Count; } }
+        public int Count => _errors.Count;
+
+        public void Clear()
+        {
+            _provider.Clear();
+            _errors.Clear();
+        }
     }
 }
