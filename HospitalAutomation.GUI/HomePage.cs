@@ -1,26 +1,30 @@
 ﻿using System;
+using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
-using HospitalAutomation.Model;
+using HospitalAutomation.GUI.Properties;
 using HospitalAutomation.Services;
 using HospitalAutomation.Util;
 
 namespace HospitalAutomation.GUI
 {
-    public partial class formHomePage : Form
+    public partial class FormHomePage : Form
     {
-        public formHomePage()
+        readonly Point _visibleDockPoint = new Point(395, 165);
+
+        public FormHomePage()
         {
             InitializeComponent();
         }
 
         private void formHomePage_Load(object sender, EventArgs e)
         {
-            Populater.Fill<OGRETIMUYELERİ>(cbFacultyMembers, DataFillingService.GatherDoctors);
-            Populater.Fill<BOLUMLER>(cbSurgery, DataFillingService.GatherSections);
-            Populater.Fill<STATU>(cbState, DataFillingService.GatherState);
-            Populater.Fill<MUAYENEEPIKRIZ>(cbPatientExaminationEpicrisis, DataFillingService.GatherPatientExaminationEpicrisis);
-            Populater.Fill<TETKIKRAPORLAR>(cbExaminationAndReports, DataFillingService.GatherExaminationAndReports);
-            Populater.Fill<ADLISAGLIKKURULU>(cbCriminalAndMedicalBoard, DataFillingService.GatherCriminalAndMedicalBoard);
+            Populater.Fill(cbFacultyMembers, DataFillingService.GatherDoctors);
+            Populater.Fill(cbSurgery, DataFillingService.GatherSections);
+            Populater.Fill(cbState, DataFillingService.GatherState);
+            Populater.Fill(cbPatientExaminationEpicrisis, DataFillingService.GatherPatientExaminationEpicrisis);
+            Populater.Fill(cbExaminationAndReports, DataFillingService.GatherExaminationAndReports);
+            Populater.Fill(cbCriminalAndMedicalBoard, DataFillingService.GatherCriminalAndMedicalBoard);
         }
 
         // Dosya Bilgileri Sayfası İşlemleri
@@ -30,8 +34,8 @@ namespace HospitalAutomation.GUI
             // TC No ve Dosya Numarası Alınmadan başka adımlara geçilmemeli .(KONTROL)
             PanelVisibleControl();
             panelFileInformation.Visible = true;
-            panelFileInformation.Location = new System.Drawing.Point(395, 165);
-            panelFileInformation.Size = new System.Drawing.Size(415, 230);
+            panelFileInformation.Location = _visibleDockPoint;
+            panelFileInformation.Size = new Size(415, 230);
         }
        
 
@@ -41,8 +45,8 @@ namespace HospitalAutomation.GUI
             // Gerekli bilgiler alındıktan sonra Kayıt Bilgisi paneli açılır. ( txtTcNo - txtFileNumber )
             PanelVisibleControl(); 
             panelRegisterInformation.Visible = true;
-            panelRegisterInformation.Location = new System.Drawing.Point(395, 165);
-            panelRegisterInformation.Size = new System.Drawing.Size(910, 485);
+            panelRegisterInformation.Location = _visibleDockPoint;
+            panelRegisterInformation.Size = new Size(910, 485);
             // Girilen dosya no ile TC no veritabanına kayıt işlemi
         //    HASTALAR hasta = new HASTALAR();
          //   hasta.TcKimlikNo = txtTcNo.Text.ToString();
@@ -80,8 +84,8 @@ namespace HospitalAutomation.GUI
         {
             PanelVisibleControl();
             panelRegisterInformation.Visible = true;
-            panelRegisterInformation.Location = new System.Drawing.Point(395, 165);
-            panelRegisterInformation.Size = new System.Drawing.Size(910, 485);
+            panelRegisterInformation.Location = _visibleDockPoint;
+            panelRegisterInformation.Size = new Size(910, 485);
         }
 
         //-- Tarih Seçim İşlemi
@@ -89,12 +93,12 @@ namespace HospitalAutomation.GUI
         {
             RegisterIndformationFormVisibleControl();
             monthCalendar.Visible = true;
-            monthCalendar.Location = new System.Drawing.Point(210, 66);
+            monthCalendar.Location = new Point(210, 66);
         }
 
         private void monthCalendar_DateChanged(object sender, DateRangeEventArgs e)
         {
-            this.lblDate.Text = monthCalendar.SelectionRange.Start.Date.ToShortDateString();
+            lblDate.Text = monthCalendar.SelectionRange.Start.Date.ToShortDateString();
         }
 
         //-- Bölüm Seçim İşlemi
@@ -102,21 +106,14 @@ namespace HospitalAutomation.GUI
         {
             RegisterIndformationFormVisibleControl();
             groupBoxSection.Visible = true;
-            groupBoxSection.Location = new System.Drawing.Point(210, 112);
+            groupBoxSection.Location = new Point(210, 112);
         }
 
         private void groupBoxSection_Enter(object sender, EventArgs e)
         {
-            foreach (Control control in this.groupBoxSection.Controls)
+            foreach (var radio in groupBoxSection.Controls.OfType<RadioButton>().Select(control => control).Where(radio => radio.Checked))
             {
-                if (control is RadioButton)
-                {
-                    RadioButton radio = control as RadioButton;
-                    if (radio.Checked)
-                    {
-                        lblSection.Text = radio.Text;
-                    }
-                }
+                lblSection.Text = radio.Text;
             }
         }
 
@@ -126,21 +123,14 @@ namespace HospitalAutomation.GUI
         {
             RegisterIndformationFormVisibleControl();
             groupBoxFacultyMember.Visible = true;
-            groupBoxFacultyMember.Location = new System.Drawing.Point(210, 148);
+            groupBoxFacultyMember.Location = new Point(210, 148);
         }
 
         private void groupFacultyMember_Enter(object sender, EventArgs e)
         {
-            foreach (Control control in this.groupBoxFacultyMember.Controls)
+            foreach (var radio in groupBoxFacultyMember.Controls.OfType<RadioButton>().Select(control => control).Where(radio => radio.Checked))
             {
-                if (control is RadioButton)
-                {
-                    RadioButton radio = control as RadioButton;
-                    if (radio.Checked)
-                    {
-                        lblFacultyMember.Text = radio.Text;
-                    }
-                }
+                lblFacultyMember.Text = radio.Text;
             }
         }
 
@@ -150,7 +140,7 @@ namespace HospitalAutomation.GUI
         {
             RegisterIndformationFormVisibleControl();
             txtPatientDiagnosed.Visible = true;
-            txtPatientDiagnosed.Location = new System.Drawing.Point(210, 200);
+            txtPatientDiagnosed.Location = new Point(210, 200);
         }
 
         private void txtPatientDiagnosed_TextChanged(object sender, EventArgs e)
@@ -163,27 +153,11 @@ namespace HospitalAutomation.GUI
         {
             RegisterIndformationFormVisibleControl();
             groupBoxPatientStatus.Visible = true;
-            groupBoxPatientStatus.Location = new System.Drawing.Point(210, 244);
+            groupBoxPatientStatus.Location = new Point(210, 244);
         }
 
-        private void groupBoxPatientStatus_Enter(object sender, EventArgs e)
-        {
-            foreach (Control control in this.groupBoxPatientStatus.Controls)
-            {
-                if (control is RadioButton)
-                {
-                    RadioButton radio = control as RadioButton;
-                    if (radio.Checked)
-                    {
-                        lblPatientStatus.Text = radio.Text;
-                    }
-                }
-            }
-        }
-
-
-         //-- Kayıt Bilgisi Visible Kontrolleri
-        public void RegisterIndformationFormVisibleControl()
+        //-- Kayıt Bilgisi Visible Kontrolleri
+        private void RegisterIndformationFormVisibleControl()
         {
             monthCalendar.Visible = false;
             groupBoxSection.Visible = false;
@@ -192,7 +166,7 @@ namespace HospitalAutomation.GUI
             groupBoxPatientStatus.Visible = false;
         }
 
-        public void PanelVisibleControl()
+        private void PanelVisibleControl()
         {
             panelRegisterInformation.Visible = false;
             panelFileInformation.Visible = false;
@@ -204,7 +178,7 @@ namespace HospitalAutomation.GUI
         {
             PanelVisibleControl();
             panelReports.Visible = true;
-            panelReports.Location = new System.Drawing.Point(395, 165);
+            panelReports.Location = _visibleDockPoint;
         }
 
         private void btnPatientExamination_Click(object sender, EventArgs e)
@@ -230,16 +204,9 @@ namespace HospitalAutomation.GUI
 
         private void groupBoxPatientExamination_Enter(object sender, EventArgs e)
         {
-            foreach (Control control in this.groupBoxPatientExamination.Controls)
+            foreach (var radio in groupBoxPatientExamination.Controls.OfType<RadioButton>().Select(control => control).Where(radio => radio.Checked))
             {
-                if (control is RadioButton)
-                {
-                    RadioButton radio = control as RadioButton;
-                    if (radio.Checked)
-                    {
-                        lblReports.Text = radio.Text;
-                    }
-                }
+                lblReports.Text = radio.Text;
             }
         }
 
@@ -247,23 +214,16 @@ namespace HospitalAutomation.GUI
 
         private void groupBoxReports_Enter(object sender, EventArgs e)
         {
-            foreach (Control control in this.groupBoxReports.Controls)
+            foreach (var radio in groupBoxReports.Controls.OfType<RadioButton>().Select(control => control).Where(radio => radio.Checked))
             {
-                if (control is RadioButton)
-                {
-                    RadioButton radio = control as RadioButton;
-                    if (radio.Checked)
-                    {
-                        lblReports.Text = radio.Text;
-                    }
-                }
+                lblReports.Text = radio.Text;
             }
         }
 
 
         private void btnScan_Click(object sender, EventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show("Tarama İşlemine Geçmek İstiyor musunuz?", "Uyarı", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            var dialogResult = MessageBox.Show(Resources.TO_SCAN_MESSAGE, Resources.WARNING, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             switch (dialogResult)
             {
                 case DialogResult.Yes:

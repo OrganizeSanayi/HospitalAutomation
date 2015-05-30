@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.IO;
 
 namespace HospitalAutomation.Util
 {
-    public class Logger
+    public static class Logger
     {
         /**
          *  Basic logging tool, it creates a file named logs under bin directory
@@ -14,9 +10,9 @@ namespace HospitalAutomation.Util
          *  Usage:
          * Logger.i("test");
          */
-        public static void i(String logMessage)
+        public static void I(string logMessage)
         {
-            System.IO.StreamWriter file = new System.IO.StreamWriter("../logs.txt", true);
+            var file = new StreamWriter("../logs.txt", true);
             file.WriteLine(logMessage);
 
             file.Close();

@@ -13,7 +13,7 @@ namespace HospitalAutomation.GUI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new formHomePage());
+            Application.Run(new FormHomePage());
         }
     }
 }

@@ -63,7 +63,6 @@
     <Compile Include="Services\FileStoreService.cs" />
     <Compile Include="Services\PatientDataStoreService.cs" />
     <Compile Include="Services\UserService.cs" />
-    <Compile Include="Util\Constants.cs" />
     <Compile Include="Util\ErrorTracker.cs" />
     <Compile Include="Util\Logger.cs" />
     <Compile Include="Util\Populater.cs" />

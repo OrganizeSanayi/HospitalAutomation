@@ -1,6 +1,6 @@
 ﻿namespace HospitalAutomation.GUI
 {
-    partial class formHomePage
+    partial class FormHomePage
     {
         /// <summary>
         /// Required designer variable.
@@ -799,7 +799,7 @@
             this.Controls.Add(this.panelFileInformation);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pictureBox1);
-            this.Name = "formHomePage";
+            this.Name = "FormHomePage";
             this.Text = "KOÜ Tıp Fakültesi Arşiv Otomasyonu";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.formHomePage_Load);

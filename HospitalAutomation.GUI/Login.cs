@@ -29,12 +29,12 @@ namespace HospitalAutomation.GUI
 
             if (string.IsNullOrWhiteSpace(txtUserName.Text))
             {
-                _eTracker.SetError(txtUserName, Constants.Errors.Invalid);
+                _eTracker.SetError(txtUserName, "Geçersiz alan");
             }
 
             if (string.IsNullOrWhiteSpace(txtUserPassword.Text))
             {
-                _eTracker.SetError(txtUserPassword, Constants.Errors.Invalid);
+                _eTracker.SetError(txtUserPassword, "Geçersiz alan");
             }
 
             if (_eTracker.Count != 0)
@@ -44,16 +44,16 @@ namespace HospitalAutomation.GUI
 
             if (UserService.IsValidLogin(txtUserName.Text, txtUserPassword.Text))
             {
-                Logger.i("Succesfully logged in");
-                this.Hide();
-                var formHome = new formHomePage {Size = new Size(450, 300)};
+                Logger.I("Succesfully logged in");
+                Hide();
+                var formHome = new FormHomePage {Size = new Size(450, 300)};
                 formHome.ShowDialog();
 
                 Environment.Exit(0);
             }
             else
             {
-                Logger.i("Invalid login");
+                Logger.I("Invalid login");
                 MessageBox.Show(Resources.invalid_credidentials);
             }
         }

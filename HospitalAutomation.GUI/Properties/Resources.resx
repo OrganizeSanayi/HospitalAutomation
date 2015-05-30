@@ -128,4 +128,10 @@
     <value>Geçersiz giriş yaptınız
 Lütfen tekrar deneyin</value>
   </data>
+  <data name="TO_SCAN_MESSAGE" xml:space="preserve">
+    <value>Tarama İşlemine Geçmek İstiyor musunuz?</value>
+  </data>
+  <data name="WARNING" xml:space="preserve">
+    <value>Uyarı</value>
+  </data>
 </root>

@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Data.Entity;
 using HospitalAutomation.Model;
 
 namespace HospitalAutomation.Services
 {
-    public class UserService
+    public static class UserService
     {
         public static bool IsValidLogin(string username, string password)
         {

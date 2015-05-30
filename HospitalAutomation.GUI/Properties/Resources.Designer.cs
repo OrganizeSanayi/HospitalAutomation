@@ -89,5 +89,23 @@ namespace HospitalAutomation.GUI.Properties {
                 return ResourceManager.GetString("invalid_credidentials", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tarama İşlemine Geçmek İstiyor musunuz?.
+        /// </summary>
+        public static string TO_SCAN_MESSAGE {
+            get {
+                return ResourceManager.GetString("TO_SCAN_MESSAGE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Uyarı.
+        /// </summary>
+        public static string WARNING {
+            get {
+                return ResourceManager.GetString("WARNING", resourceCulture);
+            }
+        }
     }
 }
