@@ -37,13 +37,13 @@ namespace HospitalAutomation.Model
         public virtual DbSet<MUAYENEEPIKRIZYOL> MUAYENEEPIKRIZYOLs { get; set; }
         public virtual DbSet<OGRETIMUYELERİ> OGRETIMUYELERİ { get; set; }
         public virtual DbSet<OTURUM> OTURUMs { get; set; }
-        public virtual DbSet<STATU> STATUs { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<TANILAR> TANILARs { get; set; }
         public virtual DbSet<TETKIKRAPORLAR> TETKIKRAPORLARs { get; set; }
         public virtual DbSet<TETKIKRAPORRESIMLER> TETKIKRAPORRESIMLERs { get; set; }
         public virtual DbSet<TETKIKRAPORYOL> TETKIKRAPORYOLs { get; set; }
         public virtual DbSet<BOLUMLER> BOLUMLER { get; set; }
+        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
+        public virtual DbSet<STATU> STATU { get; set; }
     
         public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
         {

@@ -102,7 +102,7 @@
     <Compile Include="STATU.cs">
       <DependentUpon>HospitalEntity.tt</DependentUpon>
     </Compile>
-    <Compile Include="sysdiagram.cs">
+    <Compile Include="sysdiagrams.cs">
       <DependentUpon>HospitalEntity.tt</DependentUpon>
     </Compile>
     <Compile Include="TANILAR.cs">

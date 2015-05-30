@@ -40,5 +40,23 @@ namespace HospitalAutomation
                     }).ToArray();
             }
         }
+
+        public STATU[] GatherState()
+        {
+            using (var context = new HospitalAutomationEntities())
+            {
+                return (from p in context.STATU
+                        select new
+                        {
+                            _id = p.StatuId,
+                            Statu = p.Statu
+                        }).ToList()
+                    .Select(x => new STATU
+                    {
+                        StatuId = x._id,
+                        Statu = x.Statu
+                    }).ToArray();
+            }
+        }
     }
 }

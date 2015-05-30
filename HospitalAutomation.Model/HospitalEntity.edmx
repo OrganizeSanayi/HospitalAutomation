@@ -101,9 +101,9 @@
         </EntityType>
         <EntityType Name="STATU">
           <Key>
-            <PropertyRef Name="Statuid" />
+            <PropertyRef Name="StatuId" />
           </Key>
-          <Property Name="Statuid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StatuId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Statu" Type="nvarchar" MaxLength="20" Nullable="false" />
         </EntityType>
         <EntityType Name="sysdiagrams">
@@ -251,7 +251,7 @@
           <End Role="DOSYALAR" Type="Self.DOSYALAR" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="STATU">
-              <PropertyRef Name="Statuid" />
+              <PropertyRef Name="StatuId" />
             </Principal>
             <Dependent Role="DOSYALAR">
               <PropertyRef Name="HastaStatuID" />
@@ -326,6 +326,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
         <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
           <Parameter Name="owner_id" Type="int" Mode="In" />
@@ -479,11 +480,11 @@
           <NavigationProperty Name="MUAYENEEPIKRIZ" Relationship="Self.FK_DOSYALAR_MUAYENEEPIKRIZ" FromRole="DOSYALAR" ToRole="MUAYENEEPIKRIZ" />
           <NavigationProperty Name="MUAYENEEPIKRIZYOL" Relationship="Self.FK_DOSYALAR_MUAYENEEPIKRIZYOL" FromRole="DOSYALAR" ToRole="MUAYENEEPIKRIZYOL" />
           <NavigationProperty Name="OGRETIMUYELERİ" Relationship="Self.FK_DOSYALAR_OGRETIMUYELERİ" FromRole="DOSYALAR" ToRole="OGRETIMUYELERİ" />
-          <NavigationProperty Name="STATU" Relationship="Self.FK_DOSYALAR_STATU" FromRole="DOSYALAR" ToRole="STATU" />
           <NavigationProperty Name="TANILAR" Relationship="Self.FK_DOSYALAR_TANILAR1" FromRole="DOSYALAR" ToRole="TANILAR" />
           <NavigationProperty Name="TETKIKRAPORLAR" Relationship="Self.FK_DOSYALAR_TETKIKRAPORLAR" FromRole="DOSYALAR" ToRole="TETKIKRAPORLAR" />
           <NavigationProperty Name="TETKIKRAPORYOL" Relationship="Self.FK_DOSYALAR_YOLLAR" FromRole="DOSYALAR" ToRole="TETKIKRAPORYOL" />
           <NavigationProperty Name="BOLUMLER" Relationship="HospitalAutomationModel.FK_DOSYALAR_BOLUMLER" FromRole="DOSYALAR" ToRole="BOLUMLER" />
+          <NavigationProperty Name="STATU" Relationship="HospitalAutomationModel.FK_DOSYALAR_STATU" FromRole="DOSYALAR" ToRole="STATU" />
         </EntityType>
         <EntityType Name="HASTALAR">
           <Key>
@@ -536,24 +537,6 @@
           </Key>
           <Property Name="KullaniciAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Sifre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-        </EntityType>
-        <EntityType Name="STATU">
-          <Key>
-            <PropertyRef Name="Statuid" />
-          </Key>
-          <Property Name="Statuid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
-          <Property Name="Statu1" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="DOSYALARs" Relationship="Self.FK_DOSYALAR_STATU" FromRole="STATU" ToRole="DOSYALAR" />
-        </EntityType>
-        <EntityType Name="sysdiagram">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="principal_id" Type="Int32" Nullable="false" />
-          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
-          <Property Name="version" Type="Int32" />
-          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <EntityType Name="TANILAR">
           <Key>
@@ -674,20 +657,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_DOSYALAR_STATU">
-          <End Role="STATU" Type="Self.STATU" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="DOSYALAR" Type="Self.DOSYALAR" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="STATU">
-              <PropertyRef Name="Statuid" />
-            </Principal>
-            <Dependent Role="DOSYALAR">
-              <PropertyRef Name="HastaStatuID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_DOSYALAR_TANILAR1">
           <End Role="TANILAR" Type="Self.TANILAR" Multiplicity="1">
             <OnDelete Action="Cascade" />
@@ -767,8 +736,6 @@
           <EntitySet Name="MUAYENEEPIKRIZYOLs" EntityType="Self.MUAYENEEPIKRIZYOL" />
           <EntitySet Name="OGRETIMUYELERİ" EntityType="Self.OGRETIMUYELERİ" />
           <EntitySet Name="OTURUMs" EntityType="Self.OTURUM" />
-          <EntitySet Name="STATUs" EntityType="Self.STATU" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
           <EntitySet Name="TANILARs" EntityType="Self.TANILAR" />
           <EntitySet Name="TETKIKRAPORLARs" EntityType="Self.TETKIKRAPORLAR" />
           <EntitySet Name="TETKIKRAPORRESIMLERs" EntityType="Self.TETKIKRAPORRESIMLER" />
@@ -795,10 +762,6 @@
           </AssociationSet>
           <AssociationSet Name="FK_DOSYALAR_OGRETIMUYELERİ" Association="Self.FK_DOSYALAR_OGRETIMUYELERİ">
             <End Role="OGRETIMUYELERİ" EntitySet="OGRETIMUYELERİ" />
-            <End Role="DOSYALAR" EntitySet="DOSYALARs" />
-          </AssociationSet>
-          <AssociationSet Name="FK_DOSYALAR_STATU" Association="Self.FK_DOSYALAR_STATU">
-            <End Role="STATU" EntitySet="STATUs" />
             <End Role="DOSYALAR" EntitySet="DOSYALARs" />
           </AssociationSet>
           <AssociationSet Name="FK_DOSYALAR_TANILAR1" Association="Self.FK_DOSYALAR_TANILAR1">
@@ -856,6 +819,12 @@
             <End Role="BOLUMLER" EntitySet="BOLUMLER" />
             <End Role="DOSYALAR" EntitySet="DOSYALARs" />
           </AssociationSet>
+          <EntitySet Name="sysdiagrams" EntityType="HospitalAutomationModel.sysdiagrams" />
+          <EntitySet Name="STATU" EntityType="HospitalAutomationModel.STATU" />
+          <AssociationSet Name="FK_DOSYALAR_STATU" Association="HospitalAutomationModel.FK_DOSYALAR_STATU">
+            <End Role="STATU" EntitySet="STATU" />
+            <End Role="DOSYALAR" EntitySet="DOSYALARs" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="BOLUMLER">
           <Key>
@@ -876,6 +845,38 @@
             </Principal>
             <Dependent Role="DOSYALAR">
               <PropertyRef Name="BolumID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="STATU">
+          <Key>
+            <PropertyRef Name="StatuId" />
+          </Key>
+          <Property Name="StatuId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Statu" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="DOSYALAR" Relationship="HospitalAutomationModel.FK_DOSYALAR_STATU" FromRole="STATU" ToRole="DOSYALAR" />
+        </EntityType>
+        <Association Name="FK_DOSYALAR_STATU">
+          <End Type="HospitalAutomationModel.STATU" Role="STATU" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="HospitalAutomationModel.DOSYALAR" Role="DOSYALAR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STATU">
+              <PropertyRef Name="StatuId" />
+            </Principal>
+            <Dependent Role="DOSYALAR">
+              <PropertyRef Name="HastaStatuID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -982,25 +983,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="STATUs">
-            <EntityTypeMapping TypeName="HospitalAutomationModel.STATU">
-              <MappingFragment StoreEntitySet="STATU">
-                <ScalarProperty Name="Statuid" ColumnName="Statuid" />
-                <ScalarProperty Name="Statu1" ColumnName="Statu" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="HospitalAutomationModel.sysdiagram">
-              <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="definition" ColumnName="definition" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="TANILARs">
             <EntityTypeMapping TypeName="HospitalAutomationModel.TANILAR">
               <MappingFragment StoreEntitySet="TANILAR">
@@ -1047,6 +1029,25 @@
               <MappingFragment StoreEntitySet="BOLUMLER">
                 <ScalarProperty Name="BolumAdi" ColumnName="BolumAdi" />
                 <ScalarProperty Name="BolumId" ColumnName="BolumId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="HospitalAutomationModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="STATU">
+            <EntityTypeMapping TypeName="HospitalAutomationModel.STATU">
+              <MappingFragment StoreEntitySet="STATU">
+                <ScalarProperty Name="Statu" ColumnName="Statu" />
+                <ScalarProperty Name="StatuId" ColumnName="StatuId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -51,13 +51,12 @@
             this.panelRegisterInformation = new System.Windows.Forms.FlowLayoutPanel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.groupBoxPatientStatus = new System.Windows.Forms.GroupBox();
-            this.radioButtonOutpatient = new System.Windows.Forms.RadioButton();
-            this.radioButtonInpatient = new System.Windows.Forms.RadioButton();
+            this.cbState = new System.Windows.Forms.ComboBox();
             this.linkLblPatientStatus = new System.Windows.Forms.LinkLabel();
             this.monthCalendar = new System.Windows.Forms.MonthCalendar();
             this.linkLblPatientDiagnosed = new System.Windows.Forms.LinkLabel();
             this.groupBoxFacultyMember = new System.Windows.Forms.GroupBox();
-            this.facultyMembers = new System.Windows.Forms.ComboBox();
+            this.cbFacultyMembers = new System.Windows.Forms.ComboBox();
             this.linkLblEnterFacultyMember = new System.Windows.Forms.LinkLabel();
             this.groupBoxSection = new System.Windows.Forms.GroupBox();
             this.cbSurgery = new System.Windows.Forms.ComboBox();
@@ -81,27 +80,16 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelReports = new System.Windows.Forms.Panel();
             this.groupBoxPatientExamination = new System.Windows.Forms.GroupBox();
-            this.radioBtnPatientAdmissionForm = new System.Windows.Forms.RadioButton();
-            this.radioBtnConsents = new System.Windows.Forms.RadioButton();
-            this.radioBtnOperationNote = new System.Windows.Forms.RadioButton();
-            this.radioBtnPatientExamination = new System.Windows.Forms.RadioButton();
-            this.radioBtnClinicalObservation = new System.Windows.Forms.RadioButton();
-            this.radioBtnEpikriz = new System.Windows.Forms.RadioButton();
-            this.radioBtnConsultation = new System.Windows.Forms.RadioButton();
-            this.radioBtnAnesthesiaNote = new System.Windows.Forms.RadioButton();
             this.btnSaveFile = new System.Windows.Forms.Button();
             this.groupBoxReports = new System.Windows.Forms.GroupBox();
-            this.radioBtnRadiological = new System.Windows.Forms.RadioButton();
-            this.radioBtnPathology = new System.Windows.Forms.RadioButton();
-            this.radioBtnOther = new System.Windows.Forms.RadioButton();
-            this.radioBtnLab = new System.Windows.Forms.RadioButton();
-            this.radioBtnNuclearMedicine = new System.Windows.Forms.RadioButton();
-            this.radioBtnEndoscopic = new System.Windows.Forms.RadioButton();
-            this.radioBtnJudicialReports = new System.Windows.Forms.RadioButton();
             this.btnJudicialReports = new System.Windows.Forms.Button();
             this.btnScanFile = new System.Windows.Forms.Button();
             this.btnPatientExamination = new System.Windows.Forms.Button();
             this.btnReports = new System.Windows.Forms.Button();
+            this.cbPatientExaminationEpicrisis = new System.Windows.Forms.ComboBox();
+            this.cbExaminationAndReports = new System.Windows.Forms.ComboBox();
+            this.cbCriminalAndMedicalBoard = new System.Windows.Forms.ComboBox();
+            this.gbCriminalAndMedicalBoard = new System.Windows.Forms.GroupBox();
             this.panel1.SuspendLayout();
             this.panelRegisterInformation.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -114,6 +102,7 @@
             this.panelReports.SuspendLayout();
             this.groupBoxPatientExamination.SuspendLayout();
             this.groupBoxReports.SuspendLayout();
+            this.gbCriminalAndMedicalBoard.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -373,41 +362,23 @@
             // 
             // groupBoxPatientStatus
             // 
-            this.groupBoxPatientStatus.Controls.Add(this.radioButtonOutpatient);
-            this.groupBoxPatientStatus.Controls.Add(this.radioButtonInpatient);
+            this.groupBoxPatientStatus.Controls.Add(this.cbState);
             this.groupBoxPatientStatus.Location = new System.Drawing.Point(13, 448);
             this.groupBoxPatientStatus.Name = "groupBoxPatientStatus";
-            this.groupBoxPatientStatus.Size = new System.Drawing.Size(161, 100);
+            this.groupBoxPatientStatus.Size = new System.Drawing.Size(161, 60);
             this.groupBoxPatientStatus.TabIndex = 23;
             this.groupBoxPatientStatus.TabStop = false;
             this.groupBoxPatientStatus.Text = "Hasta Statüsü :";
             this.groupBoxPatientStatus.Visible = false;
             // 
-            // radioButtonOutpatient
+            // cbState
             // 
-            this.radioButtonOutpatient.AutoSize = true;
-            this.radioButtonOutpatient.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButtonOutpatient.Location = new System.Drawing.Point(21, 22);
-            this.radioButtonOutpatient.Name = "radioButtonOutpatient";
-            this.radioButtonOutpatient.Size = new System.Drawing.Size(113, 22);
-            this.radioButtonOutpatient.TabIndex = 13;
-            this.radioButtonOutpatient.TabStop = true;
-            this.radioButtonOutpatient.Text = "Ayakta Hasta";
-            this.radioButtonOutpatient.UseVisualStyleBackColor = true;
-            this.radioButtonOutpatient.CheckedChanged += new System.EventHandler(this.groupBoxPatientStatus_Enter);
-            // 
-            // radioButtonInpatient
-            // 
-            this.radioButtonInpatient.AutoSize = true;
-            this.radioButtonInpatient.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButtonInpatient.Location = new System.Drawing.Point(21, 50);
-            this.radioButtonInpatient.Name = "radioButtonInpatient";
-            this.radioButtonInpatient.Size = new System.Drawing.Size(106, 22);
-            this.radioButtonInpatient.TabIndex = 14;
-            this.radioButtonInpatient.TabStop = true;
-            this.radioButtonInpatient.Text = "Yatan Hasta";
-            this.radioButtonInpatient.UseVisualStyleBackColor = true;
-            this.radioButtonInpatient.CheckedChanged += new System.EventHandler(this.groupBoxPatientStatus_Enter);
+            this.cbState.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbState.FormattingEnabled = true;
+            this.cbState.Location = new System.Drawing.Point(21, 22);
+            this.cbState.Name = "cbState";
+            this.cbState.Size = new System.Drawing.Size(121, 21);
+            this.cbState.TabIndex = 10;
             // 
             // linkLblPatientStatus
             // 
@@ -443,7 +414,7 @@
             // 
             // groupBoxFacultyMember
             // 
-            this.groupBoxFacultyMember.Controls.Add(this.facultyMembers);
+            this.groupBoxFacultyMember.Controls.Add(this.cbFacultyMembers);
             this.groupBoxFacultyMember.Location = new System.Drawing.Point(187, 448);
             this.groupBoxFacultyMember.Name = "groupBoxFacultyMember";
             this.groupBoxFacultyMember.Size = new System.Drawing.Size(350, 61);
@@ -453,14 +424,14 @@
             this.groupBoxFacultyMember.Visible = false;
             this.groupBoxFacultyMember.Enter += new System.EventHandler(this.groupFacultyMember_Enter);
             // 
-            // facultyMembers
+            // cbFacultyMembers
             // 
-            this.facultyMembers.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.facultyMembers.FormattingEnabled = true;
-            this.facultyMembers.Location = new System.Drawing.Point(6, 25);
-            this.facultyMembers.Name = "facultyMembers";
-            this.facultyMembers.Size = new System.Drawing.Size(338, 21);
-            this.facultyMembers.TabIndex = 10;
+            this.cbFacultyMembers.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbFacultyMembers.FormattingEnabled = true;
+            this.cbFacultyMembers.Location = new System.Drawing.Point(6, 25);
+            this.cbFacultyMembers.Name = "cbFacultyMembers";
+            this.cbFacultyMembers.Size = new System.Drawing.Size(338, 21);
+            this.cbFacultyMembers.TabIndex = 10;
             // 
             // linkLblEnterFacultyMember
             // 
@@ -687,10 +658,10 @@
             // panelReports
             // 
             this.panelReports.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.panelReports.Controls.Add(this.gbCriminalAndMedicalBoard);
             this.panelReports.Controls.Add(this.groupBoxPatientExamination);
             this.panelReports.Controls.Add(this.btnSaveFile);
             this.panelReports.Controls.Add(this.groupBoxReports);
-            this.panelReports.Controls.Add(this.radioBtnJudicialReports);
             this.panelReports.Controls.Add(this.btnJudicialReports);
             this.panelReports.Controls.Add(this.btnScanFile);
             this.panelReports.Controls.Add(this.btnPatientExamination);
@@ -703,125 +674,14 @@
             // 
             // groupBoxPatientExamination
             // 
-            this.groupBoxPatientExamination.Controls.Add(this.radioBtnPatientAdmissionForm);
-            this.groupBoxPatientExamination.Controls.Add(this.radioBtnConsents);
-            this.groupBoxPatientExamination.Controls.Add(this.radioBtnOperationNote);
-            this.groupBoxPatientExamination.Controls.Add(this.radioBtnPatientExamination);
-            this.groupBoxPatientExamination.Controls.Add(this.radioBtnClinicalObservation);
-            this.groupBoxPatientExamination.Controls.Add(this.radioBtnEpikriz);
-            this.groupBoxPatientExamination.Controls.Add(this.radioBtnConsultation);
-            this.groupBoxPatientExamination.Controls.Add(this.radioBtnAnesthesiaNote);
+            this.groupBoxPatientExamination.Controls.Add(this.cbPatientExaminationEpicrisis);
             this.groupBoxPatientExamination.Location = new System.Drawing.Point(14, 65);
             this.groupBoxPatientExamination.Name = "groupBoxPatientExamination";
-            this.groupBoxPatientExamination.Size = new System.Drawing.Size(522, 66);
+            this.groupBoxPatientExamination.Size = new System.Drawing.Size(360, 51);
             this.groupBoxPatientExamination.TabIndex = 10;
             this.groupBoxPatientExamination.TabStop = false;
             this.groupBoxPatientExamination.Visible = false;
             this.groupBoxPatientExamination.Enter += new System.EventHandler(this.groupBoxPatientExamination_Enter);
-            // 
-            // radioBtnPatientAdmissionForm
-            // 
-            this.radioBtnPatientAdmissionForm.AutoSize = true;
-            this.radioBtnPatientAdmissionForm.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioBtnPatientAdmissionForm.Location = new System.Drawing.Point(9, 19);
-            this.radioBtnPatientAdmissionForm.Name = "radioBtnPatientAdmissionForm";
-            this.radioBtnPatientAdmissionForm.Size = new System.Drawing.Size(125, 19);
-            this.radioBtnPatientAdmissionForm.TabIndex = 2;
-            this.radioBtnPatientAdmissionForm.TabStop = true;
-            this.radioBtnPatientAdmissionForm.Text = "Hasta Yatış Formu";
-            this.radioBtnPatientAdmissionForm.UseVisualStyleBackColor = true;
-            this.radioBtnPatientAdmissionForm.CheckedChanged += new System.EventHandler(this.groupBoxPatientExamination_Enter);
-            // 
-            // radioBtnConsents
-            // 
-            this.radioBtnConsents.AutoSize = true;
-            this.radioBtnConsents.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioBtnConsents.Location = new System.Drawing.Point(9, 40);
-            this.radioBtnConsents.Name = "radioBtnConsents";
-            this.radioBtnConsents.Size = new System.Drawing.Size(73, 19);
-            this.radioBtnConsents.TabIndex = 3;
-            this.radioBtnConsents.TabStop = true;
-            this.radioBtnConsents.Text = "Onamlar";
-            this.radioBtnConsents.UseVisualStyleBackColor = true;
-            this.radioBtnConsents.CheckedChanged += new System.EventHandler(this.groupBoxPatientExamination_Enter);
-            // 
-            // radioBtnOperationNote
-            // 
-            this.radioBtnOperationNote.AutoSize = true;
-            this.radioBtnOperationNote.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioBtnOperationNote.Location = new System.Drawing.Point(153, 19);
-            this.radioBtnOperationNote.Name = "radioBtnOperationNote";
-            this.radioBtnOperationNote.Size = new System.Drawing.Size(100, 19);
-            this.radioBtnOperationNote.TabIndex = 4;
-            this.radioBtnOperationNote.TabStop = true;
-            this.radioBtnOperationNote.Text = "Ameliyat Notu";
-            this.radioBtnOperationNote.UseVisualStyleBackColor = true;
-            this.radioBtnOperationNote.CheckedChanged += new System.EventHandler(this.groupBoxPatientExamination_Enter);
-            // 
-            // radioBtnPatientExamination
-            // 
-            this.radioBtnPatientExamination.AutoSize = true;
-            this.radioBtnPatientExamination.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioBtnPatientExamination.Location = new System.Drawing.Point(272, 40);
-            this.radioBtnPatientExamination.Name = "radioBtnPatientExamination";
-            this.radioBtnPatientExamination.Size = new System.Drawing.Size(120, 19);
-            this.radioBtnPatientExamination.TabIndex = 5;
-            this.radioBtnPatientExamination.TabStop = true;
-            this.radioBtnPatientExamination.Text = "Hasta Muayenesi";
-            this.radioBtnPatientExamination.UseVisualStyleBackColor = true;
-            this.radioBtnPatientExamination.CheckedChanged += new System.EventHandler(this.groupBoxPatientExamination_Enter);
-            // 
-            // radioBtnClinicalObservation
-            // 
-            this.radioBtnClinicalObservation.AutoSize = true;
-            this.radioBtnClinicalObservation.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioBtnClinicalObservation.Location = new System.Drawing.Point(272, 19);
-            this.radioBtnClinicalObservation.Name = "radioBtnClinicalObservation";
-            this.radioBtnClinicalObservation.Size = new System.Drawing.Size(104, 19);
-            this.radioBtnClinicalObservation.TabIndex = 6;
-            this.radioBtnClinicalObservation.TabStop = true;
-            this.radioBtnClinicalObservation.Text = "Klinik Gözlemi";
-            this.radioBtnClinicalObservation.UseVisualStyleBackColor = true;
-            this.radioBtnClinicalObservation.CheckedChanged += new System.EventHandler(this.groupBoxPatientExamination_Enter);
-            // 
-            // radioBtnEpikriz
-            // 
-            this.radioBtnEpikriz.AutoSize = true;
-            this.radioBtnEpikriz.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioBtnEpikriz.Location = new System.Drawing.Point(411, 41);
-            this.radioBtnEpikriz.Name = "radioBtnEpikriz";
-            this.radioBtnEpikriz.Size = new System.Drawing.Size(62, 19);
-            this.radioBtnEpikriz.TabIndex = 7;
-            this.radioBtnEpikriz.TabStop = true;
-            this.radioBtnEpikriz.Text = "Epikriz";
-            this.radioBtnEpikriz.UseVisualStyleBackColor = true;
-            this.radioBtnEpikriz.CheckedChanged += new System.EventHandler(this.groupBoxPatientExamination_Enter);
-            // 
-            // radioBtnConsultation
-            // 
-            this.radioBtnConsultation.AutoSize = true;
-            this.radioBtnConsultation.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioBtnConsultation.Location = new System.Drawing.Point(411, 19);
-            this.radioBtnConsultation.Name = "radioBtnConsultation";
-            this.radioBtnConsultation.Size = new System.Drawing.Size(98, 19);
-            this.radioBtnConsultation.TabIndex = 8;
-            this.radioBtnConsultation.TabStop = true;
-            this.radioBtnConsultation.Text = "Konsültasyon";
-            this.radioBtnConsultation.UseVisualStyleBackColor = true;
-            this.radioBtnConsultation.CheckedChanged += new System.EventHandler(this.groupBoxPatientExamination_Enter);
-            // 
-            // radioBtnAnesthesiaNote
-            // 
-            this.radioBtnAnesthesiaNote.AutoSize = true;
-            this.radioBtnAnesthesiaNote.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioBtnAnesthesiaNote.Location = new System.Drawing.Point(153, 40);
-            this.radioBtnAnesthesiaNote.Name = "radioBtnAnesthesiaNote";
-            this.radioBtnAnesthesiaNote.Size = new System.Drawing.Size(100, 19);
-            this.radioBtnAnesthesiaNote.TabIndex = 9;
-            this.radioBtnAnesthesiaNote.TabStop = true;
-            this.radioBtnAnesthesiaNote.Text = "Anestezi Notu";
-            this.radioBtnAnesthesiaNote.UseVisualStyleBackColor = true;
-            this.radioBtnAnesthesiaNote.CheckedChanged += new System.EventHandler(this.groupBoxPatientExamination_Enter);
             // 
             // btnSaveFile
             // 
@@ -836,117 +696,20 @@
             // 
             // groupBoxReports
             // 
-            this.groupBoxReports.Controls.Add(this.radioBtnRadiological);
-            this.groupBoxReports.Controls.Add(this.radioBtnPathology);
-            this.groupBoxReports.Controls.Add(this.radioBtnOther);
-            this.groupBoxReports.Controls.Add(this.radioBtnLab);
-            this.groupBoxReports.Controls.Add(this.radioBtnNuclearMedicine);
-            this.groupBoxReports.Controls.Add(this.radioBtnEndoscopic);
-            this.groupBoxReports.Location = new System.Drawing.Point(14, 198);
+            this.groupBoxReports.Controls.Add(this.cbExaminationAndReports);
+            this.groupBoxReports.Location = new System.Drawing.Point(14, 169);
             this.groupBoxReports.Name = "groupBoxReports";
-            this.groupBoxReports.Size = new System.Drawing.Size(361, 53);
+            this.groupBoxReports.Size = new System.Drawing.Size(360, 51);
             this.groupBoxReports.TabIndex = 10;
             this.groupBoxReports.TabStop = false;
             this.groupBoxReports.Visible = false;
             this.groupBoxReports.Enter += new System.EventHandler(this.groupBoxReports_Enter);
             // 
-            // radioBtnRadiological
-            // 
-            this.radioBtnRadiological.AutoSize = true;
-            this.radioBtnRadiological.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioBtnRadiological.Location = new System.Drawing.Point(6, 33);
-            this.radioBtnRadiological.Name = "radioBtnRadiological";
-            this.radioBtnRadiological.Size = new System.Drawing.Size(76, 19);
-            this.radioBtnRadiological.TabIndex = 15;
-            this.radioBtnRadiological.TabStop = true;
-            this.radioBtnRadiological.Text = "Radyoloji";
-            this.radioBtnRadiological.UseVisualStyleBackColor = true;
-            this.radioBtnRadiological.CheckedChanged += new System.EventHandler(this.groupBoxReports_Enter);
-            // 
-            // radioBtnPathology
-            // 
-            this.radioBtnPathology.AutoSize = true;
-            this.radioBtnPathology.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioBtnPathology.Location = new System.Drawing.Point(6, 12);
-            this.radioBtnPathology.Name = "radioBtnPathology";
-            this.radioBtnPathology.Size = new System.Drawing.Size(66, 19);
-            this.radioBtnPathology.TabIndex = 10;
-            this.radioBtnPathology.TabStop = true;
-            this.radioBtnPathology.Text = "Patoloji";
-            this.radioBtnPathology.UseVisualStyleBackColor = true;
-            this.radioBtnPathology.CheckedChanged += new System.EventHandler(this.groupBoxReports_Enter);
-            // 
-            // radioBtnOther
-            // 
-            this.radioBtnOther.AutoSize = true;
-            this.radioBtnOther.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioBtnOther.Location = new System.Drawing.Point(269, 33);
-            this.radioBtnOther.Name = "radioBtnOther";
-            this.radioBtnOther.Size = new System.Drawing.Size(55, 19);
-            this.radioBtnOther.TabIndex = 11;
-            this.radioBtnOther.TabStop = true;
-            this.radioBtnOther.Text = "Diğer";
-            this.radioBtnOther.UseVisualStyleBackColor = true;
-            this.radioBtnOther.CheckedChanged += new System.EventHandler(this.groupBoxReports_Enter);
-            // 
-            // radioBtnLab
-            // 
-            this.radioBtnLab.AutoSize = true;
-            this.radioBtnLab.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioBtnLab.Location = new System.Drawing.Point(269, 12);
-            this.radioBtnLab.Name = "radioBtnLab";
-            this.radioBtnLab.Size = new System.Drawing.Size(90, 19);
-            this.radioBtnLab.TabIndex = 12;
-            this.radioBtnLab.TabStop = true;
-            this.radioBtnLab.Text = "Laboratuvar";
-            this.radioBtnLab.UseVisualStyleBackColor = true;
-            this.radioBtnLab.CheckedChanged += new System.EventHandler(this.groupBoxReports_Enter);
-            // 
-            // radioBtnNuclearMedicine
-            // 
-            this.radioBtnNuclearMedicine.AutoSize = true;
-            this.radioBtnNuclearMedicine.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioBtnNuclearMedicine.Location = new System.Drawing.Point(146, 33);
-            this.radioBtnNuclearMedicine.Name = "radioBtnNuclearMedicine";
-            this.radioBtnNuclearMedicine.Size = new System.Drawing.Size(88, 19);
-            this.radioBtnNuclearMedicine.TabIndex = 13;
-            this.radioBtnNuclearMedicine.TabStop = true;
-            this.radioBtnNuclearMedicine.Text = "Nükleer Tıp";
-            this.radioBtnNuclearMedicine.UseVisualStyleBackColor = true;
-            this.radioBtnNuclearMedicine.CheckedChanged += new System.EventHandler(this.groupBoxReports_Enter);
-            // 
-            // radioBtnEndoscopic
-            // 
-            this.radioBtnEndoscopic.AutoSize = true;
-            this.radioBtnEndoscopic.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioBtnEndoscopic.Location = new System.Drawing.Point(146, 12);
-            this.radioBtnEndoscopic.Name = "radioBtnEndoscopic";
-            this.radioBtnEndoscopic.Size = new System.Drawing.Size(89, 19);
-            this.radioBtnEndoscopic.TabIndex = 14;
-            this.radioBtnEndoscopic.TabStop = true;
-            this.radioBtnEndoscopic.Text = "Endoskobik";
-            this.radioBtnEndoscopic.UseVisualStyleBackColor = true;
-            this.radioBtnEndoscopic.CheckedChanged += new System.EventHandler(this.groupBoxReports_Enter);
-            // 
-            // radioBtnJudicialReports
-            // 
-            this.radioBtnJudicialReports.AutoSize = true;
-            this.radioBtnJudicialReports.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioBtnJudicialReports.Location = new System.Drawing.Point(14, 304);
-            this.radioBtnJudicialReports.Name = "radioBtnJudicialReports";
-            this.radioBtnJudicialReports.Size = new System.Drawing.Size(190, 19);
-            this.radioBtnJudicialReports.TabIndex = 18;
-            this.radioBtnJudicialReports.TabStop = true;
-            this.radioBtnJudicialReports.Text = "Adli ve Sağlık Kurulu Raporları";
-            this.radioBtnJudicialReports.UseVisualStyleBackColor = true;
-            this.radioBtnJudicialReports.Visible = false;
-            this.radioBtnJudicialReports.CheckedChanged += new System.EventHandler(this.radioBtnJudicialReports_CheckedChanged);
-            // 
             // btnJudicialReports
             // 
             this.btnJudicialReports.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnJudicialReports.ForeColor = System.Drawing.Color.DarkGreen;
-            this.btnJudicialReports.Location = new System.Drawing.Point(14, 263);
+            this.btnJudicialReports.Location = new System.Drawing.Point(29, 234);
             this.btnJudicialReports.Name = "btnJudicialReports";
             this.btnJudicialReports.Size = new System.Drawing.Size(260, 35);
             this.btnJudicialReports.TabIndex = 17;
@@ -969,7 +732,7 @@
             // 
             this.btnPatientExamination.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPatientExamination.ForeColor = System.Drawing.Color.DarkGreen;
-            this.btnPatientExamination.Location = new System.Drawing.Point(14, 28);
+            this.btnPatientExamination.Location = new System.Drawing.Point(29, 27);
             this.btnPatientExamination.Name = "btnPatientExamination";
             this.btnPatientExamination.Size = new System.Drawing.Size(260, 35);
             this.btnPatientExamination.TabIndex = 0;
@@ -981,13 +744,50 @@
             // 
             this.btnReports.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReports.ForeColor = System.Drawing.Color.DarkGreen;
-            this.btnReports.Location = new System.Drawing.Point(14, 157);
+            this.btnReports.Location = new System.Drawing.Point(29, 128);
             this.btnReports.Name = "btnReports";
             this.btnReports.Size = new System.Drawing.Size(260, 35);
             this.btnReports.TabIndex = 1;
             this.btnReports.Text = "TETKİK ve RAPORLAR";
             this.btnReports.UseVisualStyleBackColor = true;
             this.btnReports.Click += new System.EventHandler(this.btnReports_Click);
+            // 
+            // cbPatientExaminationEpicrisis
+            // 
+            this.cbPatientExaminationEpicrisis.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbPatientExaminationEpicrisis.FormattingEnabled = true;
+            this.cbPatientExaminationEpicrisis.Location = new System.Drawing.Point(15, 19);
+            this.cbPatientExaminationEpicrisis.Name = "cbPatientExaminationEpicrisis";
+            this.cbPatientExaminationEpicrisis.Size = new System.Drawing.Size(328, 21);
+            this.cbPatientExaminationEpicrisis.TabIndex = 10;
+            // 
+            // cbExaminationAndReports
+            // 
+            this.cbExaminationAndReports.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbExaminationAndReports.FormattingEnabled = true;
+            this.cbExaminationAndReports.Location = new System.Drawing.Point(15, 19);
+            this.cbExaminationAndReports.Name = "cbExaminationAndReports";
+            this.cbExaminationAndReports.Size = new System.Drawing.Size(328, 21);
+            this.cbExaminationAndReports.TabIndex = 11;
+            // 
+            // cbCriminalAndMedicalBoard
+            // 
+            this.cbCriminalAndMedicalBoard.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbCriminalAndMedicalBoard.FormattingEnabled = true;
+            this.cbCriminalAndMedicalBoard.Location = new System.Drawing.Point(15, 19);
+            this.cbCriminalAndMedicalBoard.Name = "cbCriminalAndMedicalBoard";
+            this.cbCriminalAndMedicalBoard.Size = new System.Drawing.Size(328, 21);
+            this.cbCriminalAndMedicalBoard.TabIndex = 12;
+            // 
+            // gbCriminalAndMedicalBoard
+            // 
+            this.gbCriminalAndMedicalBoard.Controls.Add(this.cbCriminalAndMedicalBoard);
+            this.gbCriminalAndMedicalBoard.Location = new System.Drawing.Point(14, 275);
+            this.gbCriminalAndMedicalBoard.Name = "gbCriminalAndMedicalBoard";
+            this.gbCriminalAndMedicalBoard.Size = new System.Drawing.Size(360, 51);
+            this.gbCriminalAndMedicalBoard.TabIndex = 12;
+            this.gbCriminalAndMedicalBoard.TabStop = false;
+            this.gbCriminalAndMedicalBoard.Visible = false;
             // 
             // formHomePage
             // 
@@ -1009,7 +809,6 @@
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.groupBoxPatientStatus.ResumeLayout(false);
-            this.groupBoxPatientStatus.PerformLayout();
             this.groupBoxFacultyMember.ResumeLayout(false);
             this.groupBoxSection.ResumeLayout(false);
             this.groupBoxSection.PerformLayout();
@@ -1018,11 +817,9 @@
             this.panelFileInformation.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panelReports.ResumeLayout(false);
-            this.panelReports.PerformLayout();
             this.groupBoxPatientExamination.ResumeLayout(false);
-            this.groupBoxPatientExamination.PerformLayout();
             this.groupBoxReports.ResumeLayout(false);
-            this.groupBoxReports.PerformLayout();
+            this.gbCriminalAndMedicalBoard.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1046,8 +843,6 @@
         private System.Windows.Forms.LinkLabel linkLblFileInformation;
         private System.Windows.Forms.LinkLabel linkLblRegisterInformation;
         private System.Windows.Forms.TextBox txtPatientDiagnosed;
-        private System.Windows.Forms.RadioButton radioButtonInpatient;
-        private System.Windows.Forms.RadioButton radioButtonOutpatient;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnOkFileInformationPage;
@@ -1074,23 +869,8 @@
         private System.Windows.Forms.LinkLabel linkLblReports;
         private System.Windows.Forms.Panel panelReports;
         private System.Windows.Forms.Button btnSaveFile;
-        private System.Windows.Forms.RadioButton radioBtnJudicialReports;
         private System.Windows.Forms.Button btnJudicialReports;
         private System.Windows.Forms.Button btnScanFile;
-        private System.Windows.Forms.RadioButton radioBtnRadiological;
-        private System.Windows.Forms.RadioButton radioBtnEndoscopic;
-        private System.Windows.Forms.RadioButton radioBtnNuclearMedicine;
-        private System.Windows.Forms.RadioButton radioBtnLab;
-        private System.Windows.Forms.RadioButton radioBtnOther;
-        private System.Windows.Forms.RadioButton radioBtnPathology;
-        private System.Windows.Forms.RadioButton radioBtnAnesthesiaNote;
-        private System.Windows.Forms.RadioButton radioBtnConsultation;
-        private System.Windows.Forms.RadioButton radioBtnEpikriz;
-        private System.Windows.Forms.RadioButton radioBtnClinicalObservation;
-        private System.Windows.Forms.RadioButton radioBtnPatientExamination;
-        private System.Windows.Forms.RadioButton radioBtnOperationNote;
-        private System.Windows.Forms.RadioButton radioBtnConsents;
-        private System.Windows.Forms.RadioButton radioBtnPatientAdmissionForm;
         private System.Windows.Forms.Button btnPatientExamination;
         private System.Windows.Forms.Button btnReports;
         private System.Windows.Forms.GroupBox groupBoxPatientExamination;
@@ -1098,10 +878,15 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label lblReports;
         private System.Windows.Forms.Button btnScan;
-        private System.Windows.Forms.ComboBox facultyMembers;
+        private System.Windows.Forms.ComboBox cbFacultyMembers;
         private System.Windows.Forms.ComboBox cbSurgery;
         private System.Windows.Forms.ComboBox cbInternalMedicine;
         private System.Windows.Forms.ComboBox cbChildrenSickness;
         private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.ComboBox cbState;
+        private System.Windows.Forms.GroupBox gbCriminalAndMedicalBoard;
+        private System.Windows.Forms.ComboBox cbCriminalAndMedicalBoard;
+        private System.Windows.Forms.ComboBox cbPatientExaminationEpicrisis;
+        private System.Windows.Forms.ComboBox cbExaminationAndReports;
     }
 }

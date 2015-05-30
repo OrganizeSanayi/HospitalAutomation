@@ -13,13 +13,17 @@ namespace HospitalAutomation.GUI
         private void formHomePage_Load(object sender, EventArgs e)
         {
             var filler = new DataFillingService();
-            facultyMembers.DataSource = filler.GatherDoctors();
-            facultyMembers.ValueMember = "OgretimUyeid";
-            facultyMembers.DisplayMember = "Ad";
+            cbFacultyMembers.DataSource = filler.GatherDoctors();
+            cbFacultyMembers.ValueMember = "OgretimUyeid";
+            cbFacultyMembers.DisplayMember = "Ad";
 
             cbSurgery.DataSource = filler.GatherSections();
             cbSurgery.ValueMember = "BolumId";
             cbSurgery.DisplayMember = "BolumAdi";
+
+            cbState.DataSource = filler.GatherState();
+            cbState.ValueMember = "StatuId";
+            cbState.DisplayMember = "Statu";
         }
 
         // Dosya Bilgileri Sayfası İşlemleri
@@ -210,21 +214,21 @@ namespace HospitalAutomation.GUI
         {
             groupBoxPatientExamination.Visible = true;
             groupBoxReports.Visible = false;
-            radioBtnJudicialReports.Visible = false;
+            gbCriminalAndMedicalBoard.Visible = false;
         }
 
         private void btnReports_Click(object sender, EventArgs e)
         {
             groupBoxReports.Visible = true;
             groupBoxPatientExamination.Visible = false;
-            radioBtnJudicialReports.Visible = false;
+            gbCriminalAndMedicalBoard.Visible = false;
         }
 
         private void btnJudicialReports_Click(object sender, EventArgs e)
         {
-            radioBtnJudicialReports.Visible = true;
             groupBoxPatientExamination.Visible = false;
             groupBoxReports.Visible = false;
+            gbCriminalAndMedicalBoard.Visible = true;
         }
 
         private void groupBoxPatientExamination_Enter(object sender, EventArgs e)
@@ -259,10 +263,6 @@ namespace HospitalAutomation.GUI
             }
         }
 
-        private void radioBtnJudicialReports_CheckedChanged(object sender, EventArgs e)
-        {
-            lblReports.Text = radioBtnJudicialReports.Text;
-        }
 
         private void btnScan_Click(object sender, EventArgs e)
         {

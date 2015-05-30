@@ -16,12 +16,12 @@ namespace HospitalAutomation.Model
     {
         public STATU()
         {
-            this.DOSYALARs = new HashSet<DOSYALAR>();
+            this.DOSYALAR = new HashSet<DOSYALAR>();
         }
     
-        public int Statuid { get; set; }
-        public string Statu1 { get; set; }
+        public int StatuId { get; set; }
+        public string Statu { get; set; }
     
-        public virtual ICollection<DOSYALAR> DOSYALARs { get; set; }
+        public virtual ICollection<DOSYALAR> DOSYALAR { get; set; }
     }
 }
