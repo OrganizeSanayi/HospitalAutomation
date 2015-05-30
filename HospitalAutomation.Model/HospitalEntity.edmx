@@ -4,115 +4,115 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl" Alias="Self" Namespace="HospitalAutomationModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012">
+    <Schema Namespace="HospitalAutomationModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="ADLISAGLIKKURULU">
           <Key>
             <PropertyRef Name="AdliSaglikKuruluID" />
           </Key>
-          <Property Name="AdliSaglikKuruluID" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
-          <Property Name="AdliSaglikKurulu" Nullable="false" MaxLength="50" Type="nvarchar" />
+          <Property Name="AdliSaglikKuruluID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AdliSaglikKurulu" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="ADLISAGLIKKURULURESIMLER">
           <Key>
             <PropertyRef Name="AdliSaglikKuruluResimID" />
           </Key>
-          <Property Name="AdliSaglikKuruluResimID" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
-          <Property Name="AdliSaglikKuruluYolID" Nullable="false" Type="int" />
-          <Property Name="AdliSaglikKuruluResim" Nullable="false" MaxLength="50" Type="nvarchar" />
+          <Property Name="AdliSaglikKuruluResimID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AdliSaglikKuruluYolID" Type="int" Nullable="false" />
+          <Property Name="AdliSaglikKuruluResim" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="ADLISAGLIKKURULUYOL">
           <Key>
             <PropertyRef Name="AdliSaglikKuruluYolID" />
           </Key>
-          <Property Name="AdliSaglikKuruluYolID" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
-          <Property Name="AdliSaglikKuruluYolKayit" Nullable="false" Type="text" />
+          <Property Name="AdliSaglikKuruluYolID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AdliSaglikKuruluYolKayit" Type="text" Nullable="false" />
         </EntityType>
         <EntityType Name="BOLUMLER">
           <Key>
-            <PropertyRef Name="Bolumid" />
+            <PropertyRef Name="BolumId" />
           </Key>
-          <Property Name="Bolumid" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
-          <Property Name="BolumAdı" Nullable="false" MaxLength="50" Type="nvarchar" />
+          <Property Name="BolumId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BolumAdi" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="DOSYALAR">
           <Key>
             <PropertyRef Name="DosyaID" />
           </Key>
-          <Property Name="DosyaID" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
-          <Property Name="DosyaNo" Nullable="false" MaxLength="20" Type="nvarchar" />
-          <Property Name="BolumID" Nullable="false" Type="int" />
-          <Property Name="Tarih" Nullable="false" Type="datetime" />
-          <Property Name="OgretimUyeID" Nullable="false" Type="int" />
-          <Property Name="TanıID" Nullable="false" Type="int" />
-          <Property Name="HastaStatuID" Nullable="false" Type="int" />
-          <Property Name="MuayeneEpikrizID" Nullable="false" Type="int" />
-          <Property Name="MuayeneEpikrizYolID" Nullable="false" Type="int" />
-          <Property Name="TetkikRaporID" Nullable="false" Type="int" />
-          <Property Name="TetkikRaporYolID" Nullable="false" Type="int" />
-          <Property Name="AdliSaglikKuruluID" Nullable="false" Type="int" />
-          <Property Name="AdliSaglikKuruluYolID" Nullable="false" Type="int" />
+          <Property Name="DosyaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DosyaNo" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="BolumID" Type="int" Nullable="false" />
+          <Property Name="Tarih" Type="datetime" Nullable="false" />
+          <Property Name="OgretimUyeID" Type="int" Nullable="false" />
+          <Property Name="TanıID" Type="int" Nullable="false" />
+          <Property Name="HastaStatuID" Type="int" Nullable="false" />
+          <Property Name="MuayeneEpikrizID" Type="int" Nullable="false" />
+          <Property Name="MuayeneEpikrizYolID" Type="int" Nullable="false" />
+          <Property Name="TetkikRaporID" Type="int" Nullable="false" />
+          <Property Name="TetkikRaporYolID" Type="int" Nullable="false" />
+          <Property Name="AdliSaglikKuruluID" Type="int" Nullable="false" />
+          <Property Name="AdliSaglikKuruluYolID" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="HASTALAR">
           <Key>
             <PropertyRef Name="TcKimlikNo" />
           </Key>
-          <Property Name="TcKimlikNo" Nullable="false" MaxLength="11" Type="nvarchar" />
-          <Property Name="DosyaNumarası" Nullable="false" MaxLength="20" Type="nvarchar" />
-          <Property Name="Ad" Nullable="false" MaxLength="20" Type="nvarchar" />
-          <Property Name="Soyad" Nullable="false" MaxLength="20" Type="nvarchar" />
+          <Property Name="TcKimlikNo" Type="nvarchar" MaxLength="11" Nullable="false" />
+          <Property Name="DosyaNumarası" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Ad" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Soyad" Type="nvarchar" MaxLength="20" Nullable="false" />
         </EntityType>
         <EntityType Name="MUAYENEEPIKRIZ">
           <Key>
             <PropertyRef Name="Muayeneid" />
           </Key>
-          <Property Name="Muayeneid" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
-          <Property Name="HastaMuayeneEpikriz" Nullable="false" MaxLength="20" Type="nvarchar" />
+          <Property Name="Muayeneid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="HastaMuayeneEpikriz" Type="nvarchar" MaxLength="20" Nullable="false" />
         </EntityType>
         <EntityType Name="MUAYENEEPIKRIZRESIMLER">
           <Key>
             <PropertyRef Name="MuayeneEpikrizResimID" />
           </Key>
-          <Property Name="MuayeneEpikrizResimID" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
-          <Property Name="MuayeneEpikrizYolID" Nullable="false" Type="int" />
-          <Property Name="MuayeneRaporResimAd" Nullable="false" MaxLength="50" Type="nvarchar" />
+          <Property Name="MuayeneEpikrizResimID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MuayeneEpikrizYolID" Type="int" Nullable="false" />
+          <Property Name="MuayeneRaporResimAd" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="MUAYENEEPIKRIZYOL">
           <Key>
             <PropertyRef Name="MuayeneEpikrizYolID" />
           </Key>
-          <Property Name="MuayeneEpikrizYolID" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
-          <Property Name="MuayeneEpikrizYolKayit" Nullable="false" Type="text" />
+          <Property Name="MuayeneEpikrizYolID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MuayeneEpikrizYolKayit" Type="text" Nullable="false" />
         </EntityType>
         <EntityType Name="OGRETIMUYELERİ">
           <Key>
             <PropertyRef Name="OgretimUyeid" />
           </Key>
-          <Property Name="OgretimUyeid" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
-          <Property Name="Ad" Nullable="false" MaxLength="20" Type="nvarchar" />
-          <Property Name="Soyad" Nullable="false" MaxLength="20" Type="nvarchar" />
-          <Property Name="Unvan" Nullable="false" MaxLength="20" Type="nvarchar" />
+          <Property Name="OgretimUyeid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Ad" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Soyad" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Unvan" Type="nvarchar" MaxLength="20" Nullable="false" />
         </EntityType>
         <EntityType Name="OTURUM">
           <Key>
             <PropertyRef Name="KullaniciAdi" />
           </Key>
-          <Property Name="KullaniciAdi" Nullable="false" MaxLength="50" Type="nvarchar" />
-          <Property Name="Sifre" Nullable="false" MaxLength="50" Type="nvarchar" />
+          <Property Name="KullaniciAdi" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Sifre" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="STATU">
           <Key>
             <PropertyRef Name="Statuid" />
           </Key>
-          <Property Name="Statuid" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
-          <Property Name="Statu" Nullable="false" MaxLength="20" Type="nvarchar" />
+          <Property Name="Statuid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Statu" Type="nvarchar" MaxLength="20" Nullable="false" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
             <PropertyRef Name="diagram_id" />
           </Key>
-          <Property Name="name" Nullable="false" MaxLength="128" Type="nvarchar" />
-          <Property Name="principal_id" Nullable="false" Type="int" />
-          <Property Name="diagram_id" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="version" Type="int" />
           <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
@@ -120,500 +120,32 @@
           <Key>
             <PropertyRef Name="Taniid" />
           </Key>
-          <Property Name="Taniid" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
-          <Property Name="TaniAdi" Nullable="false" MaxLength="30" Type="nvarchar" />
-          <Property Name="ICD10Kodu" Nullable="false" MaxLength="20" Type="nvarchar" />
+          <Property Name="Taniid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TaniAdi" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="ICD10Kodu" Type="nvarchar" MaxLength="20" Nullable="false" />
         </EntityType>
         <EntityType Name="TETKIKRAPORLAR">
           <Key>
             <PropertyRef Name="TetkikRaporid" />
           </Key>
-          <Property Name="TetkikRaporid" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
-          <Property Name="TetkikveRapor" Nullable="false" MaxLength="20" Type="nvarchar" />
+          <Property Name="TetkikRaporid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TetkikveRapor" Type="nvarchar" MaxLength="20" Nullable="false" />
         </EntityType>
         <EntityType Name="TETKIKRAPORRESIMLER">
           <Key>
             <PropertyRef Name="TetkikRaporResimID" />
           </Key>
-          <Property Name="TetkikRaporResimID" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
-          <Property Name="TetkikRaporYolID" Nullable="false" Type="int" />
-          <Property Name="TetkikRaporResimAd" Nullable="false" MaxLength="50" Type="nvarchar" />
+          <Property Name="TetkikRaporResimID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TetkikRaporYolID" Type="int" Nullable="false" />
+          <Property Name="TetkikRaporResimAd" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="TETKIKRAPORYOL">
           <Key>
             <PropertyRef Name="TetkikRaporYolID" />
           </Key>
-          <Property Name="TetkikRaporYolID" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
-          <Property Name="TetkikRaporYolKayit" Nullable="false" Type="text" />
+          <Property Name="TetkikRaporYolID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TetkikRaporYolKayit" Type="text" Nullable="false" />
         </EntityType>
-        <Association Name="FK_ADLISAGLIKKURULURESIMLER_ADLISAGLIKKURULUYOL">
-          <End Type="Self.ADLISAGLIKKURULUYOL" Multiplicity="1" Role="ADLISAGLIKKURULUYOL">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Type="Self.ADLISAGLIKKURULURESIMLER" Multiplicity="*" Role="ADLISAGLIKKURULURESIMLER" />
-          <ReferentialConstraint>
-            <Principal Role="ADLISAGLIKKURULUYOL">
-              <PropertyRef Name="AdliSaglikKuruluYolID" />
-            </Principal>
-            <Dependent Role="ADLISAGLIKKURULURESIMLER">
-              <PropertyRef Name="AdliSaglikKuruluYolID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_DOSYALAR_ADLISAGLIKKURULU">
-          <End Type="Self.ADLISAGLIKKURULU" Multiplicity="1" Role="ADLISAGLIKKURULU">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Type="Self.DOSYALAR" Multiplicity="*" Role="DOSYALAR" />
-          <ReferentialConstraint>
-            <Principal Role="ADLISAGLIKKURULU">
-              <PropertyRef Name="AdliSaglikKuruluID" />
-            </Principal>
-            <Dependent Role="DOSYALAR">
-              <PropertyRef Name="AdliSaglikKuruluID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_DOSYALAR_ADLISAGLIKKURULUYOL">
-          <End Type="Self.ADLISAGLIKKURULUYOL" Multiplicity="1" Role="ADLISAGLIKKURULUYOL">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Type="Self.DOSYALAR" Multiplicity="*" Role="DOSYALAR" />
-          <ReferentialConstraint>
-            <Principal Role="ADLISAGLIKKURULUYOL">
-              <PropertyRef Name="AdliSaglikKuruluYolID" />
-            </Principal>
-            <Dependent Role="DOSYALAR">
-              <PropertyRef Name="AdliSaglikKuruluYolID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_DOSYALAR_BOLUMLER">
-          <End Type="Self.BOLUMLER" Multiplicity="1" Role="BOLUMLER">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Type="Self.DOSYALAR" Multiplicity="*" Role="DOSYALAR" />
-          <ReferentialConstraint>
-            <Principal Role="BOLUMLER">
-              <PropertyRef Name="Bolumid" />
-            </Principal>
-            <Dependent Role="DOSYALAR">
-              <PropertyRef Name="BolumID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_DOSYALAR_MUAYENEEPIKRIZ">
-          <End Type="Self.MUAYENEEPIKRIZ" Multiplicity="1" Role="MUAYENEEPIKRIZ">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Type="Self.DOSYALAR" Multiplicity="*" Role="DOSYALAR" />
-          <ReferentialConstraint>
-            <Principal Role="MUAYENEEPIKRIZ">
-              <PropertyRef Name="Muayeneid" />
-            </Principal>
-            <Dependent Role="DOSYALAR">
-              <PropertyRef Name="MuayeneEpikrizID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_DOSYALAR_MUAYENEEPIKRIZYOL">
-          <End Type="Self.MUAYENEEPIKRIZYOL" Multiplicity="1" Role="MUAYENEEPIKRIZYOL">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Type="Self.DOSYALAR" Multiplicity="*" Role="DOSYALAR" />
-          <ReferentialConstraint>
-            <Principal Role="MUAYENEEPIKRIZYOL">
-              <PropertyRef Name="MuayeneEpikrizYolID" />
-            </Principal>
-            <Dependent Role="DOSYALAR">
-              <PropertyRef Name="MuayeneEpikrizYolID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_DOSYALAR_OGRETIMUYELERİ">
-          <End Type="Self.OGRETIMUYELERİ" Multiplicity="1" Role="OGRETIMUYELERİ">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Type="Self.DOSYALAR" Multiplicity="*" Role="DOSYALAR" />
-          <ReferentialConstraint>
-            <Principal Role="OGRETIMUYELERİ">
-              <PropertyRef Name="OgretimUyeid" />
-            </Principal>
-            <Dependent Role="DOSYALAR">
-              <PropertyRef Name="OgretimUyeID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_DOSYALAR_STATU">
-          <End Type="Self.STATU" Multiplicity="1" Role="STATU">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Type="Self.DOSYALAR" Multiplicity="*" Role="DOSYALAR" />
-          <ReferentialConstraint>
-            <Principal Role="STATU">
-              <PropertyRef Name="Statuid" />
-            </Principal>
-            <Dependent Role="DOSYALAR">
-              <PropertyRef Name="HastaStatuID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_DOSYALAR_TANILAR1">
-          <End Type="Self.TANILAR" Multiplicity="1" Role="TANILAR">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Type="Self.DOSYALAR" Multiplicity="*" Role="DOSYALAR" />
-          <ReferentialConstraint>
-            <Principal Role="TANILAR">
-              <PropertyRef Name="Taniid" />
-            </Principal>
-            <Dependent Role="DOSYALAR">
-              <PropertyRef Name="TanıID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_DOSYALAR_TETKIKRAPORLAR">
-          <End Type="Self.TETKIKRAPORLAR" Multiplicity="1" Role="TETKIKRAPORLAR">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Type="Self.DOSYALAR" Multiplicity="*" Role="DOSYALAR" />
-          <ReferentialConstraint>
-            <Principal Role="TETKIKRAPORLAR">
-              <PropertyRef Name="TetkikRaporid" />
-            </Principal>
-            <Dependent Role="DOSYALAR">
-              <PropertyRef Name="TetkikRaporID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_DOSYALAR_YOLLAR">
-          <End Type="Self.TETKIKRAPORYOL" Multiplicity="1" Role="TETKIKRAPORYOL">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Type="Self.DOSYALAR" Multiplicity="*" Role="DOSYALAR" />
-          <ReferentialConstraint>
-            <Principal Role="TETKIKRAPORYOL">
-              <PropertyRef Name="TetkikRaporYolID" />
-            </Principal>
-            <Dependent Role="DOSYALAR">
-              <PropertyRef Name="TetkikRaporYolID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_MUAYENEEPIKRIZRESIMLER_MUAYENEEPIKRIZYOL">
-          <End Type="Self.MUAYENEEPIKRIZYOL" Multiplicity="1" Role="MUAYENEEPIKRIZYOL" />
-          <End Type="Self.MUAYENEEPIKRIZRESIMLER" Multiplicity="*" Role="MUAYENEEPIKRIZRESIMLER" />
-          <ReferentialConstraint>
-            <Principal Role="MUAYENEEPIKRIZYOL">
-              <PropertyRef Name="MuayeneEpikrizYolID" />
-            </Principal>
-            <Dependent Role="MUAYENEEPIKRIZRESIMLER">
-              <PropertyRef Name="MuayeneEpikrizYolID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_RESIMLER_YOLLAR">
-          <End Type="Self.TETKIKRAPORYOL" Multiplicity="1" Role="TETKIKRAPORYOL">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Type="Self.TETKIKRAPORRESIMLER" Multiplicity="*" Role="TETKIKRAPORRESIMLER" />
-          <ReferentialConstraint>
-            <Principal Role="TETKIKRAPORYOL">
-              <PropertyRef Name="TetkikRaporYolID" />
-            </Principal>
-            <Dependent Role="TETKIKRAPORRESIMLER">
-              <PropertyRef Name="TetkikRaporYolID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Function Name="fn_diagramobjects" ReturnType="int" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
-        <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-          <Parameter Name="owner_id" Type="int" Mode="In" />
-          <Parameter Name="version" Type="int" Mode="In" />
-          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
-        </Function>
-        <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-          <Parameter Name="owner_id" Type="int" Mode="In" />
-          <Parameter Name="version" Type="int" Mode="In" />
-          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
-        </Function>
-        <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-          <Parameter Name="owner_id" Type="int" Mode="In" />
-        </Function>
-        <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-          <Parameter Name="owner_id" Type="int" Mode="In" />
-        </Function>
-        <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-          <Parameter Name="owner_id" Type="int" Mode="In" />
-        </Function>
-        <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-          <Parameter Name="owner_id" Type="int" Mode="In" />
-          <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
-        </Function>
-        <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
-        <EntityContainer Name="HospitalAutomationModelStoreContainer">
-          <EntitySet xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Name="ADLISAGLIKKURULU" EntityType="Self.ADLISAGLIKKURULU" Schema="dbo" store:Type="Tables" />
-          <EntitySet xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Name="ADLISAGLIKKURULURESIMLER" EntityType="Self.ADLISAGLIKKURULURESIMLER" Schema="dbo" store:Type="Tables" />
-          <EntitySet xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Name="ADLISAGLIKKURULUYOL" EntityType="Self.ADLISAGLIKKURULUYOL" Schema="dbo" store:Type="Tables" />
-          <EntitySet xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Name="BOLUMLER" EntityType="Self.BOLUMLER" Schema="dbo" store:Type="Tables" />
-          <EntitySet xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Name="DOSYALAR" EntityType="Self.DOSYALAR" Schema="dbo" store:Type="Tables" />
-          <EntitySet xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Name="HASTALAR" EntityType="Self.HASTALAR" Schema="dbo" store:Type="Tables" />
-          <EntitySet xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Name="MUAYENEEPIKRIZ" EntityType="Self.MUAYENEEPIKRIZ" Schema="dbo" store:Type="Tables" />
-          <EntitySet xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Name="MUAYENEEPIKRIZRESIMLER" EntityType="Self.MUAYENEEPIKRIZRESIMLER" Schema="dbo" store:Type="Tables" />
-          <EntitySet xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Name="MUAYENEEPIKRIZYOL" EntityType="Self.MUAYENEEPIKRIZYOL" Schema="dbo" store:Type="Tables" />
-          <EntitySet xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Name="OGRETIMUYELERİ" EntityType="Self.OGRETIMUYELERİ" Schema="dbo" store:Type="Tables" />
-          <EntitySet xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Name="OTURUM" EntityType="Self.OTURUM" Schema="dbo" store:Type="Tables" />
-          <EntitySet xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Name="STATU" EntityType="Self.STATU" Schema="dbo" store:Type="Tables" />
-          <EntitySet xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
-          <EntitySet xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Name="TANILAR" EntityType="Self.TANILAR" Schema="dbo" store:Type="Tables" />
-          <EntitySet xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Name="TETKIKRAPORLAR" EntityType="Self.TETKIKRAPORLAR" Schema="dbo" store:Type="Tables" />
-          <EntitySet xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Name="TETKIKRAPORRESIMLER" EntityType="Self.TETKIKRAPORRESIMLER" Schema="dbo" store:Type="Tables" />
-          <EntitySet xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Name="TETKIKRAPORYOL" EntityType="Self.TETKIKRAPORYOL" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK_ADLISAGLIKKURULURESIMLER_ADLISAGLIKKURULUYOL" Association="Self.FK_ADLISAGLIKKURULURESIMLER_ADLISAGLIKKURULUYOL">
-            <End EntitySet="ADLISAGLIKKURULUYOL" Role="ADLISAGLIKKURULUYOL" />
-            <End EntitySet="ADLISAGLIKKURULURESIMLER" Role="ADLISAGLIKKURULURESIMLER" />
-          </AssociationSet>
-          <AssociationSet Name="FK_DOSYALAR_ADLISAGLIKKURULU" Association="Self.FK_DOSYALAR_ADLISAGLIKKURULU">
-            <End EntitySet="ADLISAGLIKKURULU" Role="ADLISAGLIKKURULU" />
-            <End EntitySet="DOSYALAR" Role="DOSYALAR" />
-          </AssociationSet>
-          <AssociationSet Name="FK_DOSYALAR_ADLISAGLIKKURULUYOL" Association="Self.FK_DOSYALAR_ADLISAGLIKKURULUYOL">
-            <End EntitySet="ADLISAGLIKKURULUYOL" Role="ADLISAGLIKKURULUYOL" />
-            <End EntitySet="DOSYALAR" Role="DOSYALAR" />
-          </AssociationSet>
-          <AssociationSet Name="FK_DOSYALAR_BOLUMLER" Association="Self.FK_DOSYALAR_BOLUMLER">
-            <End EntitySet="BOLUMLER" Role="BOLUMLER" />
-            <End EntitySet="DOSYALAR" Role="DOSYALAR" />
-          </AssociationSet>
-          <AssociationSet Name="FK_DOSYALAR_MUAYENEEPIKRIZ" Association="Self.FK_DOSYALAR_MUAYENEEPIKRIZ">
-            <End EntitySet="MUAYENEEPIKRIZ" Role="MUAYENEEPIKRIZ" />
-            <End EntitySet="DOSYALAR" Role="DOSYALAR" />
-          </AssociationSet>
-          <AssociationSet Name="FK_DOSYALAR_MUAYENEEPIKRIZYOL" Association="Self.FK_DOSYALAR_MUAYENEEPIKRIZYOL">
-            <End EntitySet="MUAYENEEPIKRIZYOL" Role="MUAYENEEPIKRIZYOL" />
-            <End EntitySet="DOSYALAR" Role="DOSYALAR" />
-          </AssociationSet>
-          <AssociationSet Name="FK_DOSYALAR_OGRETIMUYELERİ" Association="Self.FK_DOSYALAR_OGRETIMUYELERİ">
-            <End EntitySet="OGRETIMUYELERİ" Role="OGRETIMUYELERİ" />
-            <End EntitySet="DOSYALAR" Role="DOSYALAR" />
-          </AssociationSet>
-          <AssociationSet Name="FK_DOSYALAR_STATU" Association="Self.FK_DOSYALAR_STATU">
-            <End EntitySet="STATU" Role="STATU" />
-            <End EntitySet="DOSYALAR" Role="DOSYALAR" />
-          </AssociationSet>
-          <AssociationSet Name="FK_DOSYALAR_TANILAR1" Association="Self.FK_DOSYALAR_TANILAR1">
-            <End EntitySet="TANILAR" Role="TANILAR" />
-            <End EntitySet="DOSYALAR" Role="DOSYALAR" />
-          </AssociationSet>
-          <AssociationSet Name="FK_DOSYALAR_TETKIKRAPORLAR" Association="Self.FK_DOSYALAR_TETKIKRAPORLAR">
-            <End EntitySet="TETKIKRAPORLAR" Role="TETKIKRAPORLAR" />
-            <End EntitySet="DOSYALAR" Role="DOSYALAR" />
-          </AssociationSet>
-          <AssociationSet Name="FK_DOSYALAR_YOLLAR" Association="Self.FK_DOSYALAR_YOLLAR">
-            <End EntitySet="TETKIKRAPORYOL" Role="TETKIKRAPORYOL" />
-            <End EntitySet="DOSYALAR" Role="DOSYALAR" />
-          </AssociationSet>
-          <AssociationSet Name="FK_MUAYENEEPIKRIZRESIMLER_MUAYENEEPIKRIZYOL" Association="Self.FK_MUAYENEEPIKRIZRESIMLER_MUAYENEEPIKRIZYOL">
-            <End EntitySet="MUAYENEEPIKRIZYOL" Role="MUAYENEEPIKRIZYOL" />
-            <End EntitySet="MUAYENEEPIKRIZRESIMLER" Role="MUAYENEEPIKRIZRESIMLER" />
-          </AssociationSet>
-          <AssociationSet Name="FK_RESIMLER_YOLLAR" Association="Self.FK_RESIMLER_YOLLAR">
-            <End EntitySet="TETKIKRAPORYOL" Role="TETKIKRAPORYOL" />
-            <End EntitySet="TETKIKRAPORRESIMLER" Role="TETKIKRAPORRESIMLER" />
-          </AssociationSet>
-        </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
-    <!-- CSDL content -->
-    <edmx:ConceptualModels>
-      <Schema Namespace="HospitalAutomationModel" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2009/11/edm" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
-        <EntityType Name="ADLISAGLIKKURULU">
-          <Key>
-            <PropertyRef Name="AdliSaglikKuruluID" />
-          </Key>
-          <Property Name="AdliSaglikKuruluID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
-          <Property Name="AdliSaglikKurulu1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="DOSYALARs" Relationship="Self.FK_DOSYALAR_ADLISAGLIKKURULU" FromRole="ADLISAGLIKKURULU" ToRole="DOSYALAR" />
-        </EntityType>
-        <EntityType Name="ADLISAGLIKKURULURESIMLER">
-          <Key>
-            <PropertyRef Name="AdliSaglikKuruluResimID" />
-          </Key>
-          <Property Name="AdliSaglikKuruluResimID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
-          <Property Name="AdliSaglikKuruluYolID" Type="Int32" Nullable="false" />
-          <Property Name="AdliSaglikKuruluResim" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="ADLISAGLIKKURULUYOL" Relationship="Self.FK_ADLISAGLIKKURULURESIMLER_ADLISAGLIKKURULUYOL" FromRole="ADLISAGLIKKURULURESIMLER" ToRole="ADLISAGLIKKURULUYOL" />
-        </EntityType>
-        <EntityType Name="ADLISAGLIKKURULUYOL">
-          <Key>
-            <PropertyRef Name="AdliSaglikKuruluYolID" />
-          </Key>
-          <Property Name="AdliSaglikKuruluYolID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
-          <Property Name="AdliSaglikKuruluYolKayit" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="ADLISAGLIKKURULURESIMLERs" Relationship="Self.FK_ADLISAGLIKKURULURESIMLER_ADLISAGLIKKURULUYOL" FromRole="ADLISAGLIKKURULUYOL" ToRole="ADLISAGLIKKURULURESIMLER" />
-          <NavigationProperty Name="DOSYALARs" Relationship="Self.FK_DOSYALAR_ADLISAGLIKKURULUYOL" FromRole="ADLISAGLIKKURULUYOL" ToRole="DOSYALAR" />
-        </EntityType>
-        <EntityType Name="BOLUMLER">
-          <Key>
-            <PropertyRef Name="BolumId" />
-          </Key>
-          <Property Name="BolumId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
-          <Property Name="BolumAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="DOSYALARs" Relationship="Self.FK_DOSYALAR_BOLUMLER" FromRole="BOLUMLER" ToRole="DOSYALAR" />
-        </EntityType>
-        <EntityType Name="DOSYALAR">
-          <Key>
-            <PropertyRef Name="DosyaID" />
-          </Key>
-          <Property Name="DosyaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
-          <Property Name="DosyaNo" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="BolumID" Type="Int32" Nullable="false" />
-          <Property Name="Tarih" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="OgretimUyeID" Type="Int32" Nullable="false" />
-          <Property Name="TanıID" Type="Int32" Nullable="false" />
-          <Property Name="HastaStatuID" Type="Int32" Nullable="false" />
-          <Property Name="MuayeneEpikrizID" Type="Int32" Nullable="false" />
-          <Property Name="MuayeneEpikrizYolID" Type="Int32" Nullable="false" />
-          <Property Name="TetkikRaporID" Type="Int32" Nullable="false" />
-          <Property Name="TetkikRaporYolID" Type="Int32" Nullable="false" />
-          <Property Name="AdliSaglikKuruluID" Type="Int32" Nullable="false" />
-          <Property Name="AdliSaglikKuruluYolID" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="ADLISAGLIKKURULU" Relationship="Self.FK_DOSYALAR_ADLISAGLIKKURULU" FromRole="DOSYALAR" ToRole="ADLISAGLIKKURULU" />
-          <NavigationProperty Name="ADLISAGLIKKURULUYOL" Relationship="Self.FK_DOSYALAR_ADLISAGLIKKURULUYOL" FromRole="DOSYALAR" ToRole="ADLISAGLIKKURULUYOL" />
-          <NavigationProperty Name="BOLUMLER" Relationship="Self.FK_DOSYALAR_BOLUMLER" FromRole="DOSYALAR" ToRole="BOLUMLER" />
-          <NavigationProperty Name="MUAYENEEPIKRIZ" Relationship="Self.FK_DOSYALAR_MUAYENEEPIKRIZ" FromRole="DOSYALAR" ToRole="MUAYENEEPIKRIZ" />
-          <NavigationProperty Name="MUAYENEEPIKRIZYOL" Relationship="Self.FK_DOSYALAR_MUAYENEEPIKRIZYOL" FromRole="DOSYALAR" ToRole="MUAYENEEPIKRIZYOL" />
-          <NavigationProperty Name="OGRETIMUYELERİ" Relationship="Self.FK_DOSYALAR_OGRETIMUYELERİ" FromRole="DOSYALAR" ToRole="OGRETIMUYELERİ" />
-          <NavigationProperty Name="STATU" Relationship="Self.FK_DOSYALAR_STATU" FromRole="DOSYALAR" ToRole="STATU" />
-          <NavigationProperty Name="TANILAR" Relationship="Self.FK_DOSYALAR_TANILAR1" FromRole="DOSYALAR" ToRole="TANILAR" />
-          <NavigationProperty Name="TETKIKRAPORLAR" Relationship="Self.FK_DOSYALAR_TETKIKRAPORLAR" FromRole="DOSYALAR" ToRole="TETKIKRAPORLAR" />
-          <NavigationProperty Name="TETKIKRAPORYOL" Relationship="Self.FK_DOSYALAR_YOLLAR" FromRole="DOSYALAR" ToRole="TETKIKRAPORYOL" />
-        </EntityType>
-        <EntityType Name="HASTALAR">
-          <Key>
-            <PropertyRef Name="TcKimlikNo" />
-          </Key>
-          <Property Name="TcKimlikNo" Type="String" MaxLength="11" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="DosyaNumarası" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Ad" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Soyad" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
-        </EntityType>
-        <EntityType Name="MUAYENEEPIKRIZ">
-          <Key>
-            <PropertyRef Name="Muayeneid" />
-          </Key>
-          <Property Name="Muayeneid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
-          <Property Name="HastaMuayeneEpikriz" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="DOSYALARs" Relationship="Self.FK_DOSYALAR_MUAYENEEPIKRIZ" FromRole="MUAYENEEPIKRIZ" ToRole="DOSYALAR" />
-        </EntityType>
-        <EntityType Name="MUAYENEEPIKRIZRESIMLER">
-          <Key>
-            <PropertyRef Name="MuayeneEpikrizResimID" />
-          </Key>
-          <Property Name="MuayeneEpikrizResimID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
-          <Property Name="MuayeneEpikrizYolID" Type="Int32" Nullable="false" />
-          <Property Name="MuayeneRaporResimAd" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="MUAYENEEPIKRIZYOL" Relationship="Self.FK_MUAYENEEPIKRIZRESIMLER_MUAYENEEPIKRIZYOL" FromRole="MUAYENEEPIKRIZRESIMLER" ToRole="MUAYENEEPIKRIZYOL" />
-        </EntityType>
-        <EntityType Name="MUAYENEEPIKRIZYOL">
-          <Key>
-            <PropertyRef Name="MuayeneEpikrizYolID" />
-          </Key>
-          <Property Name="MuayeneEpikrizYolID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
-          <Property Name="MuayeneEpikrizYolKayit" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="DOSYALARs" Relationship="Self.FK_DOSYALAR_MUAYENEEPIKRIZYOL" FromRole="MUAYENEEPIKRIZYOL" ToRole="DOSYALAR" />
-          <NavigationProperty Name="MUAYENEEPIKRIZRESIMLERs" Relationship="Self.FK_MUAYENEEPIKRIZRESIMLER_MUAYENEEPIKRIZYOL" FromRole="MUAYENEEPIKRIZYOL" ToRole="MUAYENEEPIKRIZRESIMLER" />
-        </EntityType>
-        <EntityType Name="OGRETIMUYELERİ">
-          <Key>
-            <PropertyRef Name="OgretimUyeid" />
-          </Key>
-          <Property Name="OgretimUyeid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
-          <Property Name="Ad" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Soyad" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Unvan" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="DOSYALARs" Relationship="Self.FK_DOSYALAR_OGRETIMUYELERİ" FromRole="OGRETIMUYELERİ" ToRole="DOSYALAR" />
-        </EntityType>
-        <EntityType Name="OTURUM">
-          <Key>
-            <PropertyRef Name="KullaniciAdi" />
-          </Key>
-          <Property Name="KullaniciAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Sifre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-        </EntityType>
-        <EntityType Name="STATU">
-          <Key>
-            <PropertyRef Name="Statuid" />
-          </Key>
-          <Property Name="Statuid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
-          <Property Name="Statu1" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="DOSYALARs" Relationship="Self.FK_DOSYALAR_STATU" FromRole="STATU" ToRole="DOSYALAR" />
-        </EntityType>
-        <EntityType Name="sysdiagram">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="principal_id" Type="Int32" Nullable="false" />
-          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
-          <Property Name="version" Type="Int32" />
-          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
-        </EntityType>
-        <EntityType Name="TANILAR">
-          <Key>
-            <PropertyRef Name="Taniid" />
-          </Key>
-          <Property Name="Taniid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
-          <Property Name="TaniAdi" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="ICD10Kodu" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="DOSYALARs" Relationship="Self.FK_DOSYALAR_TANILAR1" FromRole="TANILAR" ToRole="DOSYALAR" />
-        </EntityType>
-        <EntityType Name="TETKIKRAPORLAR">
-          <Key>
-            <PropertyRef Name="TetkikRaporid" />
-          </Key>
-          <Property Name="TetkikRaporid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
-          <Property Name="TetkikveRapor" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="DOSYALARs" Relationship="Self.FK_DOSYALAR_TETKIKRAPORLAR" FromRole="TETKIKRAPORLAR" ToRole="DOSYALAR" />
-        </EntityType>
-        <EntityType Name="TETKIKRAPORRESIMLER">
-          <Key>
-            <PropertyRef Name="TetkikRaporResimID" />
-          </Key>
-          <Property Name="TetkikRaporResimID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
-          <Property Name="TetkikRaporYolID" Type="Int32" Nullable="false" />
-          <Property Name="TetkikRaporResimAd" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="TETKIKRAPORYOL" Relationship="Self.FK_RESIMLER_YOLLAR" FromRole="TETKIKRAPORRESIMLER" ToRole="TETKIKRAPORYOL" />
-        </EntityType>
-        <EntityType Name="TETKIKRAPORYOL">
-          <Key>
-            <PropertyRef Name="TetkikRaporYolID" />
-          </Key>
-          <Property Name="TetkikRaporYolID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
-          <Property Name="TetkikRaporYolKayit" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="DOSYALARs" Relationship="Self.FK_DOSYALAR_YOLLAR" FromRole="TETKIKRAPORYOL" ToRole="DOSYALAR" />
-          <NavigationProperty Name="TETKIKRAPORRESIMLERs" Relationship="Self.FK_RESIMLER_YOLLAR" FromRole="TETKIKRAPORYOL" ToRole="TETKIKRAPORRESIMLER" />
-        </EntityType>
-        <Association Name="FK_DOSYALAR_ADLISAGLIKKURULU">
-          <End Role="ADLISAGLIKKURULU" Type="Self.ADLISAGLIKKURULU" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="DOSYALAR" Type="Self.DOSYALAR" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ADLISAGLIKKURULU">
-              <PropertyRef Name="AdliSaglikKuruluID" />
-            </Principal>
-            <Dependent Role="DOSYALAR">
-              <PropertyRef Name="AdliSaglikKuruluID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_ADLISAGLIKKURULURESIMLER_ADLISAGLIKKURULUYOL">
           <End Role="ADLISAGLIKKURULUYOL" Type="Self.ADLISAGLIKKURULUYOL" Multiplicity="1">
             <OnDelete Action="Cascade" />
@@ -625,6 +157,20 @@
             </Principal>
             <Dependent Role="ADLISAGLIKKURULURESIMLER">
               <PropertyRef Name="AdliSaglikKuruluYolID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DOSYALAR_ADLISAGLIKKURULU">
+          <End Role="ADLISAGLIKKURULU" Type="Self.ADLISAGLIKKURULU" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="DOSYALAR" Type="Self.DOSYALAR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ADLISAGLIKKURULU">
+              <PropertyRef Name="AdliSaglikKuruluID" />
+            </Principal>
+            <Dependent Role="DOSYALAR">
+              <PropertyRef Name="AdliSaglikKuruluID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -780,11 +326,440 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <EntityContainer Name="HospitalAutomationModelStoreContainer">
+          <EntitySet Name="ADLISAGLIKKURULU" EntityType="Self.ADLISAGLIKKURULU" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ADLISAGLIKKURULURESIMLER" EntityType="Self.ADLISAGLIKKURULURESIMLER" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ADLISAGLIKKURULUYOL" EntityType="Self.ADLISAGLIKKURULUYOL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BOLUMLER" EntityType="Self.BOLUMLER" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DOSYALAR" EntityType="Self.DOSYALAR" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HASTALAR" EntityType="Self.HASTALAR" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MUAYENEEPIKRIZ" EntityType="Self.MUAYENEEPIKRIZ" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MUAYENEEPIKRIZRESIMLER" EntityType="Self.MUAYENEEPIKRIZRESIMLER" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MUAYENEEPIKRIZYOL" EntityType="Self.MUAYENEEPIKRIZYOL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OGRETIMUYELERİ" EntityType="Self.OGRETIMUYELERİ" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OTURUM" EntityType="Self.OTURUM" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="STATU" EntityType="Self.STATU" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TANILAR" EntityType="Self.TANILAR" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TETKIKRAPORLAR" EntityType="Self.TETKIKRAPORLAR" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TETKIKRAPORRESIMLER" EntityType="Self.TETKIKRAPORRESIMLER" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TETKIKRAPORYOL" EntityType="Self.TETKIKRAPORYOL" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_ADLISAGLIKKURULURESIMLER_ADLISAGLIKKURULUYOL" Association="Self.FK_ADLISAGLIKKURULURESIMLER_ADLISAGLIKKURULUYOL">
+            <End Role="ADLISAGLIKKURULUYOL" EntitySet="ADLISAGLIKKURULUYOL" />
+            <End Role="ADLISAGLIKKURULURESIMLER" EntitySet="ADLISAGLIKKURULURESIMLER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DOSYALAR_ADLISAGLIKKURULU" Association="Self.FK_DOSYALAR_ADLISAGLIKKURULU">
+            <End Role="ADLISAGLIKKURULU" EntitySet="ADLISAGLIKKURULU" />
+            <End Role="DOSYALAR" EntitySet="DOSYALAR" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DOSYALAR_ADLISAGLIKKURULUYOL" Association="Self.FK_DOSYALAR_ADLISAGLIKKURULUYOL">
+            <End Role="ADLISAGLIKKURULUYOL" EntitySet="ADLISAGLIKKURULUYOL" />
+            <End Role="DOSYALAR" EntitySet="DOSYALAR" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DOSYALAR_BOLUMLER" Association="Self.FK_DOSYALAR_BOLUMLER">
+            <End Role="BOLUMLER" EntitySet="BOLUMLER" />
+            <End Role="DOSYALAR" EntitySet="DOSYALAR" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DOSYALAR_MUAYENEEPIKRIZ" Association="Self.FK_DOSYALAR_MUAYENEEPIKRIZ">
+            <End Role="MUAYENEEPIKRIZ" EntitySet="MUAYENEEPIKRIZ" />
+            <End Role="DOSYALAR" EntitySet="DOSYALAR" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DOSYALAR_MUAYENEEPIKRIZYOL" Association="Self.FK_DOSYALAR_MUAYENEEPIKRIZYOL">
+            <End Role="MUAYENEEPIKRIZYOL" EntitySet="MUAYENEEPIKRIZYOL" />
+            <End Role="DOSYALAR" EntitySet="DOSYALAR" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DOSYALAR_OGRETIMUYELERİ" Association="Self.FK_DOSYALAR_OGRETIMUYELERİ">
+            <End Role="OGRETIMUYELERİ" EntitySet="OGRETIMUYELERİ" />
+            <End Role="DOSYALAR" EntitySet="DOSYALAR" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DOSYALAR_STATU" Association="Self.FK_DOSYALAR_STATU">
+            <End Role="STATU" EntitySet="STATU" />
+            <End Role="DOSYALAR" EntitySet="DOSYALAR" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DOSYALAR_TANILAR1" Association="Self.FK_DOSYALAR_TANILAR1">
+            <End Role="TANILAR" EntitySet="TANILAR" />
+            <End Role="DOSYALAR" EntitySet="DOSYALAR" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DOSYALAR_TETKIKRAPORLAR" Association="Self.FK_DOSYALAR_TETKIKRAPORLAR">
+            <End Role="TETKIKRAPORLAR" EntitySet="TETKIKRAPORLAR" />
+            <End Role="DOSYALAR" EntitySet="DOSYALAR" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DOSYALAR_YOLLAR" Association="Self.FK_DOSYALAR_YOLLAR">
+            <End Role="TETKIKRAPORYOL" EntitySet="TETKIKRAPORYOL" />
+            <End Role="DOSYALAR" EntitySet="DOSYALAR" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MUAYENEEPIKRIZRESIMLER_MUAYENEEPIKRIZYOL" Association="Self.FK_MUAYENEEPIKRIZRESIMLER_MUAYENEEPIKRIZYOL">
+            <End Role="MUAYENEEPIKRIZYOL" EntitySet="MUAYENEEPIKRIZYOL" />
+            <End Role="MUAYENEEPIKRIZRESIMLER" EntitySet="MUAYENEEPIKRIZRESIMLER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RESIMLER_YOLLAR" Association="Self.FK_RESIMLER_YOLLAR">
+            <End Role="TETKIKRAPORYOL" EntitySet="TETKIKRAPORYOL" />
+            <End Role="TETKIKRAPORRESIMLER" EntitySet="TETKIKRAPORRESIMLER" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="HospitalAutomationModel" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2009/11/edm" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+        <EntityType Name="ADLISAGLIKKURULU">
+          <Key>
+            <PropertyRef Name="AdliSaglikKuruluID" />
+          </Key>
+          <Property Name="AdliSaglikKuruluID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="AdliSaglikKurulu1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="DOSYALARs" Relationship="Self.FK_DOSYALAR_ADLISAGLIKKURULU" FromRole="ADLISAGLIKKURULU" ToRole="DOSYALAR" />
+        </EntityType>
+        <EntityType Name="ADLISAGLIKKURULURESIMLER">
+          <Key>
+            <PropertyRef Name="AdliSaglikKuruluResimID" />
+          </Key>
+          <Property Name="AdliSaglikKuruluResimID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="AdliSaglikKuruluYolID" Type="Int32" Nullable="false" />
+          <Property Name="AdliSaglikKuruluResim" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="ADLISAGLIKKURULUYOL" Relationship="Self.FK_ADLISAGLIKKURULURESIMLER_ADLISAGLIKKURULUYOL" FromRole="ADLISAGLIKKURULURESIMLER" ToRole="ADLISAGLIKKURULUYOL" />
+        </EntityType>
+        <EntityType Name="ADLISAGLIKKURULUYOL">
+          <Key>
+            <PropertyRef Name="AdliSaglikKuruluYolID" />
+          </Key>
+          <Property Name="AdliSaglikKuruluYolID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="AdliSaglikKuruluYolKayit" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="ADLISAGLIKKURULURESIMLERs" Relationship="Self.FK_ADLISAGLIKKURULURESIMLER_ADLISAGLIKKURULUYOL" FromRole="ADLISAGLIKKURULUYOL" ToRole="ADLISAGLIKKURULURESIMLER" />
+          <NavigationProperty Name="DOSYALARs" Relationship="Self.FK_DOSYALAR_ADLISAGLIKKURULUYOL" FromRole="ADLISAGLIKKURULUYOL" ToRole="DOSYALAR" />
+        </EntityType>
+        <EntityType Name="DOSYALAR">
+          <Key>
+            <PropertyRef Name="DosyaID" />
+          </Key>
+          <Property Name="DosyaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="DosyaNo" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="BolumID" Type="Int32" Nullable="false" />
+          <Property Name="Tarih" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="OgretimUyeID" Type="Int32" Nullable="false" />
+          <Property Name="TanıID" Type="Int32" Nullable="false" />
+          <Property Name="HastaStatuID" Type="Int32" Nullable="false" />
+          <Property Name="MuayeneEpikrizID" Type="Int32" Nullable="false" />
+          <Property Name="MuayeneEpikrizYolID" Type="Int32" Nullable="false" />
+          <Property Name="TetkikRaporID" Type="Int32" Nullable="false" />
+          <Property Name="TetkikRaporYolID" Type="Int32" Nullable="false" />
+          <Property Name="AdliSaglikKuruluID" Type="Int32" Nullable="false" />
+          <Property Name="AdliSaglikKuruluYolID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ADLISAGLIKKURULU" Relationship="Self.FK_DOSYALAR_ADLISAGLIKKURULU" FromRole="DOSYALAR" ToRole="ADLISAGLIKKURULU" />
+          <NavigationProperty Name="ADLISAGLIKKURULUYOL" Relationship="Self.FK_DOSYALAR_ADLISAGLIKKURULUYOL" FromRole="DOSYALAR" ToRole="ADLISAGLIKKURULUYOL" />
+          <NavigationProperty Name="MUAYENEEPIKRIZ" Relationship="Self.FK_DOSYALAR_MUAYENEEPIKRIZ" FromRole="DOSYALAR" ToRole="MUAYENEEPIKRIZ" />
+          <NavigationProperty Name="MUAYENEEPIKRIZYOL" Relationship="Self.FK_DOSYALAR_MUAYENEEPIKRIZYOL" FromRole="DOSYALAR" ToRole="MUAYENEEPIKRIZYOL" />
+          <NavigationProperty Name="OGRETIMUYELERİ" Relationship="Self.FK_DOSYALAR_OGRETIMUYELERİ" FromRole="DOSYALAR" ToRole="OGRETIMUYELERİ" />
+          <NavigationProperty Name="STATU" Relationship="Self.FK_DOSYALAR_STATU" FromRole="DOSYALAR" ToRole="STATU" />
+          <NavigationProperty Name="TANILAR" Relationship="Self.FK_DOSYALAR_TANILAR1" FromRole="DOSYALAR" ToRole="TANILAR" />
+          <NavigationProperty Name="TETKIKRAPORLAR" Relationship="Self.FK_DOSYALAR_TETKIKRAPORLAR" FromRole="DOSYALAR" ToRole="TETKIKRAPORLAR" />
+          <NavigationProperty Name="TETKIKRAPORYOL" Relationship="Self.FK_DOSYALAR_YOLLAR" FromRole="DOSYALAR" ToRole="TETKIKRAPORYOL" />
+          <NavigationProperty Name="BOLUMLER" Relationship="HospitalAutomationModel.FK_DOSYALAR_BOLUMLER" FromRole="DOSYALAR" ToRole="BOLUMLER" />
+        </EntityType>
+        <EntityType Name="HASTALAR">
+          <Key>
+            <PropertyRef Name="TcKimlikNo" />
+          </Key>
+          <Property Name="TcKimlikNo" Type="String" MaxLength="11" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DosyaNumarası" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Ad" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Soyad" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MUAYENEEPIKRIZ">
+          <Key>
+            <PropertyRef Name="Muayeneid" />
+          </Key>
+          <Property Name="Muayeneid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="HastaMuayeneEpikriz" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="DOSYALARs" Relationship="Self.FK_DOSYALAR_MUAYENEEPIKRIZ" FromRole="MUAYENEEPIKRIZ" ToRole="DOSYALAR" />
+        </EntityType>
+        <EntityType Name="MUAYENEEPIKRIZRESIMLER">
+          <Key>
+            <PropertyRef Name="MuayeneEpikrizResimID" />
+          </Key>
+          <Property Name="MuayeneEpikrizResimID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="MuayeneEpikrizYolID" Type="Int32" Nullable="false" />
+          <Property Name="MuayeneRaporResimAd" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="MUAYENEEPIKRIZYOL" Relationship="Self.FK_MUAYENEEPIKRIZRESIMLER_MUAYENEEPIKRIZYOL" FromRole="MUAYENEEPIKRIZRESIMLER" ToRole="MUAYENEEPIKRIZYOL" />
+        </EntityType>
+        <EntityType Name="MUAYENEEPIKRIZYOL">
+          <Key>
+            <PropertyRef Name="MuayeneEpikrizYolID" />
+          </Key>
+          <Property Name="MuayeneEpikrizYolID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="MuayeneEpikrizYolKayit" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="DOSYALARs" Relationship="Self.FK_DOSYALAR_MUAYENEEPIKRIZYOL" FromRole="MUAYENEEPIKRIZYOL" ToRole="DOSYALAR" />
+          <NavigationProperty Name="MUAYENEEPIKRIZRESIMLERs" Relationship="Self.FK_MUAYENEEPIKRIZRESIMLER_MUAYENEEPIKRIZYOL" FromRole="MUAYENEEPIKRIZYOL" ToRole="MUAYENEEPIKRIZRESIMLER" />
+        </EntityType>
+        <EntityType Name="OGRETIMUYELERİ">
+          <Key>
+            <PropertyRef Name="OgretimUyeid" />
+          </Key>
+          <Property Name="OgretimUyeid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="Ad" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Soyad" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Unvan" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="DOSYALARs" Relationship="Self.FK_DOSYALAR_OGRETIMUYELERİ" FromRole="OGRETIMUYELERİ" ToRole="DOSYALAR" />
+        </EntityType>
+        <EntityType Name="OTURUM">
+          <Key>
+            <PropertyRef Name="KullaniciAdi" />
+          </Key>
+          <Property Name="KullaniciAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Sifre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="STATU">
+          <Key>
+            <PropertyRef Name="Statuid" />
+          </Key>
+          <Property Name="Statuid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="Statu1" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="DOSYALARs" Relationship="Self.FK_DOSYALAR_STATU" FromRole="STATU" ToRole="DOSYALAR" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="TANILAR">
+          <Key>
+            <PropertyRef Name="Taniid" />
+          </Key>
+          <Property Name="Taniid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="TaniAdi" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ICD10Kodu" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="DOSYALARs" Relationship="Self.FK_DOSYALAR_TANILAR1" FromRole="TANILAR" ToRole="DOSYALAR" />
+        </EntityType>
+        <EntityType Name="TETKIKRAPORLAR">
+          <Key>
+            <PropertyRef Name="TetkikRaporid" />
+          </Key>
+          <Property Name="TetkikRaporid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="TetkikveRapor" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="DOSYALARs" Relationship="Self.FK_DOSYALAR_TETKIKRAPORLAR" FromRole="TETKIKRAPORLAR" ToRole="DOSYALAR" />
+        </EntityType>
+        <EntityType Name="TETKIKRAPORRESIMLER">
+          <Key>
+            <PropertyRef Name="TetkikRaporResimID" />
+          </Key>
+          <Property Name="TetkikRaporResimID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="TetkikRaporYolID" Type="Int32" Nullable="false" />
+          <Property Name="TetkikRaporResimAd" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="TETKIKRAPORYOL" Relationship="Self.FK_RESIMLER_YOLLAR" FromRole="TETKIKRAPORRESIMLER" ToRole="TETKIKRAPORYOL" />
+        </EntityType>
+        <EntityType Name="TETKIKRAPORYOL">
+          <Key>
+            <PropertyRef Name="TetkikRaporYolID" />
+          </Key>
+          <Property Name="TetkikRaporYolID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="TetkikRaporYolKayit" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="DOSYALARs" Relationship="Self.FK_DOSYALAR_YOLLAR" FromRole="TETKIKRAPORYOL" ToRole="DOSYALAR" />
+          <NavigationProperty Name="TETKIKRAPORRESIMLERs" Relationship="Self.FK_RESIMLER_YOLLAR" FromRole="TETKIKRAPORYOL" ToRole="TETKIKRAPORRESIMLER" />
+        </EntityType>
+        <Association Name="FK_DOSYALAR_ADLISAGLIKKURULU">
+          <End Role="ADLISAGLIKKURULU" Type="Self.ADLISAGLIKKURULU" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="DOSYALAR" Type="Self.DOSYALAR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ADLISAGLIKKURULU">
+              <PropertyRef Name="AdliSaglikKuruluID" />
+            </Principal>
+            <Dependent Role="DOSYALAR">
+              <PropertyRef Name="AdliSaglikKuruluID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ADLISAGLIKKURULURESIMLER_ADLISAGLIKKURULUYOL">
+          <End Role="ADLISAGLIKKURULUYOL" Type="Self.ADLISAGLIKKURULUYOL" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ADLISAGLIKKURULURESIMLER" Type="Self.ADLISAGLIKKURULURESIMLER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ADLISAGLIKKURULUYOL">
+              <PropertyRef Name="AdliSaglikKuruluYolID" />
+            </Principal>
+            <Dependent Role="ADLISAGLIKKURULURESIMLER">
+              <PropertyRef Name="AdliSaglikKuruluYolID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DOSYALAR_ADLISAGLIKKURULUYOL">
+          <End Role="ADLISAGLIKKURULUYOL" Type="Self.ADLISAGLIKKURULUYOL" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="DOSYALAR" Type="Self.DOSYALAR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ADLISAGLIKKURULUYOL">
+              <PropertyRef Name="AdliSaglikKuruluYolID" />
+            </Principal>
+            <Dependent Role="DOSYALAR">
+              <PropertyRef Name="AdliSaglikKuruluYolID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DOSYALAR_MUAYENEEPIKRIZ">
+          <End Role="MUAYENEEPIKRIZ" Type="Self.MUAYENEEPIKRIZ" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="DOSYALAR" Type="Self.DOSYALAR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MUAYENEEPIKRIZ">
+              <PropertyRef Name="Muayeneid" />
+            </Principal>
+            <Dependent Role="DOSYALAR">
+              <PropertyRef Name="MuayeneEpikrizID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DOSYALAR_MUAYENEEPIKRIZYOL">
+          <End Role="MUAYENEEPIKRIZYOL" Type="Self.MUAYENEEPIKRIZYOL" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="DOSYALAR" Type="Self.DOSYALAR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MUAYENEEPIKRIZYOL">
+              <PropertyRef Name="MuayeneEpikrizYolID" />
+            </Principal>
+            <Dependent Role="DOSYALAR">
+              <PropertyRef Name="MuayeneEpikrizYolID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DOSYALAR_OGRETIMUYELERİ">
+          <End Role="OGRETIMUYELERİ" Type="Self.OGRETIMUYELERİ" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="DOSYALAR" Type="Self.DOSYALAR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OGRETIMUYELERİ">
+              <PropertyRef Name="OgretimUyeid" />
+            </Principal>
+            <Dependent Role="DOSYALAR">
+              <PropertyRef Name="OgretimUyeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DOSYALAR_STATU">
+          <End Role="STATU" Type="Self.STATU" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="DOSYALAR" Type="Self.DOSYALAR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STATU">
+              <PropertyRef Name="Statuid" />
+            </Principal>
+            <Dependent Role="DOSYALAR">
+              <PropertyRef Name="HastaStatuID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DOSYALAR_TANILAR1">
+          <End Role="TANILAR" Type="Self.TANILAR" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="DOSYALAR" Type="Self.DOSYALAR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TANILAR">
+              <PropertyRef Name="Taniid" />
+            </Principal>
+            <Dependent Role="DOSYALAR">
+              <PropertyRef Name="TanıID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DOSYALAR_TETKIKRAPORLAR">
+          <End Role="TETKIKRAPORLAR" Type="Self.TETKIKRAPORLAR" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="DOSYALAR" Type="Self.DOSYALAR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TETKIKRAPORLAR">
+              <PropertyRef Name="TetkikRaporid" />
+            </Principal>
+            <Dependent Role="DOSYALAR">
+              <PropertyRef Name="TetkikRaporID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DOSYALAR_YOLLAR">
+          <End Role="TETKIKRAPORYOL" Type="Self.TETKIKRAPORYOL" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="DOSYALAR" Type="Self.DOSYALAR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TETKIKRAPORYOL">
+              <PropertyRef Name="TetkikRaporYolID" />
+            </Principal>
+            <Dependent Role="DOSYALAR">
+              <PropertyRef Name="TetkikRaporYolID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MUAYENEEPIKRIZRESIMLER_MUAYENEEPIKRIZYOL">
+          <End Role="MUAYENEEPIKRIZYOL" Type="Self.MUAYENEEPIKRIZYOL" Multiplicity="1" />
+          <End Role="MUAYENEEPIKRIZRESIMLER" Type="Self.MUAYENEEPIKRIZRESIMLER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MUAYENEEPIKRIZYOL">
+              <PropertyRef Name="MuayeneEpikrizYolID" />
+            </Principal>
+            <Dependent Role="MUAYENEEPIKRIZRESIMLER">
+              <PropertyRef Name="MuayeneEpikrizYolID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RESIMLER_YOLLAR">
+          <End Role="TETKIKRAPORYOL" Type="Self.TETKIKRAPORYOL" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TETKIKRAPORRESIMLER" Type="Self.TETKIKRAPORRESIMLER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TETKIKRAPORYOL">
+              <PropertyRef Name="TetkikRaporYolID" />
+            </Principal>
+            <Dependent Role="TETKIKRAPORRESIMLER">
+              <PropertyRef Name="TetkikRaporYolID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="HospitalAutomationEntities" annotation:LazyLoadingEnabled="true" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
           <EntitySet Name="ADLISAGLIKKURULUs" EntityType="Self.ADLISAGLIKKURULU" />
           <EntitySet Name="ADLISAGLIKKURULURESIMLERs" EntityType="Self.ADLISAGLIKKURULURESIMLER" />
           <EntitySet Name="ADLISAGLIKKURULUYOLs" EntityType="Self.ADLISAGLIKKURULUYOL" />
-          <EntitySet Name="BOLUMLERs" EntityType="Self.BOLUMLER" />
           <EntitySet Name="DOSYALARs" EntityType="Self.DOSYALAR" />
           <EntitySet Name="HASTALARs" EntityType="Self.HASTALAR" />
           <EntitySet Name="MUAYENEEPIKRIZs" EntityType="Self.MUAYENEEPIKRIZ" />
@@ -808,10 +783,6 @@
           </AssociationSet>
           <AssociationSet Name="FK_DOSYALAR_ADLISAGLIKKURULUYOL" Association="Self.FK_DOSYALAR_ADLISAGLIKKURULUYOL">
             <End Role="ADLISAGLIKKURULUYOL" EntitySet="ADLISAGLIKKURULUYOLs" />
-            <End Role="DOSYALAR" EntitySet="DOSYALARs" />
-          </AssociationSet>
-          <AssociationSet Name="FK_DOSYALAR_BOLUMLER" Association="Self.FK_DOSYALAR_BOLUMLER">
-            <End Role="BOLUMLER" EntitySet="BOLUMLERs" />
             <End Role="DOSYALAR" EntitySet="DOSYALARs" />
           </AssociationSet>
           <AssociationSet Name="FK_DOSYALAR_MUAYENEEPIKRIZ" Association="Self.FK_DOSYALAR_MUAYENEEPIKRIZ">
@@ -851,36 +822,63 @@
             <End Role="TETKIKRAPORRESIMLER" EntitySet="TETKIKRAPORRESIMLERs" />
           </AssociationSet>
           <FunctionImport Name="sp_alterdiagram">
-            <Parameter Name="diagramname" Type="String" Mode="In" />
-            <Parameter Name="owner_id" Type="Int32" Mode="In" />
-            <Parameter Name="version" Type="Int32" Mode="In" />
-            <Parameter Name="definition" Type="Binary" Mode="In" />
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
           </FunctionImport>
           <FunctionImport Name="sp_creatediagram">
-            <Parameter Name="diagramname" Type="String" Mode="In" />
-            <Parameter Name="owner_id" Type="Int32" Mode="In" />
-            <Parameter Name="version" Type="Int32" Mode="In" />
-            <Parameter Name="definition" Type="Binary" Mode="In" />
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
           </FunctionImport>
           <FunctionImport Name="sp_dropdiagram">
-            <Parameter Name="diagramname" Type="String" Mode="In" />
-            <Parameter Name="owner_id" Type="Int32" Mode="In" />
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="sp_helpdiagramdefinition">
-            <Parameter Name="diagramname" Type="String" Mode="In" />
-            <Parameter Name="owner_id" Type="Int32" Mode="In" />
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="sp_helpdiagrams">
-            <Parameter Name="diagramname" Type="String" Mode="In" />
-            <Parameter Name="owner_id" Type="Int32" Mode="In" />
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="sp_renamediagram">
-            <Parameter Name="diagramname" Type="String" Mode="In" />
-            <Parameter Name="owner_id" Type="Int32" Mode="In" />
-            <Parameter Name="new_diagramname" Type="String" Mode="In" />
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="new_diagramname" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="sp_upgraddiagrams" />
+          <EntitySet Name="BOLUMLER" EntityType="HospitalAutomationModel.BOLUMLER" />
+          <AssociationSet Name="FK_DOSYALAR_BOLUMLER" Association="HospitalAutomationModel.FK_DOSYALAR_BOLUMLER">
+            <End Role="BOLUMLER" EntitySet="BOLUMLER" />
+            <End Role="DOSYALAR" EntitySet="DOSYALARs" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="BOLUMLER">
+          <Key>
+            <PropertyRef Name="BolumId" />
+          </Key>
+          <Property Name="BolumId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BolumAdi" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="DOSYALAR" Relationship="HospitalAutomationModel.FK_DOSYALAR_BOLUMLER" FromRole="BOLUMLER" ToRole="DOSYALAR" />
+        </EntityType>
+        <Association Name="FK_DOSYALAR_BOLUMLER">
+          <End Type="HospitalAutomationModel.BOLUMLER" Role="BOLUMLER" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="HospitalAutomationModel.DOSYALAR" Role="DOSYALAR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BOLUMLER">
+              <PropertyRef Name="BolumId" />
+            </Principal>
+            <Dependent Role="DOSYALAR">
+              <PropertyRef Name="BolumID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -909,14 +907,6 @@
               <MappingFragment StoreEntitySet="ADLISAGLIKKURULUYOL">
                 <ScalarProperty Name="AdliSaglikKuruluYolID" ColumnName="AdliSaglikKuruluYolID" />
                 <ScalarProperty Name="AdliSaglikKuruluYolKayit" ColumnName="AdliSaglikKuruluYolKayit" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="BOLUMLERs">
-            <EntityTypeMapping TypeName="HospitalAutomationModel.BOLUMLER">
-              <MappingFragment StoreEntitySet="BOLUMLER">
-                <ScalarProperty Name="BolumId" ColumnName="Bolumid" />
-                <ScalarProperty Name="BolumAdi" ColumnName="BolumAdı" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1052,6 +1042,14 @@
           <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="HospitalAutomationModel.Store.sp_helpdiagrams" />
           <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="HospitalAutomationModel.Store.sp_renamediagram" />
           <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="HospitalAutomationModel.Store.sp_upgraddiagrams" />
+          <EntitySetMapping Name="BOLUMLER">
+            <EntityTypeMapping TypeName="HospitalAutomationModel.BOLUMLER">
+              <MappingFragment StoreEntitySet="BOLUMLER">
+                <ScalarProperty Name="BolumAdi" ColumnName="BolumAdi" />
+                <ScalarProperty Name="BolumId" ColumnName="BolumId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -1066,7 +1064,7 @@
     <edmx:Options>
       <edmx:DesignerInfoPropertySet>
         <edmx:DesignerProperty Name="ValidateOnBuild" Value="true" />
-        <edmx:DesignerProperty Name="EnablePluralization" Value="true" />
+        <edmx:DesignerProperty Name="EnablePluralization" Value="False" />
         <edmx:DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
         <edmx:DesignerProperty Name="UseLegacyProvider" Value="false" />
         <edmx:DesignerProperty Name="CodeGenerationStrategy" Value="None" />

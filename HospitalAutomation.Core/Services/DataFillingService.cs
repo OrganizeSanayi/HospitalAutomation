@@ -27,7 +27,7 @@ namespace HospitalAutomation
         {
             using (var context = new HospitalAutomationEntities())
             {
-                return (from p in context.BOLUMLERs
+                return (from p in context.BOLUMLER
                     select new
                     {
                         _id = p.BolumId,

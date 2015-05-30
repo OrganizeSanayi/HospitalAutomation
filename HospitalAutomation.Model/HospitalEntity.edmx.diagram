@@ -8,7 +8,6 @@
         <EntityTypeShape EntityType="HospitalAutomationModel.ADLISAGLIKKURULU" Width="1.5" PointX="3.75" PointY="7.5" IsExpanded="true" />
         <EntityTypeShape EntityType="HospitalAutomationModel.ADLISAGLIKKURULURESIMLER" Width="1.5" PointX="3" PointY="4.375" IsExpanded="true" />
         <EntityTypeShape EntityType="HospitalAutomationModel.ADLISAGLIKKURULUYOL" Width="1.5" PointX="0.75" PointY="4.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="HospitalAutomationModel.BOLUMLER" Width="1.5" PointX="3.75" PointY="9.875" IsExpanded="true" />
         <EntityTypeShape EntityType="HospitalAutomationModel.DOSYALAR" Width="1.5" PointX="6.5" PointY="2.75" IsExpanded="true" />
         <EntityTypeShape EntityType="HospitalAutomationModel.HASTALAR" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="HospitalAutomationModel.MUAYENEEPIKRIZ" Width="1.5" PointX="3.75" PointY="12.25" IsExpanded="true" />
@@ -25,7 +24,6 @@
         <AssociationConnector Association="HospitalAutomationModel.FK_DOSYALAR_ADLISAGLIKKURULU" ManuallyRouted="false" />
         <AssociationConnector Association="HospitalAutomationModel.FK_ADLISAGLIKKURULURESIMLER_ADLISAGLIKKURULUYOL" ManuallyRouted="false" />
         <AssociationConnector Association="HospitalAutomationModel.FK_DOSYALAR_ADLISAGLIKKURULUYOL" ManuallyRouted="false" />
-        <AssociationConnector Association="HospitalAutomationModel.FK_DOSYALAR_BOLUMLER" ManuallyRouted="false" />
         <AssociationConnector Association="HospitalAutomationModel.FK_DOSYALAR_MUAYENEEPIKRIZ" ManuallyRouted="false" />
         <AssociationConnector Association="HospitalAutomationModel.FK_DOSYALAR_MUAYENEEPIKRIZYOL" ManuallyRouted="false" />
         <AssociationConnector Association="HospitalAutomationModel.FK_DOSYALAR_OGRETIMUYELERİ" ManuallyRouted="false" />
@@ -35,6 +33,8 @@
         <AssociationConnector Association="HospitalAutomationModel.FK_DOSYALAR_YOLLAR" ManuallyRouted="false" />
         <AssociationConnector Association="HospitalAutomationModel.FK_MUAYENEEPIKRIZRESIMLER_MUAYENEEPIKRIZYOL" ManuallyRouted="false" />
         <AssociationConnector Association="HospitalAutomationModel.FK_RESIMLER_YOLLAR" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="HospitalAutomationModel.BOLUMLER" Width="1.5" PointX="9.375" PointY="0.875" />
+        <AssociationConnector Association="HospitalAutomationModel.FK_DOSYALAR_BOLUMLER" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
