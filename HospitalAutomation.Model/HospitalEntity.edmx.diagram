@@ -26,7 +26,6 @@
         <AssociationConnector Association="HospitalAutomationModel.FK_RESIMLER_YOLLAR" ManuallyRouted="false" />
         <EntityTypeShape EntityType="HospitalAutomationModel.BOLUMLER" Width="1.5" PointX="9.375" PointY="0.875" />
         <AssociationConnector Association="HospitalAutomationModel.FK_DOSYALAR_BOLUMLER" />
-        <EntityTypeShape EntityType="HospitalAutomationModel.sysdiagrams" Width="1.5" PointX="9.75" PointY="3.75" />
         <EntityTypeShape EntityType="HospitalAutomationModel.STATU" Width="1.5" PointX="0.75" PointY="7.875" />
         <AssociationConnector Association="HospitalAutomationModel.FK_DOSYALAR_STATU" />
         <EntityTypeShape EntityType="HospitalAutomationModel.ADLISAGLIKKURULU" Width="1.5" PointX="4.25" PointY="10.5" />
@@ -35,6 +34,7 @@
         <AssociationConnector Association="HospitalAutomationModel.FK_DOSYALAR_ADLISAGLIKKURULU" />
         <AssociationConnector Association="HospitalAutomationModel.FK_DOSYALAR_MUAYENEEPIKRIZ" />
         <AssociationConnector Association="HospitalAutomationModel.FK_DOSYALAR_TETKIKRAPORLAR" />
+        <EntityTypeShape EntityType="HospitalAutomationModel.sysdiagrams" Width="1.5" PointX="9.375" PointY="3.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
