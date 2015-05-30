@@ -25,6 +25,28 @@ namespace HospitalAutomation.GUI
             Populater.Fill(cbPatientExaminationEpicrisis, DataFillingService.GatherPatientExaminationEpicrisis);
             Populater.Fill(cbExaminationAndReports, DataFillingService.GatherExaminationAndReports);
             Populater.Fill(cbCriminalAndMedicalBoard, DataFillingService.GatherCriminalAndMedicalBoard);
+            ClearSelections();
+
+            EventHandler reportsHandler = (o, args) => lblReports.Text = GetSelectedText((ComboBox) o);
+            cbCriminalAndMedicalBoard.SelectedIndexChanged += reportsHandler;
+            cbPatientExaminationEpicrisis.SelectedIndexChanged += reportsHandler;
+            cbExaminationAndReports.SelectedIndexChanged += reportsHandler;
+            cbState.SelectedIndexChanged += (o, args) => lblPatientStatus.Text = GetSelectedText((ComboBox) o);
+            cbSurgery.SelectedIndexChanged += (o, args) => lblSection.Text = GetSelectedText((ComboBox) o);
+            cbFacultyMembers.SelectedIndexChanged += (o, args) => lblFacultyMember.Text = GetSelectedText((ComboBox) o);
+        }
+
+        private static string GetSelectedText(ComboBox cb)
+        {
+            return cb.GetItemText(cb.SelectedItem);
+        }
+
+        private void ClearSelections()
+        {
+            foreach (var cb in Controls.OfType<ComboBox>())
+            {
+                cb.SelectedItem = null;
+            }
         }
 
         // Dosya Bilgileri Sayfası İşlemleri
@@ -77,8 +99,6 @@ namespace HospitalAutomation.GUI
             lblFileNo.Text = txtFileNumber.Text;
         }
 
-
-
         // Kayıt Bilgisi Sayfası İşlemleri   
         private void linkLblRegisterInformation_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
@@ -107,14 +127,6 @@ namespace HospitalAutomation.GUI
             RegisterIndformationFormVisibleControl();
             groupBoxSection.Visible = true;
             groupBoxSection.Location = new Point(210, 112);
-        }
-
-        private void groupBoxSection_Enter(object sender, EventArgs e)
-        {
-            foreach (var radio in groupBoxSection.Controls.OfType<RadioButton>().Select(control => control).Where(radio => radio.Checked))
-            {
-                lblSection.Text = radio.Text;
-            }
         }
 
         //-- İlgili Öğretim Üyesi Seçim İşlemi
@@ -227,7 +239,34 @@ namespace HospitalAutomation.GUI
             switch (dialogResult)
             {
                 case DialogResult.Yes:
-                    //do something
+                    var fileNo = txtFileNumber.Text;
+                    var sectionId = int.Parse(cbSurgery.SelectedValue.ToString());
+                    var date = monthCalendar.SelectionRange.Start.Date;
+                    var memberId = int.Parse(cbFacultyMembers.SelectedValue.ToString());
+                    // TODO : Tanıyı bi sor
+                    var diagnosisId = int.Parse(txtPatientDiagnosed.Text);
+
+                    var stateId = int.Parse(cbState.SelectedValue.ToString());
+                    // TODO : Belgeleri sor
+                    var epicrisisId = int.Parse(cbPatientExaminationEpicrisis.SelectedValue.ToString());
+                    // TODO : Pseudo numara, sonra implement edersin
+                    var epicrisisPath = 1;
+                    var epicrisisPictureId = 1;
+
+                    var examinationId = int.Parse(cbExaminationAndReports.SelectedValue.ToString());
+                    // TODO : Pseudo numara, sonra implement edersin
+                    var examinationPath = 1;
+                    var examinationPictureId = 1;
+
+                    var criminalId = int.Parse(cbCriminalAndMedicalBoard.SelectedValue.ToString());
+                    // TODO : Pseudo numara, sonra implement edersin
+                    var criminalPath = 1;
+                    var criminalPictureId = 1;
+                    PatientDataStoreService.Persist(
+                        fileNo, sectionId, date, memberId, diagnosisId, stateId, 
+                        epicrisisId, epicrisisPath, 
+                        examinationId, examinationPath, 
+                        criminalId, criminalPath);
                     break;
                 case DialogResult.No:
                     //do something else

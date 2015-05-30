@@ -28,15 +28,15 @@ namespace HospitalAutomation.Model
         public int AdliSaglikKuruluID { get; set; }
         public int AdliSaglikKuruluYolID { get; set; }
     
+        public virtual ADLISAGLIKKURULU ADLISAGLIKKURULU { get; set; }
         public virtual ADLISAGLIKKURULUYOL ADLISAGLIKKURULUYOL { get; set; }
+        public virtual BOLUMLER BOLUMLER { get; set; }
+        public virtual MUAYENEEPIKRIZ MUAYENEEPIKRIZ { get; set; }
         public virtual MUAYENEEPIKRIZYOL MUAYENEEPIKRIZYOL { get; set; }
         public virtual OGRETIMUYELERİ OGRETIMUYELERİ { get; set; }
-        public virtual TANILAR TANILAR { get; set; }
-        public virtual TETKIKRAPORYOL TETKIKRAPORYOL { get; set; }
-        public virtual BOLUMLER BOLUMLER { get; set; }
         public virtual STATU STATU { get; set; }
-        public virtual ADLISAGLIKKURULU ADLISAGLIKKURULU { get; set; }
-        public virtual MUAYENEEPIKRIZ MUAYENEEPIKRIZ { get; set; }
+        public virtual TANILAR TANILAR { get; set; }
         public virtual TETKIKRAPORLAR TETKIKRAPORLAR { get; set; }
+        public virtual TETKIKRAPORYOL TETKIKRAPORYOL { get; set; }
     }
 }

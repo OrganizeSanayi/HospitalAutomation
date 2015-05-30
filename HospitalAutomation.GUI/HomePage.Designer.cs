@@ -79,17 +79,17 @@
             this.panelFileInformation = new System.Windows.Forms.FlowLayoutPanel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelReports = new System.Windows.Forms.Panel();
+            this.gbCriminalAndMedicalBoard = new System.Windows.Forms.GroupBox();
+            this.cbCriminalAndMedicalBoard = new System.Windows.Forms.ComboBox();
             this.groupBoxPatientExamination = new System.Windows.Forms.GroupBox();
+            this.cbPatientExaminationEpicrisis = new System.Windows.Forms.ComboBox();
             this.btnSaveFile = new System.Windows.Forms.Button();
             this.groupBoxReports = new System.Windows.Forms.GroupBox();
+            this.cbExaminationAndReports = new System.Windows.Forms.ComboBox();
             this.btnJudicialReports = new System.Windows.Forms.Button();
             this.btnScanFile = new System.Windows.Forms.Button();
             this.btnPatientExamination = new System.Windows.Forms.Button();
             this.btnReports = new System.Windows.Forms.Button();
-            this.cbPatientExaminationEpicrisis = new System.Windows.Forms.ComboBox();
-            this.cbExaminationAndReports = new System.Windows.Forms.ComboBox();
-            this.cbCriminalAndMedicalBoard = new System.Windows.Forms.ComboBox();
-            this.gbCriminalAndMedicalBoard = new System.Windows.Forms.GroupBox();
             this.panel1.SuspendLayout();
             this.panelRegisterInformation.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -100,9 +100,9 @@
             this.panelFileInformation.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelReports.SuspendLayout();
+            this.gbCriminalAndMedicalBoard.SuspendLayout();
             this.groupBoxPatientExamination.SuspendLayout();
             this.groupBoxReports.SuspendLayout();
-            this.gbCriminalAndMedicalBoard.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -460,8 +460,6 @@
             this.groupBoxSection.TabStop = false;
             this.groupBoxSection.Text = "Bölümler :";
             this.groupBoxSection.Visible = false;
-            this.groupBoxSection.CursorChanged += new System.EventHandler(this.groupBoxSection_Enter);
-            this.groupBoxSection.Enter += new System.EventHandler(this.groupBoxSection_Enter);
             // 
             // cbSurgery
             // 
@@ -672,6 +670,25 @@
             this.panelReports.TabIndex = 9;
             this.panelReports.Visible = false;
             // 
+            // gbCriminalAndMedicalBoard
+            // 
+            this.gbCriminalAndMedicalBoard.Controls.Add(this.cbCriminalAndMedicalBoard);
+            this.gbCriminalAndMedicalBoard.Location = new System.Drawing.Point(29, 275);
+            this.gbCriminalAndMedicalBoard.Name = "gbCriminalAndMedicalBoard";
+            this.gbCriminalAndMedicalBoard.Size = new System.Drawing.Size(360, 51);
+            this.gbCriminalAndMedicalBoard.TabIndex = 12;
+            this.gbCriminalAndMedicalBoard.TabStop = false;
+            this.gbCriminalAndMedicalBoard.Visible = false;
+            // 
+            // cbCriminalAndMedicalBoard
+            // 
+            this.cbCriminalAndMedicalBoard.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbCriminalAndMedicalBoard.FormattingEnabled = true;
+            this.cbCriminalAndMedicalBoard.Location = new System.Drawing.Point(15, 19);
+            this.cbCriminalAndMedicalBoard.Name = "cbCriminalAndMedicalBoard";
+            this.cbCriminalAndMedicalBoard.Size = new System.Drawing.Size(328, 21);
+            this.cbCriminalAndMedicalBoard.TabIndex = 12;
+            // 
             // groupBoxPatientExamination
             // 
             this.groupBoxPatientExamination.Controls.Add(this.cbPatientExaminationEpicrisis);
@@ -682,6 +699,15 @@
             this.groupBoxPatientExamination.TabStop = false;
             this.groupBoxPatientExamination.Visible = false;
             this.groupBoxPatientExamination.Enter += new System.EventHandler(this.groupBoxPatientExamination_Enter);
+            // 
+            // cbPatientExaminationEpicrisis
+            // 
+            this.cbPatientExaminationEpicrisis.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbPatientExaminationEpicrisis.FormattingEnabled = true;
+            this.cbPatientExaminationEpicrisis.Location = new System.Drawing.Point(15, 19);
+            this.cbPatientExaminationEpicrisis.Name = "cbPatientExaminationEpicrisis";
+            this.cbPatientExaminationEpicrisis.Size = new System.Drawing.Size(328, 21);
+            this.cbPatientExaminationEpicrisis.TabIndex = 10;
             // 
             // btnSaveFile
             // 
@@ -704,6 +730,15 @@
             this.groupBoxReports.TabStop = false;
             this.groupBoxReports.Visible = false;
             this.groupBoxReports.Enter += new System.EventHandler(this.groupBoxReports_Enter);
+            // 
+            // cbExaminationAndReports
+            // 
+            this.cbExaminationAndReports.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbExaminationAndReports.FormattingEnabled = true;
+            this.cbExaminationAndReports.Location = new System.Drawing.Point(15, 19);
+            this.cbExaminationAndReports.Name = "cbExaminationAndReports";
+            this.cbExaminationAndReports.Size = new System.Drawing.Size(328, 21);
+            this.cbExaminationAndReports.TabIndex = 11;
             // 
             // btnJudicialReports
             // 
@@ -752,44 +787,7 @@
             this.btnReports.UseVisualStyleBackColor = true;
             this.btnReports.Click += new System.EventHandler(this.btnReports_Click);
             // 
-            // cbPatientExaminationEpicrisis
-            // 
-            this.cbPatientExaminationEpicrisis.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbPatientExaminationEpicrisis.FormattingEnabled = true;
-            this.cbPatientExaminationEpicrisis.Location = new System.Drawing.Point(15, 19);
-            this.cbPatientExaminationEpicrisis.Name = "cbPatientExaminationEpicrisis";
-            this.cbPatientExaminationEpicrisis.Size = new System.Drawing.Size(328, 21);
-            this.cbPatientExaminationEpicrisis.TabIndex = 10;
-            // 
-            // cbExaminationAndReports
-            // 
-            this.cbExaminationAndReports.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbExaminationAndReports.FormattingEnabled = true;
-            this.cbExaminationAndReports.Location = new System.Drawing.Point(15, 19);
-            this.cbExaminationAndReports.Name = "cbExaminationAndReports";
-            this.cbExaminationAndReports.Size = new System.Drawing.Size(328, 21);
-            this.cbExaminationAndReports.TabIndex = 11;
-            // 
-            // cbCriminalAndMedicalBoard
-            // 
-            this.cbCriminalAndMedicalBoard.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbCriminalAndMedicalBoard.FormattingEnabled = true;
-            this.cbCriminalAndMedicalBoard.Location = new System.Drawing.Point(15, 19);
-            this.cbCriminalAndMedicalBoard.Name = "cbCriminalAndMedicalBoard";
-            this.cbCriminalAndMedicalBoard.Size = new System.Drawing.Size(328, 21);
-            this.cbCriminalAndMedicalBoard.TabIndex = 12;
-            // 
-            // gbCriminalAndMedicalBoard
-            // 
-            this.gbCriminalAndMedicalBoard.Controls.Add(this.cbCriminalAndMedicalBoard);
-            this.gbCriminalAndMedicalBoard.Location = new System.Drawing.Point(29, 275);
-            this.gbCriminalAndMedicalBoard.Name = "gbCriminalAndMedicalBoard";
-            this.gbCriminalAndMedicalBoard.Size = new System.Drawing.Size(360, 51);
-            this.gbCriminalAndMedicalBoard.TabIndex = 12;
-            this.gbCriminalAndMedicalBoard.TabStop = false;
-            this.gbCriminalAndMedicalBoard.Visible = false;
-            // 
-            // formHomePage
+            // FormHomePage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -817,9 +815,9 @@
             this.panelFileInformation.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panelReports.ResumeLayout(false);
+            this.gbCriminalAndMedicalBoard.ResumeLayout(false);
             this.groupBoxPatientExamination.ResumeLayout(false);
             this.groupBoxReports.ResumeLayout(false);
-            this.gbCriminalAndMedicalBoard.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

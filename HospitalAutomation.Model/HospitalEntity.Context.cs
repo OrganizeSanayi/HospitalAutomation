@@ -29,7 +29,6 @@ namespace HospitalAutomation.Model
     
         public virtual DbSet<ADLISAGLIKKURULURESIMLER> ADLISAGLIKKURULURESIMLERs { get; set; }
         public virtual DbSet<ADLISAGLIKKURULUYOL> ADLISAGLIKKURULUYOLs { get; set; }
-        public virtual DbSet<DOSYALAR> DOSYALARs { get; set; }
         public virtual DbSet<HASTALAR> HASTALARs { get; set; }
         public virtual DbSet<MUAYENEEPIKRIZRESIMLER> MUAYENEEPIKRIZRESIMLERs { get; set; }
         public virtual DbSet<MUAYENEEPIKRIZYOL> MUAYENEEPIKRIZYOLs { get; set; }
@@ -44,6 +43,7 @@ namespace HospitalAutomation.Model
         public virtual DbSet<MUAYENEEPIKRIZ> MUAYENEEPIKRIZ { get; set; }
         public virtual DbSet<TETKIKRAPORLAR> TETKIKRAPORLAR { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
+        public virtual DbSet<DOSYALAR> DOSYALAR { get; set; }
     
         public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
         {

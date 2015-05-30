@@ -16,7 +16,7 @@ namespace HospitalAutomation.Model
     {
         public OGRETIMUYELERİ()
         {
-            this.DOSYALARs = new HashSet<DOSYALAR>();
+            this.DOSYALAR = new HashSet<DOSYALAR>();
         }
     
         public int OgretimUyeid { get; set; }
@@ -24,6 +24,6 @@ namespace HospitalAutomation.Model
         public string Soyad { get; set; }
         public string Unvan { get; set; }
     
-        public virtual ICollection<DOSYALAR> DOSYALARs { get; set; }
+        public virtual ICollection<DOSYALAR> DOSYALAR { get; set; }
     }
 }

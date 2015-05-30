@@ -16,13 +16,13 @@ namespace HospitalAutomation.Model
     {
         public TANILAR()
         {
-            this.DOSYALARs = new HashSet<DOSYALAR>();
+            this.DOSYALAR = new HashSet<DOSYALAR>();
         }
     
         public int Taniid { get; set; }
         public string TaniAdi { get; set; }
         public string ICD10Kodu { get; set; }
     
-        public virtual ICollection<DOSYALAR> DOSYALARs { get; set; }
+        public virtual ICollection<DOSYALAR> DOSYALAR { get; set; }
     }
 }

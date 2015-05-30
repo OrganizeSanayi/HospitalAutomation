@@ -7,7 +7,6 @@
       <Diagram DiagramId="cce2d13609a74622a79aa74233462108" Name="Diagram1" ShowGrid="true">
         <EntityTypeShape EntityType="HospitalAutomationModel.ADLISAGLIKKURULURESIMLER" Width="1.5" PointX="3" PointY="4.375" IsExpanded="true" />
         <EntityTypeShape EntityType="HospitalAutomationModel.ADLISAGLIKKURULUYOL" Width="1.5" PointX="0.75" PointY="4.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="HospitalAutomationModel.DOSYALAR" Width="1.5" PointX="6.5" PointY="2.75" IsExpanded="true" />
         <EntityTypeShape EntityType="HospitalAutomationModel.HASTALAR" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="HospitalAutomationModel.MUAYENEEPIKRIZRESIMLER" Width="1.5" PointX="6" PointY="14.625" IsExpanded="true" />
         <EntityTypeShape EntityType="HospitalAutomationModel.MUAYENEEPIKRIZYOL" Width="1.5" PointX="3.75" PointY="14.625" IsExpanded="true" />
@@ -17,24 +16,25 @@
         <EntityTypeShape EntityType="HospitalAutomationModel.TETKIKRAPORRESIMLER" Width="1.5" PointX="6" PointY="27.125" IsExpanded="true" />
         <EntityTypeShape EntityType="HospitalAutomationModel.TETKIKRAPORYOL" Width="1.5" PointX="3.75" PointY="27.125" IsExpanded="true" />
         <AssociationConnector Association="HospitalAutomationModel.FK_ADLISAGLIKKURULURESIMLER_ADLISAGLIKKURULUYOL" ManuallyRouted="false" />
-        <AssociationConnector Association="HospitalAutomationModel.FK_DOSYALAR_ADLISAGLIKKURULUYOL" ManuallyRouted="false" />
-        <AssociationConnector Association="HospitalAutomationModel.FK_DOSYALAR_MUAYENEEPIKRIZYOL" ManuallyRouted="false" />
-        <AssociationConnector Association="HospitalAutomationModel.FK_DOSYALAR_OGRETIMUYELERİ" ManuallyRouted="false" />
-        <AssociationConnector Association="HospitalAutomationModel.FK_DOSYALAR_TANILAR1" ManuallyRouted="false" />
-        <AssociationConnector Association="HospitalAutomationModel.FK_DOSYALAR_YOLLAR" ManuallyRouted="false" />
         <AssociationConnector Association="HospitalAutomationModel.FK_MUAYENEEPIKRIZRESIMLER_MUAYENEEPIKRIZYOL" ManuallyRouted="false" />
         <AssociationConnector Association="HospitalAutomationModel.FK_RESIMLER_YOLLAR" ManuallyRouted="false" />
         <EntityTypeShape EntityType="HospitalAutomationModel.BOLUMLER" Width="1.5" PointX="9.375" PointY="0.875" />
-        <AssociationConnector Association="HospitalAutomationModel.FK_DOSYALAR_BOLUMLER" />
         <EntityTypeShape EntityType="HospitalAutomationModel.STATU" Width="1.5" PointX="0.75" PointY="7.875" />
-        <AssociationConnector Association="HospitalAutomationModel.FK_DOSYALAR_STATU" />
         <EntityTypeShape EntityType="HospitalAutomationModel.ADLISAGLIKKURULU" Width="1.5" PointX="4.25" PointY="10.5" />
         <EntityTypeShape EntityType="HospitalAutomationModel.MUAYENEEPIKRIZ" Width="1.5" PointX="4.25" PointY="29.875" />
         <EntityTypeShape EntityType="HospitalAutomationModel.TETKIKRAPORLAR" Width="1.5" PointX="3.375" PointY="7.875" />
-        <AssociationConnector Association="HospitalAutomationModel.FK_DOSYALAR_ADLISAGLIKKURULU" />
-        <AssociationConnector Association="HospitalAutomationModel.FK_DOSYALAR_MUAYENEEPIKRIZ" />
-        <AssociationConnector Association="HospitalAutomationModel.FK_DOSYALAR_TETKIKRAPORLAR" />
         <EntityTypeShape EntityType="HospitalAutomationModel.sysdiagrams" Width="1.5" PointX="9.375" PointY="3.75" />
+        <EntityTypeShape EntityType="HospitalAutomationModel.DOSYALAR" Width="1.5" PointX="11.625" PointY="13.5" />
+        <AssociationConnector Association="HospitalAutomationModel.FK_DOSYALAR_ADLISAGLIKKURULU" />
+        <AssociationConnector Association="HospitalAutomationModel.FK_DOSYALAR_ADLISAGLIKKURULUYOL" />
+        <AssociationConnector Association="HospitalAutomationModel.FK_DOSYALAR_BOLUMLER" />
+        <AssociationConnector Association="HospitalAutomationModel.FK_DOSYALAR_MUAYENEEPIKRIZ" />
+        <AssociationConnector Association="HospitalAutomationModel.FK_DOSYALAR_MUAYENEEPIKRIZYOL" />
+        <AssociationConnector Association="HospitalAutomationModel.FK_DOSYALAR_OGRETIMUYELERİ" />
+        <AssociationConnector Association="HospitalAutomationModel.FK_DOSYALAR_STATU" />
+        <AssociationConnector Association="HospitalAutomationModel.FK_DOSYALAR_TANILAR1" />
+        <AssociationConnector Association="HospitalAutomationModel.FK_DOSYALAR_TETKIKRAPORLAR" />
+        <AssociationConnector Association="HospitalAutomationModel.FK_DOSYALAR_YOLLAR" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
