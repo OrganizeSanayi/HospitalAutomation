@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using HospitalAutomation.Model;
 using HospitalAutomation.Services;
+using HospitalAutomation.Util;
 
 namespace HospitalAutomation.GUI
 {
@@ -12,22 +13,14 @@ namespace HospitalAutomation.GUI
             InitializeComponent();
         }
 
-        private static void PopulateObject<T>(ComboBox cb, Func<T[]> gatherFunc)
-        {
-            var columns = DataFillingService.GetColumns(typeof (T));
-            cb.DataSource = gatherFunc();
-            cb.ValueMember = columns[0];
-            cb.DisplayMember = columns[1];
-        }
-
         private void formHomePage_Load(object sender, EventArgs e)
         {
-            PopulateObject<OGRETIMUYELERİ>(cbFacultyMembers, DataFillingService.GatherDoctors);
-            PopulateObject<BOLUMLER>(cbSurgery, DataFillingService.GatherSections);
-            PopulateObject<STATU>(cbState, DataFillingService.GatherState);
-            PopulateObject<MUAYENEEPIKRIZ>(cbPatientExaminationEpicrisis, DataFillingService.GatherPatientExaminationEpicrisis);
-            PopulateObject<TETKIKRAPORLAR>(cbExaminationAndReports, DataFillingService.GatherExaminationAndReports);
-            PopulateObject<ADLISAGLIKKURULU>(cbCriminalAndMedicalBoard, DataFillingService.GatherCriminalAndMedicalBoard);
+            Populater.Fill<OGRETIMUYELERİ>(cbFacultyMembers, DataFillingService.GatherDoctors);
+            Populater.Fill<BOLUMLER>(cbSurgery, DataFillingService.GatherSections);
+            Populater.Fill<STATU>(cbState, DataFillingService.GatherState);
+            Populater.Fill<MUAYENEEPIKRIZ>(cbPatientExaminationEpicrisis, DataFillingService.GatherPatientExaminationEpicrisis);
+            Populater.Fill<TETKIKRAPORLAR>(cbExaminationAndReports, DataFillingService.GatherExaminationAndReports);
+            Populater.Fill<ADLISAGLIKKURULU>(cbCriminalAndMedicalBoard, DataFillingService.GatherCriminalAndMedicalBoard);
         }
 
         // Dosya Bilgileri Sayfası İşlemleri
