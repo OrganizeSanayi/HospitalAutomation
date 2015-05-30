@@ -42,8 +42,7 @@ namespace HospitalAutomation.GUI
                 return;
             }
 
-            var userService = new UserService();
-            if (userService.isValidLogin(txtUserName.Text, txtUserPassword.Text))
+            if (UserService.IsValidLogin(txtUserName.Text, txtUserPassword.Text))
             {
                 Logger.i("Succesfully logged in");
                 this.Hide();

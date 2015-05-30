@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,12 +9,11 @@ namespace HospitalAutomation.Services
 {
     public class UserService
     {
-        public bool isValidLogin(string username, string password)
+        public static bool IsValidLogin(string username, string password)
         {
-            using (HospitalAutomationEntities context = new HospitalAutomationEntities())
+            using (var context = new HospitalAutomationEntities())
             {
-                var user = context.OTURUMs.Where(p => p.KullaniciAdi == username && p.Sifre == password).FirstOrDefault();
-                return user != null;
+                return context.OTURUMs.FirstOrDefaultAsync(p => p.KullaniciAdi == username && p.Sifre == password) != null;
             }
         }
     }
