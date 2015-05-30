@@ -10,6 +10,18 @@ namespace HospitalAutomation.GUI
             InitializeComponent();
         }
 
+        private void formHomePage_Load(object sender, EventArgs e)
+        {
+            var filler = new DataFillingService();
+            facultyMembers.DataSource = filler.GatherDoctors();
+            facultyMembers.ValueMember = "OgretimUyeid";
+            facultyMembers.DisplayMember = "Ad";
+
+            cbSurgery.DataSource = filler.GatherSections();
+            cbSurgery.ValueMember = "BolumId";
+            cbSurgery.DisplayMember = "BolumAdi";
+        }
+
         // Dosya Bilgileri Sayfası İşlemleri
         private void linkLblFileInformation_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
@@ -264,14 +276,6 @@ namespace HospitalAutomation.GUI
                     //do something else
                     break;
             }
-        }
-
-        private void formHomePage_Load(object sender, EventArgs e)
-        {
-            var filler = new DataFillingService();
-            facultyMembers.DataSource = filler.GatherDoctors(); ;
-            facultyMembers.ValueMember = "OgretimUyeid";
-            facultyMembers.DisplayMember = "Ad";
         }
     }
 }

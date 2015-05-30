@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace HospitalAutomation
+namespace HospitalAutomation.Model
 {
     using System;
     using System.Collections.Generic;

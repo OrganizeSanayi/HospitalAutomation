@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace HospitalAutomation
+namespace HospitalAutomation.Model
 {
     using System;
     using System.Collections.Generic;
@@ -19,8 +19,8 @@ namespace HospitalAutomation
             this.DOSYALARs = new HashSet<DOSYALAR>();
         }
     
-        public int Bolumid { get; set; }
-        public string BolumAdı { get; set; }
+        public int BolumId { get; set; }
+        public string BolumAdi { get; set; }
     
         public virtual ICollection<DOSYALAR> DOSYALARs { get; set; }
     }
