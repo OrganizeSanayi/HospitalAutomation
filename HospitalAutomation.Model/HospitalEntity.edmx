@@ -432,14 +432,6 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="HospitalAutomationModel" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2009/11/edm" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
-        <EntityType Name="ADLISAGLIKKURULU">
-          <Key>
-            <PropertyRef Name="AdliSaglikKuruluID" />
-          </Key>
-          <Property Name="AdliSaglikKuruluID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
-          <Property Name="AdliSaglikKurulu1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="DOSYALARs" Relationship="Self.FK_DOSYALAR_ADLISAGLIKKURULU" FromRole="ADLISAGLIKKURULU" ToRole="DOSYALAR" />
-        </EntityType>
         <EntityType Name="ADLISAGLIKKURULURESIMLER">
           <Key>
             <PropertyRef Name="AdliSaglikKuruluResimID" />
@@ -475,16 +467,16 @@
           <Property Name="TetkikRaporYolID" Type="Int32" Nullable="false" />
           <Property Name="AdliSaglikKuruluID" Type="Int32" Nullable="false" />
           <Property Name="AdliSaglikKuruluYolID" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="ADLISAGLIKKURULU" Relationship="Self.FK_DOSYALAR_ADLISAGLIKKURULU" FromRole="DOSYALAR" ToRole="ADLISAGLIKKURULU" />
           <NavigationProperty Name="ADLISAGLIKKURULUYOL" Relationship="Self.FK_DOSYALAR_ADLISAGLIKKURULUYOL" FromRole="DOSYALAR" ToRole="ADLISAGLIKKURULUYOL" />
-          <NavigationProperty Name="MUAYENEEPIKRIZ" Relationship="Self.FK_DOSYALAR_MUAYENEEPIKRIZ" FromRole="DOSYALAR" ToRole="MUAYENEEPIKRIZ" />
           <NavigationProperty Name="MUAYENEEPIKRIZYOL" Relationship="Self.FK_DOSYALAR_MUAYENEEPIKRIZYOL" FromRole="DOSYALAR" ToRole="MUAYENEEPIKRIZYOL" />
           <NavigationProperty Name="OGRETIMUYELERİ" Relationship="Self.FK_DOSYALAR_OGRETIMUYELERİ" FromRole="DOSYALAR" ToRole="OGRETIMUYELERİ" />
           <NavigationProperty Name="TANILAR" Relationship="Self.FK_DOSYALAR_TANILAR1" FromRole="DOSYALAR" ToRole="TANILAR" />
-          <NavigationProperty Name="TETKIKRAPORLAR" Relationship="Self.FK_DOSYALAR_TETKIKRAPORLAR" FromRole="DOSYALAR" ToRole="TETKIKRAPORLAR" />
           <NavigationProperty Name="TETKIKRAPORYOL" Relationship="Self.FK_DOSYALAR_YOLLAR" FromRole="DOSYALAR" ToRole="TETKIKRAPORYOL" />
           <NavigationProperty Name="BOLUMLER" Relationship="HospitalAutomationModel.FK_DOSYALAR_BOLUMLER" FromRole="DOSYALAR" ToRole="BOLUMLER" />
           <NavigationProperty Name="STATU" Relationship="HospitalAutomationModel.FK_DOSYALAR_STATU" FromRole="DOSYALAR" ToRole="STATU" />
+          <NavigationProperty Name="ADLISAGLIKKURULU" Relationship="HospitalAutomationModel.FK_DOSYALAR_ADLISAGLIKKURULU" FromRole="DOSYALAR" ToRole="ADLISAGLIKKURULU" />
+          <NavigationProperty Name="MUAYENEEPIKRIZ" Relationship="HospitalAutomationModel.FK_DOSYALAR_MUAYENEEPIKRIZ" FromRole="DOSYALAR" ToRole="MUAYENEEPIKRIZ" />
+          <NavigationProperty Name="TETKIKRAPORLAR" Relationship="HospitalAutomationModel.FK_DOSYALAR_TETKIKRAPORLAR" FromRole="DOSYALAR" ToRole="TETKIKRAPORLAR" />
         </EntityType>
         <EntityType Name="HASTALAR">
           <Key>
@@ -494,14 +486,6 @@
           <Property Name="DosyaNumarası" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Ad" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Soyad" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
-        </EntityType>
-        <EntityType Name="MUAYENEEPIKRIZ">
-          <Key>
-            <PropertyRef Name="Muayeneid" />
-          </Key>
-          <Property Name="Muayeneid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
-          <Property Name="HastaMuayeneEpikriz" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="DOSYALARs" Relationship="Self.FK_DOSYALAR_MUAYENEEPIKRIZ" FromRole="MUAYENEEPIKRIZ" ToRole="DOSYALAR" />
         </EntityType>
         <EntityType Name="MUAYENEEPIKRIZRESIMLER">
           <Key>
@@ -547,14 +531,6 @@
           <Property Name="ICD10Kodu" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="DOSYALARs" Relationship="Self.FK_DOSYALAR_TANILAR1" FromRole="TANILAR" ToRole="DOSYALAR" />
         </EntityType>
-        <EntityType Name="TETKIKRAPORLAR">
-          <Key>
-            <PropertyRef Name="TetkikRaporid" />
-          </Key>
-          <Property Name="TetkikRaporid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
-          <Property Name="TetkikveRapor" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="DOSYALARs" Relationship="Self.FK_DOSYALAR_TETKIKRAPORLAR" FromRole="TETKIKRAPORLAR" ToRole="DOSYALAR" />
-        </EntityType>
         <EntityType Name="TETKIKRAPORRESIMLER">
           <Key>
             <PropertyRef Name="TetkikRaporResimID" />
@@ -573,20 +549,6 @@
           <NavigationProperty Name="DOSYALARs" Relationship="Self.FK_DOSYALAR_YOLLAR" FromRole="TETKIKRAPORYOL" ToRole="DOSYALAR" />
           <NavigationProperty Name="TETKIKRAPORRESIMLERs" Relationship="Self.FK_RESIMLER_YOLLAR" FromRole="TETKIKRAPORYOL" ToRole="TETKIKRAPORRESIMLER" />
         </EntityType>
-        <Association Name="FK_DOSYALAR_ADLISAGLIKKURULU">
-          <End Role="ADLISAGLIKKURULU" Type="Self.ADLISAGLIKKURULU" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="DOSYALAR" Type="Self.DOSYALAR" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ADLISAGLIKKURULU">
-              <PropertyRef Name="AdliSaglikKuruluID" />
-            </Principal>
-            <Dependent Role="DOSYALAR">
-              <PropertyRef Name="AdliSaglikKuruluID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_ADLISAGLIKKURULURESIMLER_ADLISAGLIKKURULUYOL">
           <End Role="ADLISAGLIKKURULUYOL" Type="Self.ADLISAGLIKKURULUYOL" Multiplicity="1">
             <OnDelete Action="Cascade" />
@@ -612,20 +574,6 @@
             </Principal>
             <Dependent Role="DOSYALAR">
               <PropertyRef Name="AdliSaglikKuruluYolID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_DOSYALAR_MUAYENEEPIKRIZ">
-          <End Role="MUAYENEEPIKRIZ" Type="Self.MUAYENEEPIKRIZ" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="DOSYALAR" Type="Self.DOSYALAR" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="MUAYENEEPIKRIZ">
-              <PropertyRef Name="Muayeneid" />
-            </Principal>
-            <Dependent Role="DOSYALAR">
-              <PropertyRef Name="MuayeneEpikrizID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -671,20 +619,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_DOSYALAR_TETKIKRAPORLAR">
-          <End Role="TETKIKRAPORLAR" Type="Self.TETKIKRAPORLAR" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="DOSYALAR" Type="Self.DOSYALAR" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TETKIKRAPORLAR">
-              <PropertyRef Name="TetkikRaporid" />
-            </Principal>
-            <Dependent Role="DOSYALAR">
-              <PropertyRef Name="TetkikRaporID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_DOSYALAR_YOLLAR">
           <End Role="TETKIKRAPORYOL" Type="Self.TETKIKRAPORYOL" Multiplicity="1">
             <OnDelete Action="Cascade" />
@@ -726,34 +660,23 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="HospitalAutomationEntities" annotation:LazyLoadingEnabled="true" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
-          <EntitySet Name="ADLISAGLIKKURULUs" EntityType="Self.ADLISAGLIKKURULU" />
           <EntitySet Name="ADLISAGLIKKURULURESIMLERs" EntityType="Self.ADLISAGLIKKURULURESIMLER" />
           <EntitySet Name="ADLISAGLIKKURULUYOLs" EntityType="Self.ADLISAGLIKKURULUYOL" />
           <EntitySet Name="DOSYALARs" EntityType="Self.DOSYALAR" />
           <EntitySet Name="HASTALARs" EntityType="Self.HASTALAR" />
-          <EntitySet Name="MUAYENEEPIKRIZs" EntityType="Self.MUAYENEEPIKRIZ" />
           <EntitySet Name="MUAYENEEPIKRIZRESIMLERs" EntityType="Self.MUAYENEEPIKRIZRESIMLER" />
           <EntitySet Name="MUAYENEEPIKRIZYOLs" EntityType="Self.MUAYENEEPIKRIZYOL" />
           <EntitySet Name="OGRETIMUYELERİ" EntityType="Self.OGRETIMUYELERİ" />
           <EntitySet Name="OTURUMs" EntityType="Self.OTURUM" />
           <EntitySet Name="TANILARs" EntityType="Self.TANILAR" />
-          <EntitySet Name="TETKIKRAPORLARs" EntityType="Self.TETKIKRAPORLAR" />
           <EntitySet Name="TETKIKRAPORRESIMLERs" EntityType="Self.TETKIKRAPORRESIMLER" />
           <EntitySet Name="TETKIKRAPORYOLs" EntityType="Self.TETKIKRAPORYOL" />
-          <AssociationSet Name="FK_DOSYALAR_ADLISAGLIKKURULU" Association="Self.FK_DOSYALAR_ADLISAGLIKKURULU">
-            <End Role="ADLISAGLIKKURULU" EntitySet="ADLISAGLIKKURULUs" />
-            <End Role="DOSYALAR" EntitySet="DOSYALARs" />
-          </AssociationSet>
           <AssociationSet Name="FK_ADLISAGLIKKURULURESIMLER_ADLISAGLIKKURULUYOL" Association="Self.FK_ADLISAGLIKKURULURESIMLER_ADLISAGLIKKURULUYOL">
             <End Role="ADLISAGLIKKURULUYOL" EntitySet="ADLISAGLIKKURULUYOLs" />
             <End Role="ADLISAGLIKKURULURESIMLER" EntitySet="ADLISAGLIKKURULURESIMLERs" />
           </AssociationSet>
           <AssociationSet Name="FK_DOSYALAR_ADLISAGLIKKURULUYOL" Association="Self.FK_DOSYALAR_ADLISAGLIKKURULUYOL">
             <End Role="ADLISAGLIKKURULUYOL" EntitySet="ADLISAGLIKKURULUYOLs" />
-            <End Role="DOSYALAR" EntitySet="DOSYALARs" />
-          </AssociationSet>
-          <AssociationSet Name="FK_DOSYALAR_MUAYENEEPIKRIZ" Association="Self.FK_DOSYALAR_MUAYENEEPIKRIZ">
-            <End Role="MUAYENEEPIKRIZ" EntitySet="MUAYENEEPIKRIZs" />
             <End Role="DOSYALAR" EntitySet="DOSYALARs" />
           </AssociationSet>
           <AssociationSet Name="FK_DOSYALAR_MUAYENEEPIKRIZYOL" Association="Self.FK_DOSYALAR_MUAYENEEPIKRIZYOL">
@@ -766,10 +689,6 @@
           </AssociationSet>
           <AssociationSet Name="FK_DOSYALAR_TANILAR1" Association="Self.FK_DOSYALAR_TANILAR1">
             <End Role="TANILAR" EntitySet="TANILARs" />
-            <End Role="DOSYALAR" EntitySet="DOSYALARs" />
-          </AssociationSet>
-          <AssociationSet Name="FK_DOSYALAR_TETKIKRAPORLAR" Association="Self.FK_DOSYALAR_TETKIKRAPORLAR">
-            <End Role="TETKIKRAPORLAR" EntitySet="TETKIKRAPORLARs" />
             <End Role="DOSYALAR" EntitySet="DOSYALARs" />
           </AssociationSet>
           <AssociationSet Name="FK_DOSYALAR_YOLLAR" Association="Self.FK_DOSYALAR_YOLLAR">
@@ -823,6 +742,21 @@
           <EntitySet Name="STATU" EntityType="HospitalAutomationModel.STATU" />
           <AssociationSet Name="FK_DOSYALAR_STATU" Association="HospitalAutomationModel.FK_DOSYALAR_STATU">
             <End Role="STATU" EntitySet="STATU" />
+            <End Role="DOSYALAR" EntitySet="DOSYALARs" />
+          </AssociationSet>
+          <EntitySet Name="ADLISAGLIKKURULU" EntityType="HospitalAutomationModel.ADLISAGLIKKURULU" />
+          <EntitySet Name="MUAYENEEPIKRIZ" EntityType="HospitalAutomationModel.MUAYENEEPIKRIZ" />
+          <EntitySet Name="TETKIKRAPORLAR" EntityType="HospitalAutomationModel.TETKIKRAPORLAR" />
+          <AssociationSet Name="FK_DOSYALAR_ADLISAGLIKKURULU" Association="HospitalAutomationModel.FK_DOSYALAR_ADLISAGLIKKURULU">
+            <End Role="ADLISAGLIKKURULU" EntitySet="ADLISAGLIKKURULU" />
+            <End Role="DOSYALAR" EntitySet="DOSYALARs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DOSYALAR_MUAYENEEPIKRIZ" Association="HospitalAutomationModel.FK_DOSYALAR_MUAYENEEPIKRIZ">
+            <End Role="MUAYENEEPIKRIZ" EntitySet="MUAYENEEPIKRIZ" />
+            <End Role="DOSYALAR" EntitySet="DOSYALARs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DOSYALAR_TETKIKRAPORLAR" Association="HospitalAutomationModel.FK_DOSYALAR_TETKIKRAPORLAR">
+            <End Role="TETKIKRAPORLAR" EntitySet="TETKIKRAPORLAR" />
             <End Role="DOSYALAR" EntitySet="DOSYALARs" />
           </AssociationSet>
         </EntityContainer>
@@ -880,20 +814,78 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="ADLISAGLIKKURULU">
+          <Key>
+            <PropertyRef Name="AdliSaglikKuruluID" />
+          </Key>
+          <Property Name="AdliSaglikKuruluID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AdliSaglikKurulu1" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="DOSYALAR" Relationship="HospitalAutomationModel.FK_DOSYALAR_ADLISAGLIKKURULU" FromRole="ADLISAGLIKKURULU" ToRole="DOSYALAR" />
+        </EntityType>
+        <EntityType Name="MUAYENEEPIKRIZ">
+          <Key>
+            <PropertyRef Name="Muayeneid" />
+          </Key>
+          <Property Name="Muayeneid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HastaMuayeneEpikriz" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="DOSYALAR" Relationship="HospitalAutomationModel.FK_DOSYALAR_MUAYENEEPIKRIZ" FromRole="MUAYENEEPIKRIZ" ToRole="DOSYALAR" />
+        </EntityType>
+        <EntityType Name="TETKIKRAPORLAR">
+          <Key>
+            <PropertyRef Name="TetkikRaporid" />
+          </Key>
+          <Property Name="TetkikRaporid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TetkikveRapor" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="DOSYALAR" Relationship="HospitalAutomationModel.FK_DOSYALAR_TETKIKRAPORLAR" FromRole="TETKIKRAPORLAR" ToRole="DOSYALAR" />
+        </EntityType>
+        <Association Name="FK_DOSYALAR_ADLISAGLIKKURULU">
+          <End Type="HospitalAutomationModel.ADLISAGLIKKURULU" Role="ADLISAGLIKKURULU" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="HospitalAutomationModel.DOSYALAR" Role="DOSYALAR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ADLISAGLIKKURULU">
+              <PropertyRef Name="AdliSaglikKuruluID" />
+            </Principal>
+            <Dependent Role="DOSYALAR">
+              <PropertyRef Name="AdliSaglikKuruluID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DOSYALAR_MUAYENEEPIKRIZ">
+          <End Type="HospitalAutomationModel.MUAYENEEPIKRIZ" Role="MUAYENEEPIKRIZ" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="HospitalAutomationModel.DOSYALAR" Role="DOSYALAR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MUAYENEEPIKRIZ">
+              <PropertyRef Name="Muayeneid" />
+            </Principal>
+            <Dependent Role="DOSYALAR">
+              <PropertyRef Name="MuayeneEpikrizID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DOSYALAR_TETKIKRAPORLAR">
+          <End Type="HospitalAutomationModel.TETKIKRAPORLAR" Role="TETKIKRAPORLAR" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="HospitalAutomationModel.DOSYALAR" Role="DOSYALAR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TETKIKRAPORLAR">
+              <PropertyRef Name="TetkikRaporid" />
+            </Principal>
+            <Dependent Role="DOSYALAR">
+              <PropertyRef Name="TetkikRaporID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="HospitalAutomationModelStoreContainer" CdmEntityContainer="HospitalAutomationEntities">
-          <EntitySetMapping Name="ADLISAGLIKKURULUs">
-            <EntityTypeMapping TypeName="HospitalAutomationModel.ADLISAGLIKKURULU">
-              <MappingFragment StoreEntitySet="ADLISAGLIKKURULU">
-                <ScalarProperty Name="AdliSaglikKuruluID" ColumnName="AdliSaglikKuruluID" />
-                <ScalarProperty Name="AdliSaglikKurulu1" ColumnName="AdliSaglikKurulu" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="ADLISAGLIKKURULURESIMLERs">
             <EntityTypeMapping TypeName="HospitalAutomationModel.ADLISAGLIKKURULURESIMLER">
               <MappingFragment StoreEntitySet="ADLISAGLIKKURULURESIMLER">
@@ -940,14 +932,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="MUAYENEEPIKRIZs">
-            <EntityTypeMapping TypeName="HospitalAutomationModel.MUAYENEEPIKRIZ">
-              <MappingFragment StoreEntitySet="MUAYENEEPIKRIZ">
-                <ScalarProperty Name="Muayeneid" ColumnName="Muayeneid" />
-                <ScalarProperty Name="HastaMuayeneEpikriz" ColumnName="HastaMuayeneEpikriz" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="MUAYENEEPIKRIZRESIMLERs">
             <EntityTypeMapping TypeName="HospitalAutomationModel.MUAYENEEPIKRIZRESIMLER">
               <MappingFragment StoreEntitySet="MUAYENEEPIKRIZRESIMLER">
@@ -989,14 +973,6 @@
                 <ScalarProperty Name="Taniid" ColumnName="Taniid" />
                 <ScalarProperty Name="TaniAdi" ColumnName="TaniAdi" />
                 <ScalarProperty Name="ICD10Kodu" ColumnName="ICD10Kodu" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="TETKIKRAPORLARs">
-            <EntityTypeMapping TypeName="HospitalAutomationModel.TETKIKRAPORLAR">
-              <MappingFragment StoreEntitySet="TETKIKRAPORLAR">
-                <ScalarProperty Name="TetkikRaporid" ColumnName="TetkikRaporid" />
-                <ScalarProperty Name="TetkikveRapor" ColumnName="TetkikveRapor" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1048,6 +1024,30 @@
               <MappingFragment StoreEntitySet="STATU">
                 <ScalarProperty Name="Statu" ColumnName="Statu" />
                 <ScalarProperty Name="StatuId" ColumnName="StatuId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ADLISAGLIKKURULU">
+            <EntityTypeMapping TypeName="HospitalAutomationModel.ADLISAGLIKKURULU">
+              <MappingFragment StoreEntitySet="ADLISAGLIKKURULU">
+                <ScalarProperty Name="AdliSaglikKurulu1" ColumnName="AdliSaglikKurulu" />
+                <ScalarProperty Name="AdliSaglikKuruluID" ColumnName="AdliSaglikKuruluID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MUAYENEEPIKRIZ">
+            <EntityTypeMapping TypeName="HospitalAutomationModel.MUAYENEEPIKRIZ">
+              <MappingFragment StoreEntitySet="MUAYENEEPIKRIZ">
+                <ScalarProperty Name="HastaMuayeneEpikriz" ColumnName="HastaMuayeneEpikriz" />
+                <ScalarProperty Name="Muayeneid" ColumnName="Muayeneid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TETKIKRAPORLAR">
+            <EntityTypeMapping TypeName="HospitalAutomationModel.TETKIKRAPORLAR">
+              <MappingFragment StoreEntitySet="TETKIKRAPORLAR">
+                <ScalarProperty Name="TetkikveRapor" ColumnName="TetkikveRapor" />
+                <ScalarProperty Name="TetkikRaporid" ColumnName="TetkikRaporid" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

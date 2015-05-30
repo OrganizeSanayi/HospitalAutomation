@@ -675,7 +675,7 @@
             // groupBoxPatientExamination
             // 
             this.groupBoxPatientExamination.Controls.Add(this.cbPatientExaminationEpicrisis);
-            this.groupBoxPatientExamination.Location = new System.Drawing.Point(14, 65);
+            this.groupBoxPatientExamination.Location = new System.Drawing.Point(29, 65);
             this.groupBoxPatientExamination.Name = "groupBoxPatientExamination";
             this.groupBoxPatientExamination.Size = new System.Drawing.Size(360, 51);
             this.groupBoxPatientExamination.TabIndex = 10;
@@ -697,7 +697,7 @@
             // groupBoxReports
             // 
             this.groupBoxReports.Controls.Add(this.cbExaminationAndReports);
-            this.groupBoxReports.Location = new System.Drawing.Point(14, 169);
+            this.groupBoxReports.Location = new System.Drawing.Point(29, 169);
             this.groupBoxReports.Name = "groupBoxReports";
             this.groupBoxReports.Size = new System.Drawing.Size(360, 51);
             this.groupBoxReports.TabIndex = 10;
@@ -782,7 +782,7 @@
             // gbCriminalAndMedicalBoard
             // 
             this.gbCriminalAndMedicalBoard.Controls.Add(this.cbCriminalAndMedicalBoard);
-            this.gbCriminalAndMedicalBoard.Location = new System.Drawing.Point(14, 275);
+            this.gbCriminalAndMedicalBoard.Location = new System.Drawing.Point(29, 275);
             this.gbCriminalAndMedicalBoard.Name = "gbCriminalAndMedicalBoard";
             this.gbCriminalAndMedicalBoard.Size = new System.Drawing.Size(360, 51);
             this.gbCriminalAndMedicalBoard.TabIndex = 12;

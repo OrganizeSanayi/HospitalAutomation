@@ -27,23 +27,23 @@ namespace HospitalAutomation.Model
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<ADLISAGLIKKURULU> ADLISAGLIKKURULUs { get; set; }
         public virtual DbSet<ADLISAGLIKKURULURESIMLER> ADLISAGLIKKURULURESIMLERs { get; set; }
         public virtual DbSet<ADLISAGLIKKURULUYOL> ADLISAGLIKKURULUYOLs { get; set; }
         public virtual DbSet<DOSYALAR> DOSYALARs { get; set; }
         public virtual DbSet<HASTALAR> HASTALARs { get; set; }
-        public virtual DbSet<MUAYENEEPIKRIZ> MUAYENEEPIKRIZs { get; set; }
         public virtual DbSet<MUAYENEEPIKRIZRESIMLER> MUAYENEEPIKRIZRESIMLERs { get; set; }
         public virtual DbSet<MUAYENEEPIKRIZYOL> MUAYENEEPIKRIZYOLs { get; set; }
         public virtual DbSet<OGRETIMUYELERİ> OGRETIMUYELERİ { get; set; }
         public virtual DbSet<OTURUM> OTURUMs { get; set; }
         public virtual DbSet<TANILAR> TANILARs { get; set; }
-        public virtual DbSet<TETKIKRAPORLAR> TETKIKRAPORLARs { get; set; }
         public virtual DbSet<TETKIKRAPORRESIMLER> TETKIKRAPORRESIMLERs { get; set; }
         public virtual DbSet<TETKIKRAPORYOL> TETKIKRAPORYOLs { get; set; }
         public virtual DbSet<BOLUMLER> BOLUMLER { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<STATU> STATU { get; set; }
+        public virtual DbSet<ADLISAGLIKKURULU> ADLISAGLIKKURULU { get; set; }
+        public virtual DbSet<MUAYENEEPIKRIZ> MUAYENEEPIKRIZ { get; set; }
+        public virtual DbSet<TETKIKRAPORLAR> TETKIKRAPORLAR { get; set; }
     
         public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
         {
