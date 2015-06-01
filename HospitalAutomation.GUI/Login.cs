@@ -20,7 +20,6 @@ namespace HospitalAutomation.GUI
         private void Login_Load(object sender, EventArgs e)
         {
             _eTracker = new ErrorTracker(errorProvider);
-            errorProvider.BlinkStyle = ErrorBlinkStyle.NeverBlink;
         }
 
         private void btnLogin_Click(object sender, EventArgs e)

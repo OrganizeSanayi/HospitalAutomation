@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnScan = new System.Windows.Forms.Button();
             this.lblReports = new System.Windows.Forms.Label();
@@ -90,6 +91,7 @@
             this.btnScanFile = new System.Windows.Forms.Button();
             this.btnPatientExamination = new System.Windows.Forms.Button();
             this.btnReports = new System.Windows.Forms.Button();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.panel1.SuspendLayout();
             this.panelRegisterInformation.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -103,6 +105,7 @@
             this.gbCriminalAndMedicalBoard.SuspendLayout();
             this.groupBoxPatientExamination.SuspendLayout();
             this.groupBoxReports.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -214,6 +217,7 @@
             // 
             // linkLblReports
             // 
+            this.linkLblReports.Enabled = false;
             this.linkLblReports.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkLblReports.ForeColor = System.Drawing.Color.DarkGreen;
             this.linkLblReports.LinkColor = System.Drawing.Color.DarkGreen;
@@ -259,6 +263,7 @@
             // linkLblRegisterInformation
             // 
             this.linkLblRegisterInformation.AutoSize = true;
+            this.linkLblRegisterInformation.Enabled = false;
             this.linkLblRegisterInformation.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkLblRegisterInformation.ForeColor = System.Drawing.Color.DarkGreen;
             this.linkLblRegisterInformation.LinkColor = System.Drawing.Color.DarkGreen;
@@ -568,7 +573,7 @@
             this.panel2.Controls.Add(this.label1);
             this.panel2.Location = new System.Drawing.Point(3, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(402, 226);
+            this.panel2.Size = new System.Drawing.Size(450, 226);
             this.panel2.TabIndex = 0;
             // 
             // label3
@@ -787,6 +792,10 @@
             this.btnReports.UseVisualStyleBackColor = true;
             this.btnReports.Click += new System.EventHandler(this.btnReports_Click);
             // 
+            // errorProvider
+            // 
+            this.errorProvider.ContainerControl = this;
+            // 
             // FormHomePage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -818,6 +827,7 @@
             this.gbCriminalAndMedicalBoard.ResumeLayout(false);
             this.groupBoxPatientExamination.ResumeLayout(false);
             this.groupBoxReports.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -886,5 +896,6 @@
         private System.Windows.Forms.ComboBox cbCriminalAndMedicalBoard;
         private System.Windows.Forms.ComboBox cbPatientExaminationEpicrisis;
         private System.Windows.Forms.ComboBox cbExaminationAndReports;
+        private System.Windows.Forms.ErrorProvider errorProvider;
     }
 }

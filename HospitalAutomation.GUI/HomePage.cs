@@ -11,6 +11,10 @@ namespace HospitalAutomation.GUI
     public partial class FormHomePage : Form
     {
         readonly Point _visibleDockPoint = new Point(395, 165);
+        private ErrorTracker _eTracker;
+
+        private bool _isReportsAvailable;
+        private bool _isFileAvailable;
 
         public FormHomePage()
         {
@@ -19,6 +23,8 @@ namespace HospitalAutomation.GUI
 
         private void formHomePage_Load(object sender, EventArgs e)
         {
+            _eTracker = new ErrorTracker(errorProvider);
+
             Populater.Fill(cbFacultyMembers, DataFillingService.GatherDoctors);
             Populater.Fill(cbSurgery, DataFillingService.GatherSections);
             Populater.Fill(cbState, DataFillingService.GatherState);
@@ -64,24 +70,32 @@ namespace HospitalAutomation.GUI
         private void btnOkFileInformationPage_Click(object sender, EventArgs e)
         {
             // Hasta Dosyasına ait TC No ve Dosya No girilmeden sonraki adıma geçilemez.(KONTROL)
-            // Gerekli bilgiler alındıktan sonra Kayıt Bilgisi paneli açılır. ( txtTcNo - txtFileNumber )
-            PanelVisibleControl(); 
-            panelRegisterInformation.Visible = true;
-            panelRegisterInformation.Location = _visibleDockPoint;
-            panelRegisterInformation.Size = new Size(910, 485);
-            // Girilen dosya no ile TC no veritabanına kayıt işlemi
-        //    HASTALAR hasta = new HASTALAR();
-         //   hasta.TcKimlikNo = txtTcNo.Text.ToString();
-         //   hasta.DosyaNumarası = txtFileNumber.Text.ToString();
-          //  hasta.Ad = " ";
-          //  hasta.Soyad = " ";
-           // using (HospitalAutomationEntities db = new HospitalAutomationEntities())
-           // {
-            //    db.HASTALARs.Add(hasta);
-             //   db.SaveChanges();
-           // }
-            
+            // Gerekli bilgiler alındıktan sonra Kayıt Bilgisi paneli açılır. ( txtTcNo - txtFileNumber 
+            _eTracker.Clear();
+            if (txtTcNo.Text.Length < 11)
+            {
+                _eTracker.SetError(txtTcNo, "TC Kimlik No eksik veya hatalı");
+            }
 
+            if (string.IsNullOrWhiteSpace(txtFileNumber.Text))
+            {
+                _eTracker.SetError(txtFileNumber, "Dosya numarası boş bırakılamaz");
+            }
+
+            if (_eTracker.Count != 0)
+            {
+                return;
+            }
+
+            else
+            {
+                _isFileAvailable = true;
+                linkLblRegisterInformation.Enabled = true;
+                PanelVisibleControl();
+                panelRegisterInformation.Visible = true;
+                panelRegisterInformation.Location = _visibleDockPoint;
+                panelRegisterInformation.Size = new Size(910, 485);
+            }
         }
 
         private void txtTcNo_KeyPress(object sender, KeyPressEventArgs e)
