@@ -16,14 +16,14 @@ namespace HospitalAutomation.Model
     {
         public TETKIKRAPORYOL()
         {
-            this.TETKIKRAPORRESIMLERs = new HashSet<TETKIKRAPORRESIMLER>();
             this.DOSYALAR = new HashSet<DOSYALAR>();
+            this.TETKIKRAPORRESIMLER = new HashSet<TETKIKRAPORRESIMLER>();
         }
     
         public int TetkikRaporYolID { get; set; }
         public string TetkikRaporYolKayit { get; set; }
     
-        public virtual ICollection<TETKIKRAPORRESIMLER> TETKIKRAPORRESIMLERs { get; set; }
         public virtual ICollection<DOSYALAR> DOSYALAR { get; set; }
+        public virtual ICollection<TETKIKRAPORRESIMLER> TETKIKRAPORRESIMLER { get; set; }
     }
 }

@@ -27,23 +27,23 @@ namespace HospitalAutomation.Model
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<ADLISAGLIKKURULURESIMLER> ADLISAGLIKKURULURESIMLERs { get; set; }
-        public virtual DbSet<ADLISAGLIKKURULUYOL> ADLISAGLIKKURULUYOLs { get; set; }
-        public virtual DbSet<HASTALAR> HASTALARs { get; set; }
-        public virtual DbSet<MUAYENEEPIKRIZRESIMLER> MUAYENEEPIKRIZRESIMLERs { get; set; }
-        public virtual DbSet<MUAYENEEPIKRIZYOL> MUAYENEEPIKRIZYOLs { get; set; }
-        public virtual DbSet<OGRETIMUYELERİ> OGRETIMUYELERİ { get; set; }
-        public virtual DbSet<OTURUM> OTURUMs { get; set; }
-        public virtual DbSet<TANILAR> TANILARs { get; set; }
-        public virtual DbSet<TETKIKRAPORRESIMLER> TETKIKRAPORRESIMLERs { get; set; }
-        public virtual DbSet<TETKIKRAPORYOL> TETKIKRAPORYOLs { get; set; }
-        public virtual DbSet<BOLUMLER> BOLUMLER { get; set; }
-        public virtual DbSet<STATU> STATU { get; set; }
         public virtual DbSet<ADLISAGLIKKURULU> ADLISAGLIKKURULU { get; set; }
-        public virtual DbSet<MUAYENEEPIKRIZ> MUAYENEEPIKRIZ { get; set; }
-        public virtual DbSet<TETKIKRAPORLAR> TETKIKRAPORLAR { get; set; }
-        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
+        public virtual DbSet<ADLISAGLIKKURULURESIMLER> ADLISAGLIKKURULURESIMLER { get; set; }
+        public virtual DbSet<ADLISAGLIKKURULUYOL> ADLISAGLIKKURULUYOL { get; set; }
+        public virtual DbSet<BOLUMLER> BOLUMLER { get; set; }
         public virtual DbSet<DOSYALAR> DOSYALAR { get; set; }
+        public virtual DbSet<HASTALAR> HASTALAR { get; set; }
+        public virtual DbSet<MUAYENEEPIKRIZ> MUAYENEEPIKRIZ { get; set; }
+        public virtual DbSet<MUAYENEEPIKRIZRESIMLER> MUAYENEEPIKRIZRESIMLER { get; set; }
+        public virtual DbSet<MUAYENEEPIKRIZYOL> MUAYENEEPIKRIZYOL { get; set; }
+        public virtual DbSet<OGRETIMUYELERİ> OGRETIMUYELERİ { get; set; }
+        public virtual DbSet<OTURUM> OTURUM { get; set; }
+        public virtual DbSet<STATU> STATU { get; set; }
+        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
+        public virtual DbSet<TANILAR> TANILAR { get; set; }
+        public virtual DbSet<TETKIKRAPORLAR> TETKIKRAPORLAR { get; set; }
+        public virtual DbSet<TETKIKRAPORRESIMLER> TETKIKRAPORRESIMLER { get; set; }
+        public virtual DbSet<TETKIKRAPORYOL> TETKIKRAPORYOL { get; set; }
     
         public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
         {

@@ -16,14 +16,14 @@ namespace HospitalAutomation.Model
     {
         public MUAYENEEPIKRIZYOL()
         {
-            this.MUAYENEEPIKRIZRESIMLERs = new HashSet<MUAYENEEPIKRIZRESIMLER>();
             this.DOSYALAR = new HashSet<DOSYALAR>();
+            this.MUAYENEEPIKRIZRESIMLER = new HashSet<MUAYENEEPIKRIZRESIMLER>();
         }
     
         public int MuayeneEpikrizYolID { get; set; }
         public string MuayeneEpikrizYolKayit { get; set; }
     
-        public virtual ICollection<MUAYENEEPIKRIZRESIMLER> MUAYENEEPIKRIZRESIMLERs { get; set; }
         public virtual ICollection<DOSYALAR> DOSYALAR { get; set; }
+        public virtual ICollection<MUAYENEEPIKRIZRESIMLER> MUAYENEEPIKRIZRESIMLER { get; set; }
     }
 }

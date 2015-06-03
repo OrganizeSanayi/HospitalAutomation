@@ -9,7 +9,7 @@ namespace HospitalAutomation.Services
         {
             using (var context = new HospitalAutomationEntities())
             {
-                var task = context.OTURUMs.FirstOrDefaultAsync(p => p.KullaniciAdi == username && p.Sifre == password);
+                var task = context.OTURUM.FirstOrDefaultAsync(p => p.KullaniciAdi == username && p.Sifre == password);
                 task.Wait();
                 return  task.Result != null;
             }
