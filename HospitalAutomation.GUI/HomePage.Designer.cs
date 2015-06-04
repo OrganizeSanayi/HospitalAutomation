@@ -39,7 +39,7 @@
             this.lblFileNo = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.linkLblReports = new System.Windows.Forms.LinkLabel();
-            this.lblPatientDiagnosed = new System.Windows.Forms.Label();
+            this.lblPatientDiagnose = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.linkLblRegisterInformation = new System.Windows.Forms.LinkLabel();
@@ -66,7 +66,7 @@
             this.label19 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.txtPatientDiagnosed = new System.Windows.Forms.TextBox();
+            this.txtPatientDiagnose = new System.Windows.Forms.TextBox();
             this.linkLabelEnterSection = new System.Windows.Forms.LinkLabel();
             this.linkLblEnterDate = new System.Windows.Forms.LinkLabel();
             this.label4 = new System.Windows.Forms.Label();
@@ -92,6 +92,7 @@
             this.btnPatientExamination = new System.Windows.Forms.Button();
             this.btnReports = new System.Windows.Forms.Button();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.btnRegisterInformationDone = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panelRegisterInformation.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -120,7 +121,7 @@
             this.panel1.Controls.Add(this.lblFileNo);
             this.panel1.Controls.Add(this.label12);
             this.panel1.Controls.Add(this.linkLblReports);
-            this.panel1.Controls.Add(this.lblPatientDiagnosed);
+            this.panel1.Controls.Add(this.lblPatientDiagnose);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.label11);
             this.panel1.Controls.Add(this.linkLblRegisterInformation);
@@ -229,14 +230,14 @@
             this.linkLblReports.Text = "3) Rapor Bilgisi";
             this.linkLblReports.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLblReports_LinkClicked);
             // 
-            // lblPatientDiagnosed
+            // lblPatientDiagnose
             // 
-            this.lblPatientDiagnosed.AutoSize = true;
-            this.lblPatientDiagnosed.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPatientDiagnosed.Location = new System.Drawing.Point(31, 267);
-            this.lblPatientDiagnosed.Name = "lblPatientDiagnosed";
-            this.lblPatientDiagnosed.Size = new System.Drawing.Size(0, 17);
-            this.lblPatientDiagnosed.TabIndex = 15;
+            this.lblPatientDiagnose.AutoSize = true;
+            this.lblPatientDiagnose.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPatientDiagnose.Location = new System.Drawing.Point(31, 267);
+            this.lblPatientDiagnose.Name = "lblPatientDiagnose";
+            this.lblPatientDiagnose.Size = new System.Drawing.Size(0, 17);
+            this.lblPatientDiagnose.TabIndex = 15;
             // 
             // label5
             // 
@@ -356,10 +357,11 @@
             this.panel3.Controls.Add(this.groupBoxFacultyMember);
             this.panel3.Controls.Add(this.linkLblEnterFacultyMember);
             this.panel3.Controls.Add(this.groupBoxSection);
-            this.panel3.Controls.Add(this.txtPatientDiagnosed);
+            this.panel3.Controls.Add(this.txtPatientDiagnose);
             this.panel3.Controls.Add(this.linkLabelEnterSection);
             this.panel3.Controls.Add(this.linkLblEnterDate);
             this.panel3.Controls.Add(this.label4);
+            this.panel3.Controls.Add(this.btnRegisterInformationDone);
             this.panel3.Location = new System.Drawing.Point(3, 3);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(910, 485);
@@ -520,14 +522,14 @@
             this.label6.TabIndex = 13;
             this.label6.Text = "Cerrahi Bilimler";
             // 
-            // txtPatientDiagnosed
+            // txtPatientDiagnose
             // 
-            this.txtPatientDiagnosed.Location = new System.Drawing.Point(175, 200);
-            this.txtPatientDiagnosed.Name = "txtPatientDiagnosed";
-            this.txtPatientDiagnosed.Size = new System.Drawing.Size(267, 20);
-            this.txtPatientDiagnosed.TabIndex = 11;
-            this.txtPatientDiagnosed.Visible = false;
-            this.txtPatientDiagnosed.TextChanged += new System.EventHandler(this.txtPatientDiagnosed_TextChanged);
+            this.txtPatientDiagnose.Location = new System.Drawing.Point(175, 200);
+            this.txtPatientDiagnose.Name = "txtPatientDiagnose";
+            this.txtPatientDiagnose.Size = new System.Drawing.Size(267, 20);
+            this.txtPatientDiagnose.TabIndex = 11;
+            this.txtPatientDiagnose.Visible = false;
+            this.txtPatientDiagnose.TextChanged += new System.EventHandler(this.txtPatientDiagnosed_TextChanged);
             // 
             // linkLabelEnterSection
             // 
@@ -796,6 +798,17 @@
             // 
             this.errorProvider.ContainerControl = this;
             // 
+            // btnRegisterInformationDone
+            // 
+            this.btnRegisterInformationDone.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRegisterInformationDone.Location = new System.Drawing.Point(31, 300);
+            this.btnRegisterInformationDone.Name = "btnRegisterInformationDone";
+            this.btnRegisterInformationDone.Size = new System.Drawing.Size(90, 45);
+            this.btnRegisterInformationDone.TabIndex = 9;
+            this.btnRegisterInformationDone.Text = "TAMAM";
+            this.btnRegisterInformationDone.UseVisualStyleBackColor = true;
+            this.btnRegisterInformationDone.Click += new System.EventHandler(this.btnRegisterInformationDone_Click);
+            // 
             // FormHomePage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -845,12 +858,12 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label lblTcNo;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label lblPatientDiagnosed;
+        private System.Windows.Forms.Label lblPatientDiagnose;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label lblPatientStatus;
         private System.Windows.Forms.LinkLabel linkLblFileInformation;
         private System.Windows.Forms.LinkLabel linkLblRegisterInformation;
-        private System.Windows.Forms.TextBox txtPatientDiagnosed;
+        private System.Windows.Forms.TextBox txtPatientDiagnose;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnOkFileInformationPage;
@@ -897,5 +910,6 @@
         private System.Windows.Forms.ComboBox cbPatientExaminationEpicrisis;
         private System.Windows.Forms.ComboBox cbExaminationAndReports;
         private System.Windows.Forms.ErrorProvider errorProvider;
+        private System.Windows.Forms.Button btnRegisterInformationDone;
     }
 }
