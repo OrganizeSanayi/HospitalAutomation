@@ -175,11 +175,12 @@ namespace HospitalAutomation.GUI
             SetRegisterInfoVisibility(false);
             monthCalendar.Visible = true;
             monthCalendar.Location = new Point(210, 66);
+            lblDate.Text = monthCalendar.SelectionRange.Start.Date.ToShortDateString();
         }
 
         private void monthCalendar_DateChanged(object sender, DateRangeEventArgs e)
         {
-            lblDate.Text = monthCalendar.SelectionRange.Start.Date.ToShortDateString();
+            lblDate.Text = e.Start.Date.ToShortDateString();
         }
 
         //-- Bölüm Seçim İşlemi
@@ -324,17 +325,17 @@ namespace HospitalAutomation.GUI
                     var epicrisisId = int.Parse(cbPatientExaminationEpicrisis.SelectedValue.ToString());
                     // TODO : Pseudo numara, sonra implement edersin
                     var epicrisisPath = 1;
-                    var epicrisisPictureId = 1;
+                   // var epicrisisPictureId = 1;
 
                     var examinationId = int.Parse(cbExaminationAndReports.SelectedValue.ToString());
                     // TODO : Pseudo numara, sonra implement edersin
                     var examinationPath = 1;
-                    var examinationPictureId = 1;
+                    //var examinationPictureId = 1;
 
                     var criminalId = int.Parse(cbCriminalAndMedicalBoard.SelectedValue.ToString());
                     // TODO : Pseudo numara, sonra implement edersin
                     var criminalPath = 1;
-                    var criminalPictureId = 1;
+                    //var criminalPictureId = 1;
                     PatientDataStoreService.Persist(
                         fileNo, sectionId, date, memberId, diagnosisId, stateId,
                         epicrisisId, epicrisisPath,
