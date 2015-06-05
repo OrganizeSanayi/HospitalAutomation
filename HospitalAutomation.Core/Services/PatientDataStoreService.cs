@@ -3,7 +3,7 @@ using HospitalAutomation.Model;
 
 namespace HospitalAutomation.Services
 {
-    public class PatientDataStoreService
+    public static class PatientDataStoreService
     {
         // TODO: Add method for retrieval
 

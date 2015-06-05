@@ -66,10 +66,12 @@
             this.label19 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.cbDiagnoses = new System.Windows.Forms.ComboBox();
             this.txtPatientDiagnose = new System.Windows.Forms.TextBox();
             this.linkLabelEnterSection = new System.Windows.Forms.LinkLabel();
             this.linkLblEnterDate = new System.Windows.Forms.LinkLabel();
             this.label4 = new System.Windows.Forms.Label();
+            this.btnRegisterInformationDone = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.btnOkFileInformationPage = new System.Windows.Forms.Button();
@@ -92,7 +94,6 @@
             this.btnPatientExamination = new System.Windows.Forms.Button();
             this.btnReports = new System.Windows.Forms.Button();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
-            this.btnRegisterInformationDone = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panelRegisterInformation.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -357,6 +358,7 @@
             this.panel3.Controls.Add(this.groupBoxFacultyMember);
             this.panel3.Controls.Add(this.linkLblEnterFacultyMember);
             this.panel3.Controls.Add(this.groupBoxSection);
+            this.panel3.Controls.Add(this.cbDiagnoses);
             this.panel3.Controls.Add(this.txtPatientDiagnose);
             this.panel3.Controls.Add(this.linkLabelEnterSection);
             this.panel3.Controls.Add(this.linkLblEnterDate);
@@ -429,7 +431,6 @@
             this.groupBoxFacultyMember.TabStop = false;
             this.groupBoxFacultyMember.Text = "Öğretim Üyeleri";
             this.groupBoxFacultyMember.Visible = false;
-            this.groupBoxFacultyMember.Enter += new System.EventHandler(this.groupFacultyMember_Enter);
             // 
             // cbFacultyMembers
             // 
@@ -522,11 +523,22 @@
             this.label6.TabIndex = 13;
             this.label6.Text = "Cerrahi Bilimler";
             // 
+            // cbDiagnoses
+            // 
+            this.cbDiagnoses.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbDiagnoses.FormattingEnabled = true;
+            this.cbDiagnoses.Location = new System.Drawing.Point(310, 200);
+            this.cbDiagnoses.Name = "cbDiagnoses";
+            this.cbDiagnoses.Size = new System.Drawing.Size(220, 21);
+            this.cbDiagnoses.TabIndex = 25;
+            this.cbDiagnoses.Visible = false;
+            this.cbDiagnoses.SelectedIndexChanged += new System.EventHandler(this.cbDiagnoses_SelectedIndexChanged);
+            // 
             // txtPatientDiagnose
             // 
             this.txtPatientDiagnose.Location = new System.Drawing.Point(175, 200);
             this.txtPatientDiagnose.Name = "txtPatientDiagnose";
-            this.txtPatientDiagnose.Size = new System.Drawing.Size(267, 20);
+            this.txtPatientDiagnose.Size = new System.Drawing.Size(100, 20);
             this.txtPatientDiagnose.TabIndex = 11;
             this.txtPatientDiagnose.Visible = false;
             this.txtPatientDiagnose.TextChanged += new System.EventHandler(this.txtPatientDiagnosed_TextChanged);
@@ -564,6 +576,17 @@
             this.label4.Size = new System.Drawing.Size(125, 18);
             this.label4.TabIndex = 3;
             this.label4.Text = "2) Kayıt Bilgisi :";
+            // 
+            // btnRegisterInformationDone
+            // 
+            this.btnRegisterInformationDone.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRegisterInformationDone.Location = new System.Drawing.Point(31, 300);
+            this.btnRegisterInformationDone.Name = "btnRegisterInformationDone";
+            this.btnRegisterInformationDone.Size = new System.Drawing.Size(90, 45);
+            this.btnRegisterInformationDone.TabIndex = 9;
+            this.btnRegisterInformationDone.Text = "TAMAM";
+            this.btnRegisterInformationDone.UseVisualStyleBackColor = true;
+            this.btnRegisterInformationDone.Click += new System.EventHandler(this.btnRegisterInformationDone_Click);
             // 
             // panel2
             // 
@@ -705,7 +728,6 @@
             this.groupBoxPatientExamination.TabIndex = 10;
             this.groupBoxPatientExamination.TabStop = false;
             this.groupBoxPatientExamination.Visible = false;
-            this.groupBoxPatientExamination.Enter += new System.EventHandler(this.groupBoxPatientExamination_Enter);
             // 
             // cbPatientExaminationEpicrisis
             // 
@@ -736,7 +758,6 @@
             this.groupBoxReports.TabIndex = 10;
             this.groupBoxReports.TabStop = false;
             this.groupBoxReports.Visible = false;
-            this.groupBoxReports.Enter += new System.EventHandler(this.groupBoxReports_Enter);
             // 
             // cbExaminationAndReports
             // 
@@ -797,17 +818,6 @@
             // errorProvider
             // 
             this.errorProvider.ContainerControl = this;
-            // 
-            // btnRegisterInformationDone
-            // 
-            this.btnRegisterInformationDone.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegisterInformationDone.Location = new System.Drawing.Point(31, 300);
-            this.btnRegisterInformationDone.Name = "btnRegisterInformationDone";
-            this.btnRegisterInformationDone.Size = new System.Drawing.Size(90, 45);
-            this.btnRegisterInformationDone.TabIndex = 9;
-            this.btnRegisterInformationDone.Text = "TAMAM";
-            this.btnRegisterInformationDone.UseVisualStyleBackColor = true;
-            this.btnRegisterInformationDone.Click += new System.EventHandler(this.btnRegisterInformationDone_Click);
             // 
             // FormHomePage
             // 
@@ -911,5 +921,6 @@
         private System.Windows.Forms.ComboBox cbExaminationAndReports;
         private System.Windows.Forms.ErrorProvider errorProvider;
         private System.Windows.Forms.Button btnRegisterInformationDone;
+        private System.Windows.Forms.ComboBox cbDiagnoses;
     }
 }

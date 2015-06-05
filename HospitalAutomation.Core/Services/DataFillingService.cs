@@ -120,5 +120,25 @@ namespace HospitalAutomation.Services
             var colNames = model.GetProperties().Select(a => a.Name).ToList();
             return colNames;
         }
+
+        public static TANILAR[] GatherDiagnoses(string selection)
+        {
+            using (var context = new HospitalAutomationEntities())
+            {
+                return (from p in context.TANILAR
+                        where p.TaniAdi.Contains(selection) || p.ICD10Kodu.Contains(selection)
+                        select new
+                        {
+                            _id = p.Taniid,
+                            DisplayValue = p.ICD10Kodu + " - " + p.TaniAdi,
+                            ICD10 = p.ICD10Kodu
+                        }).ToList()
+                    .Select(x => new TANILAR
+                    {
+                        Taniid = x._id,
+                        TaniAdi = x.DisplayValue
+                    }).ToArray();
+            }
+        }
     }
 }

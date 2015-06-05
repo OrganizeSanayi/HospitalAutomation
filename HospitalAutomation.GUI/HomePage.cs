@@ -11,11 +11,11 @@ namespace HospitalAutomation.GUI
     public partial class FormHomePage : Form
     {
         private readonly Point _visibleDockPoint = new Point(395, 165);
-        private bool _isFileAvailable;
-        private bool _isMemberSelcted;
-        private bool _isReportsAvailable;
+        private bool _isMemberSelected;
         private bool _isSectionSelected;
         private bool _isStateSelected;
+        private bool _isReportSelected;
+        private bool _isDiagnoseSelected;
 
         public FormHomePage()
         {
@@ -30,13 +30,13 @@ namespace HospitalAutomation.GUI
             Populater.Fill(cbPatientExaminationEpicrisis, DataFillingService.GatherPatientExaminationEpicrisis);
             Populater.Fill(cbExaminationAndReports, DataFillingService.GatherExaminationAndReports);
             Populater.Fill(cbCriminalAndMedicalBoard, DataFillingService.GatherCriminalAndMedicalBoard);
-            //ClearSelections();
 
             EventHandler reportsHandler = (o, args) =>
             {
                 var cb = (ComboBox) o;
                 if (!cb.Focused) return;
                 lblReports.Text = GetSelectedText(cb);
+                _isReportSelected = true;
             };
             cbCriminalAndMedicalBoard.SelectedIndexChanged += reportsHandler;
             cbPatientExaminationEpicrisis.SelectedIndexChanged += reportsHandler;
@@ -46,7 +46,7 @@ namespace HospitalAutomation.GUI
             cbSurgery.SelectedIndexChanged +=
                 (o, args) => { SetControlTextDependsOnCb(lblSection, (ComboBox) o, ref _isSectionSelected); };
             cbFacultyMembers.SelectedIndexChanged +=
-                (o, args) => { SetControlTextDependsOnCb(lblFacultyMember, (ComboBox) o, ref _isMemberSelcted); };
+                (o, args) => { SetControlTextDependsOnCb(lblFacultyMember, (ComboBox) o, ref _isMemberSelected); };
         }
 
         private static void SetControlTextDependsOnCb(Control lbl, ComboBox cb, ref bool isSelected)
@@ -59,15 +59,6 @@ namespace HospitalAutomation.GUI
         private static string GetSelectedText(ComboBox cb)
         {
             return cb.GetItemText(cb.SelectedItem);
-        }
-
-        private void ClearSelections()
-        {
-            foreach (var cb in Controls.OfType<ComboBox>())
-            {
-                cb.SelectedItem = null;
-                cb.SelectionStart = -1;
-            }
         }
 
         // Dosya Bilgileri Sayfası İşlemleri
@@ -96,7 +87,6 @@ namespace HospitalAutomation.GUI
 
             if (eTracker.Count != 0) return;
 
-            _isFileAvailable = true;
             linkLblRegisterInformation.Enabled = true;
             SetAllPanelVisibility(false);
             panelRegisterInformation.Visible = true;
@@ -120,13 +110,12 @@ namespace HospitalAutomation.GUI
                 eTracker.SetError(lblSection, "Bölüm seçiniz");
             }
 
-            if (!_isMemberSelcted)
+            if (!_isMemberSelected)
             {
                 eTracker.SetError(lblFacultyMember, "Öğretim üyesi seçiniz");
             }
 
-            // TODO : tani database den cekilecekse ona gore kontrol et
-            if (string.IsNullOrWhiteSpace(txtPatientDiagnose.Text))
+            if (!_isDiagnoseSelected)
             {
                 eTracker.SetError(lblPatientDiagnose, "Tanı giriniz");
             }
@@ -138,7 +127,6 @@ namespace HospitalAutomation.GUI
 
             if (eTracker.Count != 0) return;
 
-            _isReportsAvailable = true;
             SetAllPanelVisibility(false);
             linkLblReports.Enabled = true;
             panelReports.Visible = true;
@@ -200,30 +188,25 @@ namespace HospitalAutomation.GUI
             groupBoxFacultyMember.Location = new Point(210, 148);
         }
 
-        private void groupFacultyMember_Enter(object sender, EventArgs e)
-        {
-            foreach (
-                var radio in
-                    groupBoxFacultyMember.Controls.OfType<RadioButton>()
-                        .Select(control => control)
-                        .Where(radio => radio.Checked))
-            {
-                lblFacultyMember.Text = radio.Text;
-            }
-        }
-
         //-- Hasta Tanısı Giriş
         //-- (KONTROL)  Hasta Tanısı Seçilmek Zorunda
         private void linkLblPatientDiagnosed_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             SetRegisterInfoVisibility(false);
             txtPatientDiagnose.Visible = true;
+            cbDiagnoses.Visible = true;
             txtPatientDiagnose.Location = new Point(210, 200);
+        }
+
+        private void cbDiagnoses_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            lblPatientDiagnose.Text = GetSelectedText(cbDiagnoses);
+            _isDiagnoseSelected = true;
         }
 
         private void txtPatientDiagnosed_TextChanged(object sender, EventArgs e)
         {
-            lblPatientDiagnose.Text = txtPatientDiagnose.Text;
+            Populater.Fill(cbDiagnoses, () => DataFillingService.GatherDiagnoses(txtPatientDiagnose.Text));
         }
 
         //-- Hasta Statüsü
@@ -241,6 +224,7 @@ namespace HospitalAutomation.GUI
             groupBoxSection.Visible = visibility;
             groupBoxFacultyMember.Visible = visibility;
             txtPatientDiagnose.Visible = visibility;
+            cbDiagnoses.Visible = visibility;
             groupBoxPatientStatus.Visible = visibility;
         }
 
@@ -280,32 +264,6 @@ namespace HospitalAutomation.GUI
             gbCriminalAndMedicalBoard.Visible = true;
         }
 
-        private void groupBoxPatientExamination_Enter(object sender, EventArgs e)
-        {
-            foreach (
-                var radio in
-                    groupBoxPatientExamination.Controls.OfType<RadioButton>()
-                        .Select(control => control)
-                        .Where(radio => radio.Checked))
-            {
-                lblReports.Text = radio.Text;
-            }
-        }
-
-        //groupBoxReports
-
-        private void groupBoxReports_Enter(object sender, EventArgs e)
-        {
-            foreach (
-                var radio in
-                    groupBoxReports.Controls.OfType<RadioButton>()
-                        .Select(control => control)
-                        .Where(radio => radio.Checked))
-            {
-                lblReports.Text = radio.Text;
-            }
-        }
-
         private void btnScan_Click(object sender, EventArgs e)
         {
             var dialogResult = MessageBox.Show(Resources.TO_SCAN_MESSAGE, Resources.WARNING, MessageBoxButtons.YesNo,
@@ -313,19 +271,18 @@ namespace HospitalAutomation.GUI
             switch (dialogResult)
             {
                 case DialogResult.Yes:
+                    // TODO : Dosya tarama mekanizmasını implement et
                     var fileNo = txtFileNumber.Text;
                     var sectionId = int.Parse(cbSurgery.SelectedValue.ToString());
                     var date = monthCalendar.SelectionRange.Start.Date;
                     var memberId = int.Parse(cbFacultyMembers.SelectedValue.ToString());
-                    // TODO : Tanıyı bi sor
-                    var diagnosisId = int.Parse(txtPatientDiagnose.Text);
-
+                    var diagnosisId = int.Parse(cbDiagnoses.SelectedValue.ToString());
                     var stateId = int.Parse(cbState.SelectedValue.ToString());
-                    // TODO : Belgeleri sor
+
                     var epicrisisId = int.Parse(cbPatientExaminationEpicrisis.SelectedValue.ToString());
                     // TODO : Pseudo numara, sonra implement edersin
                     var epicrisisPath = 1;
-                   // var epicrisisPictureId = 1;
+                    //var epicrisisPictureId = 1;
 
                     var examinationId = int.Parse(cbExaminationAndReports.SelectedValue.ToString());
                     // TODO : Pseudo numara, sonra implement edersin
