@@ -6,7 +6,7 @@ namespace HospitalAutomation.Services
     public static class PatientDataStoreService
     {
         // TODO: Add method for retrieval
-
+       
         public static void Persist(
             string fileNo, int sectionId, DateTime date, int memberId, int diagnosisId, int stateId, 
             int epicrisisId, int epicrisisPath, 

@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnIslemiTamamla = new System.Windows.Forms.Button();
             this.btnScan = new System.Windows.Forms.Button();
             this.lblReports = new System.Windows.Forms.Label();
             this.lblSection = new System.Windows.Forms.Label();
@@ -113,6 +114,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.panel1.Controls.Add(this.btnIslemiTamamla);
             this.panel1.Controls.Add(this.btnScan);
             this.panel1.Controls.Add(this.lblReports);
             this.panel1.Controls.Add(this.lblSection);
@@ -136,6 +138,16 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(358, 557);
             this.panel1.TabIndex = 1;
+            // 
+            // btnIslemiTamamla
+            // 
+            this.btnIslemiTamamla.Location = new System.Drawing.Point(15, 486);
+            this.btnIslemiTamamla.Name = "btnIslemiTamamla";
+            this.btnIslemiTamamla.Size = new System.Drawing.Size(129, 58);
+            this.btnIslemiTamamla.TabIndex = 25;
+            this.btnIslemiTamamla.Text = "İŞLEMİ TAMAMLA";
+            this.btnIslemiTamamla.UseVisualStyleBackColor = true;
+            this.btnIslemiTamamla.Click += new System.EventHandler(this.btnIslemiTamamla_Click);
             // 
             // btnScan
             // 
@@ -699,6 +711,7 @@
             this.panelReports.Size = new System.Drawing.Size(592, 367);
             this.panelReports.TabIndex = 9;
             this.panelReports.Visible = false;
+            this.panelReports.Paint += new System.Windows.Forms.PaintEventHandler(this.panelReports_Paint);
             // 
             // gbCriminalAndMedicalBoard
             // 
@@ -922,5 +935,6 @@
         private System.Windows.Forms.ErrorProvider errorProvider;
         private System.Windows.Forms.Button btnRegisterInformationDone;
         private System.Windows.Forms.ComboBox cbDiagnoses;
+        private System.Windows.Forms.Button btnIslemiTamamla;
     }
 }

@@ -5,18 +5,25 @@ using System.Windows.Forms;
 using HospitalAutomation.GUI.Properties;
 using HospitalAutomation.Services;
 using HospitalAutomation.Util;
-
+using Scannerapplication;
+using HospitalAutomation.Model;
 namespace HospitalAutomation.GUI
 {
+    
     public partial class FormHomePage : Form
     {
+        FrmScnr frmScanner = new FrmScnr();
         private readonly Point _visibleDockPoint = new Point(395, 165);
         private bool _isMemberSelected;
         private bool _isSectionSelected;
         private bool _isStateSelected;
         private bool _isReportSelected;
         private bool _isDiagnoseSelected;
-
+        int secilenEpikriz = 0;
+        int secilenTetkikRapor= 0;
+        int secilenAdliSaglik= 0;
+        string resimYolu;
+        private string tcNo = string.Empty;
         public FormHomePage()
         {
             InitializeComponent();
@@ -24,6 +31,8 @@ namespace HospitalAutomation.GUI
 
         private void formHomePage_Load(object sender, EventArgs e)
         {
+            btnIslemiTamamla.Visible = false;
+            btnScan.Visible = false;
             Populater.Fill(cbFacultyMembers, DataFillingService.GatherDoctors);
             Populater.Fill(cbSurgery, DataFillingService.GatherSections);
             Populater.Fill(cbState, DataFillingService.GatherState);
@@ -78,6 +87,20 @@ namespace HospitalAutomation.GUI
             if (txtTcNo.Text.Length < 11)
             {
                 eTracker.SetError(txtTcNo, "TC Kimlik No eksik veya hatalı");
+            }
+            else if (txtTcNo.Text.Length == 11) //Kontroller
+            {
+                tcNo = txtTcNo.Text;
+                if (!TCNoKontrol(tcNo))
+                {
+
+                    eTracker.SetError(txtTcNo, "TC Kimlik No eksik veya hatalı");
+                }
+                else if (!TCNoKontrol2(tcNo))
+                {
+                    eTracker.SetError(txtTcNo, "TC Kimlik No eksik veya hatalı");
+                }
+
             }
 
             if (string.IsNullOrWhiteSpace(txtFileNumber.Text))
@@ -245,64 +268,217 @@ namespace HospitalAutomation.GUI
 
         private void btnPatientExamination_Click(object sender, EventArgs e)
         {
+            secilenTetkikRapor = 0;
+            secilenAdliSaglik = 0;
+            secilenEpikriz = 1;
+            if(lblReports.Text!=null)
+                btnScan.Visible = true;
             groupBoxPatientExamination.Visible = true;
             groupBoxReports.Visible = false;
             gbCriminalAndMedicalBoard.Visible = false;
+            
         }
 
         private void btnReports_Click(object sender, EventArgs e)
         {
+            secilenTetkikRapor = 1;
+            secilenAdliSaglik = 0;
+            secilenEpikriz = 0;
             groupBoxReports.Visible = true;
             groupBoxPatientExamination.Visible = false;
             gbCriminalAndMedicalBoard.Visible = false;
+            btnScan.Visible = true;
         }
 
         private void btnJudicialReports_Click(object sender, EventArgs e)
         {
+            secilenTetkikRapor = 0;
+            secilenAdliSaglik = 1;
+            secilenEpikriz = 0;
             groupBoxPatientExamination.Visible = false;
             groupBoxReports.Visible = false;
             gbCriminalAndMedicalBoard.Visible = true;
+            btnScan.Visible = true;
         }
 
         private void btnScan_Click(object sender, EventArgs e)
         {
+           
             var dialogResult = MessageBox.Show(Resources.TO_SCAN_MESSAGE, Resources.WARNING, MessageBoxButtons.YesNo,
                 MessageBoxIcon.Question);
+            
             switch (dialogResult)
             {
                 case DialogResult.Yes:
-                    // TODO : Dosya tarama mekanizmasını implement et
-                    var fileNo = txtFileNumber.Text;
-                    var sectionId = int.Parse(cbSurgery.SelectedValue.ToString());
-                    var date = monthCalendar.SelectionRange.Start.Date;
-                    var memberId = int.Parse(cbFacultyMembers.SelectedValue.ToString());
-                    var diagnosisId = int.Parse(cbDiagnoses.SelectedValue.ToString());
-                    var stateId = int.Parse(cbState.SelectedValue.ToString());
-
-                    var epicrisisId = int.Parse(cbPatientExaminationEpicrisis.SelectedValue.ToString());
-                    // TODO : Pseudo numara, sonra implement edersin
-                    var epicrisisPath = 1;
-                    //var epicrisisPictureId = 1;
-
-                    var examinationId = int.Parse(cbExaminationAndReports.SelectedValue.ToString());
-                    // TODO : Pseudo numara, sonra implement edersin
-                    var examinationPath = 1;
-                    //var examinationPictureId = 1;
-
-                    var criminalId = int.Parse(cbCriminalAndMedicalBoard.SelectedValue.ToString());
-                    // TODO : Pseudo numara, sonra implement edersin
-                    var criminalPath = 1;
-                    //var criminalPictureId = 1;
-                    PatientDataStoreService.Persist(
-                        fileNo, sectionId, date, memberId, diagnosisId, stateId,
-                        epicrisisId, epicrisisPath,
-                        examinationId, examinationPath,
-                        criminalId, criminalPath);
+                   
+            frmScanner.ShowDialog();
+            if (FrmScnr.taramaBittimi == 1)
+                btnIslemiTamamla.Visible = true;
+             
+                    btnScan.Visible = false;
                     break;
                 case DialogResult.No:
                     //do something else
                     break;
             }
+        }
+
+        private void panelReports_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btnIslemiTamamla_Click(object sender, EventArgs e)
+        {
+            int criminalPath;
+            int examinationPath;
+            int epicrisisPath;
+
+            var fileNo = txtFileNumber.Text;
+            var sectionId = int.Parse(cbSurgery.SelectedValue.ToString());
+            var date = monthCalendar.SelectionRange.Start.Date;
+            var memberId = int.Parse(cbFacultyMembers.SelectedValue.ToString());
+            var diagnosisId = int.Parse(cbDiagnoses.SelectedValue.ToString());
+            var stateId = int.Parse(cbState.SelectedValue.ToString());
+
+           
+            if (FrmScnr.taramaBittimi == 1)
+                resimYolu = FrmScnr.sillinecekDosya;
+            if (secilenEpikriz == 1)
+            {
+               // MessageBox.Show("epikriz");
+               EpikrizYol.Persist(resimYolu);
+               using (var context = new HospitalAutomationEntities())
+               {
+                   var query = context.MUAYENEEPIKRIZYOL.Where(p => p.MuayeneEpikrizYolKayit == resimYolu);
+                   var muayaneEpikrizYolId = query.FirstOrDefault<MUAYENEEPIKRIZYOL>();
+                   epicrisisPath = Convert.ToInt32(muayaneEpikrizYolId);
+               }
+               var epicrisisId = int.Parse(cbPatientExaminationEpicrisis.SelectedValue.ToString());
+               var criminalYol = 0;
+               var criminalId = 0;
+               var examinationYol = 0;
+               var examinationID = 0;
+               PatientDataStoreService.Persist(
+               fileNo, sectionId, date, memberId, diagnosisId, stateId,
+               epicrisisId, epicrisisPath,
+               examinationID, examinationYol,
+               criminalId, criminalYol);
+            }
+            else if (secilenTetkikRapor == 1)
+            {
+             //   MessageBox.Show("tetkikrapor");
+                TetkikRaporYol.Persist(resimYolu);
+                using (var context = new HospitalAutomationEntities())
+                {
+                    var query = context.TETKIKRAPORYOL.Where(p => p.TetkikRaporYolKayit == resimYolu);
+                    var tetkikRaporYolId = query.FirstOrDefault<TETKIKRAPORYOL>();
+                    examinationPath = Convert.ToInt32(tetkikRaporYolId);
+                }
+                var examinationId = int.Parse(cbExaminationAndReports.SelectedValue.ToString());
+                var epicrisisId = 0;
+                var epikrizYol = 0;
+                var criminalId = 0;
+                var criminalYol = 0;
+                PatientDataStoreService.Persist(
+                fileNo, sectionId, date, memberId, diagnosisId, stateId,
+                epicrisisId, epikrizYol,
+                examinationId, examinationPath,
+                criminalId, criminalYol);
+            }
+            else if (secilenAdliSaglik == 1)
+            {
+               // MessageBox.Show("adlisağlık");
+                AdliSaglikYol.Persist(resimYolu);
+                using (var context = new HospitalAutomationEntities())
+                {
+                    int query = context.ADLISAGLIKKURULUYOL.Where(p => p.AdliSaglikKuruluYolKayit.Contains(resimYolu)).Single().AdliSaglikKuruluYolID;
+
+                    criminalPath = query;
+                }
+                var criminalId = int.Parse(cbCriminalAndMedicalBoard.SelectedValue.ToString());
+                var epicrisisId = 0;
+                var epikrizYol = 0;
+                var examinationId = 0;
+                var raporYol = 0;
+                PatientDataStoreService.Persist(
+            fileNo, sectionId, date, memberId, diagnosisId, stateId,
+            epicrisisId, epikrizYol,
+            examinationId, raporYol,
+            criminalId, criminalPath);
+            }
+
+      //      // TODO : Dosya tarama mekanizmasını implement et
+           
+      //      var epicrisisId = int.Parse(cbPatientExaminationEpicrisis.SelectedValue.ToString()); // if(epikrizmi) içine taşı
+      //      // TODO : Pseudo numara, sonra implement edersin
+      //      var epicrisisPath = 1;
+      //      //var epicrisisPictureId = 1;
+
+      //      var examinationId = int.Parse(cbExaminationAndReports.SelectedValue.ToString());
+      //      // TODO : Pseudo numara, sonra implement edersin
+      //      var examinationPath = 1;
+      //      //var examinationPictureId = 1;
+      //      HospitalAutomationEntities db = new HospitalAutomationEntities();
+            
+      //      var criminalId = int.Parse(cbCriminalAndMedicalBoard.SelectedValue.ToString());  // if(adli saglik) içine taşı
+      //      // TODO : Pseudo numara, sonra implement edersin
+      ////      var criminalPath = db.ADLISAGLIKKURULUYOL.Where(p=> p.AdliSaglikKuruluYolKayit==resimYolu).Select(p=>p.AdliSaglikKuruluYolID); // tarama sınıfında geliyor.
+      //      //var criminalPictureId = 1;
+      //      PatientDataStoreService.Persist(
+      //          fileNo, sectionId, date, memberId, diagnosisId, stateId,
+      //          epicrisisId, epicrisisPath,
+      //          examinationId, examinationPath,
+      //          criminalId, criminalPath);
+        }
+        /**
+        * Bu fonksiyon TC numarasının 0 ile baslama durumu ve mod10 kontrolünü yapmaktadır. bool değer dönderir.
+        * */
+        public bool TCNoKontrol(string paramTCno)
+        {
+            int toplam = 0;
+            char[] array1 = paramTCno.ToCharArray();
+            if (paramTCno[0] == 0)
+            {
+                return false;
+            }
+            else
+            {
+                for (int i = 0; i < array1.Length - 1; i++)
+                {
+                    toplam += (int)Char.GetNumericValue(array1[i]);
+
+                }
+                if (toplam % 10 == (int)Char.GetNumericValue(array1[10]))
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+
+        }
+        /**
+         * Bu fonksiyon 1,3,5,7 ve 9.cu hanelerin toplamının 7 ile çarpımından 2,4,6, ve 8. haneler çıkartıldığında geriye kalan sayının 10'a göre modu 10. haneyi veriyor mu kontrol.
+         * bool değer dönderir.
+         * */
+        public bool TCNoKontrol2(string paramTCNo2)
+        {
+            int toplam = 0;
+            int toplam2 = 0;
+            char[] array2 = paramTCNo2.ToCharArray();
+            toplam = (int)Char.GetNumericValue(array2[0]) + (int)Char.GetNumericValue(array2[2]) + (int)Char.GetNumericValue(array2[4]) + (int)Char.GetNumericValue(array2[6]) + (int)Char.GetNumericValue(array2[8]);
+            toplam *= 7;
+            toplam2 = (int)Char.GetNumericValue(array2[1]) + (int)Char.GetNumericValue(array2[3]) + (int)Char.GetNumericValue(array2[5]) + (int)Char.GetNumericValue(array2[7]);
+            if ((toplam - toplam2) % 10 == (int)Char.GetNumericValue(array2[9]))
+            {
+                return true;
+            }
+            else
+                return false;
+
         }
     }
 }

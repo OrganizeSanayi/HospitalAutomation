@@ -25,8 +25,9 @@ namespace HospitalAutomation.Util
             _provider.SetError(ctl, text);
         }
 
-        public int Count => _errors.Count;
+       
 
+        public int Count { get { return _errors.Count; } }
         public void Clear()
         {
             _provider.Clear();

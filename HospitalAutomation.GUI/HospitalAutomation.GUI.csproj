@@ -95,6 +95,10 @@
       <Project>{BACE8D9F-7DAD-4A53-B706-8659E4A0D028}</Project>
       <Name>HospitalAutomation.Model</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Scannerapplication\Scannerapplication\Scannerapplication.csproj">
+      <Project>{01c00f8f-07f6-40e9-82cb-9b0c58992639}</Project>
+      <Name>Scannerapplication</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
