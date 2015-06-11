@@ -426,6 +426,7 @@ namespace HospitalAutomation.GUI
                         resimYolu = @"D:\" + klasorTC + "\\" + klasorBolum + "\\" + klasorTarih + "\\epikrizResim\\";
                     }
                 }
+                    //
                 else if (secilenAdliSaglik == 1)
                 {
                     if (File.Exists(@"D:\" + klasorTC + "\\" + klasorBolum + "\\" + klasorTarih + "\\adliSaglik"))
