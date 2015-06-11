@@ -7,9 +7,10 @@ using HospitalAutomation.Services;
 using HospitalAutomation.Util;
 using Scannerapplication;
 using HospitalAutomation.Model;
+using System.IO;
 namespace HospitalAutomation.GUI
 {
-    
+
     public partial class FormHomePage : Form
     {
         FrmScnr frmScanner = new FrmScnr();
@@ -20,10 +21,16 @@ namespace HospitalAutomation.GUI
         private bool _isReportSelected;
         private bool _isDiagnoseSelected;
         int secilenEpikriz = 0;
-        int secilenTetkikRapor= 0;
-        int secilenAdliSaglik= 0;
+        int secilenTetkikRapor = 0;
+        int secilenAdliSaglik = 0;
         string resimYolu;
+        string resimAdi;
         private string tcNo = string.Empty;
+
+        string klasorTarih;
+        string klasorTC;
+        string klasorBolum;
+
         public FormHomePage()
         {
             InitializeComponent();
@@ -42,7 +49,7 @@ namespace HospitalAutomation.GUI
 
             EventHandler reportsHandler = (o, args) =>
             {
-                var cb = (ComboBox) o;
+                var cb = (ComboBox)o;
                 if (!cb.Focused) return;
                 lblReports.Text = GetSelectedText(cb);
                 _isReportSelected = true;
@@ -51,11 +58,11 @@ namespace HospitalAutomation.GUI
             cbPatientExaminationEpicrisis.SelectedIndexChanged += reportsHandler;
             cbExaminationAndReports.SelectedIndexChanged += reportsHandler;
             cbState.SelectedIndexChanged +=
-                (o, args) => { SetControlTextDependsOnCb(lblPatientStatus, (ComboBox) o, ref _isStateSelected); };
+                (o, args) => { SetControlTextDependsOnCb(lblPatientStatus, (ComboBox)o, ref _isStateSelected); };
             cbSurgery.SelectedIndexChanged +=
-                (o, args) => { SetControlTextDependsOnCb(lblSection, (ComboBox) o, ref _isSectionSelected); };
+                (o, args) => { SetControlTextDependsOnCb(lblSection, (ComboBox)o, ref _isSectionSelected); };
             cbFacultyMembers.SelectedIndexChanged +=
-                (o, args) => { SetControlTextDependsOnCb(lblFacultyMember, (ComboBox) o, ref _isMemberSelected); };
+                (o, args) => { SetControlTextDependsOnCb(lblFacultyMember, (ComboBox)o, ref _isMemberSelected); };
         }
 
         private static void SetControlTextDependsOnCb(Control lbl, ComboBox cb, ref bool isSelected)
@@ -88,7 +95,7 @@ namespace HospitalAutomation.GUI
             {
                 eTracker.SetError(txtTcNo, "TC Kimlik No eksik veya hatalı");
             }
-            else if (txtTcNo.Text.Length == 11) //Kontroller
+            else if (txtTcNo.Text.Length == 11) //Kontroller Gerçek TC numarası girilmiş mi onun kontrolü yapılmaktadır.
             {
                 tcNo = txtTcNo.Text;
                 if (!TCNoKontrol(tcNo))
@@ -265,20 +272,20 @@ namespace HospitalAutomation.GUI
             panelReports.Visible = true;
             panelReports.Location = _visibleDockPoint;
         }
-
+        //Muayene epikriz butonu işlemleri
         private void btnPatientExamination_Click(object sender, EventArgs e)
         {
-            secilenTetkikRapor = 0;
+            secilenTetkikRapor = 0; // Hangi rapor butonuna tıklanmış ise ona 1 verilir. Amaç tarayıcıda tarattığımız raporun veri tabanına kayıt edilirken ilgili tabloya kaydı içindir.
             secilenAdliSaglik = 0;
             secilenEpikriz = 1;
-            if(lblReports.Text!=null)
+            if (lblReports.Text != null)
                 btnScan.Visible = true;
             groupBoxPatientExamination.Visible = true;
             groupBoxReports.Visible = false;
             gbCriminalAndMedicalBoard.Visible = false;
-            
-        }
 
+        }
+        // Tetkik raporu butonu
         private void btnReports_Click(object sender, EventArgs e)
         {
             secilenTetkikRapor = 1;
@@ -289,7 +296,7 @@ namespace HospitalAutomation.GUI
             gbCriminalAndMedicalBoard.Visible = false;
             btnScan.Visible = true;
         }
-
+        // Adli sağlık raporu butonu
         private void btnJudicialReports_Click(object sender, EventArgs e)
         {
             secilenTetkikRapor = 0;
@@ -300,21 +307,73 @@ namespace HospitalAutomation.GUI
             gbCriminalAndMedicalBoard.Visible = true;
             btnScan.Visible = true;
         }
-
+        // Tarayıcı formunu açmaktadır.
         private void btnScan_Click(object sender, EventArgs e)
         {
-           
+            klasorTC = txtTcNo.Text;
+            klasorBolum = cbSurgery.SelectedValue.ToString();
+            klasorTarih = monthCalendar.SelectionRange.Start.Date.ToString("yyyy-MM-dd HH-mm-ss");
+
+
+
+
+            if (secilenEpikriz == 1)
+            {
+                if (File.Exists(@"D:\" + klasorTC + "\\" + klasorBolum + "\\" + klasorTarih + "\\epikrizResim"))
+                {
+                    resimYolu = @"D:\" + klasorTC + "\\" + klasorBolum + "\\" + klasorTarih + "\\epikrizResim\\";
+                }
+                else
+                {
+                    String path = @"D:\" + klasorTC + "\\" + klasorBolum + "\\" + klasorTarih + "\\epikrizResim\\";
+                    //yyyy-MM-dd HH-mm-ss
+                    if (!File.Exists(path))
+                        System.IO.Directory.CreateDirectory(path);
+                    resimYolu = @"D:\" + klasorTC + "\\" + klasorBolum + "\\" + klasorTarih + "\\epikrizResim\\";
+                }
+            }
+            else if (secilenAdliSaglik == 1)
+            {
+                if (File.Exists(@"D:\" + klasorTC + "\\" + klasorBolum + "\\" + klasorTarih + "\\adliSaglik"))
+                {
+                    resimYolu = @"D:\" + klasorTC + "\\" + klasorBolum + "\\" + klasorTarih + "\\adliSaglik\\";
+                }
+                else
+                {
+                    Directory.CreateDirectory(@"D:\" + klasorTC + "\\" + klasorBolum + "\\" + klasorTarih + "\\adliSaglik");
+                    resimYolu = @"D:\" + klasorTC + "\\" + klasorBolum + "\\" + klasorTarih + "\\adliSaglik\\";
+                }
+            }
+            else if (secilenTetkikRapor == 1)
+            {
+                if (File.Exists(@"D:\" + klasorTC + "\\" + klasorBolum + "\\" + klasorTarih + "\\tetkikRapor"))
+                {
+                    resimYolu = @"D:\" + klasorTC + "\\" + klasorBolum + "\\" + klasorTarih + "\\tetkikRapor\\";
+                }
+                else
+                {
+                    Directory.CreateDirectory(@"D:\" + klasorTC + "\\" + klasorBolum + "\\" + klasorTarih + "\\tetkikRapor");
+                    resimYolu = @"D:\" + klasorTC + "\\" + klasorBolum + "\\" + klasorTarih + "\\tetkikRapor\\";
+                }
+
+            }
+
+            FrmScnr.klasorYolu = resimYolu;
+
+            // resimYolu = FrmScnr.sillinecekDosya;
+
+
             var dialogResult = MessageBox.Show(Resources.TO_SCAN_MESSAGE, Resources.WARNING, MessageBoxButtons.YesNo,
                 MessageBoxIcon.Question);
-            
+
             switch (dialogResult)
             {
                 case DialogResult.Yes:
-                   
-            frmScanner.ShowDialog();
-            if (FrmScnr.taramaBittimi == 1)
-                btnIslemiTamamla.Visible = true;
-             
+
+                    frmScanner.ShowDialog();
+                    if (FrmScnr.taramaBittimi == 1)
+                        btnIslemiTamamla.Visible = true;
+
                     btnScan.Visible = false;
                     break;
                 case DialogResult.No:
@@ -328,6 +387,12 @@ namespace HospitalAutomation.GUI
 
         }
 
+
+        /*
+         * Dosyalar tablosuna kayıt etme işlemidir. Ayrıca tarayıcıda taranan dosyanın yoluda ilgili tabloya kayıt edilmektedir.
+         * Örneğin adli sağlık kurulu dosyası ise (raporlar kısmında adli sağlık kurulu butonuna basılmıştır) kayıt işlemleri bilgileri(TCNo, dosya No diğer bilgiler.)
+         * alındıktan sonra hangi rapor ise sorgu yapılıp ilgili tablodan adli sağlık kurulu yol id çekilip bilgiler dosyalar tablosuna gönderiliyor.  
+         * */
         private void btnIslemiTamamla_Click(object sender, EventArgs e)
         {
             int criminalPath;
@@ -340,46 +405,94 @@ namespace HospitalAutomation.GUI
             var memberId = int.Parse(cbFacultyMembers.SelectedValue.ToString());
             var diagnosisId = int.Parse(cbDiagnoses.SelectedValue.ToString());
             var stateId = int.Parse(cbState.SelectedValue.ToString());
-
-           
+            
             if (FrmScnr.taramaBittimi == 1)
-                resimYolu = FrmScnr.sillinecekDosya;
+            {
+                //resimAdi = FrmScnr.sillinecekDosya;
+
+
+                if (secilenEpikriz == 1)
+                {
+                    if (File.Exists(@"D:\" + klasorTC + "\\" + klasorBolum + "\\" + klasorTarih + "\\epikrizResim"))
+                    {
+                        resimYolu = @"D:\" + klasorTC + "\\" + klasorBolum + "\\" + klasorTarih + "\\epikrizResim\\" ;
+                    }
+                    else
+                    {
+                        String path = @"D:\" + klasorTC + "\\" + klasorBolum + "\\" + klasorTarih + "\\epikrizResim\\";
+                        //yyyy-MM-dd HH-mm-ss
+                        if (!File.Exists(path)) 
+                           System.IO.Directory.CreateDirectory(path);
+                        resimYolu = @"D:\" + klasorTC + "\\" + klasorBolum + "\\" + klasorTarih + "\\epikrizResim\\";
+                    }
+                }
+                else if (secilenAdliSaglik == 1)
+                {
+                    if (File.Exists(@"D:\" + klasorTC + "\\" + klasorBolum + "\\" + klasorTarih + "\\adliSaglik"))
+                    {
+                        resimYolu = @"D:\" + klasorTC + "\\" + klasorBolum + "\\" + klasorTarih + "\\adliSaglik\\";
+                    }
+                    else
+                    {
+                        Directory.CreateDirectory(@"D:\" + klasorTC + "\\" + klasorBolum + "\\" + klasorTarih + "\\adliSaglik");
+                        resimYolu = @"D:\" + klasorTC + "\\" + klasorBolum + "\\" + klasorTarih + "\\adliSaglik\\";
+                    }
+                }
+                else if (secilenTetkikRapor == 1)
+                {
+                    if (File.Exists(@"D:\" + klasorTC + "\\" + klasorBolum + "\\" + klasorTarih + "\\tetkikRapor"))
+                    {
+                        resimYolu = @"D:\" + klasorTC + "\\" + klasorBolum + "\\" + klasorTarih + "\\tetkikRapor\\" ;
+                    }
+                    else
+                    {
+                        Directory.CreateDirectory(@"D:\" + klasorTC + "\\" + klasorBolum + "\\" + klasorTarih + "\\tetkikRapor");
+                        resimYolu = @"D:\" + klasorTC + "\\" + klasorBolum + "\\" + klasorTarih + "\\tetkikRapor\\";
+                    }
+                    
+                }
+
+                FrmScnr.klasorYolu = resimYolu;
+
+              // resimYolu = FrmScnr.sillinecekDosya;
+
+            }
+
+
             if (secilenEpikriz == 1)
             {
-               // MessageBox.Show("epikriz");
-               EpikrizYol.Persist(resimYolu);
-               using (var context = new HospitalAutomationEntities())
-               {
-                   var query = context.MUAYENEEPIKRIZYOL.Where(p => p.MuayeneEpikrizYolKayit == resimYolu);
-                   var muayaneEpikrizYolId = query.FirstOrDefault<MUAYENEEPIKRIZYOL>();
-                   epicrisisPath = Convert.ToInt32(muayaneEpikrizYolId);
-               }
-               var epicrisisId = int.Parse(cbPatientExaminationEpicrisis.SelectedValue.ToString());
-               var criminalYol = 0;
-               var criminalId = 0;
-               var examinationYol = 0;
-               var examinationID = 0;
-               PatientDataStoreService.Persist(
-               fileNo, sectionId, date, memberId, diagnosisId, stateId,
-               epicrisisId, epicrisisPath,
-               examinationID, examinationYol,
-               criminalId, criminalYol);
+                // MessageBox.Show("epikriz");
+                EpikrizYol.Persist(resimYolu);
+                using (var context = new HospitalAutomationEntities())
+                {
+                    int query = context.MUAYENEEPIKRIZYOL.Where(p => p.MuayeneEpikrizYolKayit.Contains(resimYolu)).Single().MuayeneEpikrizYolID;
+                    epicrisisPath = query;
+                }
+                var epicrisisId = int.Parse(cbPatientExaminationEpicrisis.SelectedValue.ToString());
+                var criminalYol = 1;
+                var criminalId = 1;
+                var examinationYol = 1;
+                var examinationID = 1;
+                PatientDataStoreService.Persist(
+                fileNo, sectionId, date, memberId, diagnosisId, stateId,
+                epicrisisId, epicrisisPath,
+                examinationID, examinationYol,
+                criminalId, criminalYol);
             }
             else if (secilenTetkikRapor == 1)
             {
-             //   MessageBox.Show("tetkikrapor");
+                //   MessageBox.Show("tetkikrapor");
                 TetkikRaporYol.Persist(resimYolu);
                 using (var context = new HospitalAutomationEntities())
                 {
-                    var query = context.TETKIKRAPORYOL.Where(p => p.TetkikRaporYolKayit == resimYolu);
-                    var tetkikRaporYolId = query.FirstOrDefault<TETKIKRAPORYOL>();
-                    examinationPath = Convert.ToInt32(tetkikRaporYolId);
+                    int query = context.TETKIKRAPORYOL.Where(p => p.TetkikRaporYolKayit.Contains(resimYolu)).Single().TetkikRaporYolID;
+                    examinationPath = query;
                 }
                 var examinationId = int.Parse(cbExaminationAndReports.SelectedValue.ToString());
-                var epicrisisId = 0;
-                var epikrizYol = 0;
-                var criminalId = 0;
-                var criminalYol = 0;
+                var epicrisisId = 1;
+                var epikrizYol = 1;
+                var criminalId = 1;
+                var criminalYol = 1;
                 PatientDataStoreService.Persist(
                 fileNo, sectionId, date, memberId, diagnosisId, stateId,
                 epicrisisId, epikrizYol,
@@ -388,7 +501,7 @@ namespace HospitalAutomation.GUI
             }
             else if (secilenAdliSaglik == 1)
             {
-               // MessageBox.Show("adlisağlık");
+                // MessageBox.Show("adlisağlık");
                 AdliSaglikYol.Persist(resimYolu);
                 using (var context = new HospitalAutomationEntities())
                 {
@@ -397,10 +510,10 @@ namespace HospitalAutomation.GUI
                     criminalPath = query;
                 }
                 var criminalId = int.Parse(cbCriminalAndMedicalBoard.SelectedValue.ToString());
-                var epicrisisId = 0;
-                var epikrizYol = 0;
-                var examinationId = 0;
-                var raporYol = 0;
+                var epicrisisId = 1;
+                var epikrizYol = 1;
+                var examinationId = 1;
+                var raporYol = 1;
                 PatientDataStoreService.Persist(
             fileNo, sectionId, date, memberId, diagnosisId, stateId,
             epicrisisId, epikrizYol,
@@ -408,28 +521,6 @@ namespace HospitalAutomation.GUI
             criminalId, criminalPath);
             }
 
-      //      // TODO : Dosya tarama mekanizmasını implement et
-           
-      //      var epicrisisId = int.Parse(cbPatientExaminationEpicrisis.SelectedValue.ToString()); // if(epikrizmi) içine taşı
-      //      // TODO : Pseudo numara, sonra implement edersin
-      //      var epicrisisPath = 1;
-      //      //var epicrisisPictureId = 1;
-
-      //      var examinationId = int.Parse(cbExaminationAndReports.SelectedValue.ToString());
-      //      // TODO : Pseudo numara, sonra implement edersin
-      //      var examinationPath = 1;
-      //      //var examinationPictureId = 1;
-      //      HospitalAutomationEntities db = new HospitalAutomationEntities();
-            
-      //      var criminalId = int.Parse(cbCriminalAndMedicalBoard.SelectedValue.ToString());  // if(adli saglik) içine taşı
-      //      // TODO : Pseudo numara, sonra implement edersin
-      ////      var criminalPath = db.ADLISAGLIKKURULUYOL.Where(p=> p.AdliSaglikKuruluYolKayit==resimYolu).Select(p=>p.AdliSaglikKuruluYolID); // tarama sınıfında geliyor.
-      //      //var criminalPictureId = 1;
-      //      PatientDataStoreService.Persist(
-      //          fileNo, sectionId, date, memberId, diagnosisId, stateId,
-      //          epicrisisId, epicrisisPath,
-      //          examinationId, examinationPath,
-      //          criminalId, criminalPath);
         }
         /**
         * Bu fonksiyon TC numarasının 0 ile baslama durumu ve mod10 kontrolünü yapmaktadır. bool değer dönderir.

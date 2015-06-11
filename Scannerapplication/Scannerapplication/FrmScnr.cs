@@ -18,12 +18,16 @@ namespace Scannerapplication
         Image image1;
         public static string sillinecekDosya;
         int sayac=0;
+        public static string klasorYolu;
+
+       
 
         public FrmScnr()
         {
             InitializeComponent();
         }
         //button click event
+       
         private void btn_scan_Click(object sender, EventArgs e)
         {
             try
@@ -82,7 +86,7 @@ namespace Scannerapplication
         private void btnKaydet_Click(object sender, EventArgs e)
         {
             btnTaramayiBitir.Visible = true;
-            string temp="D://" + DateTime.Now.ToString("yyyy-MM-dd HHmmss") + ".jpeg";
+            string temp= klasorYolu+DateTime.Now.ToString("yyyy-MM-dd HHmmss") + ".jpeg";
             image1.Save(temp, ImageFormat.Jpeg);
             sillinecekDosya = temp;
             sayac++;
