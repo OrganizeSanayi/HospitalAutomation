@@ -22,7 +22,7 @@ namespace HospitalAutomation.GUI
 
         readonly List<Resimler> _tumResimler = new List<Resimler>();
         Resimler _secilenResim;
-        int _i = 0; // PictureBox Name
+        int _i; // PictureBox Name
         PictureBox _pbSecilen = new PictureBox(); 
         #endregion
        
@@ -32,7 +32,6 @@ namespace HospitalAutomation.GUI
             RaporKontrol();
 
             _eTracker = new ErrorTracker(errorProviderHomePage);
-            errorProviderHomePage.BlinkStyle = ErrorBlinkStyle.NeverBlink;
         }
 
         #region Tarama Metotları
@@ -42,13 +41,13 @@ namespace HospitalAutomation.GUI
             {
                 if (tvKayit.SelectedNode.Tag.ToString() != "Rapor")
                 {
-                    MessageBox.Show("Rapor Bilgisi Seçiniz !");
+                    MessageBox.Show(@"Rapor Bilgisi Seçiniz !");
                     return;
                 }
             }
             else
             {
-                MessageBox.Show("Rapor Bilgisi Seçiniz !");
+                MessageBox.Show(@"Rapor Bilgisi Seçiniz !");
                 return;
             }
             try
@@ -140,13 +139,13 @@ namespace HospitalAutomation.GUI
                 {
                     if (tvKayit.SelectedNode.Tag.ToString() != "Rapor")
                     {
-                        MessageBox.Show("Rapor Bilgisi Seçiniz !");
+                        MessageBox.Show(@"Rapor Bilgisi Seçiniz !");
                         return;
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Rapor Bilgisi Seçiniz !");
+                    MessageBox.Show(@"Rapor Bilgisi Seçiniz !");
                     return;
                 }
 
@@ -270,10 +269,15 @@ namespace HospitalAutomation.GUI
 
         private void btnKaydet_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Hasta için tüm dosyaları tarattığınıza emin misiniz ?", "ÖNEMLİ", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
-                if (MessageBox.Show("Kayit işlemi başarılı ! Bu hasta için başka bir kayit girmek ister misiniz ?", "YENİ KAYIT", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show(@"Hasta için tüm dosyaları tarattığınıza emin misiniz ?", @"ÖNEMLİ",
+                    MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
+            {
+                if (MessageBox.Show(@"Kayit işlemi başarılı ! Bu hasta için başka bir kayit girmek ister misiniz ?",
+                        @"YENİ KAYIT", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
                     return;
-
+                }
+            }
         }
        
         class Resimler
@@ -301,7 +305,7 @@ namespace HospitalAutomation.GUI
 
         private void txtTcNo_TextChanged(object sender, EventArgs e)
         {
-            errorProviderHomePage.Clear();
+            _eTracker.Clear();
 
             var istxtTcNoFieldEmpty = string.IsNullOrWhiteSpace(txtTcNo.Text);
             
@@ -310,7 +314,6 @@ namespace HospitalAutomation.GUI
             {
                 _eTracker.SetError(txtTcNo, "Geçersiz TC No");
             }
-
 
             try
             {
@@ -329,7 +332,7 @@ namespace HospitalAutomation.GUI
         // Tarihlerin Kontrolü
         private void dtpKapanisTarih_ValueChanged(object sender, EventArgs e)
         {
-            errorProviderHomePage.Clear();
+            _eTracker.Clear();
             if(dtpKapanisTarih.Value < dtpTarih.Value)
             {
                 _eTracker.SetError(dtpKapanisTarih, "Açılış Tarihinden Sonraki Günlerden Seçiniz !");
