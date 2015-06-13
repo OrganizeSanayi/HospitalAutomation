@@ -6,7 +6,7 @@ namespace HospitalAutomation.Util
 {
     public static class Populater
     {
-        public static void Fill<T>(ComboBox cb, Func<T[]> gatherFunc)
+        public static void Fill<T>(ListControl cb, Func<T[]> gatherFunc)
         {
             var columns = DataFillingService.GetColumns(typeof(T));
             cb.DataSource = gatherFunc();

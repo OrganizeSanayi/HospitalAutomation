@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using HastaneArsiv;
+using HospitalAutomation.Services;
+using HospitalAutomation.Util;
 
 namespace HospitalAutomation.GUI
 {
@@ -21,29 +23,24 @@ namespace HospitalAutomation.GUI
         {
             try
             {
-                if (string.IsNullOrWhiteSpace(txtBolum.Text))
+                var txt = (TextBox) sender;
+                if (string.IsNullOrWhiteSpace(txt.Text))
                 {
                     lbBolum.ClearSelected();
                     return;
                 }
 
-                bool fnd = false;
-                for (int i = 0; i < lbBolum.Items.Count; i++)
+                for (var i = 0; i < lbBolum.Items.Count; i++)
                 {
-                    if (lbBolum.Items[i].ToString().ToLower().Contains(txtBolum.Text.ToLower()))
-                    {
-                        lbBolum.SelectedValue = i;
-                        lbBolum.SetSelected(i, true);
-                        fnd = true;
-                        return;
-                    }
-                    if (!fnd)
-                        lbBolum.ClearSelected();
+                    if (!lbBolum.GetItemText(lbBolum.Items[i]).ToLower().Contains(txt.Text.ToLower())) continue;
+
+                    lbBolum.SelectedValue = i;
+                    lbBolum.SetSelected(i, true);
+                    return;
                 }
             }
             catch (Exception exp)
             {
-
                 MessageBox.Show(exp.Message);
             }
         }
@@ -56,14 +53,14 @@ namespace HospitalAutomation.GUI
                 {
                     if (lbBolum.SelectedItem != null)
                     {
-                        ((MainForm)Application.OpenForms["MainForm"]).txtBolum.Text = lbBolum.SelectedItem.ToString();
-                        this.Close();
+                        ((MainForm)Application.OpenForms["MainForm"]).txtBolum.Text = lbBolum.GetItemText(lbBolum.SelectedItem);
+                        Close();
                     }
                     else
-                        this.Close();
+                        Close();
                 }
                 if (e.KeyChar == (char)Keys.Escape)
-                    this.Close();
+                    Close();
             }
             catch (Exception exp)
             {
@@ -73,7 +70,7 @@ namespace HospitalAutomation.GUI
 
         private void Bolum_Load(object sender, EventArgs e)
         {
-            // Db den verileri çek.
+            Populater.Fill(lbBolum, DataFillingService.GatherSections);
         }
 
         private void lbBolum_SelectedIndexChanged(object sender, EventArgs e)

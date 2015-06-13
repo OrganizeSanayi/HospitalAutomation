@@ -38,12 +38,6 @@
             this.lbBolum.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbBolum.FormattingEnabled = true;
             this.lbBolum.ItemHeight = 16;
-            this.lbBolum.Items.AddRange(new object[] {
-            "Genel Cerrahi",
-            "Enfeksiyon",
-            "Çocuk Hastalıkları",
-            "Ortapedi",
-            "Göz"});
             this.lbBolum.Location = new System.Drawing.Point(0, 40);
             this.lbBolum.Name = "lbBolum";
             this.lbBolum.Size = new System.Drawing.Size(256, 212);
