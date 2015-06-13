@@ -5,7 +5,7 @@ using System.Drawing;
 
 namespace WIATest
 {
-    class WIAScanner
+    public class WIAScanner
     {
         const string wiaFormatBMP = "{B96B3CAB-0728-11D3-9D7B-0000F81EF32E}";
         class WIA_DPS_DOCUMENT_HANDLING_SELECT

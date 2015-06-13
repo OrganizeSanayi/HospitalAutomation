@@ -1,51 +1,46 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
+using HospitalAutomation.GUI;
 using HospitalAutomation.GUI.Properties;
 using HospitalAutomation.Services;
 using HospitalAutomation.Util;
 
-namespace HospitalAutomation.GUI
+namespace HastaneArsiv
 {
     public partial class LoginForm : Form
     {
-
-        ErrorTracker _eTracker;
-
         public LoginForm()
         {
             InitializeComponent();
-        }
 
-        private void Login_Load(object sender, EventArgs e)
-        {
-            _eTracker = new ErrorTracker(errorProvider);
+            errorProviderLoginForm.BlinkStyle = ErrorBlinkStyle.NeverBlink;
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            _eTracker.Clear();
+            var eTracker = new ErrorTracker(errorProviderLoginForm);
 
             if (string.IsNullOrWhiteSpace(txtUserName.Text))
             {
-                _eTracker.SetError(txtUserName, "Geçersiz alan");
+                eTracker.SetError(txtUserName, "Geçersiz alan");
             }
 
-            if (string.IsNullOrWhiteSpace(txtUserPassword.Text))
+            if (string.IsNullOrWhiteSpace(txtPassword.Text))
             {
-                _eTracker.SetError(txtUserPassword, "Geçersiz alan");
+                eTracker.SetError(txtPassword, "Geçersiz alan");
             }
 
-            if (_eTracker.Count != 0)
+            if (eTracker.Count != 0)
             {
                 return;
             }
 
-            if (UserService.IsValidLogin(txtUserName.Text, txtUserPassword.Text))
+            if (UserService.IsValidLogin(txtUserName.Text, txtPassword.Text))
             {
                 Logger.I("Succesfully logged in");
                 Hide();
-                var formHome = new FormHomePage {Size = new Size(450, 300)};
+                var formHome = new Form1();
                 formHome.ShowDialog();
 
                 Environment.Exit(0);
@@ -56,5 +51,6 @@ namespace HospitalAutomation.GUI
                 MessageBox.Show(Resources.invalid_credidentials);
             }
         }
+
     }
 }
