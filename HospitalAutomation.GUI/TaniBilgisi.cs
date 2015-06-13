@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Data.OleDb;
+using System.IO;
 using HospitalAutomation.Model;
 
 namespace HospitalAutomation.GUI
@@ -36,32 +37,29 @@ namespace HospitalAutomation.GUI
             {
                 if (!KayitVarMi(txtIcd10.Text))
                 {
-                    TANILAR t = new TANILAR();
-                    t.TaniAdi = txtTaniAciklama.Text;
-                    t.ICD10Kodu = txtIcd10.Text;
+                    var t = new TANILAR
+                    {
+                        TaniAdi = txtTaniAciklama.Text,
+                        ICD10Kodu = txtIcd10.Text.ToUpper()
+                    };
                     entity.TANILAR.Add(t);
-                    if (entity.SaveChanges() > 0)
-                        MessageBox.Show("Tani Kayıt Edildi.");
-                    else
-                        MessageBox.Show("Kayit Başarısız !");
+                    MessageBox.Show(entity.SaveChanges() > 0 ? "Tani Kayıt Edildi." : "Kayit Başarısız !");
                 }
                 else
                 {
-                    MessageBox.Show(txtIcd10.Text + "   ICD10 kodu sistemde mevcut");
+                    MessageBox.Show(txtIcd10.Text + @" ICD10 kodu sistemde mevcut");
                 }
             }
         }
-        bool KayitVarMi(string icd10)
+
+        static bool KayitVarMi(string icd10)
         {
             using (var entity=new HospitalAutomationEntities())
             {
-                TANILAR tanilar = (from n in entity.TANILAR
+                var tanilar = (from n in entity.TANILAR
                                          where n.ICD10Kodu == icd10
                                          select n).FirstOrDefault();
-                if (tanilar == null)
-                    return false;
-                else
-                    return true;
+                return tanilar != null;
             }
         }
         void ExelKaydet()
@@ -70,31 +68,36 @@ namespace HospitalAutomation.GUI
 
             try
             {
-                string con =
-                              @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=icd10.xls;" +
-                              @"Extended Properties='Excel 8.0;HDR=Yes;'";
-                using (OleDbConnection connection = new OleDbConnection(con))
+                const string con = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=icd10.xls;" +
+                                   @"Extended Properties='Excel 8.0;HDR=Yes;'";
+                using (var connection = new OleDbConnection(con))
                 {
                     connection.Open();
-                    OleDbCommand command = new OleDbCommand("select * from [ICD KOD LİSTESİ$]", connection);
-                    using (OleDbDataReader dr = command.ExecuteReader())
+                    var command = new OleDbCommand("select * from [ICD KOD LİSTESİ$]", connection);
+                    using (var dr = command.ExecuteReader())
                     {
                         using (var entity = new HospitalAutomationEntities())
                         {
+                            if (dr == null)
+                            {
+                                throw new IOException("Dosya bulunamadı.");
+                            }
+
                             while (dr.Read())
                             {
-                                if (!KayitVarMi(dr[0].ToString()))
+                                if (KayitVarMi(dr[0].ToString())) continue;
+
+                                var t = new TANILAR
                                 {
-                                    TANILAR t = new TANILAR();
-                                    t.ICD10Kodu = dr[0].ToString();
-                                    t.TaniAdi = dr[1].ToString();
-                                    entity.TANILAR.Add(t);
-                                }
+                                    ICD10Kodu = dr[0].ToString(),
+                                    TaniAdi = dr[1].ToString()
+                                };
+
+                                entity.TANILAR.Add(t);
                             }
-                            if (entity.SaveChanges() > 0)
-                                MessageBox.Show("Kayit Başarılı");
-                            else
-                                MessageBox.Show("Herhangi bir kayıt eklenmedi.");
+                            MessageBox.Show(entity.SaveChanges() > 0
+                                ? "Kayit Başarılı"
+                                : "Herhangi bir kayıt eklenmedi.");
                         }
                     }
                 }
