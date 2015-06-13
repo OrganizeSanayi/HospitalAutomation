@@ -50,9 +50,6 @@
             this.lbOgretimUyesi.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbOgretimUyesi.FormattingEnabled = true;
             this.lbOgretimUyesi.ItemHeight = 16;
-            this.lbOgretimUyesi.Items.AddRange(new object[] {
-            "Yrd. Doç. Dr. Suhap ŞAHİN",
-            "Arş. Gör. Hikmetcan ÖZCAN"});
             this.lbOgretimUyesi.Location = new System.Drawing.Point(0, 53);
             this.lbOgretimUyesi.Name = "lbOgretimUyesi";
             this.lbOgretimUyesi.Size = new System.Drawing.Size(292, 164);

@@ -78,7 +78,7 @@ namespace HospitalAutomation.GUI
             try
             {
                 if (lbBolum.SelectedItem != null)
-                    lbBolum.Text = lbBolum.SelectedItem.ToString();
+                    lbBolum.Text = lbBolum.GetItemText(lbBolum.SelectedItem);
             }
             catch (Exception exp)
             {

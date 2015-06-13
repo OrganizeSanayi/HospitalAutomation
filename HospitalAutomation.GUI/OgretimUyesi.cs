@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using HastaneArsiv;
+using HospitalAutomation.Services;
+using HospitalAutomation.Util;
 
 namespace HospitalAutomation.GUI
 {
@@ -27,18 +29,13 @@ namespace HospitalAutomation.GUI
                     return;
                 }
 
-                bool fnd = false;
-                for (int i = 0; i < lbOgretimUyesi.Items.Count; i++)
+                for (var i = 0; i < lbOgretimUyesi.Items.Count; i++)
                 {
-                    if (lbOgretimUyesi.Items[i].ToString().ToLower().Contains(txtOgretimUye.Text.ToLower()))
-                    {
-                        lbOgretimUyesi.SelectedValue = i;
-                        lbOgretimUyesi.SetSelected(i, true);
-                        fnd = true;
-                        return;
-                    }
-                    if (!fnd)
-                        lbOgretimUyesi.ClearSelected();
+                    if (!lbOgretimUyesi.GetItemText(lbOgretimUyesi.Items[i]).ToLower().Contains(txtOgretimUye.Text.ToLower())) continue;
+
+                    lbOgretimUyesi.SelectedValue = i;
+                    lbOgretimUyesi.SetSelected(i, true);
+                    return;
                 }
             }
             catch (Exception exp)
@@ -56,7 +53,7 @@ namespace HospitalAutomation.GUI
                 {
                     if (lbOgretimUyesi.SelectedItem != null)
                     {
-                        ((MainForm)Application.OpenForms["MainForm"]).txtOgretimUyesi.Text = lbOgretimUyesi.SelectedItem.ToString();
+                        ((MainForm)Application.OpenForms["MainForm"]).txtOgretimUyesi.Text = lbOgretimUyesi.GetItemText(lbOgretimUyesi.SelectedItem);
                         this.Close();
                     }
                     else
@@ -76,7 +73,7 @@ namespace HospitalAutomation.GUI
             try
             {
                 if (lbOgretimUyesi.SelectedItem != null)
-                lblOgretimUyesi.Text = lbOgretimUyesi.SelectedItem.ToString();
+                lblOgretimUyesi.Text = lbOgretimUyesi.GetItemText(lbOgretimUyesi.SelectedItem);
             }
             catch (Exception exp)
             {
@@ -86,7 +83,7 @@ namespace HospitalAutomation.GUI
 
         private void OgretimUyesi_Load(object sender, EventArgs e)
         {
-
+            Populater.Fill(lbOgretimUyesi, DataFillingService.GatherDoctors);
         }
     }
 }
