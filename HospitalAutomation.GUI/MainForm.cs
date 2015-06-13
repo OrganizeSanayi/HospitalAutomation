@@ -7,22 +7,23 @@ using HospitalAutomation.GUI;
 using HospitalAutomation.Util;
 using WIATest;
 
-namespace HastaneArsiv
+namespace HospitalAutomation.GUI
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
-        ErrorTracker eTracker;
+        ErrorTracker _eTracker;
 
-        public Form1()
+        public MainForm()
         {
             InitializeComponent();
         }
 
         #region Genel Tanımlar
-        List<Resimler> TumResimler = new List<Resimler>();
-        Resimler secilenResim;
-        int i = 0; // PictureBox Name
-        PictureBox pbSecilen = new PictureBox(); 
+
+        readonly List<Resimler> _tumResimler = new List<Resimler>();
+        Resimler _secilenResim;
+        int _i = 0; // PictureBox Name
+        PictureBox _pbSecilen = new PictureBox(); 
         #endregion
        
         private void Form1_Load(object sender, EventArgs e)
@@ -30,7 +31,7 @@ namespace HastaneArsiv
             tvKayit.ExpandAll();
             RaporKontrol();
 
-            eTracker = new ErrorTracker(errorProviderHomePage);
+            _eTracker = new ErrorTracker(errorProviderHomePage);
             errorProviderHomePage.BlinkStyle = ErrorBlinkStyle.NeverBlink;
         }
 
@@ -52,24 +53,28 @@ namespace HastaneArsiv
             }
             try
             {
-                string deneme = "";
-                foreach (string device in WIAScanner.GetDevices())
+                var deneme = "";
+                foreach (var device in WIAScanner.GetDevices())
                 {
                     deneme = device;
                 }
-                List<Image> images = WIAScanner.Scan(deneme);
-                foreach (Image image in images)
+
+                var images = WIAScanner.Scan(deneme);
+                foreach (var image in images)
                 {
-                    PictureBox pb = new PictureBox();
-                    pb.Name = "pb" + i;
-                    pb.Size = new Size(70, 50);
-                    pb.SizeMode = PictureBoxSizeMode.StretchImage;
-                    pb.Image = image;
+                    var pb = new PictureBox
+                    {
+                        Name = "pb" + _i,
+                        Size = new Size(70, 50),
+                        SizeMode = PictureBoxSizeMode.StretchImage,
+                        Image = image
+                    };
+
                     pb.Click += new EventHandler(pb_Click);
                     pb.Tag = tvKayit.SelectedNode.Text;
-                    TumResimler.Add(new Resimler(i, tvKayit.SelectedNode.Text, pb.Name, pb.Image));
+                    _tumResimler.Add(new Resimler(_i, tvKayit.SelectedNode.Text, pb.Name, pb.Image));
                     flpResimler.Controls.Add(pb);
-                    i++;
+                    _i++;
                 }
             }
             catch (Exception exp)
@@ -81,8 +86,8 @@ namespace HastaneArsiv
         {
             try
             {
-                pbSecilen = ((PictureBox)sender);
-                pbResim.Image = pbSecilen.Image;
+                _pbSecilen = ((PictureBox)sender);
+                pbResim.Image = _pbSecilen.Image;
                 lblRaporBilgi.Text = ((PictureBox)sender).Tag.ToString();
             }
             catch (Exception exp)
@@ -98,28 +103,28 @@ namespace HastaneArsiv
         {
             try
             {
-                secilenResim = (from n in TumResimler
-                                where n.ResimAd == pbSecilen.Name
+                _secilenResim = (from n in _tumResimler
+                                where n.ResimAd == _pbSecilen.Name
                                 select n).FirstOrDefault();
-                if (secilenResim != null)
-                {
-                    flpResimler.Controls.RemoveByKey(pbSecilen.Name);
-                    TumResimler.Remove(secilenResim);
-                    if (TumResimler.Count > 0)
-                    {
-                        secilenResim = TumResimler.First();
-                        pbResim.Name = secilenResim.ResimAd;
-                        pbResim.Tag = secilenResim.RaporAd;
-                        pbResim.Image = secilenResim.Resim;
-                        lblRaporBilgi.Text = pbResim.Tag.ToString();
 
-                        pbSecilen = pbResim;
-                    }
-                    else
-                    {
-                        pbResim.Image = null;
-                        lblRaporBilgi.Text = "";
-                    }
+                if (_secilenResim == null) return;
+
+                flpResimler.Controls.RemoveByKey(_pbSecilen.Name);
+                _tumResimler.Remove(_secilenResim);
+                if (_tumResimler.Count > 0)
+                {
+                    _secilenResim = _tumResimler.First();
+                    pbResim.Name = _secilenResim.ResimAd;
+                    pbResim.Tag = _secilenResim.RaporAd;
+                    pbResim.Image = _secilenResim.Resim;
+                    lblRaporBilgi.Text = pbResim.Tag.ToString();
+
+                    _pbSecilen = pbResim;
+                }
+                else
+                {
+                    pbResim.Image = null;
+                    lblRaporBilgi.Text = "";
                 }
             }
             catch (Exception exp)
@@ -148,18 +153,20 @@ namespace HastaneArsiv
                 if (ofdDigital.ShowDialog() == DialogResult.OK)
                 {
 
-                    foreach (string r in ofdDigital.FileNames)
+                    foreach (var r in ofdDigital.FileNames)
                     {
-                        PictureBox pb = new PictureBox();
-                        pb.Name = "pb" + i;
-                        pb.Size = new Size(70, 50);
-                        pb.SizeMode = PictureBoxSizeMode.StretchImage;
-                        pb.Image = Image.FromFile(r);
+                        var pb = new PictureBox
+                        {
+                            Name = "pb" + _i,
+                            Size = new Size(70, 50),
+                            SizeMode = PictureBoxSizeMode.StretchImage,
+                            Image = Image.FromFile(r)
+                        };
                         pb.Click += new EventHandler(pb_Click);
                         pb.Tag = tvKayit.SelectedNode.Text;
-                        TumResimler.Add(new Resimler(i, tvKayit.SelectedNode.Text, pb.Name, pb.Image));
+                        _tumResimler.Add(new Resimler(_i, tvKayit.SelectedNode.Text, pb.Name, pb.Image));
                         flpResimler.Controls.Add(pb);
-                        i++;
+                        _i++;
                     }
                 }
             }
@@ -175,10 +182,15 @@ namespace HastaneArsiv
         {
             try
             {
-                if (e.Node.Text == "Bölüm")
-                    new Bolum().ShowDialog();
-                else if (e.Node.Text == "Öğretim Üyesi")
-                    new OgretimUyesi().ShowDialog();
+                switch (e.Node.Text)
+                {
+                    case "Bölüm":
+                        new Bolum().ShowDialog();
+                        break;
+                    case "Öğretim Üyesi":
+                        new OgretimUyesi().ShowDialog();
+                        break;
+                }
             }
             catch (Exception exp)
             {
@@ -200,42 +212,36 @@ namespace HastaneArsiv
 
 
         }
-        void TagControl(string Tag)
+        void TagControl(string tag)
         {
-            foreach (Control item in gbDosya.Controls)
+            foreach (var item in gbDosya.Controls.Cast<Control>().Where(item => item.Name == tag))
             {
-                if (item.Name == Tag)
-                {
-                    item.Enabled = true;
-                    item.BackColor = Color.RoyalBlue;
-                    return;
-                }
+                item.Enabled = true;
+                item.BackColor = Color.RoyalBlue;
+                return;
             }
-            foreach (Control item in gbKayit.Controls)
+            foreach (var item in gbKayit.Controls.Cast<Control>().Where(item => item.Name == tag))
             {
-                if (item.Name == Tag)
-                {
-                    item.Enabled = true;
-                    item.BackColor = Color.RoyalBlue;
-                    return;
-                }
+                item.Enabled = true;
+                item.BackColor = Color.RoyalBlue;
+                return;
             }
         }
+
         void TagClose()
         {
-            foreach (Control item in gbDosya.Controls)
+            foreach (var item in gbDosya.Controls.Cast<Control>().Where(item => !(item is Label)))
             {
-                if (item is Label) continue;
                 item.Enabled = false;
                 item.BackColor = Color.White;
             }
-            foreach (Control item in gbKayit.Controls)
+            foreach (var item in gbKayit.Controls.Cast<Control>().Where(item => !(item is Label)))
             {
-                if (item is Label) continue;
                 item.BackColor = Color.White;
                 item.Enabled = false;
             }
         }
+
         void RaporKontrol()
         {
             //foreach (TreeNode item in tvKayit.Nodes[2].Nodes[)
@@ -273,15 +279,15 @@ namespace HastaneArsiv
         class Resimler
         {
             public int ResimID { get; set; }
-            public string RaporAd { get; set; }
-            public string ResimAd { get; set; }
-            public Image Resim { get; set; }
-            public Resimler(int _ResimID, string _RaporAd, string _ResimAd, Image _Resim)
+            public string RaporAd { get; }
+            public string ResimAd { get; }
+            public Image Resim { get; }
+            public Resimler(int resimId, string raporAd, string resimAd, Image resim)
             {
-                ResimID = _ResimID;
-                RaporAd = _RaporAd;
-                ResimAd = _ResimAd;
-                Resim = _Resim;
+                ResimID = resimId;
+                RaporAd = raporAd;
+                ResimAd = resimAd;
+                Resim = resim;
             }
         }
 
@@ -297,26 +303,26 @@ namespace HastaneArsiv
         {
             errorProviderHomePage.Clear();
 
-            bool istxtTcNoFieldEmpty = string.IsNullOrWhiteSpace(txtTcNo.Text);
+            var istxtTcNoFieldEmpty = string.IsNullOrWhiteSpace(txtTcNo.Text);
             
 
             if (istxtTcNoFieldEmpty || txtTcNo.TextLength != 11)
             {
-                eTracker.SetError(txtTcNo, "Geçersiz TC No");
+                _eTracker.SetError(txtTcNo, "Geçersiz TC No");
             }
 
 
             try
             {
-                bool result = Validator.TCNoKontrolu(txtTcNo.Text); 
+                var result = Validator.TCNoKontrolu(txtTcNo.Text); 
                 if(result ==  false)
                 {
-                    eTracker.SetError(txtTcNo, "Geçersiz TC No");
+                    _eTracker.SetError(txtTcNo, "Geçersiz TC No");
                 }
             }
             catch (Exception)
             {
-                eTracker.SetError(txtTcNo, "Geçersiz TC No");                
+                _eTracker.SetError(txtTcNo, "Geçersiz TC No");                
             }
         }
 
@@ -326,7 +332,7 @@ namespace HastaneArsiv
             errorProviderHomePage.Clear();
             if(dtpKapanisTarih.Value < dtpTarih.Value)
             {
-                eTracker.SetError(dtpKapanisTarih, "Açılış Tarihinden Sonraki Günlerden Seçiniz !");
+                _eTracker.SetError(dtpKapanisTarih, "Açılış Tarihinden Sonraki Günlerden Seçiniz !");
             }
 
         }        

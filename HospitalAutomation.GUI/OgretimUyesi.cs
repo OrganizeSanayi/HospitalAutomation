@@ -56,7 +56,7 @@ namespace HospitalAutomation.GUI
                 {
                     if (lbOgretimUyesi.SelectedItem != null)
                     {
-                        ((Form1)Application.OpenForms["Form1"]).txtOgretimUyesi.Text = lbOgretimUyesi.SelectedItem.ToString();
+                        ((MainForm)Application.OpenForms["MainForm"]).txtOgretimUyesi.Text = lbOgretimUyesi.SelectedItem.ToString();
                         this.Close();
                     }
                     else

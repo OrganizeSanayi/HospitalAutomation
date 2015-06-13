@@ -40,7 +40,7 @@ namespace HastaneArsiv
             {
                 Logger.I("Succesfully logged in");
                 Hide();
-                var formHome = new Form1();
+                var formHome = new MainForm();
                 formHome.ShowDialog();
 
                 Environment.Exit(0);
