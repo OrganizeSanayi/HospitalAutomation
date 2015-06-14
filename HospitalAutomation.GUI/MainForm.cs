@@ -6,25 +6,33 @@ using System.Windows.Forms;
 using HospitalAutomation.GUI;
 using HospitalAutomation.Util;
 using WIATest;
+using System.Drawing.Imaging;
+using System.IO;
 
 namespace HospitalAutomation.GUI
 {
     public partial class MainForm : Form
     {
         ErrorTracker _eTracker;
-
-        public MainForm()
+                public MainForm()
         {
             InitializeComponent();
         }
 
+        
         #region Genel Tanımlar
 
+                string klasorTarih;
+                string klasorTC;
+                string klasorBolum;
+                string resimYolu;
+                Image image1;
         readonly List<Resimler> _tumResimler = new List<Resimler>();
         Resimler _secilenResim;
         int _i; // PictureBox Name
         PictureBox _pbSecilen = new PictureBox(); 
         #endregion
+
        
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -35,8 +43,16 @@ namespace HospitalAutomation.GUI
         }
 
         #region Tarama Metotları
+
         private void btnTara_Click(object sender, EventArgs e)
         {
+
+            klasorTC = txtTcNo.Text;
+            klasorBolum = txtBolum.Text;
+            klasorTarih = dtpTarih.Value.ToString("yyyy-MM-dd");
+
+            var selectedNode = tvKayit.SelectedNode;
+           
             if (tvKayit.SelectedNode.Tag != null)
             {
                 if (tvKayit.SelectedNode.Tag.ToString() != "Rapor")
@@ -49,6 +65,59 @@ namespace HospitalAutomation.GUI
             {
                 MessageBox.Show(@"Rapor Bilgisi Seçiniz !");
                 return;
+            }
+            if (selectedNode.Parent.Text == "Hasta Muayene ve Ekipriz")
+            {
+                if (File.Exists(@"D:\" + klasorTC + "\\" + klasorBolum + "\\" + klasorTarih + "\\epikrizResim"))
+                {
+                    resimYolu = @"D:\" + klasorTC + "\\" + klasorBolum + "\\" + klasorTarih + "\\epikrizResim\\";
+                }
+                else
+                {
+                    String path = @"D:\" + klasorTC + "\\" + klasorBolum + "\\" + klasorTarih + "\\epikrizResim\\";
+                    //yyyy-MM-dd HH-mm-ss
+                    if (!File.Exists(path))
+                        System.IO.Directory.CreateDirectory(path);
+                    resimYolu = @"D:\" + klasorTC + "\\" + klasorBolum + "\\" + klasorTarih + "\\epikrizResim\\";
+                }
+            }
+            else if (selectedNode.Parent.Text == "Tetkik ve Raporlar")
+            {
+
+                if (File.Exists(@"D:\" + klasorTC + "\\" + klasorBolum + "\\" + klasorTarih + "\\tetkikRapor"))
+                {
+                    resimYolu = @"D:\" + klasorTC + "\\" + klasorBolum + "\\" + klasorTarih + "\\tetkikRapor\\";
+                }
+                else
+                {
+                    Directory.CreateDirectory(@"D:\" + klasorTC + "\\" + klasorBolum + "\\" + klasorTarih + "\\tetkikRapor");
+                    resimYolu = @"D:\" + klasorTC + "\\" + klasorBolum + "\\" + klasorTarih + "\\tetkikRapor\\";
+                }
+                    
+            }
+            else if (selectedNode.Text == "Adli ve Sağlık Kurulu")
+            {
+                if (File.Exists(@"D:\" + klasorTC + "\\" + klasorBolum + "\\" + klasorTarih + "\\adliSaglik"))
+                {
+                    resimYolu = @"D:\" + klasorTC + "\\" + klasorBolum + "\\" + klasorTarih + "\\adliSaglik\\";
+                }
+                else
+                {
+                    Directory.CreateDirectory(@"D:\" + klasorTC + "\\" + klasorBolum + "\\" + klasorTarih + "\\adliSaglik");
+                    resimYolu = @"D:\" + klasorTC + "\\" + klasorBolum + "\\" + klasorTarih + "\\adliSaglik\\";
+                }
+            }
+            else if (selectedNode.Text == "Diğer")
+            {
+                if (File.Exists(@"D:\" + klasorTC + "\\" + klasorBolum + "\\" + klasorTarih + "\\Diğer"))
+                {
+                    resimYolu = @"D:\" + klasorTC + "\\" + klasorBolum + "\\" + klasorTarih + "\\Diğer\\";
+                }
+                else
+                {
+                    Directory.CreateDirectory(@"D:\" + klasorTC + "\\" + klasorBolum + "\\" + klasorTarih + "\\Diğer");
+                    resimYolu = @"D:\" + klasorTC + "\\" + klasorBolum + "\\" + klasorTarih + "\\Diğer\\";
+                }
             }
             try
             {
@@ -68,11 +137,13 @@ namespace HospitalAutomation.GUI
                         SizeMode = PictureBoxSizeMode.StretchImage,
                         Image = image
                     };
-
+           
+                    
                     pb.Click += new EventHandler(pb_Click);
                     pb.Tag = tvKayit.SelectedNode.Text;
-                    _tumResimler.Add(new Resimler(_i, tvKayit.SelectedNode.Text, pb.Name, pb.Image));
+                    _tumResimler.Add(new Resimler(_i, tvKayit.SelectedNode.Text, pb.Name, pb.Image)); // resimId, raporAd, resimAd, resim.
                     flpResimler.Controls.Add(pb);
+                    image1 = pb.Image;
                     _i++;
                 }
             }
@@ -172,13 +243,15 @@ namespace HospitalAutomation.GUI
             catch (Exception exp)
             {
                 MessageBox.Show(exp.Message);
-            }
+            }        
+             
         } 
         #endregion
-
+        
         #region TreeView Metotları
         private void tvKayit_AfterCheck(object sender, TreeViewEventArgs e)
         {
+            
             try
             {
                 switch (e.Node.Text)
@@ -196,6 +269,7 @@ namespace HospitalAutomation.GUI
                 MessageBox.Show(exp.Message);
             }
         }
+      
         private void tvKayit_AfterSelect(object sender, TreeViewEventArgs e)
         {
             try
@@ -269,23 +343,60 @@ namespace HospitalAutomation.GUI
 
         private void btnKaydet_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show(@"Hasta için tüm dosyaları tarattığınıza emin misiniz ?", @"ÖNEMLİ",
-                    MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
-            {
-                if (MessageBox.Show(@"Kayit işlemi başarılı ! Bu hasta için başka bir kayit girmek ister misiniz ?",
-                        @"YENİ KAYIT", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                {
-                    return;
-                }
-            }
+          
         }
        
         class Resimler
         {
-            public int ResimID { get; set; }
-            public string RaporAd { get; }
-            public string ResimAd { get; }
-            public Image Resim { get; }
+            private int resimId;
+            private string raporAd;
+            private string resimAd;
+            private Image resim;
+            public int ResimID
+            {
+                get
+                {
+                    return resimId;
+                }
+                set
+                {
+                    resimId = value;
+                }
+            }
+            public string RaporAd
+            {
+                get
+                {
+                    return raporAd;
+                }
+                set
+                {
+                    raporAd = value;
+                }
+            }
+            public string ResimAd
+            {
+                get
+                {
+                    return resimAd;
+                }
+                set
+                {
+                    resimAd = value;
+                }
+            }
+            public Image Resim
+            {
+                get
+                {
+                    return resim;
+                }
+                set{
+                    resim=value;
+                }
+            }
+            
+         
             public Resimler(int resimId, string raporAd, string resimAd, Image resim)
             {
                 ResimID = resimId;
@@ -338,6 +449,21 @@ namespace HospitalAutomation.GUI
                 _eTracker.SetError(dtpKapanisTarih, "Açılış Tarihinden Sonraki Günlerden Seçiniz !");
             }
 
+        }
+
+        private void btnKaydet_Click_1(object sender, EventArgs e)
+        {
+            if (MessageBox.Show(@"Hasta için tüm dosyaları tarattığınıza emin misiniz ?", @"ÖNEMLİ",
+                              MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
+            {
+                string temp = resimYolu + DateTime.Now.ToString("yyyy-MM-dd HHmmss") + ".jpeg";
+                image1.Save(temp, ImageFormat.Jpeg);
+                if (MessageBox.Show(@"Kayit işlemi başarılı ! Bu hasta için başka bir kayit girmek ister misiniz ?",
+                        @"YENİ KAYIT", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    return;
+                }
+            }
         }        
     }
 }
