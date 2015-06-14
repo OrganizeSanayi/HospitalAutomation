@@ -8,7 +8,7 @@ using HospitalAutomation.Util;
 using WIATest;
 using System.Drawing.Imaging;
 using System.IO;
-
+using HospitalAutomation.Services;
 namespace HospitalAutomation.GUI
 {
     public partial class MainForm : Form
@@ -458,6 +458,19 @@ namespace HospitalAutomation.GUI
             {
                 string temp = resimYolu + DateTime.Now.ToString("yyyy-MM-dd HHmmss") + ".jpeg";
                 image1.Save(temp, ImageFormat.Jpeg);
+                if (tvKayit.SelectedNode.Parent.Text == "Hasta Muayene ve Ekipriz")
+                {
+                    EpikrizYol.Persist(resimYolu);
+                }
+                else if (tvKayit.SelectedNode.Text == "Tetkik ve Raporlar")
+                {
+                    TetkikRaporYol.Persist(resimYolu);
+                }
+                else if (tvKayit.SelectedNode.Text == "Adli ve Sağlık Kurulu")
+                {
+                    AdliSaglikYol.Persist(resimYolu);
+                }
+
                 if (MessageBox.Show(@"Kayit işlemi başarılı ! Bu hasta için başka bir kayit girmek ister misiniz ?",
                         @"YENİ KAYIT", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
