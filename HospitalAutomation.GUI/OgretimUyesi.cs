@@ -54,6 +54,7 @@ namespace HospitalAutomation.GUI
                     if (lbOgretimUyesi.SelectedItem != null)
                     {
                         ((MainForm)Application.OpenForms["MainForm"]).txtOgretimUyesi.Text = lbOgretimUyesi.GetItemText(lbOgretimUyesi.SelectedItem);
+                        ((MainForm)Application.OpenForms["MainForm"]).SelectedDoctor = int.Parse(lbOgretimUyesi.SelectedValue.ToString());
                         this.Close();
                     }
                     else

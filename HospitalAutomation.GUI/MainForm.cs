@@ -13,6 +13,8 @@ namespace HospitalAutomation.GUI
 {
     public partial class MainForm : Form
     {
+        public int SelectedDoctor;
+
         ErrorTracker _eTracker;
                 public MainForm()
         {
