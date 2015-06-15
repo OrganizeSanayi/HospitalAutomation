@@ -29,59 +29,59 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.TreeNode treeNode113 = new System.Windows.Forms.TreeNode("TC Numarası");
-            System.Windows.Forms.TreeNode treeNode114 = new System.Windows.Forms.TreeNode("Dosya Numarası");
-            System.Windows.Forms.TreeNode treeNode115 = new System.Windows.Forms.TreeNode("Dosya Bilgisi", new System.Windows.Forms.TreeNode[] {
-            treeNode113,
-            treeNode114});
-            System.Windows.Forms.TreeNode treeNode116 = new System.Windows.Forms.TreeNode("Dosya Açılış Tarihi");
-            System.Windows.Forms.TreeNode treeNode117 = new System.Windows.Forms.TreeNode("Dosya Kapanış Tarihi");
-            System.Windows.Forms.TreeNode treeNode118 = new System.Windows.Forms.TreeNode("Bölüm");
-            System.Windows.Forms.TreeNode treeNode119 = new System.Windows.Forms.TreeNode("Öğretim Üyesi");
-            System.Windows.Forms.TreeNode treeNode120 = new System.Windows.Forms.TreeNode("Hasta Tanısı");
-            System.Windows.Forms.TreeNode treeNode121 = new System.Windows.Forms.TreeNode("Hasta Statüsü");
-            System.Windows.Forms.TreeNode treeNode122 = new System.Windows.Forms.TreeNode("Kayıt Bilgisi", new System.Windows.Forms.TreeNode[] {
-            treeNode116,
-            treeNode117,
-            treeNode118,
-            treeNode119,
-            treeNode120,
-            treeNode121});
-            System.Windows.Forms.TreeNode treeNode123 = new System.Windows.Forms.TreeNode("Hasta Yatış Formu");
-            System.Windows.Forms.TreeNode treeNode124 = new System.Windows.Forms.TreeNode("Ameliyat Notu");
-            System.Windows.Forms.TreeNode treeNode125 = new System.Windows.Forms.TreeNode("Klinik Gözlem");
-            System.Windows.Forms.TreeNode treeNode126 = new System.Windows.Forms.TreeNode("Konsültasyon");
-            System.Windows.Forms.TreeNode treeNode127 = new System.Windows.Forms.TreeNode("Onamlar");
-            System.Windows.Forms.TreeNode treeNode128 = new System.Windows.Forms.TreeNode("Anestezi Notu");
-            System.Windows.Forms.TreeNode treeNode129 = new System.Windows.Forms.TreeNode("Hasta Muayenesi");
-            System.Windows.Forms.TreeNode treeNode130 = new System.Windows.Forms.TreeNode("Epikriz");
-            System.Windows.Forms.TreeNode treeNode131 = new System.Windows.Forms.TreeNode("Hasta Muayene ve Ekipriz", new System.Windows.Forms.TreeNode[] {
-            treeNode123,
-            treeNode124,
-            treeNode125,
-            treeNode126,
-            treeNode127,
-            treeNode128,
-            treeNode129,
-            treeNode130});
-            System.Windows.Forms.TreeNode treeNode132 = new System.Windows.Forms.TreeNode("Radyoloji");
-            System.Windows.Forms.TreeNode treeNode133 = new System.Windows.Forms.TreeNode("Patoloji");
-            System.Windows.Forms.TreeNode treeNode134 = new System.Windows.Forms.TreeNode("Laboratuvar");
-            System.Windows.Forms.TreeNode treeNode135 = new System.Windows.Forms.TreeNode("Nükleer Tıp");
-            System.Windows.Forms.TreeNode treeNode136 = new System.Windows.Forms.TreeNode("Endoskobik");
-            System.Windows.Forms.TreeNode treeNode137 = new System.Windows.Forms.TreeNode("Tetkik ve Raporlar", new System.Windows.Forms.TreeNode[] {
-            treeNode132,
-            treeNode133,
-            treeNode134,
-            treeNode135,
-            treeNode136});
-            System.Windows.Forms.TreeNode treeNode138 = new System.Windows.Forms.TreeNode("Adli ve Sağlık Kurulu");
-            System.Windows.Forms.TreeNode treeNode139 = new System.Windows.Forms.TreeNode("Diğer");
-            System.Windows.Forms.TreeNode treeNode140 = new System.Windows.Forms.TreeNode("Rapor Bilgisi", new System.Windows.Forms.TreeNode[] {
-            treeNode131,
-            treeNode137,
-            treeNode138,
-            treeNode139});
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("TC Numarası");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Dosya Numarası");
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Dosya Bilgisi", new System.Windows.Forms.TreeNode[] {
+            treeNode1,
+            treeNode2});
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Dosya Açılış Tarihi");
+            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Dosya Kapanış Tarihi");
+            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Bölüm");
+            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Öğretim Üyesi");
+            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Hasta Tanısı");
+            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("Hasta Statüsü");
+            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("Kayıt Bilgisi", new System.Windows.Forms.TreeNode[] {
+            treeNode4,
+            treeNode5,
+            treeNode6,
+            treeNode7,
+            treeNode8,
+            treeNode9});
+            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("Hasta Yatış Formu");
+            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("Ameliyat Notu");
+            System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("Klinik Gözlem");
+            System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("Konsültasyon");
+            System.Windows.Forms.TreeNode treeNode15 = new System.Windows.Forms.TreeNode("Onamlar");
+            System.Windows.Forms.TreeNode treeNode16 = new System.Windows.Forms.TreeNode("Anestezi Notu");
+            System.Windows.Forms.TreeNode treeNode17 = new System.Windows.Forms.TreeNode("Hasta Muayenesi");
+            System.Windows.Forms.TreeNode treeNode18 = new System.Windows.Forms.TreeNode("Epikriz");
+            System.Windows.Forms.TreeNode treeNode19 = new System.Windows.Forms.TreeNode("Hasta Muayene ve Ekipriz", new System.Windows.Forms.TreeNode[] {
+            treeNode11,
+            treeNode12,
+            treeNode13,
+            treeNode14,
+            treeNode15,
+            treeNode16,
+            treeNode17,
+            treeNode18});
+            System.Windows.Forms.TreeNode treeNode20 = new System.Windows.Forms.TreeNode("Radyoloji");
+            System.Windows.Forms.TreeNode treeNode21 = new System.Windows.Forms.TreeNode("Patoloji");
+            System.Windows.Forms.TreeNode treeNode22 = new System.Windows.Forms.TreeNode("Laboratuvar");
+            System.Windows.Forms.TreeNode treeNode23 = new System.Windows.Forms.TreeNode("Nükleer Tıp");
+            System.Windows.Forms.TreeNode treeNode24 = new System.Windows.Forms.TreeNode("Endoskobik");
+            System.Windows.Forms.TreeNode treeNode25 = new System.Windows.Forms.TreeNode("Tetkik ve Raporlar", new System.Windows.Forms.TreeNode[] {
+            treeNode20,
+            treeNode21,
+            treeNode22,
+            treeNode23,
+            treeNode24});
+            System.Windows.Forms.TreeNode treeNode26 = new System.Windows.Forms.TreeNode("Adli ve Sağlık Kurulu");
+            System.Windows.Forms.TreeNode treeNode27 = new System.Windows.Forms.TreeNode("Diğer");
+            System.Windows.Forms.TreeNode treeNode28 = new System.Windows.Forms.TreeNode("Rapor Bilgisi", new System.Windows.Forms.TreeNode[] {
+            treeNode19,
+            treeNode25,
+            treeNode26,
+            treeNode27});
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.yrdDoçDrSuhapŞAHİNToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.arşGörHikmetcanÖZCANToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -117,6 +117,7 @@
             this.lblRaporBilgi = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.btnKaydet = new System.Windows.Forms.Button();
             this.btnPc = new System.Windows.Forms.Button();
             this.btnIptal = new System.Windows.Forms.Button();
             this.btnTara = new System.Windows.Forms.Button();
@@ -128,7 +129,6 @@
             this.bölümToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ofdDigital = new System.Windows.Forms.OpenFileDialog();
             this.errorProviderHomePage = new System.Windows.Forms.ErrorProvider(this.components);
-            this.btnKaydet = new System.Windows.Forms.Button();
             this.contextMenuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -500,6 +500,17 @@
             this.panel6.Size = new System.Drawing.Size(527, 49);
             this.panel6.TabIndex = 11;
             // 
+            // btnKaydet
+            // 
+            this.btnKaydet.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnKaydet.Location = new System.Drawing.Point(432, 5);
+            this.btnKaydet.Name = "btnKaydet";
+            this.btnKaydet.Size = new System.Drawing.Size(92, 41);
+            this.btnKaydet.TabIndex = 3;
+            this.btnKaydet.Text = "kaydet";
+            this.btnKaydet.UseVisualStyleBackColor = true;
+            this.btnKaydet.Click += new System.EventHandler(this.btnKaydet_Click_1);
+            // 
             // btnPc
             // 
             this.btnPc.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
@@ -544,93 +555,93 @@
             this.tvKayit.HotTracking = true;
             this.tvKayit.Location = new System.Drawing.Point(0, 24);
             this.tvKayit.Name = "tvKayit";
-            treeNode113.Name = "D1";
-            treeNode113.Tag = "txtTcNo";
-            treeNode113.Text = "TC Numarası";
-            treeNode114.Name = "D2";
-            treeNode114.Tag = "txtDosyaNo";
-            treeNode114.Text = "Dosya Numarası";
-            treeNode115.Name = "D0";
-            treeNode115.Tag = "";
-            treeNode115.Text = "Dosya Bilgisi";
-            treeNode115.ToolTipText = "Hastanın TC si ve Dosya Numarası";
-            treeNode116.Name = "K1";
-            treeNode116.Tag = "dtpTarih";
-            treeNode116.Text = "Dosya Açılış Tarihi";
-            treeNode117.Name = "Node1";
-            treeNode117.Tag = "dtpKapanisTarih";
-            treeNode117.Text = "Dosya Kapanış Tarihi";
-            treeNode118.Name = "K2";
-            treeNode118.Tag = "txtBolum";
-            treeNode118.Text = "Bölüm";
-            treeNode119.Name = "K3";
-            treeNode119.Tag = "txtOgretimUyesi";
-            treeNode119.Text = "Öğretim Üyesi";
-            treeNode120.Name = "K4";
-            treeNode120.Tag = "txtHastaTanisi";
-            treeNode120.Text = "Hasta Tanısı";
-            treeNode121.Name = "K5";
-            treeNode121.Tag = "pHastaStatu";
-            treeNode121.Text = "Hasta Statüsü";
-            treeNode122.Name = "K0";
-            treeNode122.Tag = "";
-            treeNode122.Text = "Kayıt Bilgisi";
-            treeNode122.ToolTipText = "Hastanın Kayıt Bilgileri";
-            treeNode123.Name = "H1";
-            treeNode123.Tag = "Rapor";
-            treeNode123.Text = "Hasta Yatış Formu";
-            treeNode124.Name = "H2";
-            treeNode124.Tag = "Rapor";
-            treeNode124.Text = "Ameliyat Notu";
-            treeNode125.Name = "H3";
-            treeNode125.Tag = "Rapor";
-            treeNode125.Text = "Klinik Gözlem";
-            treeNode126.Name = "H4";
-            treeNode126.Tag = "Rapor";
-            treeNode126.Text = "Konsültasyon";
-            treeNode127.Name = "H5";
-            treeNode127.Tag = "Rapor";
-            treeNode127.Text = "Onamlar";
-            treeNode128.Name = "H6";
-            treeNode128.Tag = "Rapor";
-            treeNode128.Text = "Anestezi Notu";
-            treeNode129.Name = "H7";
-            treeNode129.Tag = "Rapor";
-            treeNode129.Text = "Hasta Muayenesi";
-            treeNode130.Name = "H8";
-            treeNode130.Tag = "Rapor";
-            treeNode130.Text = "Epikriz";
-            treeNode131.Name = "R1";
-            treeNode131.Text = "Hasta Muayene ve Ekipriz";
-            treeNode132.Name = "T1";
-            treeNode132.Tag = "Rapor";
-            treeNode132.Text = "Radyoloji";
-            treeNode133.Name = "T2";
-            treeNode133.Tag = "Rapor";
-            treeNode133.Text = "Patoloji";
-            treeNode134.Name = "T3";
-            treeNode134.Tag = "Rapor";
-            treeNode134.Text = "Laboratuvar";
-            treeNode135.Name = "T4";
-            treeNode135.Tag = "Rapor";
-            treeNode135.Text = "Nükleer Tıp";
-            treeNode136.Name = "T5";
-            treeNode136.Tag = "Rapor";
-            treeNode136.Text = "Endoskobik";
-            treeNode137.Name = "R1";
-            treeNode137.Text = "Tetkik ve Raporlar";
-            treeNode138.Name = "R2";
-            treeNode138.Text = "Adli ve Sağlık Kurulu";
-            treeNode139.Name = "Node0";
-            treeNode139.Tag = "Rapor";
-            treeNode139.Text = "Diğer";
-            treeNode140.Name = "R0";
-            treeNode140.Text = "Rapor Bilgisi";
-            treeNode140.ToolTipText = "Hastaya Verilen Rapor Bilgileri";
+            treeNode1.Name = "D1";
+            treeNode1.Tag = "txtTcNo";
+            treeNode1.Text = "TC Numarası";
+            treeNode2.Name = "D2";
+            treeNode2.Tag = "txtDosyaNo";
+            treeNode2.Text = "Dosya Numarası";
+            treeNode3.Name = "D0";
+            treeNode3.Tag = "";
+            treeNode3.Text = "Dosya Bilgisi";
+            treeNode3.ToolTipText = "Hastanın TC si ve Dosya Numarası";
+            treeNode4.Name = "K1";
+            treeNode4.Tag = "dtpTarih";
+            treeNode4.Text = "Dosya Açılış Tarihi";
+            treeNode5.Name = "Node1";
+            treeNode5.Tag = "dtpKapanisTarih";
+            treeNode5.Text = "Dosya Kapanış Tarihi";
+            treeNode6.Name = "K2";
+            treeNode6.Tag = "txtBolum";
+            treeNode6.Text = "Bölüm";
+            treeNode7.Name = "K3";
+            treeNode7.Tag = "txtOgretimUyesi";
+            treeNode7.Text = "Öğretim Üyesi";
+            treeNode8.Name = "K4";
+            treeNode8.Tag = "txtHastaTanisi";
+            treeNode8.Text = "Hasta Tanısı";
+            treeNode9.Name = "K5";
+            treeNode9.Tag = "pHastaStatu";
+            treeNode9.Text = "Hasta Statüsü";
+            treeNode10.Name = "K0";
+            treeNode10.Tag = "";
+            treeNode10.Text = "Kayıt Bilgisi";
+            treeNode10.ToolTipText = "Hastanın Kayıt Bilgileri";
+            treeNode11.Name = "H1";
+            treeNode11.Tag = "Rapor";
+            treeNode11.Text = "Hasta Yatış Formu";
+            treeNode12.Name = "H2";
+            treeNode12.Tag = "Rapor";
+            treeNode12.Text = "Ameliyat Notu";
+            treeNode13.Name = "H3";
+            treeNode13.Tag = "Rapor";
+            treeNode13.Text = "Klinik Gözlem";
+            treeNode14.Name = "H4";
+            treeNode14.Tag = "Rapor";
+            treeNode14.Text = "Konsültasyon";
+            treeNode15.Name = "H5";
+            treeNode15.Tag = "Rapor";
+            treeNode15.Text = "Onamlar";
+            treeNode16.Name = "H6";
+            treeNode16.Tag = "Rapor";
+            treeNode16.Text = "Anestezi Notu";
+            treeNode17.Name = "H7";
+            treeNode17.Tag = "Rapor";
+            treeNode17.Text = "Hasta Muayenesi";
+            treeNode18.Name = "H8";
+            treeNode18.Tag = "Rapor";
+            treeNode18.Text = "Epikriz";
+            treeNode19.Name = "R1";
+            treeNode19.Text = "Hasta Muayene ve Ekipriz";
+            treeNode20.Name = "T1";
+            treeNode20.Tag = "Rapor";
+            treeNode20.Text = "Radyoloji";
+            treeNode21.Name = "T2";
+            treeNode21.Tag = "Rapor";
+            treeNode21.Text = "Patoloji";
+            treeNode22.Name = "T3";
+            treeNode22.Tag = "Rapor";
+            treeNode22.Text = "Laboratuvar";
+            treeNode23.Name = "T4";
+            treeNode23.Tag = "Rapor";
+            treeNode23.Text = "Nükleer Tıp";
+            treeNode24.Name = "T5";
+            treeNode24.Tag = "Rapor";
+            treeNode24.Text = "Endoskobik";
+            treeNode25.Name = "R1";
+            treeNode25.Text = "Tetkik ve Raporlar";
+            treeNode26.Name = "R2";
+            treeNode26.Text = "Adli ve Sağlık Kurulu";
+            treeNode27.Name = "Node0";
+            treeNode27.Tag = "Rapor";
+            treeNode27.Text = "Diğer";
+            treeNode28.Name = "R0";
+            treeNode28.Text = "Rapor Bilgisi";
+            treeNode28.ToolTipText = "Hastaya Verilen Rapor Bilgileri";
             this.tvKayit.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode115,
-            treeNode122,
-            treeNode140});
+            treeNode3,
+            treeNode10,
+            treeNode28});
             this.tvKayit.Size = new System.Drawing.Size(272, 485);
             this.tvKayit.TabIndex = 0;
             this.tvKayit.AfterCheck += new System.Windows.Forms.TreeViewEventHandler(this.tvKayit_AfterCheck);
@@ -685,17 +696,6 @@
             // errorProviderHomePage
             // 
             this.errorProviderHomePage.ContainerControl = this;
-            // 
-            // btnKaydet
-            // 
-            this.btnKaydet.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnKaydet.Location = new System.Drawing.Point(432, 5);
-            this.btnKaydet.Name = "btnKaydet";
-            this.btnKaydet.Size = new System.Drawing.Size(75, 41);
-            this.btnKaydet.TabIndex = 3;
-            this.btnKaydet.Text = "kaydet";
-            this.btnKaydet.UseVisualStyleBackColor = true;
-            this.btnKaydet.Click += new System.EventHandler(this.btnKaydet_Click_1);
             // 
             // MainForm
             // 

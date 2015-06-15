@@ -14,6 +14,7 @@ namespace HospitalAutomation.GUI
 {
     public partial class OgretimUyesi : Form
     {
+        public static int ogretimUyeId;
         public OgretimUyesi()
         {
             InitializeComponent();
@@ -34,6 +35,7 @@ namespace HospitalAutomation.GUI
                     if (!lbOgretimUyesi.GetItemText(lbOgretimUyesi.Items[i]).ToLower().Contains(txtOgretimUye.Text.ToLower())) continue;
 
                     lbOgretimUyesi.SelectedValue = i;
+                  
                     lbOgretimUyesi.SetSelected(i, true);
                     return;
                 }
@@ -54,6 +56,7 @@ namespace HospitalAutomation.GUI
                     if (lbOgretimUyesi.SelectedItem != null)
                     {
                         ((MainForm)Application.OpenForms["MainForm"]).txtOgretimUyesi.Text = lbOgretimUyesi.GetItemText(lbOgretimUyesi.SelectedItem);
+                        ((MainForm)Application.OpenForms["MainForm"]).SelectedDoctor = int.Parse(lbOgretimUyesi.SelectedValue.ToString());
                         this.Close();
                     }
                     else

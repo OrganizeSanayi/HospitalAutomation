@@ -9,10 +9,12 @@ using WIATest;
 using System.Drawing.Imaging;
 using System.IO;
 using HospitalAutomation.Services;
+using HospitalAutomation.Model;
 namespace HospitalAutomation.GUI
 {
     public partial class MainForm : Form
     {
+        public int SelectedDoctor;
         ErrorTracker _eTracker;
                 public MainForm()
         {
@@ -26,6 +28,7 @@ namespace HospitalAutomation.GUI
                 string klasorTC;
                 string klasorBolum;
                 string resimYolu;
+                static public int ogretimUyeId;
                 Image image1;
         readonly List<Resimler> _tumResimler = new List<Resimler>();
         Resimler _secilenResim;
@@ -453,22 +456,130 @@ namespace HospitalAutomation.GUI
 
         private void btnKaydet_Click_1(object sender, EventArgs e)
         {
+
+            int adliYol;
+            int adliId;
+
+            int raporYol;
+            int raporId;
+
+            int ekiprizYol;
+            int ekiprizId;
+
+          //  int tetkikRaporId;
+
+            int bolumId;
+            int ogretimGorevlisiID;
+            int taniId;
+            int statuId= 1;
+            var fileNo = txtDosyaNo.Text; // Dosya Numarası
+            using (var context = new HospitalAutomationEntities())
+            {
+                int query = context.BOLUMLER.Where(p => p.BolumAdi.Contains(txtBolum.Text)).Single().BolumId;
+                bolumId = query; // BölümId
+            }
+
+      
+            var date = dtpTarih.Value; // tarih bilgisi
+            ogretimGorevlisiID = SelectedDoctor; // ogretim Uyesi
+            using (var context = new HospitalAutomationEntities())
+            {
+                int query = context.TANILAR.Where(p => p.TaniAdi.Contains(txtHastaTanisi.Text)).Single().Taniid;
+                taniId = query; // tanı id
+            }
+            if (rbYatan.Checked)
+            {
+                using (var context = new HospitalAutomationEntities())
+                {
+                    int query = context.STATU.Where(p => p.Statu.Contains(rbYatan.Text)).Single().StatuId;
+                    statuId = query; // statu id
+                }
+            }
+            else if (rbAyakta.Checked)
+            {
+                using (var context = new HospitalAutomationEntities())
+                {
+                    int query = context.STATU.Where(p => p.Statu.Contains(rbAyakta.Text)).Single().StatuId;
+                    statuId = query; // statü id
+                }
+            }
+         
             if (MessageBox.Show(@"Hasta için tüm dosyaları tarattığınıza emin misiniz ?", @"ÖNEMLİ",
                               MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
             {
                 string temp = resimYolu + DateTime.Now.ToString("yyyy-MM-dd HHmmss") + ".jpeg";
                 image1.Save(temp, ImageFormat.Jpeg);
+
                 if (tvKayit.SelectedNode.Parent.Text == "Hasta Muayene ve Ekipriz")
                 {
                     EpikrizYol.Persist(resimYolu);
+                    using (var context = new HospitalAutomationEntities())
+                    {
+                        int query = context.MUAYENEEPIKRIZYOL.Where(p => p.MuayeneEpikrizYolKayit.Contains(resimYolu)).Single().MuayeneEpikrizYolID;
+                        ekiprizYol = query;
+                    }
+                    using (var context = new HospitalAutomationEntities())
+                    {
+                        int query = context.MUAYENEEPIKRIZ.Where(p => p.HastaMuayeneEpikriz.Contains(tvKayit.SelectedNode.Text)).Single().Muayeneid;
+                        ekiprizId = query;
+                    }
+                    adliId = 1;
+                    adliYol = 1;
+                    raporYol = 1;
+                    raporId = 1;
+                 //   statuId = 1;
+                    PatientDataStoreService.Persist(
+                    fileNo, bolumId, date, ogretimGorevlisiID, taniId, statuId,
+                    ekiprizId, ekiprizYol,
+                    raporId, raporYol,
+                    adliId, adliYol);
                 }
+
+
                 else if (tvKayit.SelectedNode.Text == "Tetkik ve Raporlar")
                 {
                     TetkikRaporYol.Persist(resimYolu);
+                    using (var context = new HospitalAutomationEntities())
+                    {
+                        int query = context.TETKIKRAPORYOL.Where(p => p.TetkikRaporYolKayit.Contains(resimYolu)).Single().TetkikRaporYolID;
+                        raporYol = query;
+                    }
+                    using (var context = new HospitalAutomationEntities())
+                    {
+                        int query = context.TETKIKRAPORLAR.Where(p => p.TetkikveRapor.Contains(tvKayit.SelectedNode.Text)).Single().TetkikRaporid;
+                        raporId = query;
+                    }
+                    adliYol = 1;
+                    adliId = 1;
+                    ekiprizId = 1;
+                    ekiprizYol = 1;
+                   // statuId = 1;
+                    PatientDataStoreService.Persist(
+                    fileNo, bolumId, date, ogretimGorevlisiID, taniId, statuId,
+                    ekiprizId, ekiprizYol,
+                    raporId, raporYol,
+                    adliId, adliYol);
                 }
                 else if (tvKayit.SelectedNode.Text == "Adli ve Sağlık Kurulu")
                 {
                     AdliSaglikYol.Persist(resimYolu);
+                    TetkikRaporYol.Persist(resimYolu);
+                    using (var context = new HospitalAutomationEntities())
+                    {
+                        int query = context.ADLISAGLIKKURULUYOL.Where(p => p.AdliSaglikKuruluYolKayit.Contains(resimYolu)).Single().AdliSaglikKuruluYolID;
+                        adliYol = query;
+                    }
+                    adliId = 1;
+                    ekiprizYol = 1;
+                    ekiprizId = 1;
+                    raporYol = 1;
+                    raporId = 1;
+                  //  statuId = 1;
+                    PatientDataStoreService.Persist(
+                    fileNo, bolumId, date, ogretimGorevlisiID, taniId, statuId,
+                    ekiprizId, ekiprizYol,
+                    raporId, raporYol,
+                    adliId, adliYol);
                 }
 
                 if (MessageBox.Show(@"Kayit işlemi başarılı ! Bu hasta için başka bir kayit girmek ister misiniz ?",
