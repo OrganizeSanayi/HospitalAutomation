@@ -462,7 +462,7 @@ namespace HospitalAutomation.GUI
 
             int raporYol;
             int raporId;
-
+             
             int ekiprizYol;
             int ekiprizId;
 
@@ -508,7 +508,7 @@ namespace HospitalAutomation.GUI
                               MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
             {
                 string temp = resimYolu + DateTime.Now.ToString("yyyy-MM-dd HHmmss") + ".jpeg";
-                image1.Save(temp, ImageFormat.Jpeg);
+               image1.Save(temp, ImageFormat.Jpeg);
 
                 if (tvKayit.SelectedNode.Parent.Text == "Hasta Muayene ve Ekipriz")
                 {
