@@ -508,7 +508,7 @@ namespace HospitalAutomation.GUI
                               MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
             {
                 string temp = resimYolu + DateTime.Now.ToString("yyyy-MM-dd HHmmss") + ".jpeg";
-               image1.Save(temp, ImageFormat.Jpeg);
+                image1.Save(temp, ImageFormat.Jpeg); // resim kayıt
 
                 if (tvKayit.SelectedNode.Parent.Text == "Hasta Muayene ve Ekipriz")
                 {
